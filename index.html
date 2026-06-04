@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Immersieve Kunst Agenda</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,700;1,900&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green:  #1DB954;
+    --ink:    #111110;
+    --white:  #FAFAF7;
+    --off:    #F0EBE1;
+    --muted:  #555550;
+    --border: #E0DAD0;
+  }
+
+  body {
+    background: var(--white);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--green);
+    padding: clamp(1.2rem, 3vw, 2rem) clamp(1.2rem, 4vw, 3rem);
+  }
+
+  .header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: clamp(0.5rem, 1.5vw, 0.8rem);
+  }
+
+  .header-label {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+  }
+
+  .header-about {
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .header-about:hover { color: var(--white); }
+
+  /* TAALSWITCH */
+  .lang-switch {
+    display: flex;
+    gap: 0;
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 100px;
+    overflow: hidden;
+  }
+
+  .lang-btn {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    padding: 4px 12px;
+    background: transparent;
+    color: rgba(255,255,255,0.6);
+    border: none;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .lang-btn.active {
+    background: var(--white);
+    color: var(--green);
+  }
+
+  .lang-btn:hover:not(.active) { color: var(--white); }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(3rem, 10vw, 9rem);
+    line-height: 0.88;
+    color: var(--white);
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+  }
+
+  h1 em { font-style: italic; color: rgba(255,255,255,0.75); }
+
+  /* ── UITGELICHT ── */
+  .uitgelicht {
+    padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1.2rem, 4vw, 3rem);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-label {
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1.2rem;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .card {
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: background 0.15s;
+  }
+
+  .card:hover { background: var(--off); }
+
+  .card-img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    background: #c8ddd0;
+  }
+
+  .card-img img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .card:hover .card-img img { transform: scale(1.03); }
+
+  .card-body {
+    padding: 1.6rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    flex: 1;
+  }
+
+  .card-tag {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--green);
+    font-weight: 400;
+  }
+
+  .card-maker {
+    font-size: 14px;
+    color: var(--ink);
+  }
+
+  .card-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-style: italic;
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+
+  .card-desc {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--ink);
+    flex: 1;
+  }
+
+  .card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: var(--ink);
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .card-link {
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--green);
+    text-decoration: none;
+    font-weight: 400;
+  }
+  .card-link:hover { text-decoration: underline; }
+
+  /* ── KALENDER ── */
+  .kalender {
+    padding: 0 clamp(1.2rem, 4vw, 3rem) 3rem;
+  }
+
+  .kalender-header {
+    padding: 1.8rem 0 1.4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .kalender-header h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(1.3rem, 3vw, 2rem);
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+  }
+
+  .filter-wrap { display: flex; gap: 5px; flex-wrap: wrap; }
+
+  .filter-btn {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 6px 15px;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+
+  .filter-btn:hover { border-color: var(--green); color: var(--green); }
+  .filter-btn.active { background: var(--ink); border-color: var(--ink); color: var(--white); }
+
+  /* ── TABEL ── */
+  .tabel-wrap { width: 100%; overflow-x: auto; }
+
+  table { width: 100%; border-collapse: collapse; }
+
+  thead th {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 400;
+    text-align: left;
+    padding: 1rem 1rem 0.8rem;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+
+  tbody tr { border-bottom: 1px solid var(--border); transition: background 0.12s; }
+  tbody tr:hover { background: var(--off); }
+  tbody td { padding: 1.1rem 1rem; vertical-align: top; }
+
+  .td-foto { width: 110px; padding: 0.7rem 0.7rem 0.7rem 0; }
+
+  .td-foto img {
+    width: 110px;
+    height: 78px;
+    object-fit: cover;
+    display: block;
+    border-radius: 3px;
+    background: #c8ddd0;
+  }
+
+  .td-foto-placeholder {
+    width: 110px;
+    height: 78px;
+    background: #dceee3;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1.4rem;
+    color: #8fb89a;
+  }
+
+  .td-datum {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--green);
+    white-space: nowrap;
+    min-width: 75px;
+  }
+
+  .td-datum small {
+    display: block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-top: 2px;
+  }
+
+  .td-eind {
+    font-size: 12px;
+    color: var(--muted);
+    font-style: italic;
+    margin-top: 3px;
+  }
+
+  .td-titel {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--ink);
+    line-height: 1.2;
+    min-width: 160px;
+  }
+
+  .td-maker {
+    font-size: 13px;
+    color: var(--ink);
+    margin-top: 3px;
+  }
+
+  .type-tag {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+    color: var(--ink);
+    margin: 2px 2px 2px 0;
+    white-space: nowrap;
+  }
+
+  .td-stad {
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  .td-locatie {
+    font-size: 13px;
+    color: var(--ink);
+    margin-top: 3px;
+  }
+
+  .uitklap-wrap { min-width: 200px; max-width: 340px; }
+
+  .logline {
+    font-size: 15px;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+
+  .beschrijving {
+    font-size: 14px;
+    color: var(--ink);
+    line-height: 1.75;
+    margin-top: 8px;
+    display: none;
+  }
+
+  .beschrijving.open { display: block; }
+
+  .lees-meer {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--green);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+  }
+
+  .lees-meer:hover { text-decoration: underline; }
+
+  .td-link {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--green);
+    padding: 5px 14px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 400;
+    white-space: nowrap;
+  }
+
+  .td-link:hover { opacity: 0.85; }
+
+  .maand-rij td {
+    background: var(--off);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+    font-weight: 400;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .geen-events td {
+    padding: 2.5rem 1rem;
+    font-size: 15px;
+    color: #ccc;
+    font-style: italic;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--green);
+    border-top: 2px solid var(--ink);
+    padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1.2rem, 4vw, 3rem);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: 2rem;
+  }
+
+  .footer-disclaimer strong,
+  .footer-nieuwsbrief strong {
+    display: block;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--white);
+    font-weight: 400;
+    margin-bottom: 0.6rem;
+  }
+
+  .footer-disclaimer p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.85);
+  }
+
+  .footer-nieuwsbrief p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+
+  .nieuwsbrief-form { display: flex; gap: 8px; flex-wrap: wrap; }
+
+  .nieuwsbrief-form input {
+    flex: 1;
+    min-width: 180px;
+    padding: 10px 16px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    border: 1px solid rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.15);
+    color: var(--white);
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .nieuwsbrief-form input::placeholder { color: rgba(255,255,255,0.45); }
+  .nieuwsbrief-form input:focus { border-color: rgba(255,255,255,0.9); }
+
+  .nieuwsbrief-form button {
+    padding: 10px 22px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: var(--white);
+    color: var(--green);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    white-space: nowrap;
+  }
+
+  .nieuwsbrief-form button:hover { opacity: 0.85; }
+
+  #form-feedback {
+    font-size: 14px;
+    color: var(--white);
+    margin-top: 0.6rem;
+    display: none;
+  }
+
+  .footer-bottom {
+    background: var(--green);
+    border-top: 1px solid rgba(0,0,0,0.12);
+    padding: 1rem clamp(1.2rem, 4vw, 3rem);
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  @media (max-width: 700px) {
+    .td-foto { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-bar">
+    <span class="header-label" data-nl="Immersieve kunst agenda" data-en="Immersive Art Agenda">Immersieve kunst agenda</span>
+    <div class="header-right">
+      <div class="lang-switch">
+        <button class="lang-btn active" onclick="setLang('nl', this)">NL</button>
+        <button class="lang-btn" onclick="setLang('en', this)">EN</button>
+      </div>
+      <a class="header-about" href="#" data-nl="Over" data-en="About">Over</a>
+    </div>
+  </div>
+  <h1 id="header-title">Art That<br><em>Sparks Joy</em></h1>
+</header>
+
+<section class="uitgelicht">
+  <p class="section-label" data-nl="Uitgelicht" data-en="Featured">Uitgelicht</p>
+  <div class="cards" id="uitgelicht-cards"></div>
+</section>
+
+<section class="kalender">
+  <div class="kalender-header">
+    <h2 id="alle-events-title" data-nl="Alle Events" data-en="All Events">Alle Events</h2>
+    <div class="filter-wrap" id="filter-wrap"></div>
+  </div>
+  <div class="tabel-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th data-nl="Datum" data-en="Date">Datum</th>
+          <th data-nl="Event & Maker" data-en="Event & Artist">Event & Maker</th>
+          <th data-nl="Type" data-en="Type">Type</th>
+          <th data-nl="Stad & Locatie" data-en="City & Venue">Stad & Locatie</th>
+          <th data-nl="Omschrijving" data-en="Description">Omschrijving</th>
+        </tr>
+      </thead>
+      <tbody id="tabel-body"></tbody>
+    </table>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-disclaimer">
+    <strong data-nl="Over deze agenda" data-en="About this agenda">Over deze agenda</strong>
+    <p data-nl="Deze agenda biedt een overzicht van immersieve kunst en experiences in Nederland. Wij streven naar volledigheid maar kunnen geen garantie geven op juistheid of beschikbaarheid van events. Neem voor actuele informatie altijd contact op met de organisator."
+       data-en="This agenda offers an overview of immersive art and experiences in the Netherlands. We strive for completeness but cannot guarantee the accuracy or availability of events. For current information, always contact the organiser directly.">
+      Deze agenda biedt een overzicht van immersieve kunst en experiences in Nederland. Wij streven naar volledigheid maar kunnen geen garantie geven op juistheid of beschikbaarheid van events. Neem voor actuele informatie altijd contact op met de organisator.
+    </p>
+  </div>
+  <div class="footer-nieuwsbrief">
+    <strong data-nl="Nieuwsbrief" data-en="Newsletter">Nieuwsbrief</strong>
+    <p data-nl="Ontvang een maandelijks overzicht van nieuwe immersieve experiences in jouw mailbox."
+       data-en="Receive a monthly overview of new immersive experiences in your inbox.">
+      Ontvang een maandelijks overzicht van nieuwe immersieve experiences in jouw mailbox.
+    </p>
+    <div class="nieuwsbrief-form">
+      <input type="email" id="email-input" data-nl-placeholder="jouw@emailadres.nl" data-en-placeholder="your@emailaddress.com" placeholder="jouw@emailadres.nl">
+      <button onclick="aanmelden()" data-nl="Aanmelden" data-en="Subscribe">Aanmelden</button>
+    </div>
+    <p id="form-feedback" data-nl="Bedankt voor je aanmelding!" data-en="Thanks for signing up!">Bedankt voor je aanmelding!</p>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span data-nl="Immersieve Kunst Agenda · Nederland" data-en="Immersive Art Agenda · Netherlands">Immersieve Kunst Agenda · Nederland</span>
+  <span>© 2026</span>
+</div>
+
+<script>
+let huidigeTaal = 'nl';
+let activeFilter = 'all';
+
+const events = [
+  {
+    naam:      { nl: "Conversations", en: "Conversations" },
+    startDag: "4", startMaand: { nl: "Jun", en: "Jun" }, startMaandNr: 6,
+    eindDatum: { nl: "6 Jun", en: "Jun 6" },
+    maker: "Paul Boereboom & Leon Rogissart",
+    logline: {
+      nl: "Zintuiglijke XR-performance waarin beweging, muziek en technologie samensmelten.",
+      en: "A sensory XR performance in which movement, music and technology merge."
+    },
+    beschrijving: {
+      nl: "Conversations is een gelaagde ontmoeting tussen fysieke en digitale realiteiten. Met behulp van 'extended reality' vloeien tastbare en virtuele werelden in elkaar over. Licht en geluid rekken de grenzen van de ruimte op, vervormen perspectieven en creëren een omgeving waarin toeschouwers niet enkel kijken, maar actief deelnemen.",
+      en: "Conversations is a layered encounter between physical and digital realities. Using extended reality, tangible and virtual worlds merge. Light and sound stretch the boundaries of space, distorting perspectives and creating an environment where audiences don't just watch — they actively participate."
+    },
+    stad: "Amsterdam",
+    locatie: "Frascati",
+    types: ["XR", "Performatief"],
+    foto: "https://v5.airtableusercontent.com/v3/u/54/54/1780617600000/v7pCtcIh59mw9bzJMZEbnQ/uyxBJtFvQDlGWsLahcCT1Z4cS7-ITze_NwAwk1kzLIMSfe24Sz4EolFlLI6ghHyYnW4fsl5VbBhyLnDdOwTUMIVTynVr78Q2CNXRrqOCtIuqqE4goJfXkf0lFAqnKstpp8GbCxzo7bxQUbXPCOaECKZY3D8sWM1M987KpYdAeSg/Zkl6pYM8SqXKFysoj08t5BfTCk0f9bKc3-TfSGrFiII",
+    link: "https://www.frascatitheater.nl/nl/agenda/conversations-n1vr",
+    uitgelicht: true
+  },
+  {
+    naam:      { nl: "Messages to a Posthuman Earth", en: "Messages to a Posthuman Earth" },
+    startDag: "10", startMaand: { nl: "Jun", en: "Jun" }, startMaandNr: 6,
+    eindDatum: { nl: "1 Jul", en: "Jul 1" },
+    maker: "Anagram",
+    logline: {
+      nl: "Een interactieve, multi-sensorische audioreis voor twee door een tuin om jullie relatie met de natuur te herdenken.",
+      en: "An interactive, multi-sensory audio journey for two through a garden to reimagine your relationship with the natural world."
+    },
+    beschrijving: {
+      nl: "In een echte tuin ontdekken jij en je partner dat de natuur een hoorend, levend wezen is, zintuiglijk alert net als jullie. Audio-vertelling en AR-content nodigen uit tot bezinning op de levende omgeving en een toekomstige wereld zonder mensen.",
+      en: "In a real garden, you and your partner discover that the natural world is a hearing, living thing, sensorially alert just as you are. Audio narration and AR content combine to invite musing on the living environment and a future world in which humans will no longer be present."
+    },
+    stad: "Amsterdam",
+    locatie: "Vondelpark",
+    types: ["Audiowalk", "In de natuur", "Performatief"],
+    foto: "https://v5.airtableusercontent.com/v3/u/54/54/1780617600000/xYZqmZJjoupi07hHiO3_tQ/asR112xQ1_fBwNW2iFo0gta7U6SPWA_68io-YNs1bhEphAOU4kx5nIIa06cienFQdVm7LDjSgr2-feWm_J-RTBVoAQxsNaur-GaqDmYzRnbAk2LDt_wxzN_Du8-gKJPnU-x6jBLaF2x1Jk7iWUPsu-NTyRw_ZzSCexSa1Myq-8wolq7B1Mjzw2XZAbAdPacB/p68PJJ2PC08_T-dXN0PFpx_evW1QAeLCjHehJjro5ow",
+    link: "https://www.idfa.nl/en/cinema/d3f5f4cb-b838-47cf-9162-fa7d1ca9615e/messages-to-a-post-human-earth/",
+    uitgelicht: true
+  },
+  {
+    naam:      { nl: "Only Expansion", en: "Only Expansion" },
+    startDag: "10", startMaand: { nl: "Jun", en: "Jun" }, startMaandNr: 6,
+    eindDatum: { nl: "24 Jun", en: "Jun 24" },
+    maker: "Duncan Speakman",
+    logline: {
+      nl: "Een site-responsieve audiotour over hoe onze relatie met het landschap verandert door snelle milieuverstoring.",
+      en: "A site-responsive audio tour on how our relation to the landscape is being altered by rapid environmental change."
+    },
+    beschrijving: {
+      nl: "In deze audiotour beweeg je door de vertrouwde paden van de stad. Je wordt uitgenodigd de omgeving te observeren op tijdschalen die zowel vluchtig als geologisch zijn. Real-time audiosoftware mixt het stadsgeluid met opnames van de klimaatcrisis wereldwijd.",
+      en: "In this site-responsive audio tour, make your way through the familiar tracks of the city. Real-time audio software remixes the sound of the city with recordings of rapid environmental change in progress — a poetic reflection on the shifting urban environment."
+    },
+    stad: "Amsterdam",
+    locatie: "Het Documentaire Paviljoen",
+    types: ["Audiowalk", "Stad"],
+    foto: "https://v5.airtableusercontent.com/v3/u/54/54/1780617600000/kGllUUVU1tCaBYP68jqPHQ/kjwkGmANoGlxx-f4K5a7UPA8XBRwS8LpHuwZi9gJg9MUrapMvC7ectzHqbaMkolWHjlNVjxOrJG8cw018VO7lVH30WHDXDjq6f72P3HZ5Fzwal6BIN9vEnbfKRrsZJzDzOST--Sqx5RKns3cBjtOtQ/cavuKdla5QmzYOeC8DxZfvx0ggSHnqyq-BH0C7Xlm9w",
+    link: "https://www.idfa.nl/en/cinema/d633afe6-c489-4ee8-bfad-c30b91e5f15f/only-expansion/",
+    uitgelicht: false
+  },
+  {
+    naam:      { nl: "Traversing the Mist", en: "Traversing the Mist" },
+    startDag: "12", startMaand: { nl: "Jul", en: "Jul" }, startMaandNr: 7,
+    eindDatum: { nl: "27 Jul", en: "Jul 27" },
+    maker: "CHOU Tung-yen",
+    logline: {
+      nl: "In een surreëel droomlandschap vind je jezelf belichaamd in een ander lichaam — geweven door verlangens, opwinding en angsten.",
+      en: "Inside a surreal dreamscape you find yourself embodied in another body — woven by desires, excitements, and fears."
+    },
+    beschrijving: {
+      nl: "Terwijl je elke verdieping, gang en kamer doorloopt, valt elke laag van het labyrint achter je rug onomkeerbaar uiteen. Uiteindelijk verdwijnt alles. CHOU Tung-Yen verlegt de grenzen van real-time XR-technologie. Wereldpremière op IDFA DocLAB 2023, in competitie in Cannes, Grand Prize in NewImages Paris.",
+      en: "As you walk along every floor, corridor, and room, each layer of the maze irreversibly unravels behind your back. CHOU Tung-Yen pushes the boundaries of real-time XR technology. World première at IDFA DocLAB 2023, competed in Cannes, Grand Prize in NewImages Paris."
+    },
+    stad: "Amsterdam",
+    locatie: "Podium Mozaïek",
+    types: ["XR", "Performatief"],
+    foto: "https://v5.airtableusercontent.com/v3/u/54/54/1780617600000/AkZ7B3vtwWqkhZd5jqKhHA/XpAgzUrBwJuYRv9YMpPHAiCKl0koSpAqZnQa2mN1oQHt01j8pcnKPCkdcfLiH5eaprEtvVmIPYxkqN0w_g9RabwYD5KYTei_KfxgfAt4mlrDR66ZXNIffGFetQinalaUBNmrMIG4cWo0H8xB8GMCGAePNB1D4Pe64B6xnaAuRuhFZhkymG7Qfp8NpIxs1sKD59zNw_jV89_CMny5WZF3Gz78Bprk0j28g-3ryRSKhFc/Zl7apTYeMPzW5tsyxUadQZnrqD9SZM10yuPPaDV92d8",
+    link: "https://www.podiummozaiek.nl/programma/details/tm-11972-7f94019f/traversing-the-mist-16",
+    uitgelicht: false
+  },
+];
+
+const maandNamen = {
+  nl: ["Jan","Feb","Mrt","Apr","Mei","Jun","Jul","Aug","Sep","Okt","Nov","Dec"],
+  en: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
+};
+
+const ui = {
+  nl: {
+    uitgelicht: "Uitgelicht",
+    alleEvents: "Alle Events",
+    datum: "Datum", event: "Event & Maker", type: "Type",
+    stad: "Stad & Locatie", omschrijving: "Omschrijving",
+    leesmeer: "Lees meer ↓", leesminder: "Minder ↑",
+    kaartjes: "Kaartjes →",
+    geenEvents: "Geen events gevonden.",
+    disclaimerTitel: "Over deze agenda",
+    disclaimerTekst: "Deze agenda biedt een overzicht van immersieve kunst en experiences in Nederland. Wij streven naar volledigheid maar kunnen geen garantie geven op juistheid of beschikbaarheid van events. Neem voor actuele informatie altijd contact op met de organisator.",
+    nieuwsbriefTitel: "Nieuwsbrief",
+    nieuwsbriefTekst: "Ontvang een maandelijks overzicht van nieuwe immersieve experiences in jouw mailbox.",
+    aanmelden: "Aanmelden",
+    placeholder: "jouw@emailadres.nl",
+    bedankt: "Bedankt voor je aanmelding!",
+    alles: "Alles",
+    over: "Over",
+    label: "Immersieve kunst agenda",
+    footer: "Immersieve Kunst Agenda · Nederland",
+    tmLabel: "t/m"
+  },
+  en: {
+    uitgelicht: "Featured",
+    alleEvents: "All Events",
+    datum: "Date", event: "Event & Artist", type: "Type",
+    stad: "City & Venue", omschrijving: "Description",
+    leesmeer: "Read more ↓", leesminder: "Less ↑",
+    kaartjes: "Tickets →",
+    geenEvents: "No events found.",
+    disclaimerTitel: "About this agenda",
+    disclaimerTekst: "This agenda offers an overview of immersive art and experiences in the Netherlands. We strive for completeness but cannot guarantee the accuracy or availability of events. For current information, always contact the organiser directly.",
+    nieuwsbriefTitel: "Newsletter",
+    nieuwsbriefTekst: "Receive a monthly overview of new immersive experiences in your inbox.",
+    aanmelden: "Subscribe",
+    placeholder: "your@emailaddress.com",
+    bedankt: "Thanks for signing up!",
+    alles: "All",
+    over: "About",
+    label: "Immersive art agenda",
+    footer: "Immersive Art Agenda · Netherlands",
+    tmLabel: "until"
+  }
+};
+
+// Unieke types voor filters
+const alleTypes = [...new Set(events.flatMap(e => e.types))];
+
+function buildFilters() {
+  const t = ui[huidigeTaal];
+  const wrap = document.getElementById('filter-wrap');
+  wrap.innerHTML = '';
+  ['all', ...alleTypes].forEach(type => {
+    const btn = document.createElement('button');
+    btn.className = 'filter-btn' + (type === activeFilter ? ' active' : '');
+    btn.textContent = type === 'all' ? t.alles : type;
+    btn.onclick = () => filter(type, btn);
+    wrap.appendChild(btn);
+  });
+}
+
+function buildUitgelicht() {
+  const t = ui[huidigeTaal];
+  document.querySelector('.section-label').textContent = t.uitgelicht;
+  const uitgelicht = events.filter(e => e.uitgelicht).slice(0, 2);
+  document.getElementById('uitgelicht-cards').innerHTML = uitgelicht.map(e => `
+    <article class="card">
+      <div class="card-img"><img src="${e.foto}" alt="${e.naam[huidigeTaal]}" loading="lazy"></div>
+      <div class="card-body">
+        <span class="card-tag">${e.types.join(' · ')} · ${e.locatie}</span>
+        <p class="card-maker">${e.maker}</p>
+        <h2 class="card-title">${e.naam[huidigeTaal]}</h2>
+        <p class="card-desc">${e.logline[huidigeTaal]}</p>
+        <div class="card-meta">
+          <span>${e.startDag} ${e.startMaand[huidigeTaal]}${e.eindDatum ? ' — ' + e.eindDatum[huidigeTaal] : ''} · ${e.stad}</span>
+          <a href="${e.link}" class="card-link" target="_blank">${t.kaartjes}</a>
+        </div>
+      </div>
+    </article>
+  `).join('');
+}
+
+function updateStaticUI() {
+  const t = ui[huidigeTaal];
+  document.getElementById('alle-events-title').textContent = t.alleEvents;
+  document.querySelector('thead').innerHTML = `<tr>
+    <th></th>
+    <th>${t.datum}</th>
+    <th>${t.event}</th>
+    <th>${t.type}</th>
+    <th>${t.stad}</th>
+    <th>${t.omschrijving}</th>
+  </tr>`;
+  document.querySelector('.footer-disclaimer strong').textContent = t.disclaimerTitel;
+  document.querySelector('.footer-disclaimer p').textContent = t.disclaimerTekst;
+  document.querySelector('.footer-nieuwsbrief strong').textContent = t.nieuwsbriefTitel;
+  document.querySelector('.footer-nieuwsbrief p').textContent = t.nieuwsbriefTekst;
+  document.querySelector('.nieuwsbrief-form button').textContent = t.aanmelden;
+  document.getElementById('email-input').placeholder = t.placeholder;
+  document.getElementById('form-feedback').textContent = t.bedankt;
+  document.querySelector('.header-label').textContent = t.label;
+  document.querySelector('.header-about').textContent = t.over;
+  document.querySelector('.footer-bottom span').textContent = t.footer;
+}
+
+function filter(type, btn) {
+  activeFilter = type;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  render();
+}
+
+function toggleBeschrijving(btn, id) {
+  const el = document.getElementById(id);
+  const open = el.classList.toggle('open');
+  btn.textContent = open ? ui[huidigeTaal].leesminder : ui[huidigeTaal].leesmeer;
+}
+
+function render() {
+  const t = ui[huidigeTaal];
+  const filtered = activeFilter === 'all'
+    ? events
+    : events.filter(e => e.types.includes(activeFilter));
+
+  const body = document.getElementById('tabel-body');
+
+  if (filtered.length === 0) {
+    body.innerHTML = `<tr class="geen-events"><td colspan="6">${t.geenEvents}</td></tr>`;
+    return;
+  }
+
+  let html = '';
+  let huidigeMaand = null;
+  let i = 0;
+
+  filtered.forEach(e => {
+    if (e.startMaandNr !== huidigeMaand) {
+      huidigeMaand = e.startMaandNr;
+      html += `<tr class="maand-rij"><td colspan="6">${maandNamen[huidigeTaal][e.startMaandNr - 1]} 2026</td></tr>`;
+    }
+    const descId = 'desc-' + i++;
+    const eindTekst = e.eindDatum ? `<div class="td-eind">${t.tmLabel} ${e.eindDatum[huidigeTaal]}</div>` : '';
+    html += `
+    <tr>
+      <td class="td-foto">
+        ${e.foto
+          ? `<img src="${e.foto}" alt="${e.naam[huidigeTaal]}" loading="lazy">`
+          : `<div class="td-foto-placeholder">${e.naam[huidigeTaal][0]}</div>`}
+      </td>
+      <td class="td-datum">
+        ${e.startDag}<small>${e.startMaand[huidigeTaal]} 2026</small>${eindTekst}
+      </td>
+      <td>
+        <div class="td-titel">${e.naam[huidigeTaal]}</div>
+        <div class="td-maker">${e.maker}</div>
+      </td>
+      <td>${e.types.map(t => `<span class="type-tag">${t}</span>`).join('')}</td>
+      <td>
+        <div class="td-stad">${e.stad}</div>
+        <div class="td-locatie">${e.locatie}</div>
+      </td>
+      <td class="uitklap-wrap">
+        <div class="logline">${e.logline[huidigeTaal]}</div>
+        ${e.beschrijving[huidigeTaal] ? `
+          <div class="beschrijving" id="${descId}">${e.beschrijving[huidigeTaal]}</div>
+          <button class="lees-meer" onclick="toggleBeschrijving(this, '${descId}')">${t.leesmeer}</button>
+        ` : ''}
+        ${e.link ? `<br><a href="${e.link}" class="td-link" target="_blank">${t.kaartjes}</a>` : ''}
+      </td>
+    </tr>`;
+  });
+
+  body.innerHTML = html;
+}
+
+function setLang(lang, btn) {
+  huidigeTaal = lang;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.documentElement.lang = lang;
+  updateStaticUI();
+  buildFilters();
+  buildUitgelicht();
+  render();
+}
+
+function aanmelden() {
+  const input = document.getElementById('email-input');
+  if (input.value && input.value.includes('@')) {
+    document.getElementById('form-feedback').style.display = 'block';
+    input.value = '';
+  } else {
+    input.focus();
+  }
+}
+
+// Init
+updateStaticUI();
+buildFilters();
+buildUitgelicht();
+render();
+</script>
+</body>
+</html>
