@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Immersieve Kunst Agenda</title>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,700;1,900&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<script src="https://assets.mailerlite.com/js/universal.js"></script>
+<script>ml('account', '8FOkHv');</script>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -548,7 +550,7 @@
       <a class="header-about" href="#" data-nl="Over" data-en="About">Over</a>
     </div>
   </div>
-  <h1 id="header-title">Immersieve<br><em>kunst agenda</em></h1>
+  <h1 id="header-title">Immersieve<br><em>Kunst Agenda</em></h1>
 </header>
 
 <section class="uitgelicht">
@@ -587,16 +589,19 @@
     </p>
   </div>
   <div class="footer-nieuwsbrief">
-    <strong data-nl="Nieuwsbrief" data-en="Newsletter">Nieuwsbrief</strong>
-    <p data-nl="Ontvang een maandelijks overzicht van nieuwe immersieve experiences in jouw mailbox."
-       data-en="Receive a monthly overview of new immersive experiences in your inbox.">
-      Ontvang een maandelijks overzicht van nieuwe immersieve experiences in jouw mailbox.
-    </p>
-    <div class="nieuwsbrief-form">
-      <input type="email" id="email-input" data-nl-placeholder="jouw@emailadres.nl" data-en-placeholder="your@emailaddress.com" placeholder="jouw@emailadres.nl">
-      <button onclick="aanmelden()" data-nl="Aanmelden" data-en="Subscribe">Aanmelden</button>
+    <strong id="nieuwsbrief-titel">Nieuwsbrief</strong>
+    <p id="nieuwsbrief-tekst">Ontvang een maandelijks overzicht van nieuwe immersieve experiences in jouw mailbox.</p>
+    <!-- MailerLite formulier -->
+    <!-- STAP 1: Vervang JOUW_FORM_ID hieronder met jouw MailerLite Universal Form ID -->
+    <!-- STAP 2: Voeg deze script toe aan je pagina (eenmalig): -->
+    <!-- <script src="https://assets.mailerlite.com/js/universal.js"></script> -->
+    <div class="ml-embedded" data-form="8FOkHv"></div>
+    <!-- Fallback als MailerLite nog niet gekoppeld is: -->
+    <div class="nieuwsbrief-form" id="fallback-form">
+      <input type="email" id="email-input" placeholder="jouw@emailadres.nl">
+      <button onclick="aanmelden()">Aanmelden</button>
     </div>
-    <p id="form-feedback" data-nl="Bedankt voor je aanmelding!" data-en="Thanks for signing up!">Bedankt voor je aanmelding!</p>
+    <p id="form-feedback" style="display:none; font-size:14px; color:var(--white); margin-top:0.6rem;">Bedankt voor je aanmelding!</p>
   </div>
 </footer>
 <div class="footer-bottom">
@@ -716,7 +721,9 @@ const ui = {
     over: "Over",
     label: "Immersieve kunst agenda",
     footer: "Immersieve Kunst Agenda · Nederland",
-    tmLabel: "t/m"
+    tmLabel: "t/m",
+    h1regel1: "Immersieve",
+    h1regel2: "Kunst Agenda"
   },
   en: {
     uitgelicht: "Featured",
@@ -737,7 +744,9 @@ const ui = {
     over: "About",
     label: "Immersive art agenda",
     footer: "Immersive Art Agenda · Netherlands",
-    tmLabel: "until"
+    tmLabel: "until",
+    h1regel1: "Immersive",
+    h1regel2: "Art Calendar"
   }
 };
 
@@ -780,6 +789,7 @@ function buildUitgelicht() {
 
 function updateStaticUI() {
   const t = ui[huidigeTaal];
+  document.getElementById('header-title').innerHTML = `${t.h1regel1}<br><em>${t.h1regel2}</em>`;
   document.getElementById('alle-events-title').textContent = t.alleEvents;
   document.querySelector('thead').innerHTML = `<tr>
     <th></th>
@@ -791,11 +801,14 @@ function updateStaticUI() {
   </tr>`;
   document.querySelector('.footer-disclaimer strong').textContent = t.disclaimerTitel;
   document.querySelector('.footer-disclaimer p').textContent = t.disclaimerTekst;
-  document.querySelector('.footer-nieuwsbrief strong').textContent = t.nieuwsbriefTitel;
-  document.querySelector('.footer-nieuwsbrief p').textContent = t.nieuwsbriefTekst;
-  document.querySelector('.nieuwsbrief-form button').textContent = t.aanmelden;
-  document.getElementById('email-input').placeholder = t.placeholder;
-  document.getElementById('form-feedback').textContent = t.bedankt;
+  document.getElementById('nieuwsbrief-titel').textContent = t.nieuwsbriefTitel;
+  document.getElementById('nieuwsbrief-tekst').textContent = t.nieuwsbriefTekst;
+  const aanmeldenBtn = document.querySelector('.nieuwsbrief-form button');
+  if (aanmeldenBtn) aanmeldenBtn.textContent = t.aanmelden;
+  const emailInput = document.getElementById('email-input');
+  if (emailInput) emailInput.placeholder = t.placeholder;
+  const feedback = document.getElementById('form-feedback');
+  if (feedback) feedback.textContent = t.bedankt;
   document.querySelector('.header-label').textContent = t.label;
   document.querySelector('.header-about').textContent = t.over;
   document.querySelector('.footer-bottom span').textContent = t.footer;
