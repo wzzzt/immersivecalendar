@@ -248,6 +248,22 @@
   }
   .card-link:hover { text-decoration: underline; }
 
+  .card-leesmeer {
+    display: inline-block;
+    margin-top: 0.6rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--pink);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-weight: 400;
+  }
+  .card-leesmeer:hover { text-decoration: underline; }
+
   /* ── KALENDER ── */
   .kalender {
     padding: 0 clamp(1.2rem, 4vw, 3rem) 3rem;
@@ -464,18 +480,6 @@
 
   .td-link:hover { opacity: 0.85; }
 
-  .maand-rij td {
-    background: #1A1A1A;
-    font-size: 13px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--muted);
-    font-weight: 400;
-    padding: 0.5rem 1rem;
-    border-bottom: 1px solid var(--border);
-    border-left: 2px solid var(--pink);
-  }
-
   .geen-events td {
     padding: 2.5rem 1rem;
     font-size: 15px;
@@ -689,8 +693,9 @@
     align-items: center;
     gap: 5px;
     font-family: 'DM Sans', sans-serif;
-    background: #00CFFF;
-    color: #0A0A0A;
+    background: transparent;
+    color: #00CFFF;
+    border: 1px solid #00CFFF;
     font-size: 10px;
     font-weight: 400;
     letter-spacing: 0.1em;
@@ -720,6 +725,48 @@
     .td-foto { display: none; }
     .over-box { padding: 2rem 1.5rem; }
   }
+
+  .periode-rij td {
+    padding: 1.5rem 1rem 0.5rem;
+    border-bottom: none;
+    background: transparent;
+  }
+
+  .periode-label {
+    font-family: 'Fraunces', serif;
+    font-size: 1.1rem;
+    font-weight: 900;
+    font-style: italic;
+    letter-spacing: -0.01em;
+    text-transform: none;
+    color: #111111;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #FFB3D9;
+    padding: 8px 22px 8px 14px;
+    border-radius: 100px;
+  }
+
+  .periode-label.dimmed {
+    background: #FFB3D9;
+    color: #111111;
+  }
+
+  .periode-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #111111;
+    opacity: 0.5;
+    flex-shrink: 0;
+  }
+
+  .periode-dot.dimmed {
+    opacity: 0.4;
+  }
+
 </style>
 </head>
 <body>
@@ -943,11 +990,6 @@ const events = [
   },
 ];
 
-const maandNamen = {
-  nl: ["Jan","Feb","Mrt","Apr","Mei","Jun","Jul","Aug","Sep","Okt","Nov","Dec"],
-  en: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
-};
-
 const ui = {
   nl: {
     uitgelicht: "Tip van de maand",
@@ -1048,7 +1090,7 @@ function buildUitgelicht() {
   const t = ui[huidigeTaal];
   document.getElementById('section-uitgelicht').textContent = t.uitgelicht;
   const uitgelicht = events.filter(e => e.uitgelicht).slice(0, 2);
-  document.getElementById('uitgelicht-cards').innerHTML = uitgelicht.map(e => `
+  document.getElementById('uitgelicht-cards').innerHTML = uitgelicht.map((e, idx) => `
     <article class="card featured-card">
       <div class="card-img"><img src="${e.foto}" alt="${e.naam[huidigeTaal]}" loading="lazy"></div>
       <div class="card-body">
@@ -1056,6 +1098,10 @@ function buildUitgelicht() {
         <p class="card-maker">${e.maker}</p>
         <h2 class="card-title">${e.naam[huidigeTaal]}</h2>
         <p class="card-desc">${e.logline[huidigeTaal]}</p>
+        ${e.beschrijving && e.beschrijving[huidigeTaal] ? `
+          <div class="card-beschrijving" id="card-desc-${idx}" style="display:none; font-size:13px; line-height:1.75; color:var(--muted); margin-top:0.5rem;">${e.beschrijving[huidigeTaal]}</div>
+          <button class="card-leesmeer" onclick="toggleCard(this, 'card-desc-${idx}')">${huidigeTaal === 'nl' ? 'Lees meer ↓' : 'Read more ↓'}</button>
+        ` : ''}
         <div class="card-meta">
           <span>${e.startDag} ${e.startMaand[huidigeTaal]}${e.eindDatum ? ' — ' + e.eindDatum[huidigeTaal] : ''} · ${e.stad}</span>
           <a href="${e.link}" class="card-link" target="_blank">${t.kaartjes}</a>
@@ -1105,6 +1151,15 @@ function filter(type, btn) {
   render();
 }
 
+function toggleCard(btn, id) {
+  const el = document.getElementById(id);
+  const open = el.style.display === 'block';
+  el.style.display = open ? 'none' : 'block';
+  btn.textContent = open
+    ? (huidigeTaal === 'nl' ? 'Lees meer ↓' : 'Read more ↓')
+    : (huidigeTaal === 'nl' ? 'Minder ↑' : 'Less ↑');
+}
+
 function toggleBeschrijving(btn, id) {
   const el = document.getElementById(id);
   const open = el.classList.toggle('open');
@@ -1114,28 +1169,29 @@ function toggleBeschrijving(btn, id) {
 function render() {
   const t = ui[huidigeTaal];
   const nu = new Date();
-  const huidigeMaand = nu.getMonth() + 1;
-  const huidigJaar = nu.getFullYear();
+  // Begin van volgende maand
+  const beginVolgende = new Date(nu.getFullYear(), nu.getMonth() + 1, 1);
 
   const filtered = activeFilter === 'all'
     ? events
     : events.filter(e => e.types.includes(activeFilter));
 
-  // Nu te zien: eindigt deze maand of eerder (maar nog niet voorbij)
+  // NU TE ZIEN: start deze maand of eerder, eindigt na vandaag, start voor volgende maand
   const nuTeSien = filtered.filter(e => {
-    const eindJaar = e.eindMaandNr >= huidigeMaand ? huidigJaar : huidigJaar + 1;
+    const startDatum = new Date(nu.getFullYear(), e.startMaandNr - 1, e.startDag);
+    const eindJaar = (e.eindMaandNr < e.startMaandNr) ? nu.getFullYear() + 1 : nu.getFullYear();
     const eindDatum = new Date(eindJaar, e.eindMaandNr - 1, e.eindDag);
-    return eindDatum >= nu && e.eindMaandNr <= huidigeMaand;
+    // Start deze maand of eerder, nog niet voorbij, start vóór volgende maand
+    return startDatum < beginVolgende && eindDatum >= nu;
   });
 
-  // Binnenkort: start of eindigt na deze maand
+  // BINNENKORT: start vanaf eerste dag van volgende maand of later
   const binnenkort = filtered.filter(e => {
-    const eindJaar = e.eindMaandNr >= huidigeMaand ? huidigJaar : huidigJaar + 1;
-    const eindDatum = new Date(eindJaar, e.eindMaandNr - 1, e.eindDag);
-    return eindDatum >= nu && e.eindMaandNr > huidigeMaand;
+    const startDatum = new Date(nu.getFullYear(), e.startMaandNr - 1, e.startDag);
+    return startDatum >= beginVolgende;
   });
 
-  const nuLabel = huidigeTaal === 'nl' ? 'Nu te zien' : 'On now';
+  const nuLabel = huidigeTaal === 'nl' ? 'Deze maand te zien' : 'On this month';
   const binnenkortLabel = huidigeTaal === 'nl' ? 'Binnenkort' : 'Coming soon';
 
   const body = document.getElementById('tabel-body');
@@ -1203,68 +1259,19 @@ function eventRij(e, i) {
     </tr>`;
 }
 
+function toggleCard(btn, id) {
+  const el = document.getElementById(id);
+  const open = el.style.display === 'block';
+  el.style.display = open ? 'none' : 'block';
+  btn.textContent = open
+    ? (huidigeTaal === 'nl' ? 'Lees meer ↓' : 'Read more ↓')
+    : (huidigeTaal === 'nl' ? 'Minder ↑' : 'Less ↑');
+}
+
 function toggleBeschrijving(btn, id) {
   const el = document.getElementById(id);
   const open = el.classList.toggle('open');
   btn.textContent = open ? ui[huidigeTaal].leesminder : ui[huidigeTaal].leesmeer;
-}
-
-function render() {
-  const t = ui[huidigeTaal];
-  const filtered = activeFilter === 'all'
-    ? events
-    : events.filter(e => e.types.includes(activeFilter));
-
-  const body = document.getElementById('tabel-body');
-
-  if (filtered.length === 0) {
-    body.innerHTML = `<tr class="geen-events"><td colspan="6">${t.geenEvents}</td></tr>`;
-    return;
-  }
-
-  let html = '';
-  let huidigeMaand = null;
-  let i = 0;
-
-  filtered.forEach(e => {
-    if (e.startMaandNr !== huidigeMaand) {
-      huidigeMaand = e.startMaandNr;
-      html += `<tr class="maand-rij"><td colspan="6">${maandNamen[huidigeTaal][e.startMaandNr - 1]} 2026</td></tr>`;
-    }
-    const descId = 'desc-' + i++;
-    const eindTekst = e.eindDatum ? `<div class="td-eind">${t.tmLabel} ${e.eindDatum[huidigeTaal]}</div>` : '';
-    html += `
-    <tr>
-      <td class="td-foto">
-        ${e.foto
-          ? `<img src="${e.foto}" alt="${e.naam[huidigeTaal]}" loading="lazy">`
-          : `<div class="td-foto-placeholder">${e.naam[huidigeTaal][0]}</div>`}
-      </td>
-      <td class="td-datum">
-        ${e.startDag}<small>${e.startMaand[huidigeTaal]} 2026</small>${eindTekst}
-        ${e.laatsteKans ? `<div class="laatste-kans-badge">${huidigeTaal === 'nl' ? 'Laatste kans' : 'Last chance'}</div>` : ''}
-      </td>
-      <td>
-        <div class="td-titel">${e.naam[huidigeTaal]}</div>
-        <div class="td-maker">${e.maker}</div>
-      </td>
-      <td>${e.types.map(tp => `<span class="type-tag">${typeVertalingen[huidigeTaal][tp] || tp}</span>`).join('')}</td>
-      <td>
-        <div class="td-stad">${e.stad}</div>
-        <div class="td-locatie">${e.locatie}</div>
-      </td>
-      <td class="uitklap-wrap">
-        <div class="logline">${e.logline[huidigeTaal]}</div>
-        ${e.beschrijving[huidigeTaal] ? `
-          <div class="beschrijving" id="${descId}">${e.beschrijving[huidigeTaal]}</div>
-          <button class="lees-meer" onclick="toggleBeschrijving(this, '${descId}')">${t.leesmeer}</button>
-        ` : ''}
-        ${e.link ? `<br><a href="${e.link}" class="td-link" target="_blank">${t.kaartjes}</a>` : ''}
-      </td>
-    </tr>`;
-  });
-
-  body.innerHTML = html;
 }
 
 function openOver(e) {
