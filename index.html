@@ -688,6 +688,7 @@
     display: inline-flex;
     align-items: center;
     gap: 5px;
+    font-family: 'DM Sans', sans-serif;
     background: #00CFFF;
     color: #0A0A0A;
     font-size: 10px;
@@ -814,28 +815,31 @@ let activeFilter = 'all';
 const events = [
   {
     naam: { nl: "Still Processing", en: "Still Processing" },
-    startDag: "7", startMaand: { nl: "Feb", en: "Feb" }, startMaandNr: 2,
+    startDag: 7, startMaandNr: 2,
+    eindDag: 30, eindMaandNr: 6,
+    startMaand: { nl: "Feb", en: "Feb" },
     eindDatum: { nl: "30 Jun", en: "Jun 30" },
     maker: "Curated by Bogomir Doringer",
+    laatsteKans: true,
     logline: {
       nl: "Een tentoonstelling over hoe mensen en technologie data omzetten in betekenis.",
       en: "An exhibition exploring how people and technology translate data into meaning."
     },
     beschrijving: {
-      nl: "Still Processing onderzoekt hoe mensen en technologie data omzetten in betekenis. Hoe navigeren we tussen het rationele en het emotionele? De tentoonstelling duikt in de vervlakking van beelden, de mentale afdrukken van bewegend licht en hoe AI digitale werelden en personages laat evolueren. Verspreid over zeven grootschalige, immersieve installaties.",
-      en: "Still Processing explores how people and technology translate data into meaning. How do we navigate between the rational and the emotional? Spread across seven large-scale, immersive installations and three smaller transitional spaces, it guides visitors through the different stages of image perception and transformation."
+      nl: "Still Processing onderzoekt hoe mensen en technologie data omzetten in betekenis. Verspreid over zeven grootschalige, immersieve installaties en drie kleinere ruimtes.",
+      en: "Still Processing explores how people and technology translate data into meaning. Spread across seven large-scale immersive installations and three smaller transitional spaces."
     },
-    stad: "Amsterdam",
-    locatie: "NXT Museum",
-    laatsteKans: true,
-    types: ["Tentoonstelling", "Digitale kunst", "Immersief"],
+    stad: "Amsterdam", locatie: "NXT Museum",
+    types: ["Tentoonstelling", "Digitale kunst"],
     foto: "/images/stillprocessing.jpg",
     link: "https://nxtmuseum.com/artist/duration-boris-acket",
-    uitgelicht: false
+    uitgelicht: true
   },
   {
     naam: { nl: "Amsterdam 1652", en: "Amsterdam 1652" },
-    startDag: "21", startMaand: { nl: "Mei", en: "May" }, startMaandNr: 5,
+    startDag: 21, startMaandNr: 5,
+    eindDag: 31, eindMaandNr: 12,
+    startMaand: { nl: "Mei", en: "May" },
     eindDatum: { nl: "31 Dec 2028", en: "Dec 31 2028" },
     maker: "Nienke Huitenga Broeren & ENTR",
     logline: {
@@ -843,32 +847,32 @@ const events = [
       en: "An encounter with three Amsterdam residents in 1652."
     },
     beschrijving: {
-      nl: "Loop samen door Amsterdam van de 17e eeuw, gezien door de ogen van haar bewoners. Van het IJ tot de Dam ontdek je hoe mensen leefden, werkten en samenkwamen. Een gedeelde VR-ervaring waarin je de stad niet bekijkt, maar zelf betreedt.",
-      en: "Walk through 17th-century Amsterdam through the eyes of its inhabitants. From the IJ to the Dam, discover how people lived, worked and gathered. A shared VR experience in which you don't observe the city — you enter it."
+      nl: "Loop samen door Amsterdam van de 17e eeuw, gezien door de ogen van haar bewoners. Een gedeelde VR-ervaring waarin je de stad niet bekijkt, maar zelf betreedt.",
+      en: "Walk through 17th-century Amsterdam through the eyes of its inhabitants. A shared VR experience in which you don't observe the city — you enter it."
     },
-    stad: "Amsterdam",
-    locatie: "ENTR",
+    stad: "Amsterdam", locatie: "ENTR",
     types: ["XR"],
     foto: "/images/kade.jpeg",
     link: "https://entrmuseum.com/",
-    uitgelicht: true
+    uitgelicht: false
   },
   {
     naam: { nl: "Conversations", en: "Conversations" },
-    startDag: "4", startMaand: { nl: "Jun", en: "Jun" }, startMaandNr: 6,
+    startDag: 4, startMaandNr: 6,
+    eindDag: 6, eindMaandNr: 6,
+    startMaand: { nl: "Jun", en: "Jun" },
     eindDatum: { nl: "6 Jun", en: "Jun 6" },
     maker: "Paul Boereboom & Leon Rogissart",
+    laatsteKans: true,
     logline: {
       nl: "Zintuiglijke XR-performance waarin beweging, muziek en technologie samensmelten.",
       en: "A sensory XR performance in which movement, music and technology merge."
     },
     beschrijving: {
-      nl: "Conversations is een gelaagde ontmoeting tussen fysieke en digitale realiteiten. Met behulp van extended reality vloeien tastbare en virtuele werelden in elkaar over. Licht en geluid rekken de grenzen van de ruimte op en creëren een omgeving waarin toeschouwers actief deelnemen.",
-      en: "Conversations is a layered encounter between physical and digital realities. Using extended reality, tangible and virtual worlds merge. Light and sound stretch the boundaries of space, creating an environment where audiences actively participate."
+      nl: "Conversations is een gelaagde ontmoeting tussen fysieke en digitale realiteiten. Met behulp van extended reality vloeien tastbare en virtuele werelden in elkaar over.",
+      en: "Conversations is a layered encounter between physical and digital realities. Using extended reality, tangible and virtual worlds merge."
     },
-    stad: "Amsterdam",
-    locatie: "Frascati",
-    laatsteKans: true,
+    stad: "Amsterdam", locatie: "Frascati",
     types: ["XR", "Performatief"],
     foto: "/images/conversations.png",
     link: "https://www.frascatitheater.nl/nl/agenda/conversations-n1vr",
@@ -876,7 +880,9 @@ const events = [
   },
   {
     naam: { nl: "Messages to a Posthuman Earth", en: "Messages to a Posthuman Earth" },
-    startDag: "10", startMaand: { nl: "Jun", en: "Jun" }, startMaandNr: 6,
+    startDag: 10, startMaandNr: 6,
+    eindDag: 1, eindMaandNr: 7,
+    startMaand: { nl: "Jun", en: "Jun" },
     eindDatum: { nl: "1 Jul", en: "Jul 1" },
     maker: "Anagram",
     logline: {
@@ -884,11 +890,10 @@ const events = [
       en: "An interactive, multi-sensory audio journey for two through a garden."
     },
     beschrijving: {
-      nl: "In een echte tuin ontdekken jij en je partner dat de natuur een hoorend, levend wezen is. Audio-vertelling en AR-content nodigen uit tot bezinning op de levende omgeving en een toekomstige wereld zonder mensen.",
-      en: "In a real garden, you and your partner discover that the natural world is a hearing, living thing. Audio narration and AR content invite musing on the living environment and a future world without humans."
+      nl: "In een echte tuin ontdekken jij en je partner dat de natuur een hoorend, levend wezen is. Audio-vertelling en AR-content nodigen uit tot bezinning op de levende omgeving.",
+      en: "In a real garden, you and your partner discover that the natural world is a hearing, living thing. Audio narration and AR content invite musing on the living environment."
     },
-    stad: "Amsterdam",
-    locatie: "Vondelpark",
+    stad: "Amsterdam", locatie: "Vondelpark",
     types: ["Audiowalk", "In de natuur", "Performatief"],
     foto: "/images/anagram.jpg",
     link: "https://www.idfa.nl/en/cinema/d3f5f4cb-b838-47cf-9162-fa7d1ca9615e/messages-to-a-post-human-earth/",
@@ -896,19 +901,20 @@ const events = [
   },
   {
     naam: { nl: "Only Expansion", en: "Only Expansion" },
-    startDag: "10", startMaand: { nl: "Jun", en: "Jun" }, startMaandNr: 6,
+    startDag: 10, startMaandNr: 6,
+    eindDag: 24, eindMaandNr: 6,
+    startMaand: { nl: "Jun", en: "Jun" },
     eindDatum: { nl: "24 Jun", en: "Jun 24" },
     maker: "Duncan Speakman",
     logline: {
       nl: "Een site-responsieve audiotour over hoe onze relatie met het landschap verandert.",
-      en: "A site-responsive audio tour on how our relation to the landscape is being altered by rapid environmental change."
+      en: "A site-responsive audio tour on how our relation to the landscape is altered by environmental change."
     },
     beschrijving: {
       nl: "Real-time audiosoftware mixt het stadsgeluid met opnames van de klimaatcrisis wereldwijd. Een poëtische reflectie op de veranderende stedelijke omgeving.",
-      en: "Real-time audio software remixes the sound of the city with recordings of rapid environmental change — a poetic reflection on the shifting urban environment."
+      en: "Real-time audio software remixes city sound with recordings of rapid environmental change — a poetic reflection on the shifting urban environment."
     },
-    stad: "Amsterdam",
-    locatie: "Het Documentaire Paviljoen",
+    stad: "Amsterdam", locatie: "Het Documentaire Paviljoen",
     types: ["Audiowalk", "Stad"],
     foto: "/images/1920.jpg",
     link: "https://www.idfa.nl/en/cinema/d633afe6-c489-4ee8-bfad-c30b91e5f15f/only-expansion/",
@@ -916,7 +922,9 @@ const events = [
   },
   {
     naam: { nl: "Traversing the Mist", en: "Traversing the Mist" },
-    startDag: "12", startMaand: { nl: "Jul", en: "Jul" }, startMaandNr: 7,
+    startDag: 12, startMaandNr: 7,
+    eindDag: 27, eindMaandNr: 7,
+    startMaand: { nl: "Jul", en: "Jul" },
     eindDatum: { nl: "27 Jul", en: "Jul 27" },
     maker: "CHOU Tung-yen",
     logline: {
@@ -924,11 +932,10 @@ const events = [
       en: "Inside a surreal dreamscape you find yourself embodied in another body."
     },
     beschrijving: {
-      nl: "Terwijl je elke verdieping, gang en kamer doorloopt, valt elke laag van het labyrint onomkeerbaar uiteen. Wereldpremière IDFA DocLAB 2023, in competitie Cannes, Grand Prize NewImages Paris.",
-      en: "As you walk along every floor, corridor and room, each layer irreversibly unravels. World première IDFA DocLAB 2023, competed Cannes, Grand Prize NewImages Paris."
+      nl: "Terwijl je elke verdieping, gang en kamer doorloopt, valt elke laag van het labyrint onomkeerbaar uiteen. Wereldpremière IDFA DocLAB 2023, Grand Prize NewImages Paris.",
+      en: "As you walk along every floor, corridor and room, each layer irreversibly unravels. World première IDFA DocLAB 2023, Grand Prize NewImages Paris."
     },
-    stad: "Amsterdam",
-    locatie: "Podium Mozaïek",
+    stad: "Amsterdam", locatie: "Podium Mozaïek",
     types: ["XR", "Performatief"],
     foto: "/images/traversing.png",
     link: "https://www.podiummozaiek.nl/programma/details/tm-11972-7f94019f/traversing-the-mist-16",
@@ -1096,6 +1103,104 @@ function filter(type, btn) {
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   render();
+}
+
+function toggleBeschrijving(btn, id) {
+  const el = document.getElementById(id);
+  const open = el.classList.toggle('open');
+  btn.textContent = open ? ui[huidigeTaal].leesminder : ui[huidigeTaal].leesmeer;
+}
+
+function render() {
+  const t = ui[huidigeTaal];
+  const nu = new Date();
+  const huidigeMaand = nu.getMonth() + 1;
+  const huidigJaar = nu.getFullYear();
+
+  const filtered = activeFilter === 'all'
+    ? events
+    : events.filter(e => e.types.includes(activeFilter));
+
+  // Nu te zien: eindigt deze maand of eerder (maar nog niet voorbij)
+  const nuTeSien = filtered.filter(e => {
+    const eindJaar = e.eindMaandNr >= huidigeMaand ? huidigJaar : huidigJaar + 1;
+    const eindDatum = new Date(eindJaar, e.eindMaandNr - 1, e.eindDag);
+    return eindDatum >= nu && e.eindMaandNr <= huidigeMaand;
+  });
+
+  // Binnenkort: start of eindigt na deze maand
+  const binnenkort = filtered.filter(e => {
+    const eindJaar = e.eindMaandNr >= huidigeMaand ? huidigJaar : huidigJaar + 1;
+    const eindDatum = new Date(eindJaar, e.eindMaandNr - 1, e.eindDag);
+    return eindDatum >= nu && e.eindMaandNr > huidigeMaand;
+  });
+
+  const nuLabel = huidigeTaal === 'nl' ? 'Nu te zien' : 'On now';
+  const binnenkortLabel = huidigeTaal === 'nl' ? 'Binnenkort' : 'Coming soon';
+
+  const body = document.getElementById('tabel-body');
+
+  if (filtered.length === 0) {
+    body.innerHTML = `<tr class="geen-events"><td colspan="6">${t.geenEvents}</td></tr>`;
+    return;
+  }
+
+  let html = '';
+  let i = 0;
+
+  if (nuTeSien.length > 0) {
+    html += periodeHeader(nuLabel, false);
+    nuTeSien.forEach(e => { html += eventRij(e, i++); });
+  }
+
+  if (binnenkort.length > 0) {
+    html += periodeHeader(binnenkortLabel, true);
+    binnenkort.forEach(e => { html += eventRij(e, i++); });
+  }
+
+  body.innerHTML = html;
+}
+
+
+function periodeHeader(label, dimmed) {
+  return `<tr class="periode-rij"><td colspan="6">
+    <div class="periode-label${dimmed ? ' dimmed' : ''}">
+      <span class="periode-dot${dimmed ? ' dimmed' : ''}"></span>${label}
+    </div>
+  </td></tr>`;
+}
+
+function eventRij(e, i) {
+  const t = ui[huidigeTaal];
+  const descId = 'desc-' + i;
+  const eindTekst = e.eindDatum ? `<div class="td-eind">${t.tmLabel} ${e.eindDatum[huidigeTaal]}</div>` : '';
+  return `
+    <tr>
+      <td class="td-foto">
+        ${e.foto ? `<img src="${e.foto}" alt="${e.naam[huidigeTaal]}" loading="lazy">` : `<div class="td-foto-placeholder">${e.naam[huidigeTaal][0]}</div>`}
+      </td>
+      <td class="td-datum">
+        ${e.startDag}<small>${e.startMaand[huidigeTaal]} 2026</small>${eindTekst}
+        ${e.laatsteKans ? `<div class="laatste-kans-badge">${huidigeTaal === 'nl' ? 'Laatste kans' : 'Last chance'}</div>` : ''}
+      </td>
+      <td>
+        <div class="td-titel">${e.naam[huidigeTaal]}</div>
+        <div class="td-maker">${e.maker}</div>
+      </td>
+      <td>${e.types.map(tp => `<span class="type-tag">${typeVertalingen[huidigeTaal][tp] || tp}</span>`).join('')}</td>
+      <td>
+        <div class="td-stad">${e.stad}</div>
+        <div class="td-locatie">${e.locatie}</div>
+      </td>
+      <td class="uitklap-wrap">
+        <div class="logline">${e.logline[huidigeTaal]}</div>
+        ${e.beschrijving && e.beschrijving[huidigeTaal] ? `
+          <div class="beschrijving" id="${descId}">${e.beschrijving[huidigeTaal]}</div>
+          <button class="lees-meer" onclick="toggleBeschrijving(this, '${descId}')">${t.leesmeer}</button>
+        ` : ''}
+        ${e.link ? `<br><a href="${e.link}" class="td-link" target="_blank">${t.kaartjes}</a>` : ''}
+      </td>
+    </tr>`;
 }
 
 function toggleBeschrijving(btn, id) {
