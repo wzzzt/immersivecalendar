@@ -832,7 +832,7 @@
   }
 
   .ml-embedded .ml-form-embedSubmit button {
-    background: #FF3CAC !important;
+    background: linear-gradient(90deg, #FF3CAC, #00CFFF) !important;
     color: #ffffff !important;
     border-radius: 4px !important;
     font-family: 'DM Sans', sans-serif !important;
@@ -848,7 +848,7 @@
 
   .ml-embedded .ml-form-embedSubmit button:hover {
     opacity: 0.85 !important;
-    background: #FF3CAC !important;
+    background: linear-gradient(90deg, #FF3CAC, #00CFFF) !important;
   }
 
   .ml-embedded .ml-form-embedBody .ml-form-checkboxRow,
@@ -872,6 +872,20 @@
     display: flex !important;
     gap: 8px !important;
     flex-wrap: wrap !important;
+  }
+
+
+  .ml-embedded .ml-form-embedWrapper {
+    margin: 0 !important;
+    margin-left: 0 !important;
+  }
+
+  .ml-embedded .ml-form-align-center {
+    text-align: left !important;
+  }
+
+  .ml-embedded .ml-form-embedBody .ml-form-embedRow {
+    justify-content: flex-start !important;
   }
 
 </style>
@@ -943,17 +957,7 @@
   <div class="footer-nieuwsbrief">
     <strong id="nieuwsbrief-titel">Nieuwsbrief</strong>
     <p id="nieuwsbrief-tekst">Ontvang een maandelijks overzicht van nieuwe immersieve experiences in jouw mailbox.</p>
-    <!-- MailerLite formulier -->
-    <!-- STAP 1: Vervang JOUW_FORM_ID hieronder met jouw MailerLite Universal Form ID -->
-    <!-- STAP 2: Voeg deze script toe aan je pagina (eenmalig): -->
-    <!-- <script src="https://assets.mailerlite.com/js/universal.js"></script> -->
     <div class="ml-embedded" data-form="8FOkHv"></div>
-    <!-- Fallback als MailerLite nog niet gekoppeld is: -->
-    <div class="nieuwsbrief-form" id="fallback-form">
-      <input type="email" id="email-input" placeholder="jouw@emailadres.nl">
-      <button onclick="aanmelden()">Aanmelden</button>
-    </div>
-    <p id="form-feedback" style="display:none; font-size:14px; color:var(--white); margin-top:0.6rem;">Bedankt voor je aanmelding!</p>
   </div>
 </footer>
 <div class="footer-bottom" id="footer-bottom">
@@ -1446,5 +1450,18 @@ function updateHemellichaam() {
 updateHemellichaam();
 setInterval(updateHemellichaam, 60000);
 </script>
+
+<style>
+.ml-embedded .ml-form-embedSubmit button,
+.ml-embedded .ml-form-embedSubmit button.loading,
+#mlb2 .ml-form-embedSubmit button,
+.ml-subscribe-form .ml-submit-button {
+  background: linear-gradient(90deg, #FF3CAC, #00CFFF) !important;
+  background-color: transparent !important;
+  border: none !important;
+  color: #ffffff !important;
+}
+</style>
+
 </body>
 </html>
