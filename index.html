@@ -787,6 +787,93 @@
     opacity: 0.4;
   }
 
+
+  /* MailerLite widget override */
+  .ml-embedded {
+    max-width: 100% !important;
+  }
+
+  .ml-embedded .ml-form-embedWrapper {
+    background: transparent !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+
+  .ml-embedded .ml-form-embedBody {
+    padding: 0 !important;
+  }
+
+  .ml-embedded .ml-form-embedContent {
+    display: none !important;
+  }
+
+  .ml-embedded .ml-form-embedBody .ml-form-embedContent h4,
+  .ml-embedded .ml-form-embedBody .ml-form-embedContent p {
+    display: none !important;
+  }
+
+  .ml-embedded .ml-form-fieldRow input {
+    background: rgba(255,255,255,0.1) !important;
+    border: 1px solid rgba(255,255,255,0.3) !important;
+    color: #F2F2F0 !important;
+    border-radius: 4px !important;
+    font-family: 'DM Sans', sans-serif !important;
+    font-size: 14px !important;
+    padding: 10px 14px !important;
+    height: auto !important;
+  }
+
+  .ml-embedded .ml-form-fieldRow input::placeholder {
+    color: rgba(255,255,255,0.4) !important;
+  }
+
+  .ml-embedded .ml-form-embedSubmit button {
+    background: #FF3CAC !important;
+    color: #ffffff !important;
+    border-radius: 4px !important;
+    font-family: 'DM Sans', sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.06em !important;
+    text-transform: uppercase !important;
+    padding: 10px 20px !important;
+    height: auto !important;
+    border: none !important;
+    cursor: pointer !important;
+  }
+
+  .ml-embedded .ml-form-embedSubmit button:hover {
+    opacity: 0.85 !important;
+    background: #FF3CAC !important;
+  }
+
+  .ml-embedded .ml-form-embedBody .ml-form-checkboxRow,
+  .ml-embedded .ml-form-successBody {
+    padding: 0 !important;
+  }
+
+  .ml-embedded .ml-form-successBody .ml-form-successContent {
+    background: transparent !important;
+    padding: 0 !important;
+  }
+
+  .ml-embedded .ml-form-successBody .ml-form-successContent h4 {
+    color: #FF3CAC !important;
+    font-family: 'DM Sans', sans-serif !important;
+    font-size: 14px !important;
+    padding: 0 !important;
+  }
+
+  .ml-embedded .ml-form-embedBody .ml-form-embedRow {
+    display: flex !important;
+    gap: 8px !important;
+    flex-wrap: wrap !important;
+  }
+
 </style>
 </head>
 <body>
