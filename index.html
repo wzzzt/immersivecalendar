@@ -742,8 +742,87 @@
   }
 
   @media (max-width: 700px) {
-    .td-foto { display: none; }
+    header, .uitgelicht, .kalender, footer, .footer-bottom { padding-left: 1.2rem; padding-right: 1.2rem; }
+
+    /* Tabel wordt een card-stack op mobiel */
+    .tabel-wrap { overflow-x: visible; }
+
+    table, thead, tbody, tr, td { display: block; width: 100%; }
+
+    thead { display: none; }
+
+    tbody tr {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      background: var(--off);
+    }
+
+    tbody tr:hover { background: var(--off); }
+
+    /* Foto bovenaan de card */
+    .td-foto {
+      display: block !important;
+      width: 100%;
+      padding: 0;
+    }
+
+    .td-foto img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 0;
+    }
+
+    .td-foto-placeholder {
+      width: 100%;
+      height: 120px;
+      border-radius: 0;
+    }
+
+    /* Datum cel */
+    .td-datum {
+      padding: 0.8rem 1rem 0.3rem;
+      font-size: 1rem;
+    }
+
+    /* Titel cel */
+    tbody td:nth-child(3) {
+      padding: 0 1rem 0.3rem;
+    }
+
+    /* Type tags */
+    tbody td:nth-child(4) {
+      padding: 0 1rem 0.3rem;
+    }
+
+    /* Stad/locatie */
+    tbody td:nth-child(5) {
+      padding: 0 1rem 0.3rem;
+    }
+
+    /* Beschrijving/logline */
+    .uitklap-wrap {
+      padding: 0 1rem 1rem;
+      max-width: 100%;
+    }
+
+    /* Periode labels */
+    .periode-rij td { padding: 1.2rem 0 0.4rem; }
+
+    /* Over panel */
     .over-box { padding: 2rem 1.5rem; }
+
+    /* Header titel kleiner op mobiel */
+    h1 { font-size: clamp(2.2rem, 13vw, 4rem); }
+
+    /* Kalender header wrap */
+    .kalender-header { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
+
+    /* Filter wrap scrollen */
+    .filter-wrap { overflow-x: auto; flex-wrap: nowrap; padding-bottom: 4px; }
+    .filter-wrap::-webkit-scrollbar { display: none; }
   }
 
   .periode-rij td {
@@ -888,6 +967,9 @@
     justify-content: flex-start !important;
   }
 
+
+  /* duur override */
+  .td-duur { color: #FF3CAC !important; font-size: 11px !important; }
 </style>
 </head>
 <body>
@@ -973,20 +1055,13 @@ let activeFilter = 'all';
 const events = [
   {
     naam: { nl: "Still Processing", en: "Still Processing" },
-    startDag: 7, startMaandNr: 2,
-    eindDag: 30, eindMaandNr: 6,
+    startDag: 7, startMaandNr: 2, eindDag: 30, eindMaandNr: 6,
     startMaand: { nl: "Feb", en: "Feb" },
     eindDatum: { nl: "30 Jun", en: "Jun 30" },
     maker: "Curated by Bogomir Doringer",
-    laatsteKans: true,
-    logline: {
-      nl: "Still Processing onderzoekt hoe mensen en technologie data omzetten in betekenis.",
-      en: "Still Processing explores how people and technology translate data into meaning."
-    },
-    beschrijving: {
-      nl: "Still Processing onderzoekt hoe mensen en technologie data omzetten in betekenis. Hoe navigeren we tussen het rationele en het emotionele? De tentoonstelling duikt in de vervlakking van beelden, de mentale afdrukken van bewegend licht en hoe AI digitale werelden laat evolueren. Verspreid over zeven grootschalige, immersieve installaties en drie kleinere ruimtes.",
-      en: "Still Processing explores how people and technology translate data into meaning. How do we navigate between the rational and the emotional? The exhibition delves into the flattening of images, the mental imprints left by moving light, and how AI evolves digitally created worlds and characters. Spread across seven large-scale, immersive installations and three smaller transitional spaces."
-    },
+    duur: "90 min", laatsteKans: true,
+    logline: { nl: "Still Processing onderzoekt hoe mensen en technologie data omzetten in betekenis.", en: "Still Processing explores how people and technology translate data into meaning." },
+    beschrijving: { nl: "Still Processing onderzoekt hoe mensen en technologie data omzetten in betekenis. Hoe navigeren we tussen het rationele en het emotionele? Verspreid over zeven grootschalige, immersieve installaties en drie kleinere ruimtes.", en: "Still Processing explores how people and technology translate data into meaning. How do we navigate between the rational and the emotional? Spread across seven large-scale, immersive installations and three smaller transitional spaces." },
     stad: "Amsterdam", locatie: "NXT Museum",
     types: ["Tentoonstelling", "Digitale kunst", "Immersief"],
     foto: "/images/stillprocessing.jpg",
@@ -995,19 +1070,13 @@ const events = [
   },
   {
     naam: { nl: "Amsterdam 1652", en: "Amsterdam 1652" },
-    startDag: 21, startMaandNr: 5,
-    eindDag: 31, eindMaandNr: 12,
+    startDag: 21, startMaandNr: 5, eindDag: 31, eindMaandNr: 12,
     startMaand: { nl: "Mei", en: "May" },
     eindDatum: { nl: "31 Dec 2028", en: "Dec 31 2028" },
     maker: "Nienke Huitenga Broeren & ENTR",
-    logline: {
-      nl: "Een ontmoeting met drie Amsterdammers in 1652.",
-      en: "An encounter with three Amsterdam residents in 1652."
-    },
-    beschrijving: {
-      nl: "Loop samen door Amsterdam van de 17e eeuw, gezien door de ogen van haar bewoners. Van het IJ tot de Dam ontdek je hoe mensen leefden, werkten en samenkwamen. Een gedeelde VR-ervaring waarin je de stad niet bekijkt, maar zelf betreedt.",
-      en: "Walk through 17th-century Amsterdam through the eyes of its inhabitants. From the IJ to the Dam, discover how people lived, worked and gathered. A shared VR experience in which you don't observe the city — you enter it."
-    },
+    duur: "45 min",
+    logline: { nl: "Een ontmoeting met drie Amsterdammers in 1652.", en: "An encounter with three Amsterdam residents in 1652." },
+    beschrijving: { nl: "Loop samen door Amsterdam van de 17e eeuw, gezien door de ogen van haar bewoners. Van het IJ tot de Dam ontdek je hoe mensen leefden, werkten en samenkwamen. Een gedeelde VR-ervaring waarin je de stad niet bekijkt, maar zelf betreedt.", en: "Walk through 17th-century Amsterdam through the eyes of its inhabitants. A shared VR experience in which you don't observe the city — you enter it." },
     stad: "Amsterdam", locatie: "ENTR",
     types: ["XR"],
     foto: "/images/kade.jpeg",
@@ -1016,20 +1085,13 @@ const events = [
   },
   {
     naam: { nl: "Conversations", en: "Conversations" },
-    startDag: 4, startMaandNr: 6,
-    eindDag: 6, eindMaandNr: 6,
+    startDag: 4, startMaandNr: 6, eindDag: 6, eindMaandNr: 6,
     startMaand: { nl: "Jun", en: "Jun" },
     eindDatum: { nl: "6 Jun", en: "Jun 6" },
     maker: "Paul Boereboom & Leon Rogissart",
-    laatsteKans: true,
-    logline: {
-      nl: "Zintuiglijke XR-performance waarin beweging, muziek en technologie samensmelten.",
-      en: "A sensory XR performance in which movement, music and technology merge."
-    },
-    beschrijving: {
-      nl: "Conversations is een gelaagde ontmoeting tussen fysieke en digitale realiteiten. Met behulp van extended reality vloeien tastbare en virtuele werelden in elkaar over. Licht en geluid rekken de grenzen van de ruimte op, vervormen perspectieven en creëren een omgeving waarin toeschouwers niet enkel kijken, maar actief deelnemen.",
-      en: "Conversations is a layered encounter between physical and digital realities. Using extended reality, tangible and virtual worlds merge. Light and sound stretch the boundaries of space, distorting perspectives and creating an environment where audiences don't just watch — they actively participate."
-    },
+    duur: null, laatsteKans: true,
+    logline: { nl: "Zintuiglijke XR-performance waarin beweging, muziek en technologie samensmelten.", en: "A sensory XR performance in which movement, music and technology merge." },
+    beschrijving: { nl: "Conversations is een gelaagde ontmoeting tussen fysieke en digitale realiteiten. Met behulp van extended reality vloeien tastbare en virtuele werelden in elkaar over. Licht en geluid rekken de grenzen van de ruimte op, vervormen perspectieven en creëren een omgeving waarin toeschouwers niet enkel kijken, maar actief deelnemen.", en: "Conversations is a layered encounter between physical and digital realities. Light and sound stretch the boundaries of space, distorting perspectives and creating an environment where audiences don't just watch — they actively participate." },
     stad: "Amsterdam", locatie: "Frascati",
     types: ["XR", "Performatief"],
     foto: "/images/conversations.png",
@@ -1038,19 +1100,13 @@ const events = [
   },
   {
     naam: { nl: "Messages to a Posthuman Earth", en: "Messages to a Posthuman Earth" },
-    startDag: 10, startMaandNr: 6,
-    eindDag: 1, eindMaandNr: 7,
+    startDag: 10, startMaandNr: 6, eindDag: 1, eindMaandNr: 7,
     startMaand: { nl: "Jun", en: "Jun" },
     eindDatum: { nl: "1 Jul", en: "Jul 1" },
     maker: "Anagram",
-    logline: {
-      nl: "Een interactieve, multi-sensorische audioreis voor twee door een tuin om jullie relatie met de natuur te herdenken.",
-      en: "An interactive, multi-sensory audio journey for two through a garden to reimagine your relationship with the natural world."
-    },
-    beschrijving: {
-      nl: "In een echte tuin ontdekken jij en je partner dat de natuur een hoorend, levend wezen is, zintuiglijk alert net als jullie. Audio-vertelling en AR-content nodigen uit tot bezinning op de levende omgeving en een toekomstige wereld zonder mensen.",
-      en: "In a real garden, you and your partner discover that the natural world is a hearing, living thing, sensorially alert just as you are. Audio narration and AR content combine to invite musing on the living environment and a future world in which humans will no longer be present."
-    },
+    duur: "45 min",
+    logline: { nl: "Een interactieve, multi-sensorische audioreis voor twee door een tuin om jullie relatie met de natuur te herdenken.", en: "An interactive, multi-sensory audio journey for two through a garden to reimagine your relationship with the natural world." },
+    beschrijving: { nl: "In een echte tuin ontdekken jij en je partner dat de natuur een hoorend, levend wezen is. Audio-vertelling en AR-content nodigen uit tot bezinning op de levende omgeving en een toekomstige wereld zonder mensen.", en: "In a real garden, you and your partner discover that the natural world is a hearing, living thing. Audio narration and AR content invite musing on the living environment and a future world without humans." },
     stad: "Amsterdam", locatie: "Vondelpark",
     types: ["Geluid", "In de natuur", "Performatief"],
     foto: "/images/anagram.jpg",
@@ -1059,19 +1115,13 @@ const events = [
   },
   {
     naam: { nl: "Only Expansion", en: "Only Expansion" },
-    startDag: 10, startMaandNr: 6,
-    eindDag: 24, eindMaandNr: 6,
+    startDag: 10, startMaandNr: 6, eindDag: 24, eindMaandNr: 6,
     startMaand: { nl: "Jun", en: "Jun" },
     eindDatum: { nl: "24 Jun", en: "Jun 24" },
     maker: "Duncan Speakman",
-    logline: {
-      nl: "Met real-time audiosoftware daagt deze site-responsieve audiotour deelnemers uit na te denken over hoe onze relatie met het landschap verandert door milieuverstoring.",
-      en: "Using real-time audio software, this site-responsive audio tour prompts participants to consider how our relation to the landscape is being altered by rapid environmental change."
-    },
-    beschrijving: {
-      nl: "In deze audiotour beweeg je door de vertrouwde paden van de stad. Real-time audiosoftware mixt het stadsgeluid met opnames van de klimaatcrisis wereldwijd — woekerende bosbranden, afbrokkelende kliffen, stijgende zeeën. Een poëtische reflectie op de veranderende stedelijke omgeving. Dit is een Engelstalige ervaring die je naar buiten brengt.",
-      en: "Make your way through the familiar tracks of the city. Real-time audio software remixes the sound of the city with recordings of rapid environmental change in progress: rampant wildfires, the crumbling cliffs of England's east coast, rising seas around Norway. A poetic reflection that endows the shifting urban environment with both tenderness and grief. This is an English-language experience that will take you outside."
-    },
+    duur: "40 min",
+    logline: { nl: "Met real-time audiosoftware daagt deze audiotour deelnemers uit na te denken over hoe onze relatie met het landschap verandert.", en: "Using real-time audio software, this site-responsive audio tour prompts participants to consider how our relation to the landscape is being altered by environmental change." },
+    beschrijving: { nl: "Real-time audiosoftware mixt het stadsgeluid met opnames van de klimaatcrisis wereldwijd — woekerende bosbranden, afbrokkelende kliffen, stijgende zeeën. Een poëtische reflectie op de veranderende stedelijke omgeving. Dit is een Engelstalige ervaring die je naar buiten brengt.", en: "Real-time audio software remixes the sound of the city with recordings of rapid environmental change: rampant wildfires, crumbling cliffs, rising seas. A poetic reflection that endows the shifting urban environment with both tenderness and grief. This is an English-language experience that will take you outside." },
     stad: "Amsterdam", locatie: "Het Documentaire Paviljoen",
     types: ["Audiowalk", "Stad"],
     foto: "/images/1920.jpg",
@@ -1080,19 +1130,13 @@ const events = [
   },
   {
     naam: { nl: "Dreamscapes", en: "Dreamscapes" },
-    startDag: 19, startMaandNr: 6,
-    eindDag: 19, eindMaandNr: 6,
+    startDag: 19, startMaandNr: 6, eindDag: 19, eindMaandNr: 6,
     startMaand: { nl: "Jun", en: "Jun" },
     eindDatum: null,
     maker: "Anna van Nieukerken, Claire Adams, Els Mondelaers, Jacqueline Hamelink",
-    logline: {
-      nl: "Dreamscapes is een intieme immersieve performance waarin nieuwe muziek, beweging en zintuiglijke ervaring samensmelten tot een ruimte waarin we kunnen dromen.",
-      en: "Dreamscapes is an intimate immersive performance in which new music, movement and sensory experience merge into a space where we can dream."
-    },
-    beschrijving: {
-      nl: "Grote veranderingen beginnen vaak met een droom. Toch raken dromen en verbeelding steeds meer op de achtergrond in een cultuur van controle en efficiëntie. Vertrekkend vanuit John Cage's In a Landscape ontvouwt zich een gelaagd klank- en bewegingslandschap. Vier performers gidsen maximaal 50 bezoekers door een cyclische droomwereld waarin klank, licht, geur en aanraking samenkomen.",
-      en: "Great changes often begin with a dream. Yet dreams and imagination are increasingly pushed to the background in a culture of control and efficiency. Departing from John Cage's In a Landscape, four performers guide up to 50 visitors through a cyclical dream world where sound, light, scent and touch come together."
-    },
+    duur: "75 min",
+    logline: { nl: "Dreamscapes is een intieme immersieve performance waarin nieuwe muziek, beweging en zintuiglijke ervaring samensmelten tot een ruimte waarin we kunnen dromen.", en: "Dreamscapes is an intimate immersive performance in which new music, movement and sensory experience merge into a space where we can dream." },
+    beschrijving: { nl: "Vertrekkend vanuit John Cage's In a Landscape ontvouwt zich een gelaagd klank- en bewegingslandschap. Vier performers gidsen maximaal 50 bezoekers door een cyclische droomwereld waarin klank, licht, geur en aanraking samenkomen. Componist Aart Strootman verweeft Cage's toonmateriaal tot een ruimtelijke akoestische droomruimte.", en: "Departing from John Cage's In a Landscape, four performers guide up to 50 visitors through a cyclical dream world where sound, light, scent and touch come together." },
     stad: "Nijmegen", locatie: "Stevenskerk",
     types: ["Zintuiglijk", "Muziek", "Performatief"],
     foto: null,
@@ -1101,19 +1145,13 @@ const events = [
   },
   {
     naam: { nl: "Traversing the Mist", en: "Traversing the Mist" },
-    startDag: 12, startMaandNr: 7,
-    eindDag: 27, eindMaandNr: 7,
+    startDag: 12, startMaandNr: 7, eindDag: 27, eindMaandNr: 7,
     startMaand: { nl: "Jul", en: "Jul" },
     eindDatum: { nl: "27 Jul", en: "Jul 27" },
     maker: "CHOU Tung-yen",
-    logline: {
-      nl: "In een surreëel droomlandschap vind je jezelf belichaamd in een ander lichaam — geweven door verlangens, opwinding en angsten.",
-      en: "Inside a surreal dreamscape you find yourself embodied in another body — woven by desires, excitements, and fears."
-    },
-    beschrijving: {
-      nl: "Terwijl je elke verdieping, gang en kamer doorloopt, valt elke laag van het labyrint onomkeerbaar uiteen. Uiteindelijk verdwijnt alles. CHOU Tung-Yen verlegt de grenzen van real-time XR-technologie. Wereldpremière IDFA DocLAB 2023, in competitie Cannes, Grand Prize NewImages Paris.",
-      en: "As you walk along every floor, corridor, and room, each layer of the maze irreversibly unravels behind your back. Eventually, everything disappears. World première IDFA DocLAB 2023, competed in Cannes, Grand Prize NewImages Paris."
-    },
+    duur: "35 min",
+    logline: { nl: "In een surreëel droomlandschap vind je jezelf belichaamd in een ander lichaam — geweven door verlangens, opwinding en angsten.", en: "Inside a surreal dreamscape you find yourself embodied in another body — woven by desires, excitements, and fears." },
+    beschrijving: { nl: "Terwijl je elke verdieping, gang en kamer doorloopt, valt elke laag van het labyrint onomkeerbaar uiteen. Uiteindelijk verdwijnt alles. Wereldpremière IDFA DocLAB 2023, in competitie Cannes, Grand Prize NewImages Paris.", en: "As you walk along every floor, corridor, and room, each layer of the maze irreversibly unravels behind your back. World première IDFA DocLAB 2023, competed in Cannes, Grand Prize NewImages Paris." },
     stad: "Amsterdam", locatie: "Podium Mozaïek",
     types: ["XR", "Performatief"],
     foto: "/images/traversing.png",
@@ -1122,19 +1160,13 @@ const events = [
   },
   {
     naam: { nl: "Dreamscapes", en: "Dreamscapes" },
-    startDag: 20, startMaandNr: 9,
-    eindDag: 20, eindMaandNr: 9,
+    startDag: 20, startMaandNr: 9, eindDag: 20, eindMaandNr: 9,
     startMaand: { nl: "Sep", en: "Sep" },
     eindDatum: null,
     maker: "Anna van Nieukerken, Claire Adams, Els Mondelaers, Jacqueline Hamelink",
-    logline: {
-      nl: "Dreamscapes is een intieme immersieve performance waarin nieuwe muziek, beweging en zintuiglijke ervaring samensmelten tot een ruimte waarin we kunnen dromen.",
-      en: "Dreamscapes is an intimate immersive performance in which new music, movement and sensory experience merge into a space where we can dream."
-    },
-    beschrijving: {
-      nl: "Grote veranderingen beginnen vaak met een droom. Toch raken dromen en verbeelding steeds meer op de achtergrond in een cultuur van controle en efficiëntie. Vertrekkend vanuit John Cage's In a Landscape ontvouwt zich een gelaagd klank- en bewegingslandschap. Vier performers gidsen maximaal 50 bezoekers door een cyclische droomwereld waarin klank, licht, geur en aanraking samenkomen.",
-      en: "Great changes often begin with a dream. Yet dreams and imagination are increasingly pushed to the background in a culture of control and efficiency. Four performers guide up to 50 visitors through a cyclical dream world where sound, light, scent and touch come together."
-    },
+    duur: "75 min",
+    logline: { nl: "Dreamscapes is een intieme immersieve performance waarin nieuwe muziek, beweging en zintuiglijke ervaring samensmelten tot een ruimte waarin we kunnen dromen.", en: "Dreamscapes is an intimate immersive performance in which new music, movement and sensory experience merge into a space where we can dream." },
+    beschrijving: { nl: "Vertrekkend vanuit John Cage's In a Landscape ontvouwt zich een gelaagd klank- en bewegingslandschap. Vier performers gidsen maximaal 50 bezoekers door een cyclische droomwereld waarin klank, licht, geur en aanraking samenkomen.", en: "Departing from John Cage's In a Landscape, four performers guide up to 50 visitors through a cyclical dream world where sound, light, scent and touch come together." },
     stad: "Tilburg", locatie: "Theater de Nieuwe Vorst",
     types: ["Zintuiglijk", "Muziek", "Performatief"],
     foto: null,
@@ -1257,6 +1289,7 @@ function buildUitgelicht() {
         ` : ''}
         <div class="card-meta">
           <span>${e.startDag} ${e.startMaand[huidigeTaal]}${e.eindDatum ? ' — ' + e.eindDatum[huidigeTaal] : ''} · ${e.stad}</span>
+          ${e.duur ? `<span class="td-duur"><span style="opacity:0.6">◷</span> ${e.duur}</span>` : ''}
           <a href="${e.link}" class="card-link" target="_blank">${t.kaartjes}</a>
         </div>
       </div>
@@ -1400,1472 +1433,7 @@ function eventRij(e, i) {
       <td>
         <div class="td-stad">${e.stad}</div>
         <div class="td-locatie">${e.locatie}</div>
-      </td>
-      <td class="uitklap-wrap">
-        <div class="logline">${e.logline[huidigeTaal]}</div>
-        ${e.beschrijving && e.beschrijving[huidigeTaal] ? `
-          <div class="beschrijving" id="${descId}">${e.beschrijving[huidigeTaal]}</div>
-          <button class="lees-meer" onclick="toggleBeschrijving(this, '${descId}')">${t.leesmeer}</button>
-        ` : ''}
-        ${e.link ? `<br><a href="${e.link}" class="td-link" target="_blank">${t.kaartjes}</a>` : ''}
-      </td>
-    </tr>`;
-}
-
-function toggleCard(btn, id) {
-  const el = document.getElementById(id);
-  const open = el.style.display === 'block';
-  el.style.display = open ? 'none' : 'block';
-  btn.textContent = open
-    ? (huidigeTaal === 'nl' ? 'Lees meer ↓' : 'Read more ↓')
-    : (huidigeTaal === 'nl' ? 'Minder ↑' : 'Less ↑');
-}
-
-function toggleBeschrijving(btn, id) {
-  const el = document.getElementById(id);
-  const open = el.classList.toggle('open');
-  btn.textContent = open ? ui[huidigeTaal].leesminder : ui[huidigeTaal].leesmeer;
-}
-
-function openOver(e) {
-  e.preventDefault();
-  document.getElementById('over-panel').classList.add('open');
-}
-
-function sluitOver(e) {
-  if (e.target === document.getElementById('over-panel')) {
-    document.getElementById('over-panel').classList.remove('open');
-  }
-}
-
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') document.getElementById('over-panel').classList.remove('open');
-});
-
-function setLang(lang, btn) {
-  huidigeTaal = lang;
-  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  document.documentElement.lang = lang;
-  updateStaticUI();
-  buildFilters();
-  buildUitgelicht();
-  render();
-}
-
-function aanmelden() {
-  const input = document.getElementById('email-input');
-  if (input.value && input.value.includes('@')) {
-    document.getElementById('form-feedback').style.display = 'block';
-    input.value = '';
-  } else {
-    input.focus();
-  }
-}
-
-// Init
-updateStaticUI();
-buildFilters();
-buildUitgelicht();
-render();
-
-// Zon en maan
-function updateHemellichaam() {
-  const wrap = document.getElementById('hemellichaam-wrap');
-  if (!wrap) return;
-  const nu = new Date();
-  const uur = nu.getUTCHours() + 2; // CEST = UTC+2
-  const isZon  = uur >= 7  && uur < 10;
-  const isMaan = uur >= 21 || uur < 3;
-  if (isZon) {
-    wrap.style.display = 'block';
-    wrap.innerHTML = '<div class="zon"></div>';
-  } else if (isMaan) {
-    wrap.style.display = 'block';
-    wrap.innerHTML = '<div class="maan"></div>';
-  } else {
-    wrap.style.display = 'none';
-    wrap.innerHTML = '';
-  }
-}
-
-updateHemellichaam();
-setInterval(updateHemellichaam, 60000);
-</script>
-
-<style>
-.ml-embedded .ml-form-embedSubmit button,
-.ml-embedded .ml-form-embedSubmit button.loading,
-#mlb2 .ml-form-embedSubmit button,
-.ml-subscribe-form .ml-submit-button {
-  background: linear-gradient(90deg, #FF3CAC, #00CFFF) !important;
-  background-color: transparent !important;
-  border: none !important;
-  color: #ffffff !important;
-}
-</style>
-
-</body>
-</html><!DOCTYPE html>
-<html lang="nl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Immersieve Kunst Agenda</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,700;1,900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<!-- MailerLite Universal -->
-<script>
-    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
-    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
-    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
-    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
-    ml('account', '2408149');
-</script>
-<!-- End MailerLite Universal -->
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --green:  #FF3CAC;
-    --pink:   #FF3CAC;
-    --blue:   #FF3CAC;
-    --ink:    #141414;
-    --white:  #F2F2F0;
-    --off:    #1E1E1E;
-    --muted:  #777777;
-    --border: #2C2C2C;
-  }
-
-  body {
-    background: var(--ink);
-    color: var(--white);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    font-size: 17px;
-    line-height: 1.6;
-
-  }
-
-  /* ── HEADER ── */
-  header {
-    background: var(--ink);
-    border-bottom: 1px solid var(--border);
-    padding: clamp(1.2rem, 3vw, 2rem) clamp(1.2rem, 4vw, 3rem);
-  }
-
-  .header-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: clamp(0.5rem, 1.5vw, 0.8rem);
-  }
-
-  .header-label {
-    font-size: 13px;
-    font-weight: 300;
-    letter-spacing: 0.01em;
-    color: rgba(255,255,255,0.5);
-    font-style: italic;
-    max-width: 60%;
-  }
-
-  .header-right {
-    display: flex;
-    align-items: center;
-    gap: 1.2rem;
-  }
-
-  .header-about {
-    font-size: 14px;
-    color: rgba(255,255,255,0.7);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-  .header-about:hover { color: var(--white); }
-
-  /* TAALSWITCH */
-  .lang-switch {
-    display: flex;
-    gap: 0;
-    border: 1px solid rgba(255,255,255,0.35);
-    border-radius: 100px;
-    overflow: hidden;
-  }
-
-  .lang-btn {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 12px;
-    font-weight: 400;
-    letter-spacing: 0.08em;
-    padding: 4px 12px;
-    background: transparent;
-    color: rgba(255,255,255,0.6);
-    border: none;
-    cursor: pointer;
-    transition: all 0.15s;
-  }
-
-  .lang-btn.active {
-    background: var(--green);
-    color: var(--ink);
-  }
-
-  .lang-btn:hover:not(.active) { color: var(--white); }
-
-  h1 {
-    font-family: 'Fraunces', serif;
-    font-weight: 900;
-    font-size: clamp(3rem, 10vw, 9rem);
-    line-height: 0.88;
-    color: var(--white);
-    letter-spacing: -0.03em;
-    text-transform: uppercase;
-  }
-
-  h1 em { font-style: italic; color: var(--pink); }
-
-
-
-  /* ── UITGELICHT ── */
-  .uitgelicht {
-    padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1.2rem, 4vw, 3rem);
-    border-bottom: 1px solid var(--border);
-    background: #1A1418;
-  }
-
-  .section-label-wrap {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--pink);
-    color: #fff;
-    padding: 4px 14px 4px 10px;
-    border-radius: 100px;
-    margin-bottom: 1.4rem;
-  }
-
-  .section-label-wrap .dot {
-    width: 7px; height: 7px;
-    border-radius: 50%;
-    background: #fff;
-    opacity: 0.8;
-  }
-
-  .section-label-wrap span {
-    font-size: 11px;
-    font-weight: 400;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-
-  .section-label {
-    font-size: 13px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 1.2rem;
-  }
-
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-  }
-
-  .card {
-    background: #1A1A1A;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    transition: background 0.15s;
-  }
-
-  .card:hover { background: #181818; }
-  .featured-card .card-tag { color: var(--blue); }
-  .featured-card .card-link { color: var(--blue); }
-  .featured-card:hover { box-shadow: 0 0 0 1px rgba(77,255,255,0.2) inset; }
-
-  .card-img {
-    width: 100%;
-    aspect-ratio: 3/2;
-    overflow: hidden;
-    background: #1E1E1E;
-  }
-
-  .card-img img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.5s ease;
-  }
-
-  .card:hover .card-img img { transform: scale(1.03); }
-
-  .card-body {
-    padding: 1.6rem 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.7rem;
-    flex: 1;
-  }
-
-  .card-tag {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 0.3rem;
-  }
-
-  .card-tag-item {
-    font-size: 10px;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
-    color: var(--pink);
-    font-weight: 400;
-    border: 1px solid var(--pink);
-    border-radius: 100px;
-    padding: 3px 12px;
-    white-space: nowrap;
-    display: inline-block;
-  }
-
-  .card-maker {
-    font-size: 14px;
-    color: var(--white);
-  }
-
-  .card-title {
-    font-family: 'Fraunces', serif;
-    font-weight: 900;
-    font-style: italic;
-    font-size: clamp(1.5rem, 3vw, 2.1rem);
-    line-height: 1.1;
-    letter-spacing: -0.01em;
-    color: var(--white);
-  }
-
-  .card-desc {
-    font-size: 15px;
-    line-height: 1.7;
-    color: var(--white);
-    flex: 1;
-  }
-
-  .card-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 14px;
-    color: var(--white);
-    padding-top: 1rem;
-    border-top: 1px solid var(--border);
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-
-  .card-link {
-    font-size: 13px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--pink);
-    text-decoration: none;
-    font-weight: 400;
-  }
-  .card-link:hover { text-decoration: underline; }
-
-  .card-leesmeer {
-    display: block;
-    margin-top: 0.3rem;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--pink);
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    font-weight: 400;
-    text-align: left;
-  }
-  .card-leesmeer:hover { text-decoration: underline; }
-
-  /* ── KALENDER ── */
-  .kalender {
-    padding: 0 clamp(1.2rem, 4vw, 3rem) 3rem;
-  }
-
-  .kalender-header {
-    padding: 1.8rem 0 1.4rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-    border-bottom: 1px solid transparent;
-    background-image: linear-gradient(var(--ink), var(--ink)), linear-gradient(90deg, var(--blue), var(--pink));
-    background-origin: border-box;
-    background-clip: padding-box, border-box;
-    border-image: linear-gradient(90deg, var(--green), var(--pink)) 1;
-    border-bottom-width: 2px;
-    border-bottom-style: solid;
-  }
-
-  .kalender-header h2 {
-    font-family: 'Fraunces', serif;
-    font-weight: 900;
-    font-size: clamp(1.3rem, 3vw, 2rem);
-    letter-spacing: -0.01em;
-    text-transform: uppercase;
-  }
-
-  .filter-wrap { display: flex; gap: 5px; flex-wrap: wrap; }
-
-  .filter-btn {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 13px;
-    font-weight: 400;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    padding: 6px 15px;
-    border-radius: 100px;
-    border: 1px solid var(--border);
-    background: transparent;
-    color: var(--muted);
-    cursor: pointer;
-    transition: all 0.15s;
-    white-space: nowrap;
-  }
-
-  .filter-btn:hover { border-color: var(--pink); color: var(--pink); }
-  .filter-btn.active { background: var(--pink); border-color: var(--pink); color: var(--white); }
-
-  /* ── TABEL ── */
-  .tabel-wrap { width: 100%; overflow-x: auto; }
-
-  table { width: 100%; border-collapse: collapse; }
-
-  thead th {
-    font-size: 12px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--muted);
-    font-weight: 400;
-    text-align: left;
-    padding: 1rem 1rem 0.8rem;
-    border-bottom: 1px solid var(--border);
-    white-space: nowrap;
-  }
-
-  tbody tr { border-bottom: 1px solid var(--border); transition: background 0.12s; }
-  tbody tr:hover { background: rgba(77,255,255,0.03); }
-  tbody td { padding: 1.1rem 1rem; vertical-align: top; }
-
-  .td-foto { width: 160px; padding: 0.7rem 1rem 0.7rem 0; }
-
-  .td-foto img {
-    width: 160px;
-    height: 110px;
-    object-fit: cover;
-    display: block;
-    border-radius: 4px;
-    background: #1E1E1E;
-  }
-
-  .td-foto-placeholder {
-    width: 160px;
-    height: 110px;
-    background: #1E1E1E;
-    border-radius: 3px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-size: 1.4rem;
-    color: var(--green);
-  }
-
-  .td-datum {
-    font-family: 'Fraunces', serif;
-    font-weight: 700;
-    font-size: 1.2rem;
-    color: var(--pink);
-    white-space: nowrap;
-    min-width: 75px;
-  }
-
-  .td-datum small {
-    display: block;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 12px;
-    font-weight: 300;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--white);
-    margin-top: 2px;
-  }
-
-  .td-eind {
-    font-size: 12px;
-    color: var(--muted);
-    font-style: italic;
-    margin-top: 3px;
-  }
-
-  .td-titel {
-    font-family: 'Fraunces', serif;
-    font-weight: 700;
-    font-style: italic;
-    font-size: 1.1rem;
-    color: var(--white);
-    line-height: 1.2;
-    min-width: 160px;
-  }
-
-  .td-maker {
-    font-size: 13px;
-    color: var(--white);
-    margin-top: 3px;
-  }
-
-  .type-tag {
-    display: inline-block;
-    font-size: 11px;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-    padding: 3px 10px;
-    border-radius: 100px;
-    border: 1px solid var(--border);
-    color: var(--pink);
-    border-color: rgba(255,60,172,0.3);
-    margin: 2px 2px 2px 0;
-    white-space: nowrap;
-  }
-
-  .td-stad {
-    font-size: 15px;
-    color: var(--white);
-  }
-
-  .td-locatie {
-    font-size: 13px;
-    color: var(--white);
-    margin-top: 3px;
-  }
-
-  .uitklap-wrap { min-width: 200px; max-width: 340px; }
-
-  .logline {
-    font-size: 15px;
-    color: var(--white);
-    line-height: 1.6;
-  }
-
-  .beschrijving {
-    font-size: 14px;
-    color: var(--white);
-    line-height: 1.75;
-    margin-top: 8px;
-    display: none;
-  }
-
-  .beschrijving.open { display: block; }
-
-  .lees-meer {
-    display: inline-block;
-    margin-top: 8px;
-    font-size: 13px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--pink);
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 400;
-  }
-
-  .lees-meer:hover { text-decoration: underline; }
-
-  .td-link {
-    display: inline-block;
-    margin-top: 10px;
-    font-size: 12px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--white);
-    background: var(--pink);
-    padding: 5px 14px;
-    border-radius: 100px;
-    text-decoration: none;
-    font-weight: 400;
-    white-space: nowrap;
-  }
-
-  .td-link:hover { opacity: 0.85; }
-
-  .geen-events td {
-    padding: 2.5rem 1rem;
-    font-size: 15px;
-    color: #ccc;
-    font-style: italic;
-  }
-
-  /* ── FOOTER ── */
-  footer {
-    background: #111111;
-    border-top: 1px solid var(--border);
-    padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1.2rem, 4vw, 3rem);
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
-    gap: 2rem;
-  }
-
-
-
-  .footer-disclaimer strong {
-    display: block;
-    font-size: 13px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--pink);
-    font-weight: 400;
-    margin-bottom: 0.6rem;
-  }
-
-  .footer-nieuwsbrief strong {
-    display: block;
-    font-size: 13px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--pink);
-    font-weight: 400;
-    margin-bottom: 0.6rem;
-  }
-
-  .footer-disclaimer p {
-    font-size: 14px;
-    line-height: 1.7;
-    color: var(--muted);
-  }
-
-  .footer-nieuwsbrief p {
-    font-size: 14px;
-    color: var(--muted);
-    margin-bottom: 1rem;
-    line-height: 1.6;
-  }
-
-  .nieuwsbrief-form { display: flex; gap: 8px; flex-wrap: wrap; }
-
-  .nieuwsbrief-form input {
-    flex: 1;
-    min-width: 180px;
-    padding: 10px 16px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 15px;
-    font-weight: 300;
-    border: 1px solid rgba(255,255,255,0.4);
-    background: rgba(255,255,255,0.15);
-    color: var(--white);
-    border-radius: 4px;
-    outline: none;
-    transition: border-color 0.2s;
-  }
-
-  .nieuwsbrief-form input::placeholder { color: rgba(255,255,255,0.45); }
-  .nieuwsbrief-form input:focus { border-color: rgba(255,255,255,0.9); }
-
-  .nieuwsbrief-form button {
-    padding: 10px 22px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    background: var(--pink);
-    color: var(--white);
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: opacity 0.2s;
-    white-space: nowrap;
-  }
-
-  .nieuwsbrief-form button:hover { opacity: 0.85; }
-
-  #form-feedback {
-    font-size: 14px;
-    color: var(--white);
-    margin-top: 0.6rem;
-    display: none;
-  }
-
-  .footer-bottom {
-    background: #111111;
-    border-top: 1px solid var(--border);
-    padding: 1rem clamp(1.2rem, 4vw, 3rem);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 13px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--muted);
-    flex-wrap: wrap;
-    gap: 6px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hemellichaam-wrap {
-    position: absolute;
-    bottom: -28px;
-    left: 50%;
-    transform: translateX(-50%);
-    pointer-events: none;
-  }
-
-  .zon {
-    width: 56px; height: 56px;
-    border-radius: 50%;
-    background: radial-gradient(circle, #FFE566 30%, #FFB800 70%, transparent 100%);
-    box-shadow: 0 0 28px 8px rgba(255,200,0,0.35);
-    animation: opkomen 1.8s cubic-bezier(0.22,1,0.36,1) forwards;
-  }
-
-  .maan {
-    width: 48px; height: 48px;
-    border-radius: 50%;
-    background: radial-gradient(circle at 35% 35%, #E8E8D8 40%, #B0B098 100%);
-    box-shadow: 0 0 22px 6px rgba(200,200,160,0.25);
-    animation: opkomen 2s cubic-bezier(0.22,1,0.36,1) forwards;
-  }
-
-  @keyframes opkomen {
-    from { transform: translateY(40px); opacity: 0; }
-    to   { transform: translateY(0);    opacity: 1; }
-  }
-
-  /* Over/About uitklap */
-  .over-panel {
-    display: none;
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    z-index: 1000;
-    background: rgba(18,19,26,0.85);
-    backdrop-filter: blur(8px);
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-  }
-
-  .over-panel.open { display: flex; }
-
-  .over-box {
-    background: var(--off);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 2.5rem 3rem;
-    max-width: 560px;
-    width: 100%;
-    position: relative;
-  }
-
-  .over-box h3 {
-    font-family: 'Fraunces', serif;
-    font-weight: 900;
-    font-style: italic;
-    font-size: clamp(1.5rem, 4vw, 2.2rem);
-    color: var(--pink);
-    margin-bottom: 1.2rem;
-    letter-spacing: -0.02em;
-  }
-
-  .over-box p {
-    font-size: 15px;
-    line-height: 1.75;
-    color: var(--white);
-    margin-bottom: 1rem;
-  }
-
-  .over-box p:last-of-type { margin-bottom: 0; }
-
-  .over-box a {
-    color: var(--pink);
-    text-decoration: none;
-  }
-
-  .over-box a:hover { text-decoration: underline; }
-
-  .over-sluit {
-    position: absolute;
-    top: 1.2rem; right: 1.5rem;
-    font-size: 22px;
-    color: var(--muted);
-    background: none;
-    border: none;
-    cursor: pointer;
-    line-height: 1;
-    transition: color 0.15s;
-  }
-
-  .over-sluit:hover { color: var(--white); }
-
-  .laatste-kans-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    font-family: 'DM Sans', sans-serif;
-    background: transparent;
-    color: #00CFFF;
-    border: 1px solid #00CFFF;
-    font-size: 10px;
-    font-weight: 400;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 3px 10px;
-    border-radius: 100px;
-    margin-top: 5px;
-    white-space: nowrap;
-  }
-
-  .laatste-kans-badge::before {
-    content: "";
-    display: inline-block;
-    width: 5px; height: 5px;
-    border-radius: 50%;
-    background: #0A0A0A;
-    opacity: 0.6;
-    animation: knipperen 1.2s infinite;
-  }
-
-  @keyframes knipperen {
-    0%, 100% { opacity: 0.7; }
-    50% { opacity: 0.15; }
-  }
-
-  @media (max-width: 700px) {
-    .td-foto { display: none; }
-    .over-box { padding: 2rem 1.5rem; }
-  }
-
-  .periode-rij td {
-    padding: 1.5rem 1rem 0.5rem;
-    border-bottom: none;
-    background: transparent;
-  }
-
-  .periode-label {
-    font-family: 'Fraunces', serif;
-    font-size: 1.1rem;
-    font-weight: 900;
-    font-style: italic;
-    letter-spacing: -0.01em;
-    text-transform: none;
-    color: #111111;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: #FFB3D9;
-    padding: 8px 22px 8px 14px;
-    border-radius: 100px;
-  }
-
-  .periode-label.dimmed {
-    background: #FFB3D9;
-    color: #111111;
-  }
-
-  .periode-dot {
-    display: inline-block;
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: #111111;
-    opacity: 0.5;
-    flex-shrink: 0;
-  }
-
-  .periode-dot.dimmed {
-    opacity: 0.4;
-  }
-
-
-  /* MailerLite widget override */
-  .ml-embedded {
-    max-width: 100% !important;
-  }
-
-  .ml-embedded .ml-form-embedWrapper {
-    background: transparent !important;
-    border-radius: 0 !important;
-    padding: 0 !important;
-    box-shadow: none !important;
-    border: none !important;
-    min-width: 0 !important;
-    width: 100% !important;
-  }
-
-  .ml-embedded .ml-form-embedBody {
-    padding: 0 !important;
-  }
-
-  .ml-embedded .ml-form-embedContent {
-    display: none !important;
-  }
-
-  .ml-embedded .ml-form-embedBody .ml-form-embedContent h4,
-  .ml-embedded .ml-form-embedBody .ml-form-embedContent p {
-    display: none !important;
-  }
-
-  .ml-embedded .ml-form-fieldRow input {
-    background: rgba(255,255,255,0.1) !important;
-    border: 1px solid rgba(255,255,255,0.3) !important;
-    color: #F2F2F0 !important;
-    border-radius: 4px !important;
-    font-family: 'DM Sans', sans-serif !important;
-    font-size: 14px !important;
-    padding: 10px 14px !important;
-    height: auto !important;
-  }
-
-  .ml-embedded .ml-form-fieldRow input::placeholder {
-    color: rgba(255,255,255,0.4) !important;
-  }
-
-  .ml-embedded .ml-form-embedSubmit button {
-    background: linear-gradient(90deg, #FF3CAC, #00CFFF) !important;
-    color: #ffffff !important;
-    border-radius: 4px !important;
-    font-family: 'DM Sans', sans-serif !important;
-    font-size: 13px !important;
-    font-weight: 400 !important;
-    letter-spacing: 0.06em !important;
-    text-transform: uppercase !important;
-    padding: 10px 20px !important;
-    height: auto !important;
-    border: none !important;
-    cursor: pointer !important;
-  }
-
-  .ml-embedded .ml-form-embedSubmit button:hover {
-    opacity: 0.85 !important;
-    background: linear-gradient(90deg, #FF3CAC, #00CFFF) !important;
-  }
-
-  .ml-embedded .ml-form-embedBody .ml-form-checkboxRow,
-  .ml-embedded .ml-form-successBody {
-    padding: 0 !important;
-  }
-
-  .ml-embedded .ml-form-successBody .ml-form-successContent {
-    background: transparent !important;
-    padding: 0 !important;
-  }
-
-  .ml-embedded .ml-form-successBody .ml-form-successContent h4 {
-    color: #FF3CAC !important;
-    font-family: 'DM Sans', sans-serif !important;
-    font-size: 14px !important;
-    padding: 0 !important;
-  }
-
-  .ml-embedded .ml-form-embedBody .ml-form-embedRow {
-    display: flex !important;
-    gap: 8px !important;
-    flex-wrap: wrap !important;
-  }
-
-
-  .ml-embedded .ml-form-embedWrapper {
-    margin: 0 !important;
-    margin-left: 0 !important;
-  }
-
-  .ml-embedded .ml-form-align-center {
-    text-align: left !important;
-  }
-
-  .ml-embedded .ml-form-embedBody .ml-form-embedRow {
-    justify-content: flex-start !important;
-  }
-
-</style>
-</head>
-<body>
-
-<div class="over-panel" id="over-panel" onclick="sluitOver(event)">
-  <div class="over-box">
-    <button class="over-sluit" onclick="document.getElementById('over-panel').classList.remove('open')">×</button>
-    <h3 id="over-titel">Over deze agenda</h3>
-    <p id="over-tekst-1">Dit is een vrijwillig gerunde agenda voor immersieve kunst en experiences in Nederland. Geen algoritme, en af en toe een advertentie (want de hosting kost ook wat ;-). Deze agenda is ontstaan omdat er zoveel moois gemaakt wordt, maar er gewoon een menselijk overzicht ontbrak.</p>
-    <p id="over-tekst-2">Ben je journalist? We helpen je graag met een speciale perslijst van immersieve werken die binnenkort opent. Sponsoring en editorial promotie is mogelijk.</p>
-    <p id="over-tekst-3">Tip ons. Mail <a href="mailto:hello@studiozzzap.nl">hello@studiozzzap.nl</a></p>
-  </div>
-</div>
-
-<header>
-  <div class="header-bar">
-    <span class="header-label" id="header-label-el">FF alles gewoon in één overzicht. Lekker toch?</span>
-    <div class="header-right">
-      <div class="lang-switch">
-        <button class="lang-btn active" onclick="setLang('nl', this)">NL</button>
-        <button class="lang-btn" onclick="setLang('en', this)">EN</button>
-      </div>
-      <a class="header-about" href="#" onclick="openOver(event)" id="over-btn">Over</a>
-    </div>
-  </div>
-  <h1 id="header-title">Immersieve<br><em>Kunst Agenda</em></h1>
-</header>
-
-<section class="uitgelicht">
-  <div class="section-label-wrap">
-    <div class="dot"></div>
-    <span id="section-uitgelicht">Tip van de maand</span>
-  </div>
-  <div class="cards" id="uitgelicht-cards"></div>
-</section>
-
-<section class="kalender">
-  <div class="kalender-header">
-    <h2 id="alle-events-title" data-nl="Alle Events" data-en="All Events">Alle Events</h2>
-    <div class="filter-wrap" id="filter-wrap"></div>
-  </div>
-  <div class="tabel-wrap">
-    <table>
-      <thead>
-        <tr>
-          <th></th>
-          <th data-nl="Datum" data-en="Date">Datum</th>
-          <th data-nl="Event & Maker" data-en="Event & Artist">Event & Maker</th>
-          <th data-nl="Type" data-en="Type">Type</th>
-          <th data-nl="Stad & Locatie" data-en="City & Venue">Stad & Locatie</th>
-          <th data-nl="Omschrijving" data-en="Description">Omschrijving</th>
-        </tr>
-      </thead>
-      <tbody id="tabel-body"></tbody>
-    </table>
-  </div>
-</section>
-
-<footer>
-  <div class="footer-disclaimer">
-    <strong data-nl="Over deze agenda" data-en="About this agenda">Over deze agenda</strong>
-    <p data-nl="Deze agenda biedt een overzicht van immersieve kunst en experiences in Nederland. Wij streven naar volledigheid maar kunnen geen garantie geven op juistheid of beschikbaarheid van events. Neem voor actuele informatie altijd contact op met de organisator."
-       data-en="This agenda offers an overview of immersive art and experiences in the Netherlands. We strive for completeness but cannot guarantee the accuracy or availability of events. For current information, always contact the organiser directly.">
-      Deze agenda biedt een overzicht van immersieve kunst en experiences in Nederland. Wij streven naar volledigheid maar kunnen geen garantie geven op juistheid of beschikbaarheid van events. Neem voor actuele informatie altijd contact op met de organisator.
-    </p>
-  </div>
-  <div class="footer-nieuwsbrief">
-    <strong id="nieuwsbrief-titel">Nieuwsbrief</strong>
-    <p id="nieuwsbrief-tekst">Ontvang een maandelijks overzicht van nieuwe immersieve experiences in jouw mailbox.</p>
-    <div class="ml-embedded" data-form="8FOkHv"></div>
-  </div>
-</footer>
-<div class="footer-bottom" id="footer-bottom">
-  <span id="footer-label">Immersieve Kunst Agenda · Nederland</span>
-  <div class="hemellichaam-wrap" id="hemellichaam-wrap" style="display:none"></div>
-  <span>© 2026</span>
-</div>
-
-<script>
-let huidigeTaal = 'nl';
-let activeFilter = 'all';
-
-const events = [
-  {
-    naam: { nl: "Still Processing", en: "Still Processing" },
-    startDag: 7, startMaandNr: 2,
-    eindDag: 30, eindMaandNr: 6,
-    startMaand: { nl: "Feb", en: "Feb" },
-    eindDatum: { nl: "30 Jun", en: "Jun 30" },
-    maker: "Curated by Bogomir Doringer",
-    laatsteKans: true,
-    logline: {
-      nl: "Een tentoonstelling over hoe mensen en technologie data omzetten in betekenis.",
-      en: "An exhibition exploring how people and technology translate data into meaning."
-    },
-    beschrijving: {
-      nl: "Still Processing onderzoekt hoe mensen en technologie data omzetten in betekenis. Verspreid over zeven grootschalige, immersieve installaties en drie kleinere ruimtes.",
-      en: "Still Processing explores how people and technology translate data into meaning. Spread across seven large-scale immersive installations and three smaller transitional spaces."
-    },
-    stad: "Amsterdam", locatie: "NXT Museum",
-    types: ["Tentoonstelling", "Digitale kunst"],
-    foto: "/images/stillprocessing.jpg",
-    link: "https://nxtmuseum.com/artist/duration-boris-acket",
-    uitgelicht: true
-  },
-  {
-    naam: { nl: "Amsterdam 1652", en: "Amsterdam 1652" },
-    startDag: 21, startMaandNr: 5,
-    eindDag: 31, eindMaandNr: 12,
-    startMaand: { nl: "Mei", en: "May" },
-    eindDatum: { nl: "31 Dec 2028", en: "Dec 31 2028" },
-    maker: "Nienke Huitenga Broeren & ENTR",
-    logline: {
-      nl: "Een ontmoeting met drie Amsterdammers in 1652.",
-      en: "An encounter with three Amsterdam residents in 1652."
-    },
-    beschrijving: {
-      nl: "Loop samen door Amsterdam van de 17e eeuw, gezien door de ogen van haar bewoners. Een gedeelde VR-ervaring waarin je de stad niet bekijkt, maar zelf betreedt.",
-      en: "Walk through 17th-century Amsterdam through the eyes of its inhabitants. A shared VR experience in which you don't observe the city — you enter it."
-    },
-    stad: "Amsterdam", locatie: "ENTR",
-    types: ["XR"],
-    foto: "/images/kade.jpeg",
-    link: "https://entrmuseum.com/",
-    uitgelicht: false
-  },
-  {
-    naam: { nl: "Conversations", en: "Conversations" },
-    startDag: 4, startMaandNr: 6,
-    eindDag: 6, eindMaandNr: 6,
-    startMaand: { nl: "Jun", en: "Jun" },
-    eindDatum: { nl: "6 Jun", en: "Jun 6" },
-    maker: "Paul Boereboom & Leon Rogissart",
-    laatsteKans: true,
-    logline: {
-      nl: "Zintuiglijke XR-performance waarin beweging, muziek en technologie samensmelten.",
-      en: "A sensory XR performance in which movement, music and technology merge."
-    },
-    beschrijving: {
-      nl: "Conversations is een gelaagde ontmoeting tussen fysieke en digitale realiteiten. Met behulp van extended reality vloeien tastbare en virtuele werelden in elkaar over.",
-      en: "Conversations is a layered encounter between physical and digital realities. Using extended reality, tangible and virtual worlds merge."
-    },
-    stad: "Amsterdam", locatie: "Frascati",
-    types: ["XR", "Performatief"],
-    foto: "/images/conversations.png",
-    link: "https://www.frascatitheater.nl/nl/agenda/conversations-n1vr",
-    uitgelicht: false
-  },
-  {
-    naam: { nl: "Messages to a Posthuman Earth", en: "Messages to a Posthuman Earth" },
-    startDag: 10, startMaandNr: 6,
-    eindDag: 1, eindMaandNr: 7,
-    startMaand: { nl: "Jun", en: "Jun" },
-    eindDatum: { nl: "1 Jul", en: "Jul 1" },
-    maker: "Anagram",
-    logline: {
-      nl: "Een interactieve, multi-sensorische audioreis voor twee door een tuin.",
-      en: "An interactive, multi-sensory audio journey for two through a garden."
-    },
-    beschrijving: {
-      nl: "In een echte tuin ontdekken jij en je partner dat de natuur een hoorend, levend wezen is. Audio-vertelling en AR-content nodigen uit tot bezinning op de levende omgeving.",
-      en: "In a real garden, you and your partner discover that the natural world is a hearing, living thing. Audio narration and AR content invite musing on the living environment."
-    },
-    stad: "Amsterdam", locatie: "Vondelpark",
-    types: ["Audiowalk", "In de natuur", "Performatief"],
-    foto: "/images/anagram.jpg",
-    link: "https://www.idfa.nl/en/cinema/d3f5f4cb-b838-47cf-9162-fa7d1ca9615e/messages-to-a-post-human-earth/",
-    uitgelicht: true
-  },
-  {
-    naam: { nl: "Only Expansion", en: "Only Expansion" },
-    startDag: 10, startMaandNr: 6,
-    eindDag: 24, eindMaandNr: 6,
-    startMaand: { nl: "Jun", en: "Jun" },
-    eindDatum: { nl: "24 Jun", en: "Jun 24" },
-    maker: "Duncan Speakman",
-    logline: {
-      nl: "Een site-responsieve audiotour over hoe onze relatie met het landschap verandert.",
-      en: "A site-responsive audio tour on how our relation to the landscape is altered by environmental change."
-    },
-    beschrijving: {
-      nl: "Real-time audiosoftware mixt het stadsgeluid met opnames van de klimaatcrisis wereldwijd. Een poëtische reflectie op de veranderende stedelijke omgeving.",
-      en: "Real-time audio software remixes city sound with recordings of rapid environmental change — a poetic reflection on the shifting urban environment."
-    },
-    stad: "Amsterdam", locatie: "Het Documentaire Paviljoen",
-    types: ["Audiowalk", "Stad"],
-    foto: "/images/1920.jpg",
-    link: "https://www.idfa.nl/en/cinema/d633afe6-c489-4ee8-bfad-c30b91e5f15f/only-expansion/",
-    uitgelicht: false
-  },
-  {
-    naam: { nl: "Traversing the Mist", en: "Traversing the Mist" },
-    startDag: 12, startMaandNr: 7,
-    eindDag: 27, eindMaandNr: 7,
-    startMaand: { nl: "Jul", en: "Jul" },
-    eindDatum: { nl: "27 Jul", en: "Jul 27" },
-    maker: "CHOU Tung-yen",
-    logline: {
-      nl: "In een surreëel droomlandschap vind je jezelf belichaamd in een ander lichaam.",
-      en: "Inside a surreal dreamscape you find yourself embodied in another body."
-    },
-    beschrijving: {
-      nl: "Terwijl je elke verdieping, gang en kamer doorloopt, valt elke laag van het labyrint onomkeerbaar uiteen. Wereldpremière IDFA DocLAB 2023, Grand Prize NewImages Paris.",
-      en: "As you walk along every floor, corridor and room, each layer irreversibly unravels. World première IDFA DocLAB 2023, Grand Prize NewImages Paris."
-    },
-    stad: "Amsterdam", locatie: "Podium Mozaïek",
-    types: ["XR", "Performatief"],
-    foto: "/images/traversing.png",
-    link: "https://www.podiummozaiek.nl/programma/details/tm-11972-7f94019f/traversing-the-mist-16",
-    uitgelicht: false
-  },
-];
-
-const ui = {
-  nl: {
-    uitgelicht: "Tip van de maand",
-    alleEvents: "Alle Events",
-    datum: "Datum", event: "Event & Maker", type: "Type",
-    stad: "Stad & Locatie", omschrijving: "Omschrijving",
-    leesmeer: "Lees meer ↓", leesminder: "Minder ↑",
-    kaartjes: "Kaartjes →",
-    geenEvents: "Geen events gevonden.",
-    disclaimerTitel: "Over deze agenda",
-    disclaimerTekst: "Dit is een vrijwillig gerunde agenda. We updaten dit overzicht 1x per maand met de mooiste immersieve werken. Tips zijn welkom.",
-    nieuwsbriefTitel: "Nieuwsbrief",
-    nieuwsbriefTekst: "Blijf op de hoogte. Één keer per maand krijg je een lijst vers immersief werk!",
-    aanmelden: "Aanmelden",
-    placeholder: "jouw@emailadres.nl",
-    bedankt: "Bedankt voor je aanmelding!",
-    alles: "Alles",
-    over: "Over",
-    label: "FF alles gewoon in één overzicht. Lekker toch?",
-    footer: "Immersieve Kunst Agenda · Nederland",
-    tmLabel: "t/m",
-    h1regel1: "Immersieve",
-    h1regel2: "Kunst Agenda",
-    overTitel: "Over deze agenda",
-    overTekst1: "Dit is een vrijwillig gerunde agenda voor immersieve kunst en experiences in Nederland. Geen algoritme, en af en toe een advertentie (want de hosting kost ook wat ;-). Deze agenda is ontstaan omdat er zoveel moois gemaakt wordt, maar er gewoon een menselijk overzicht ontbrak.",
-    overTekst2: "Ben je journalist? We helpen je graag met een speciale perslijst van immersieve werken die binnenkort opent. Sponsoring en editorial promotie is mogelijk.",
-    overTekst3: "Tip ons. Mail"
-  },
-  en: {
-    uitgelicht: "Editor's Tip",
-    alleEvents: "All Events",
-    datum: "Date", event: "Event & Artist", type: "Type",
-    stad: "City & Venue", omschrijving: "Description",
-    leesmeer: "Read more ↓", leesminder: "Less ↑",
-    kaartjes: "Tickets →",
-    geenEvents: "No events found.",
-    disclaimerTitel: "About this agenda",
-    disclaimerTekst: "This is a volunteer-run agenda. We update this overview once a month with the finest immersive works. Tips are welcome.",
-    nieuwsbriefTitel: "Newsletter",
-    nieuwsbriefTekst: "Stay in the loop. Once a month you'll get a fresh list of immersive work!",
-    aanmelden: "Subscribe",
-    placeholder: "your@emailaddress.com",
-    bedankt: "Thanks for signing up!",
-    alles: "All",
-    over: "About",
-    label: "No cap. Every immersive show, one place. Pretty sick ngl.",
-    footer: "Immersive Art Agenda · Netherlands",
-    tmLabel: "until",
-    overTitel: "About this agenda",
-    overTekst1: "A volunteer-run agenda for immersive art and experiences in the Netherlands. No algorithm, and the occasional ad (because hosting isn't free ;-). This agenda exists because so much great work is being made — but a human overview was simply missing.",
-    overTekst2: "Are you a journalist? We'd love to help you with a special press list of immersive works opening soon. Sponsorship and editorial promotion is possible.",
-    overTekst3: "Tip us. Email",
-    h1regel1: "Immersive",
-    h1regel2: "Art Calendar"
-  }
-};
-
-// Unieke types voor filters
-const typeVertalingen = {
-  nl: {
-    "XR": "XR",
-    "Performatief": "Performatief",
-    "Audiowalk": "Audiowalk",
-    "In de natuur": "In de natuur",
-    "Stad": "Stad",
-    "Tentoonstelling": "Tentoonstelling",
-    "Digitale kunst": "Digitale kunst",
-    "Immersief": "Immersief",
-  },
-  en: {
-    "XR": "XR",
-    "Performatief": "Performative",
-    "Audiowalk": "Audiowalk",
-    "In de natuur": "In nature",
-    "Stad": "Urban",
-    "Tentoonstelling": "Exhibition",
-    "Digitale kunst": "Digital art",
-    "Immersief": "Immersive",
-  }
-};
-
-const alleTypes = [...new Set(events.flatMap(e => e.types))];
-
-function buildFilters() {
-  const t = ui[huidigeTaal];
-  const wrap = document.getElementById('filter-wrap');
-  wrap.innerHTML = '';
-  ['all', ...alleTypes].forEach(type => {
-    const btn = document.createElement('button');
-    btn.className = 'filter-btn' + (type === activeFilter ? ' active' : '');
-    btn.textContent = type === 'all' ? t.alles : (typeVertalingen[huidigeTaal][type] || type);
-    btn.onclick = () => filter(type, btn);
-    wrap.appendChild(btn);
-  });
-}
-
-function buildUitgelicht() {
-  const t = ui[huidigeTaal];
-  document.getElementById('section-uitgelicht').textContent = t.uitgelicht;
-  const uitgelicht = events.filter(e => e.uitgelicht).slice(0, 2);
-  document.getElementById('uitgelicht-cards').innerHTML = uitgelicht.map((e, idx) => `
-    <article class="card featured-card">
-      <div class="card-img"><img src="${e.foto}" alt="${e.naam[huidigeTaal]}" loading="lazy"></div>
-      <div class="card-body">
-        <div class="card-tag">${[...e.types.map(tp => typeVertalingen[huidigeTaal][tp] || tp), e.locatie].map(l => `<span class='card-tag-item'>${l}</span>`).join('')}</div>
-        <p class="card-maker">${e.maker}</p>
-        <h2 class="card-title">${e.naam[huidigeTaal]}</h2>
-        <p class="card-desc">${e.logline[huidigeTaal]}</p>
-        ${e.beschrijving && e.beschrijving[huidigeTaal] ? `
-          <div class="card-beschrijving" id="card-desc-${idx}" style="display:none; font-size:13px; line-height:1.6; color:var(--muted); margin-top:0.4rem;">${e.beschrijving[huidigeTaal]}</div>
-          <button class="card-leesmeer" onclick="toggleCard(this, 'card-desc-${idx}')">${huidigeTaal === 'nl' ? 'Lees meer ↓' : 'Read more ↓'}</button>
-        ` : ''}
-        <div class="card-meta">
-          <span>${e.startDag} ${e.startMaand[huidigeTaal]}${e.eindDatum ? ' — ' + e.eindDatum[huidigeTaal] : ''} · ${e.stad}</span>
-          <a href="${e.link}" class="card-link" target="_blank">${t.kaartjes}</a>
-        </div>
-      </div>
-    </article>
-  `).join('');
-}
-
-function updateStaticUI() {
-  const t = ui[huidigeTaal];
-  document.getElementById('header-title').innerHTML = `${t.h1regel1}<br><em>${t.h1regel2}</em>`;
-  document.getElementById('header-label-el').textContent = t.label;
-  document.getElementById('alle-events-title').textContent = t.alleEvents;
-  document.querySelector('thead').innerHTML = `<tr>
-    <th></th>
-    <th>${t.datum}</th>
-    <th>${t.event}</th>
-    <th>${t.type}</th>
-    <th>${t.stad}</th>
-    <th>${t.omschrijving}</th>
-  </tr>`;
-  document.querySelector('.footer-disclaimer strong').textContent = t.disclaimerTitel;
-  document.querySelector('.footer-disclaimer p').textContent = t.disclaimerTekst;
-  document.getElementById('nieuwsbrief-titel').textContent = t.nieuwsbriefTitel;
-  document.getElementById('nieuwsbrief-tekst').textContent = t.nieuwsbriefTekst;
-  const aanmeldenBtn = document.querySelector('.nieuwsbrief-form button');
-  if (aanmeldenBtn) aanmeldenBtn.textContent = t.aanmelden;
-  const emailInput = document.getElementById('email-input');
-  if (emailInput) emailInput.placeholder = t.placeholder;
-  const feedback = document.getElementById('form-feedback');
-  if (feedback) feedback.textContent = t.bedankt;
-  document.querySelector('.header-label').textContent = t.label;
-  document.querySelector('.header-about').textContent = t.over;
-  document.querySelector('.footer-bottom span').textContent = t.footer;
-  document.getElementById('over-titel').textContent = t.overTitel;
-  document.getElementById('over-tekst-1').textContent = t.overTekst1;
-  document.getElementById('over-tekst-2').textContent = t.overTekst2;
-  document.getElementById('over-tekst-3').innerHTML = t.overTekst3 + ' <a href="mailto:hello@studiozzzap.nl">hello@studiozzzap.nl</a>';
-  document.getElementById('over-btn').textContent = t.over;
-}
-
-function filter(type, btn) {
-  activeFilter = type;
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  render();
-}
-
-function toggleCard(btn, id) {
-  const el = document.getElementById(id);
-  const open = el.style.display === 'block';
-  el.style.display = open ? 'none' : 'block';
-  btn.textContent = open
-    ? (huidigeTaal === 'nl' ? 'Lees meer ↓' : 'Read more ↓')
-    : (huidigeTaal === 'nl' ? 'Minder ↑' : 'Less ↑');
-}
-
-function toggleBeschrijving(btn, id) {
-  const el = document.getElementById(id);
-  const open = el.classList.toggle('open');
-  btn.textContent = open ? ui[huidigeTaal].leesminder : ui[huidigeTaal].leesmeer;
-}
-
-function render() {
-  const t = ui[huidigeTaal];
-  const nu = new Date();
-  // Begin van volgende maand
-  const beginVolgende = new Date(nu.getFullYear(), nu.getMonth() + 1, 1);
-
-  const filtered = activeFilter === 'all'
-    ? events
-    : events.filter(e => e.types.includes(activeFilter));
-
-  // NU TE ZIEN: start deze maand of eerder, eindigt na vandaag, start voor volgende maand
-  const nuTeSien = filtered.filter(e => {
-    const startDatum = new Date(nu.getFullYear(), e.startMaandNr - 1, e.startDag);
-    const eindJaar = (e.eindMaandNr < e.startMaandNr) ? nu.getFullYear() + 1 : nu.getFullYear();
-    const eindDatum = new Date(eindJaar, e.eindMaandNr - 1, e.eindDag);
-    // Start deze maand of eerder, nog niet voorbij, start vóór volgende maand
-    return startDatum < beginVolgende && eindDatum >= nu;
-  });
-
-  // BINNENKORT: start vanaf eerste dag van volgende maand of later
-  const binnenkort = filtered.filter(e => {
-    const startDatum = new Date(nu.getFullYear(), e.startMaandNr - 1, e.startDag);
-    return startDatum >= beginVolgende;
-  });
-
-  const nuLabel = huidigeTaal === 'nl' ? 'Deze maand te zien' : 'On this month';
-  const binnenkortLabel = huidigeTaal === 'nl' ? 'Binnenkort' : 'Coming soon';
-
-  const body = document.getElementById('tabel-body');
-
-  if (filtered.length === 0) {
-    body.innerHTML = `<tr class="geen-events"><td colspan="6">${t.geenEvents}</td></tr>`;
-    return;
-  }
-
-  let html = '';
-  let i = 0;
-
-  if (nuTeSien.length > 0) {
-    html += periodeHeader(nuLabel, false);
-    nuTeSien.forEach(e => { html += eventRij(e, i++); });
-  }
-
-  if (binnenkort.length > 0) {
-    html += periodeHeader(binnenkortLabel, true);
-    binnenkort.forEach(e => { html += eventRij(e, i++); });
-  }
-
-  body.innerHTML = html;
-}
-
-
-function periodeHeader(label, dimmed) {
-  return `<tr class="periode-rij"><td colspan="6">
-    <div class="periode-label${dimmed ? ' dimmed' : ''}">
-      <span class="periode-dot${dimmed ? ' dimmed' : ''}"></span>${label}
-    </div>
-  </td></tr>`;
-}
-
-function eventRij(e, i) {
-  const t = ui[huidigeTaal];
-  const descId = 'desc-' + i;
-  const eindTekst = e.eindDatum ? `<div class="td-eind">${t.tmLabel} ${e.eindDatum[huidigeTaal]}</div>` : '';
-  return `
-    <tr>
-      <td class="td-foto">
-        ${e.foto ? `<img src="${e.foto}" alt="${e.naam[huidigeTaal]}" loading="lazy">` : `<div class="td-foto-placeholder">${e.naam[huidigeTaal][0]}</div>`}
-      </td>
-      <td class="td-datum">
-        ${e.startDag}<small>${e.startMaand[huidigeTaal]} 2026</small>${eindTekst}
-        ${e.laatsteKans ? `<div class="laatste-kans-badge">${huidigeTaal === 'nl' ? 'Laatste kans' : 'Last chance'}</div>` : ''}
-      </td>
-      <td>
-        <div class="td-titel">${e.naam[huidigeTaal]}</div>
-        <div class="td-maker">${e.maker}</div>
-      </td>
-      <td>${e.types.map(tp => `<span class="type-tag">${typeVertalingen[huidigeTaal][tp] || tp}</span>`).join('')}</td>
-      <td>
-        <div class="td-stad">${e.stad}</div>
-        <div class="td-locatie">${e.locatie}</div>
+        ${e.duur ? `<div class="td-duur"><span style="opacity:0.6">◷</span> ${e.duur}</div>` : ''}
       </td>
       <td class="uitklap-wrap">
         <div class="logline">${e.logline[huidigeTaal]}</div>
