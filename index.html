@@ -357,12 +357,12 @@
   tbody td
 
   .td-datum {
-    font-family: 'Fraunces', serif;
-    font-weight: 700;
-    font-size: 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    font-size: 11px;
     color: var(--pink);
-    white-space: normal;
-    min-width: 90px;
+    white-space: nowrap;
+    min-width: 140px;
     line-height: 1.5;
   }
 
@@ -759,7 +759,7 @@
     /* Datum */
     .td-datum {
       padding: 0.8rem 1rem 0.3rem !important;
-      font-size: 14px !important;
+      font-size: 11px !important;
     }
 
     /* Titel cel */
@@ -1005,7 +1005,7 @@
   /* Tabel kolombreedtes */
   table { table-layout: fixed; width: 100%; }
   col.col-foto    { width: 145px; }
-  col.col-datum   { width: 95px; }
+  col.col-datum   { width: 160px; }
   col.col-event   { width: 20%; }
   col.col-type    { width: 11%; }
   col.col-stad    { width: 13%; }
@@ -1577,7 +1577,7 @@ function eventRij(e, i) {
           : `<div class="foto-inner-placeholder">${e.naam[huidigeTaal][0]}</div>`}
       </td>
       <td class="td-datum">
-        <div>${e.startDag} ${e.startMaand[huidigeTaal]}${e.eindDatum ? ` ${huidigeTaal === 'nl' ? 't/m' : 'until'} ${e.eindDatum[huidigeTaal]}` : ''}</div>
+        <div style="font-size:14px; font-family:'DM Sans',sans-serif; font-weight:400;">${e.startDag} ${e.startMaand[huidigeTaal]}${e.eindDatum ? ` ${huidigeTaal === 'nl' ? 't/m' : 'until'} ${e.eindDatum[huidigeTaal]}` : ''}</div>
         ${e.laatsteKans ? `<div class="laatste-kans-badge">${huidigeTaal === 'nl' ? 'Laatste kans' : 'Last chance'}</div>` : ''}
       </td>
       <td>
