@@ -353,16 +353,17 @@
 
   tbody tr { border-bottom: 1px solid var(--border); transition: background 0.12s; position: relative; }
   tbody tr:hover { background: rgba(77,255,255,0.03); }
-  tbody td { padding: 1.1rem 1rem; vertical-align: top; }
+  tbody td { padding: 1rem 0.8rem; vertical-align: top; }
   tbody td
 
   .td-datum {
     font-family: 'Fraunces', serif;
     font-weight: 700;
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     color: var(--pink);
-    white-space: nowrap;
-    min-width: 75px;
+    white-space: normal;
+    min-width: 90px;
+    line-height: 1.5;
   }
 
   .td-datum small {
@@ -376,12 +377,7 @@
     margin-top: 2px;
   }
 
-  .td-eind {
-    font-size: 12px;
-    color: var(--muted);
-    font-style: italic;
-    margin-top: 3px;
-  }
+
 
   .td-titel {
     font-family: 'Fraunces', serif;
@@ -580,14 +576,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 13px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.02em;
+    text-transform: none;
     color: var(--muted);
     flex-wrap: wrap;
     gap: 6px;
-    position: relative;
-    overflow: hidden;
   }
 
   .hemellichaam-wrap {
@@ -723,9 +717,12 @@
     /* Tabel wordt een card-stack op mobiel */
     .tabel-wrap { overflow-x: visible; }
 
-    table, thead, tbody, tr, td { display: block; width: 100%; }
+    table { table-layout: auto !important; }
+    table, thead, tbody, tr, td { display: block; width: 100% !important; }
 
     thead { display: none; }
+
+    colgroup { display: none; }
 
     tbody tr {
       border: 1px solid var(--border);
@@ -737,12 +734,32 @@
 
     tbody tr:hover { background: var(--off); }
 
-    /* Foto bovenaan de card */
+    /* Foto bovenaan — volledige breedte */
+    .td-foto {
+      display: block !important;
+      width: 100% !important;
+      min-width: 0 !important;
+      padding: 0 !important;
+    }
 
-    /* Datum cel */
+    .foto-inner {
+      width: 100% !important;
+    }
+
+    .foto-inner img {
+      width: 100% !important;
+      height: 180px !important;
+    }
+
+    .foto-inner-placeholder {
+      width: 100% !important;
+      height: 120px !important;
+    }
+
+    /* Datum */
     .td-datum {
-      padding: 0.8rem 1rem 0.3rem;
-      font-size: 1rem;
+      padding: 0.8rem 1rem 0.3rem !important;
+      font-size: 0.95rem !important;
     }
 
     /* Titel cel */
@@ -750,9 +767,15 @@
       padding: 0 1rem 0.3rem;
     }
 
-    /* Type tags */
+    /* Type tags — wrappen normaal */
     tbody td:nth-child(4) {
       padding: 0 1rem 0.3rem;
+    }
+
+    .type-tag {
+      font-size: 10px !important;
+      padding: 3px 10px !important;
+      margin-bottom: 3px;
     }
 
     /* Stad/locatie */
@@ -762,12 +785,14 @@
 
     /* Beschrijving/logline */
     .uitklap-wrap {
-      padding: 0 1rem 1rem;
-      max-width: 100%;
+      padding: 0 1rem 1rem !important;
+      max-width: 100% !important;
+      min-width: 0 !important;
     }
 
     /* Periode labels */
     .periode-rij td { padding: 1.2rem 0 0.4rem; }
+    .periode-label { margin-left: 0 !important; }
 
     /* Over panel */
     .over-box { padding: 2rem 1.5rem; }
@@ -775,12 +800,15 @@
     /* Header titel kleiner op mobiel */
     h1 { font-size: clamp(2.2rem, 13vw, 4rem); }
 
-    /* Kalender header wrap */
+    /* Kalender header */
     .kalender-header { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
 
     /* Filter wrap scrollen */
     .filter-wrap { overflow-x: auto; flex-wrap: nowrap; padding-bottom: 4px; }
     .filter-wrap::-webkit-scrollbar { display: none; }
+
+    /* Footer */
+    .footer-bottom { flex-direction: column; gap: 4px; text-align: center; }
   }
 
   .periode-rij td {
@@ -929,6 +957,13 @@
 
   /* duur override */
   .td-duur { color: #FF3CAC !important; font-size: 11px !important; }
+  .td-handig {
+    font-size: 11px !important;
+    font-family: 'DM Sans', sans-serif;
+    color: #aaa;
+    margin-top: 3px;
+    letter-spacing: 0.02em;
+  }
 
   .td-foto {
     width: 140px;
@@ -966,6 +1001,25 @@
     font-size: 1.4rem;
     color: var(--pink);
   }
+
+
+  /* Tabel kolombreedtes */
+  table { table-layout: fixed; width: 100%; }
+  col.col-foto    { width: 145px; }
+  col.col-datum   { width: 95px; }
+  col.col-event   { width: 20%; }
+  col.col-type    { width: 11%; }
+  col.col-stad    { width: 13%; }
+  col.col-desc    { width: auto; }
+
+  /* Type tags compacter */
+  .type-tag {
+    font-size: 9px !important;
+    padding: 2px 7px !important;
+  }
+
+  /* Omschrijving kolom meer ruimte */
+  .uitklap-wrap { min-width: 0; max-width: none; }
 
 </style>
 </head>
@@ -1010,6 +1064,14 @@
   </div>
   <div class="tabel-wrap">
     <table>
+      <colgroup>
+        <col class="col-foto">
+        <col class="col-datum">
+        <col class="col-event">
+        <col class="col-type">
+        <col class="col-stad">
+        <col class="col-desc">
+      </colgroup>
       <thead>
         <tr>
           <th></th>
@@ -1040,9 +1102,8 @@
   </div>
 </footer>
 <div class="footer-bottom" id="footer-bottom">
-  <span id="footer-label">Immersieve Kunst Agenda · Nederland</span>
-  <div class="hemellichaam-wrap" id="hemellichaam-wrap" style="display:none"></div>
-  <span>© 2026</span>
+  <span id="footer-label">immersieve kunst agenda ✦ nederland — is run by <a href="https://www.studiozzzap.nl" target="_blank" style="color:inherit; text-decoration:underline; text-underline-offset:3px;">studio zzzap</a></span>
+  <span style="margin-left: auto; padding-left: 1rem;">© 2026</span>
 </div>
 
 <script>
@@ -1056,7 +1117,7 @@ const events = [
     startMaand: { nl: "Feb", en: "Feb" },
     eindDatum: { nl: "30 Jun", en: "Jun 30" },
     maker: "Curated by Bogomir Doringer",
-    duur: "90 min", laatsteKans: true,
+    duur: "90 min", handig: "Taal geen probleem", laatsteKans: true,
     logline: { nl: "Still Processing onderzoekt hoe mensen en technologie data omzetten in betekenis.", en: "Still Processing explores how people and technology translate data into meaning." },
     beschrijving: { nl: "Still Processing onderzoekt hoe mensen en technologie data omzetten in betekenis. Hoe navigeren we tussen het rationele en het emotionele? Verspreid over zeven grootschalige, immersieve installaties en drie kleinere ruimtes.", en: "Still Processing explores how people and technology translate data into meaning. How do we navigate between the rational and the emotional? Spread across seven large-scale, immersive installations and three smaller transitional spaces." },
     stad: "Amsterdam", locatie: "NXT Museum",
@@ -1071,12 +1132,12 @@ const events = [
     startMaand: { nl: "Mei", en: "May" },
     eindDatum: { nl: "28 Jun", en: "Jun 28" },
     maker: "Ferryman Collective",
-    duur: null,
+    duur: "75 min", handig: "Deelnemen is key",
     logline: { nl: "Vier klassiekers uit het oeuvre van het beroemde Ferryman Collective — online te beleven in VR Chat.", en: "During May and June the infamous Ferryman Collective reruns four classics from their oeuvre." },
     beschrijving: { nl: "Je hebt een draadloze Meta Quest 2, 3, 3s, Pro nodig, of een PCVR-headset verbonden met een computer. Een bedrade PCVR-headset geeft een betere kijkervaring.", en: "You will need an untethered Meta Quest 2, 3, 3s, Pro, or a PCVR HMD tethered to a computer to be able to attend our shows. A tethered PCVR headset will allow for a better viewing experience." },
     stad: "Online", locatie: "VR Chat — Virtual world",
-    types: ["XR", "Performatief"],
-    foto: null,
+    types: ["XR", "Performatief", "Sociaal"],
+    foto: "/images/wiilii.jpg",
     link: "https://www.ferrymancollective.com/now-showing",
     uitgelicht: false
   },
@@ -1086,7 +1147,7 @@ const events = [
     startMaand: { nl: "Mei", en: "May" },
     eindDatum: { nl: "31 Dec 2028", en: "Dec 31 2028" },
     maker: "Nienke Huitenga Broeren & ENTR",
-    duur: "45 min",
+    duur: "45 min", handig: "Vanaf 8+",
     logline: { nl: "Een ontmoeting met drie Amsterdammers in 1652.", en: "An encounter with three Amsterdam residents in 1652." },
     beschrijving: { nl: "Loop samen door Amsterdam van de 17e eeuw, gezien door de ogen van haar bewoners. Van het IJ tot de Dam ontdek je hoe mensen leefden, werkten en samenkwamen. Een gedeelde VR-ervaring waarin je de stad niet bekijkt, maar zelf betreedt.", en: "Walk through 17th-century Amsterdam through the eyes of its inhabitants. A shared VR experience in which you don't observe the city — you enter it." },
     stad: "Amsterdam", locatie: "ENTR",
@@ -1101,7 +1162,7 @@ const events = [
     startMaand: { nl: "Jun", en: "Jun" },
     eindDatum: { nl: "6 Jun", en: "Jun 6" },
     maker: "Paul Boereboom & Leon Rogissart",
-    duur: null, laatsteKans: true,
+    duur: null, handig: null, laatsteKans: true,
     logline: { nl: "Zintuiglijke XR-performance waarin beweging, muziek en technologie samensmelten.", en: "A sensory XR performance in which movement, music and technology merge." },
     beschrijving: { nl: "Conversations is een gelaagde ontmoeting tussen fysieke en digitale realiteiten. Met behulp van extended reality vloeien tastbare en virtuele werelden in elkaar over. Licht en geluid rekken de grenzen van de ruimte op, vervormen perspectieven en creëren een omgeving waarin toeschouwers niet enkel kijken, maar actief deelnemen.", en: "Conversations is a layered encounter between physical and digital realities. Light and sound stretch the boundaries of space, distorting perspectives and creating an environment where audiences don't just watch — they actively participate." },
     stad: "Amsterdam", locatie: "Frascati",
@@ -1116,11 +1177,11 @@ const events = [
     startMaand: { nl: "Jun", en: "Jun" },
     eindDatum: { nl: "31 Okt", en: "Oct 31" },
     maker: "Urland",
-    duur: null,
+    duur: "90 min", handig: "Vanaf 12+",
     logline: { nl: "Een experimentele, immersieve one-man performance op de drempel voordat een verhaal begint.", en: "An experimental, immersive one-man performance on the threshold before a story begins." },
     beschrijving: { nl: "This is not the start of the story, we haven't started yet. This is not the beginning. What do you need to know? Before we start? We don't know why. We can guess, but we don't know. We never will. We can choose. And be satisfied with an answer. But we never know. The elusive Why.", en: "This is not the start of the story, we haven't started yet. This is not the beginning. What do you need to know? Before we start? We don't know why. We can guess, but we don't know. We never will. We can choose. And be satisfied with an answer. But we never know. The elusive Why." },
     stad: "Meerdere locaties", locatie: "Oerol, Nijmegen, Bergen op Zoom, Amsterdam, Den Haag, Den Bosch",
-    types: ["Geluid", "Performatief"],
+    types: ["Geluid", "Performatief", "Audio driven immersion"],
     foto: "/images/urlandstorybeginsv2.png",
     link: "https://urland.nl/project/before-the-story-starts",
     uitgelicht: false
@@ -1131,7 +1192,7 @@ const events = [
     startMaand: { nl: "Jun", en: "Jun" },
     eindDatum: { nl: "1 Jul", en: "Jul 1" },
     maker: "Anagram",
-    duur: "45 min",
+    duur: "45 min", handig: "English spoken",
     logline: { nl: "Een interactieve, multi-sensorische audioreis voor twee door een tuin om jullie relatie met de natuur te herdenken.", en: "An interactive, multi-sensory audio journey for two through a garden to reimagine your relationship with the natural world." },
     beschrijving: { nl: "In een echte tuin ontdekken jij en je partner dat de natuur een hoorend, levend wezen is. Audio-vertelling en AR-content nodigen uit tot bezinning op de levende omgeving en een toekomstige wereld zonder mensen.", en: "In a real garden, you and your partner discover that the natural world is a hearing, living thing. Audio narration and AR content invite musing on the living environment and a future world without humans." },
     stad: "Amsterdam", locatie: "Vondelpark",
@@ -1146,7 +1207,7 @@ const events = [
     startMaand: { nl: "Jun", en: "Jun" },
     eindDatum: { nl: "24 Jun", en: "Jun 24" },
     maker: "Duncan Speakman",
-    duur: "40 min",
+    duur: "40 min", handig: "English spoken",
     logline: { nl: "Met real-time audiosoftware daagt deze audiotour deelnemers uit na te denken over hoe onze relatie met het landschap verandert.", en: "Using real-time audio software, this site-responsive audio tour prompts participants to consider how our relation to the landscape is being altered by environmental change." },
     beschrijving: { nl: "Real-time audiosoftware mixt het stadsgeluid met opnames van de klimaatcrisis wereldwijd — woekerende bosbranden, afbrokkelende kliffen, stijgende zeeën. Een poëtische reflectie op de veranderende stedelijke omgeving. Dit is een Engelstalige ervaring die je naar buiten brengt.", en: "Real-time audio software remixes the sound of the city with recordings of rapid environmental change: rampant wildfires, crumbling cliffs, rising seas. A poetic reflection that endows the shifting urban environment with both tenderness and grief. This is an English-language experience." },
     stad: "Amsterdam", locatie: "Het Documentaire Paviljoen",
@@ -1161,7 +1222,7 @@ const events = [
     startMaand: { nl: "Jun", en: "Jun" },
     eindDatum: { nl: "25 Jun", en: "Jun 25" },
     maker: "Is onderdeel van Immersive Techweek",
-    duur: null,
+    duur: "90 min", handig: "Toegang met accreditatie",
     logline: { nl: "16 VR-werken in één weekend — Church of VR loopt voorop in XR-verhalen vertellen en verlegt voortdurend de grenzen.", en: "16 VR works in one weekend — Church of VR leads the way in XR storytelling, continuously pushing the boundaries." },
     beschrijving: { nl: "Church of VR loopt voorop in XR-verhalen vertellen en verlegt voortdurend de grenzen. Stap binnen in de heilige graal van meeslepende ervaringen.", en: "Church of VR leads the way in XR storytelling, continuously pushing the boundaries. Step inside the holy grail of immersive experiences." },
     stad: "Rotterdam", locatie: "Katoenhuis",
@@ -1179,10 +1240,32 @@ const events = [
     duur: "75 min",
     logline: { nl: "Dreamscapes is een intieme immersieve performance waarin nieuwe muziek, beweging en zintuiglijke ervaring samensmelten tot een ruimte waarin we kunnen dromen.", en: "Dreamscapes is an intimate immersive performance in which new music, movement and sensory experience merge into a space where we can dream." },
     beschrijving: { nl: "Vertrekkend vanuit John Cage's In a Landscape ontvouwt zich een gelaagd klank- en bewegingslandschap. Vier performers gidsen maximaal 50 bezoekers door een cyclische droomwereld waarin klank, licht, geur en aanraking samenkomen.", en: "Departing from John Cage's In a Landscape, four performers guide up to 50 visitors through a cyclical dream world where sound, light, scent and touch come together." },
+    handig: "Taal geen probleem",
     stad: "Nijmegen", locatie: "Stevenskerk",
     types: ["Zintuiglijk", "Muziek", "Performatief"],
     foto: "/images/dreamscapes.jpg",
     link: "https://soundingbodies.com/voorstelling/dreamscapes",
+    uitgelicht: false
+  },
+  {
+    naam: { nl: "Drift", en: "Drift" },
+    startDag: 1, startMaandNr: 7, eindDag: 31, eindMaandNr: 8,
+    startMaand: { nl: "Jul", en: "Jul" },
+    eindDatum: { nl: "31 Aug", en: "Aug 31" },
+    maker: "Merel uit de Machine & VPRO Medialab",
+    duur: "Volgt het ritme van de maan", handig: "Gratis · English spoken",
+    logline: {
+      nl: "Een generatieve audio-ervaring over zeespiegelstijging en AI — een podcast die geen podcast is.",
+      en: "A generative audio experience about rising sea levels and AI — a podcast that is not a podcast."
+    },
+    beschrijving: {
+      nl: "Het is 2024, of — tijd doet er niet zo toe — 2529: een octopus als verteller, oude dijken die de contouren vormen van waar ooit land was. Drift koppelt de zeespiegelstijging en klimaatcrisis aan de opkomst van AI in een generatieve audio-ervaring. De verhaalwereld combineert verbeelding met feitelijke bronnen, zoals realtimeweersvoorspellingen van het KNMI en het klimaatrapport van het IPCC.",
+      en: "It is 2024, or — time doesn't really matter — 2529: an octopus as narrator, old dikes forming the outlines of where land once was. Drift links rising sea levels and the climate crisis to the rise of AI in a generative audio experience. The story world combines imagination with factual sources, including real-time weather forecasts from KNMI and the IPCC climate report."
+    },
+    stad: "Online", locatie: "In je podcast app",
+    types: ["Audio driven immersion", "Generatief"],
+    foto: "/images/drift-cover-v2.png",
+    link: "https://www.merel.club/drift/",
     uitgelicht: false
   },
   {
@@ -1191,7 +1274,7 @@ const events = [
     startMaand: { nl: "Jul", en: "Jul" },
     eindDatum: { nl: "27 Jul", en: "Jul 27" },
     maker: "CHOU Tung-yen",
-    duur: "35 min",
+    duur: "35 min", handig: "Vanaf 16+",
     logline: { nl: "In een surreëel droomlandschap vind je jezelf belichaamd in een ander lichaam — geweven door verlangens, opwinding en angsten.", en: "Inside a surreal dreamscape you find yourself embodied in another body — woven by desires, excitements, and fears." },
     beschrijving: { nl: "Terwijl je elke verdieping, gang en kamer doorloopt, valt elke laag van het labyrint onomkeerbaar uiteen. Wereldpremière IDFA DocLAB 2023, in competitie Cannes, Grand Prize NewImages Paris.", en: "As you walk along every floor, corridor, and room, each layer of the maze irreversibly unravels behind your back. World première IDFA DocLAB 2023, competed in Cannes, Grand Prize NewImages Paris." },
     stad: "Amsterdam", locatie: "Podium Mozaïek",
@@ -1209,6 +1292,7 @@ const events = [
     duur: "75 min",
     logline: { nl: "Dreamscapes is een intieme immersieve performance waarin nieuwe muziek, beweging en zintuiglijke ervaring samensmelten tot een ruimte waarin we kunnen dromen.", en: "Dreamscapes is an intimate immersive performance in which new music, movement and sensory experience merge into a space where we can dream." },
     beschrijving: { nl: "Vertrekkend vanuit John Cage's In a Landscape ontvouwt zich een gelaagd klank- en bewegingslandschap. Vier performers gidsen maximaal 50 bezoekers door een cyclische droomwereld waarin klank, licht, geur en aanraking samenkomen.", en: "Departing from John Cage's In a Landscape, four performers guide up to 50 visitors through a cyclical dream world where sound, light, scent and touch come together." },
+    handig: "Taal geen probleem",
     stad: "Tilburg", locatie: "Theater de Nieuwe Vorst",
     types: ["Zintuiglijk", "Muziek", "Performatief"],
     foto: "/images/dreamscapes.jpg",
@@ -1236,7 +1320,7 @@ const ui = {
     alles: "Alles",
     over: "Over",
     label: "FF alles gewoon in één overzicht. Lekker toch?",
-    footer: "Immersieve Kunst Agenda · Nederland",
+    footer: 'immersieve kunst agenda ✦ nederland — is run by <a href="https://www.studiozzzap.nl" target="_blank" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">studio zzzap</a>',
     tmLabel: "t/m",
     h1regel1: "Immersieve",
     h1regel2: "Kunst Agenda",
@@ -1263,7 +1347,7 @@ const ui = {
     alles: "All",
     over: "About",
     label: "No cap. Every immersive show, one place. Pretty sick ngl.",
-    footer: "Immersive Art Agenda · Netherlands",
+    footer: 'immersive art agenda ✦ netherlands — is run by <a href="https://www.studiozzzap.nl" target="_blank" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">studio zzzap</a>',
     tmLabel: "until",
     overTitel: "About this agenda",
     overTekst1: "A volunteer-run agenda for immersive art and experiences in the Netherlands. No algorithm, and the occasional ad (because hosting isn't free ;-). This agenda exists because so much great work is being made — but a human overview was simply missing.",
@@ -1285,6 +1369,13 @@ const typeVertalingen = {
     "Tentoonstelling": "Tentoonstelling",
     "Digitale kunst": "Digitale kunst",
     "Immersief": "Immersief",
+    "Geluid": "Geluid",
+    "Zintuiglijk": "Zintuiglijk",
+    "Muziek": "Muziek",
+    "Online": "Online",
+    "Generatief": "Generatief",
+    "Sociaal": "Sociaal",
+    "Audio driven immersion": "Audio driven immersion",
   },
   en: {
     "XR": "XR",
@@ -1295,6 +1386,13 @@ const typeVertalingen = {
     "Tentoonstelling": "Exhibition",
     "Digitale kunst": "Digital art",
     "Immersief": "Immersive",
+    "Geluid": "Sound",
+    "Zintuiglijk": "Sensory",
+    "Muziek": "Music",
+    "Online": "Online",
+    "Generatief": "Generative",
+    "Sociaal": "Social",
+    "Audio driven immersion": "Audio driven immersion",
   }
 };
 
@@ -1316,7 +1414,13 @@ function buildFilters() {
 function buildUitgelicht() {
   const t = ui[huidigeTaal];
   document.getElementById('section-uitgelicht').textContent = t.uitgelicht;
-  const uitgelicht = events.filter(e => e.uitgelicht).slice(0, 2);
+  const nu3 = new Date();
+  const uitgelicht = events.filter(e => {
+    if (!e.uitgelicht) return false;
+    const eindJaar = (e.eindMaandNr < e.startMaandNr) ? nu3.getFullYear() + 1 : nu3.getFullYear();
+    const eindCheck = new Date(eindJaar, e.eindMaandNr - 1, e.eindDag + 1);
+    return eindCheck >= nu3;
+  }).slice(0, 2);
   document.getElementById('uitgelicht-cards').innerHTML = uitgelicht.map((e, idx) => `
     <article class="card featured-card">
       <div class="card-img"><img src="${e.foto}" alt="${e.naam[huidigeTaal]}" loading="lazy"></div>
@@ -1364,7 +1468,7 @@ function updateStaticUI() {
   if (feedback) feedback.textContent = t.bedankt;
   document.querySelector('.header-label').textContent = t.label;
   document.querySelector('.header-about').textContent = t.over;
-  document.querySelector('.footer-bottom span').textContent = t.footer;
+  document.getElementById('footer-label').innerHTML = t.footer;
   document.getElementById('over-titel').textContent = t.overTitel;
   document.getElementById('over-tekst-1').textContent = t.overTekst1;
   document.getElementById('over-tekst-2').textContent = t.overTekst2;
@@ -1400,9 +1504,17 @@ function render() {
   // Begin van volgende maand
   const beginVolgende = new Date(nu.getFullYear(), nu.getMonth() + 1, 1);
 
+  // Verwijder events waarvan einddatum verstreken is
+  const nu2 = new Date();
+  const actief = events.filter(e => {
+    const eindJaar = (e.eindMaandNr < e.startMaandNr) ? nu2.getFullYear() + 1 : nu2.getFullYear();
+    const eindDatumCheck = new Date(eindJaar, e.eindMaandNr - 1, e.eindDag + 1); // +1 dag buffer
+    return eindDatumCheck >= nu2;
+  });
+
   const filtered = activeFilter === 'all'
-    ? events
-    : events.filter(e => e.types.includes(activeFilter));
+    ? actief
+    : actief.filter(e => e.types.includes(activeFilter));
 
   // NU TE ZIEN: start deze maand of eerder, eindigt na vandaag, start voor volgende maand
   const nuTeSien = filtered.filter(e => {
@@ -1419,7 +1531,7 @@ function render() {
     return startDatum >= beginVolgende;
   });
 
-  const nuLabel = huidigeTaal === 'nl' ? 'Deze maand te zien' : 'On this month';
+  const nuLabel = huidigeTaal === 'nl' ? 'Deze maand te zien' : 'On now';
   const binnenkortLabel = huidigeTaal === 'nl' ? 'Binnenkort' : 'Coming soon';
 
   const body = document.getElementById('tabel-body');
@@ -1457,7 +1569,7 @@ function periodeHeader(label, dimmed) {
 function eventRij(e, i) {
   const t = ui[huidigeTaal];
   const descId = 'desc-' + i;
-  const eindTekst = e.eindDatum ? `<div class="td-eind">${t.tmLabel} ${e.eindDatum[huidigeTaal]}</div>` : '';
+  const eindTekst = ''; // datum nu inline
   return `
     <tr>
       <td class="td-foto">
@@ -1466,18 +1578,19 @@ function eventRij(e, i) {
           : `<div class="foto-inner-placeholder">${e.naam[huidigeTaal][0]}</div>`}
       </td>
       <td class="td-datum">
-        ${e.startDag}<small>${e.startMaand[huidigeTaal]} 2026</small>${eindTekst}
+        <div>${e.startDag} ${e.startMaand[huidigeTaal]}${e.eindDatum ? ` ${huidigeTaal === 'nl' ? 't/m' : 'until'} ${e.eindDatum[huidigeTaal]}` : ''}</div>
         ${e.laatsteKans ? `<div class="laatste-kans-badge">${huidigeTaal === 'nl' ? 'Laatste kans' : 'Last chance'}</div>` : ''}
       </td>
       <td>
         <div class="td-titel">${e.naam[huidigeTaal]}</div>
         <div class="td-maker">${e.maker}</div>
+        ${e.duur ? `<div class="td-duur">◷ ${e.duur}</div>` : ''}
+        ${e.handig ? `<div class="td-handig">★ ${e.handig}</div>` : ''}
       </td>
       <td>${e.types.map(tp => `<span class="type-tag">${typeVertalingen[huidigeTaal][tp] || tp}</span>`).join('')}</td>
       <td>
         <div class="td-stad">${e.stad}</div>
         <div class="td-locatie">${e.locatie}</div>
-        ${e.duur ? `<div class="td-duur"><span style="opacity:0.6">◷</span> ${e.duur}</div>` : ''}
       </td>
       <td class="uitklap-wrap">
         <div class="logline">${e.logline[huidigeTaal]}</div>
