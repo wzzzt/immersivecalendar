@@ -197,11 +197,23 @@
   }
 
   .card-tag {
-    font-size: 12px;
-    letter-spacing: 0.1em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 0.3rem;
+  }
+
+  .card-tag-item {
+    font-size: 10px;
+    letter-spacing: 0.09em;
     text-transform: uppercase;
-    color: var(--green);
+    color: var(--pink);
     font-weight: 400;
+    border: 1px solid var(--pink);
+    border-radius: 100px;
+    padding: 3px 12px;
+    white-space: nowrap;
+    display: inline-block;
   }
 
   .card-maker {
@@ -249,8 +261,8 @@
   .card-link:hover { text-decoration: underline; }
 
   .card-leesmeer {
-    display: inline-block;
-    margin-top: 0.6rem;
+    display: block;
+    margin-top: 0.3rem;
     font-family: 'DM Sans', sans-serif;
     font-size: 11px;
     letter-spacing: 0.08em;
@@ -261,6 +273,7 @@
     padding: 0;
     cursor: pointer;
     font-weight: 400;
+    text-align: left;
   }
   .card-leesmeer:hover { text-decoration: underline; }
 
@@ -1094,12 +1107,12 @@ function buildUitgelicht() {
     <article class="card featured-card">
       <div class="card-img"><img src="${e.foto}" alt="${e.naam[huidigeTaal]}" loading="lazy"></div>
       <div class="card-body">
-        <span class="card-tag">${e.types.map(tp => typeVertalingen[huidigeTaal][tp] || tp).join(' · ')} · ${e.locatie}</span>
+        <div class="card-tag">${[...e.types.map(tp => typeVertalingen[huidigeTaal][tp] || tp), e.locatie].map(l => `<span class='card-tag-item'>${l}</span>`).join('')}</div>
         <p class="card-maker">${e.maker}</p>
         <h2 class="card-title">${e.naam[huidigeTaal]}</h2>
         <p class="card-desc">${e.logline[huidigeTaal]}</p>
         ${e.beschrijving && e.beschrijving[huidigeTaal] ? `
-          <div class="card-beschrijving" id="card-desc-${idx}" style="display:none; font-size:13px; line-height:1.75; color:var(--muted); margin-top:0.5rem;">${e.beschrijving[huidigeTaal]}</div>
+          <div class="card-beschrijving" id="card-desc-${idx}" style="display:none; font-size:13px; line-height:1.6; color:var(--muted); margin-top:0.4rem;">${e.beschrijving[huidigeTaal]}</div>
           <button class="card-leesmeer" onclick="toggleCard(this, 'card-desc-${idx}')">${huidigeTaal === 'nl' ? 'Lees meer ↓' : 'Read more ↓'}</button>
         ` : ''}
         <div class="card-meta">
