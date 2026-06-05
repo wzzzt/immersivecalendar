@@ -359,7 +359,7 @@
   .td-datum {
     font-family: 'Fraunces', serif;
     font-weight: 700;
-    font-size: 0.9rem;
+    font-size: 14px;
     color: var(--pink);
     white-space: normal;
     min-width: 90px;
@@ -759,7 +759,7 @@
     /* Datum */
     .td-datum {
       padding: 0.8rem 1rem 0.3rem !important;
-      font-size: 0.95rem !important;
+      font-size: 14px !important;
     }
 
     /* Titel cel */
@@ -803,9 +803,8 @@
     /* Kalender header */
     .kalender-header { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
 
-    /* Filter wrap scrollen */
-    .filter-wrap { overflow-x: auto; flex-wrap: nowrap; padding-bottom: 4px; }
-    .filter-wrap::-webkit-scrollbar { display: none; }
+    /* Filter wrap — wraps naar meerdere regels op mobiel */
+    .filter-wrap { overflow-x: visible; flex-wrap: wrap; gap: 6px; padding-bottom: 4px; }
 
     /* Footer */
     .footer-bottom { flex-direction: column; gap: 4px; text-align: center; }
