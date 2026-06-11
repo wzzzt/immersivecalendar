@@ -2117,7 +2117,7 @@ const ui = {
     bedankt: "Thanks for signing up!",
     alles: "All",
     over: "About",
-    label: "No cap. Every immersive show, one place. Pretty sick right?",
+    label: "No cap. Every immersive show, one place. Pretty sick ngl.",
     footer: 'immersive art agenda ✦ netherlands — is run by <a href="https://www.studiozzzap.nl" target="_blank" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">studio zzzap</a>',
     tmLabel: "until",
     overTitel: "About this agenda",
@@ -2273,6 +2273,7 @@ function filter(type, btn) {
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   render();
+  buildMobileCards();
 }
 
 function toggleCard(btn, id) {
@@ -2488,6 +2489,40 @@ function aanmelden() {
 }
 
 
+function mobileSpecialBanners() {
+  return '<div class="special-wrap mobile-special" id="special-church-mobile">' +
+    '<div class="special-banner" onclick="toggleSpecialMobile()">' +
+      '<div class="special-banner-left">' +
+        '<span class="special-tag">&#10022; Special</span>' +
+        '<span class="special-title">Church of VR</span>' +
+      '</div>' +
+      '<div class="special-banner-right">' +
+        '<span class="special-banner-hint">' + (huidigeTaal === 'nl' ? 'Klik om alle 14 werken te zien' : 'Click to see all 14 works') + '</span>' +
+        '<span class="special-arrow" id="special-arrow-mobile">›</span>' +
+      '</div>' +
+    '</div>' +
+    '<div class="special-grid-wrap" id="special-grid-wrap-mobile">' +
+      '<div class="special-grid" id="special-grid-mobile"></div>' +
+    '</div>' +
+  '</div>' +
+  '<div class="special-wrap mobile-special" id="special-nureality-mobile">' +
+    '<div class="special-banner nureality" onclick="toggleSpecialNRMobile()">' +
+      '<div class="special-banner-left">' +
+        '<span class="special-tag">&#10022; Special</span>' +
+        '<span class="special-title">NU:REALITY &mdash; The Living Gallery</span>' +
+      '</div>' +
+      '<div class="special-banner-right">' +
+        '<span class="special-banner-hint">' + (huidigeTaal === 'nl' ? 'Klik om alle 5 werken te zien' : 'Click to see all 5 works') + '</span>' +
+        '<span class="special-arrow" id="special-arrow-nr-mobile">›</span>' +
+      '</div>' +
+    '</div>' +
+    '<div class="special-grid-wrap" id="special-grid-wrap-nr-mobile">' +
+      '<div class="special-grid" id="special-grid-nr-mobile"></div>' +
+    '</div>' +
+  '</div>';
+}
+
+
 function buildMobileCards() {
   var grid = document.getElementById('mobile-cards');
   if (!grid) return;
@@ -2553,6 +2588,7 @@ function buildMobileCards() {
   if (toonNu && nuTeSien.length > 0) {
     html += '<div class="mc-periode"><div class="periode-label">' + nuLabel + '</div></div>';
     nuTeSien.forEach(function(e) { html += mCard(e, i++); });
+    html += mobileSpecialBanners();
   }
   if (toonBinnenkort && binnenkort.length > 0) {
     html += '<div class="mc-periode"><div class="periode-label dimmed">' + blLabel + '</div></div>';
@@ -2647,6 +2683,53 @@ function toggleSpecialNR() {
   var open = wrap.classList.toggle('open');
   arrow.classList.toggle('open', open);
   if (open) buildSpecialNR();
+}
+
+
+function buildSpecialMobile() {
+  var grid = document.getElementById('special-grid-mobile');
+  if (!grid) return;
+  grid.innerHTML = specialEvents.map(function(e) {
+    var imgUrl = e.foto || ('/images/special/' + e.slug + '.jpg');
+    return '<a class="special-thumb" href="https://www.immersivetechweek.co/church-of-vr/" target="_blank" rel="noopener">' +
+      '<div class="special-thumb-img" style="background-image:url(' + imgUrl + '); background-size:cover; background-position:center;">' +
+        '<span style="opacity:0.4; font-size:1.4rem;">' + e.naam[0] + '</span>' +
+      '</div>' +
+      '<div class="special-thumb-name">' + e.naam + '</div>' +
+    '</a>';
+  }).join('');
+}
+
+function toggleSpecialMobile() {
+  var wrap = document.getElementById('special-grid-wrap-mobile');
+  var arrow = document.getElementById('special-arrow-mobile');
+  if (!wrap || !arrow) return;
+  var open = wrap.classList.toggle('open');
+  arrow.classList.toggle('open', open);
+  if (open) buildSpecialMobile();
+}
+
+function buildSpecialNRMobile() {
+  var grid = document.getElementById('special-grid-nr-mobile');
+  if (!grid) return;
+  grid.innerHTML = specialEventsNR.map(function(e) {
+    var imgUrl = e.foto || ('/images/special/' + e.slug + '.jpg');
+    return '<a class="special-thumb" href="https://nureality.eu/nl/the-living-gallery/" target="_blank" rel="noopener">' +
+      '<div class="special-thumb-img" style="background-image:url(' + imgUrl + '); background-size:cover; background-position:center;">' +
+        '<span style="opacity:0.4; font-size:1.4rem;">' + e.naam[0] + '</span>' +
+      '</div>' +
+      '<div class="special-thumb-name">' + e.naam + '</div>' +
+    '</a>';
+  }).join('');
+}
+
+function toggleSpecialNRMobile() {
+  var wrap = document.getElementById('special-grid-wrap-nr-mobile');
+  var arrow = document.getElementById('special-arrow-nr-mobile');
+  if (!wrap || !arrow) return;
+  var open = wrap.classList.toggle('open');
+  arrow.classList.toggle('open', open);
+  if (open) buildSpecialNRMobile();
 }
 
 // Init
@@ -2811,6 +2894,39 @@ document.addEventListener('DOMContentLoaded', function() {
     .foto-inner img {
       border: 0 !important;
       margin: 0 !important;
+    }
+  }
+
+
+
+  .special-banner-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  @media (max-width: 700px) {
+    .mobile-special { display: block; }
+    .special-banner {
+      padding: 13px 1.2rem;
+      gap: 10px;
+    }
+    .special-banner-left {
+      min-width: 0;
+      flex: 1;
+    }
+    .special-title {
+      font-size: 1.05rem;
+      line-height: 1.1;
+    }
+    .special-banner-hint {
+      display: none;
+    }
+    .special-banner-right {
+      flex-shrink: 0;
+    }
+    .special-grid-wrap {
+      padding: 14px 1.2rem;
     }
   }
 
