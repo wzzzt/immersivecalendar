@@ -1589,6 +1589,156 @@
   }
 
 </style>
+
+<style id="high-contrast-styles">
+  /* Hoogcontrast-modus — behoudt layout, verhoogt contrast en focus-zichtbaarheid */
+  .contrast-btn {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    padding: 5px 13px;
+    border: 1px solid rgba(255,255,255,0.45);
+    border-radius: 100px;
+    background: transparent;
+    color: rgba(255,255,255,0.78);
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+  .contrast-btn:hover { color: #F2F2F0; border-color: #F2F2F0; }
+  .contrast-btn.active { background: #FFFFFF; color: #000000; border-color: #FFFFFF; }
+
+  body.high-contrast {
+    --ink: #000000;
+    --white: #FFFFFF;
+    --off: #000000;
+    --muted: #E8E8E8;
+    --border: #FFFFFF;
+    background: #000000 !important;
+    color: #FFFFFF !important;
+  }
+
+  body.high-contrast header,
+  body.high-contrast .kalender,
+  body.high-contrast footer,
+  body.high-contrast .footer-bottom,
+  body.high-contrast .uitgelicht,
+  body.high-contrast .special-grid-wrap,
+  body.high-contrast .card,
+  body.high-contrast tbody tr,
+  body.high-contrast .mc,
+  body.high-contrast .over-box {
+    background: #000000 !important;
+    color: #FFFFFF !important;
+  }
+
+  body.high-contrast header,
+  body.high-contrast footer,
+  body.high-contrast .footer-bottom,
+  body.high-contrast .cards,
+  body.high-contrast .card,
+  body.high-contrast thead th,
+  body.high-contrast tbody tr,
+  body.high-contrast .kalender-header,
+  body.high-contrast .over-box {
+    border-color: #FFFFFF !important;
+  }
+
+  body.high-contrast h1 em,
+  body.high-contrast .card-title,
+  body.high-contrast .td-titel,
+  body.high-contrast .mc-titel {
+    color: #FFFFFF !important;
+  }
+
+  body.high-contrast a,
+  body.high-contrast .td-link,
+  body.high-contrast .card-link,
+  body.high-contrast .lees-meer,
+  body.high-contrast .card-leesmeer,
+  body.high-contrast .mc-leesmeer,
+  body.high-contrast .header-about {
+    color: #FFFF00 !important;
+    border-color: #FFFF00 !important;
+  }
+
+  body.high-contrast .section-label-wrap,
+  body.high-contrast .special-banner,
+  body.high-contrast .periode-label,
+  body.high-contrast .periode-label.dimmed {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+    border-left: 0 !important;
+    border-color: #FFFFFF !important;
+  }
+
+  body.high-contrast .section-label-wrap span,
+  body.high-contrast .special-tag,
+  body.high-contrast .special-title,
+  body.high-contrast .special-banner-hint,
+  body.high-contrast .special-arrow {
+    color: #000000 !important;
+  }
+
+  body.high-contrast .lang-switch,
+  body.high-contrast .contrast-btn,
+  body.high-contrast .filter-btn,
+  body.high-contrast .type-tag,
+  body.high-contrast .card-tag-item,
+  body.high-contrast .laatste-kans-badge,
+  body.high-contrast .verse-tip-badge {
+    border-color: #FFFFFF !important;
+    color: #FFFFFF !important;
+    background: #000000 !important;
+  }
+
+  body.high-contrast .lang-btn { color: #FFFFFF !important; }
+  body.high-contrast .lang-btn.active,
+  body.high-contrast .contrast-btn.active,
+  body.high-contrast .filter-btn.active,
+  body.high-contrast .filter-btn.alles-btn {
+    background: #FFFF00 !important;
+    color: #000000 !important;
+    border-color: #FFFF00 !important;
+  }
+
+  body.high-contrast .laatste-kans-badge::before,
+  body.high-contrast .verse-tip-badge::before,
+  body.high-contrast .section-label-wrap .dot {
+    background: #000000 !important;
+  }
+
+  body.high-contrast .card-desc,
+  body.high-contrast .logline,
+  body.high-contrast .beschrijving,
+  body.high-contrast .mc-logline,
+  body.high-contrast .mc-desc,
+  body.high-contrast .card-maker,
+  body.high-contrast .td-maker,
+  body.high-contrast .td-stad,
+  body.high-contrast .td-locatie,
+  body.high-contrast .td-handig,
+  body.high-contrast .footer-disclaimer p,
+  body.high-contrast .footer-nieuwsbrief p,
+  body.high-contrast .header-label {
+    color: #FFFFFF !important;
+  }
+
+  body.high-contrast img { filter: none; }
+
+  body.high-contrast button:focus-visible,
+  body.high-contrast a:focus-visible,
+  body.high-contrast input:focus-visible {
+    outline: 3px solid #FFFF00 !important;
+    outline-offset: 3px !important;
+  }
+
+  @media (max-width: 700px) {
+    .header-right { gap: 0.6rem; }
+    .contrast-btn { font-size: 11px; padding: 4px 10px; }
+  }
+</style>
 </head>
 <body>
 
@@ -1606,10 +1756,11 @@
   <div class="header-bar">
     <span class="header-label" id="header-label-el">FF alles gewoon in één overzicht. Lekker toch?</span>
     <div class="header-right">
-      <div class="lang-switch">
+      <div class="lang-switch" aria-label="Taal kiezen">
         <button class="lang-btn active" onclick="setLang('nl', this)">NL</button>
         <button class="lang-btn" onclick="setLang('en', this)">EN</button>
       </div>
+      <button class="contrast-btn" id="contrast-toggle" type="button" onclick="toggleContrast()" aria-pressed="false">Hoog contrast</button>
       <a class="header-about" href="#" onclick="openOver(event)" id="over-btn">Over</a>
     </div>
   </div>
@@ -2323,6 +2474,7 @@ function setLang(lang, btn) {
   buildUitgelicht();
   render();
   buildMobileCards();
+  applyContrastState(document.body.classList.contains('high-contrast'));
 }
 
 function aanmelden() {
@@ -2526,6 +2678,27 @@ function updateHemellichaam() {
 
 updateHemellichaam();
 setInterval(updateHemellichaam, 60000);
+
+
+function applyContrastState(on) {
+  document.body.classList.toggle('high-contrast', on);
+  var btn = document.getElementById('contrast-toggle');
+  if (btn) {
+    btn.classList.toggle('active', on);
+    btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    btn.textContent = huidigeTaal === 'en' ? (on ? 'Standard contrast' : 'High contrast') : (on ? 'Normaal contrast' : 'Hoog contrast');
+  }
+}
+
+function toggleContrast() {
+  var on = !document.body.classList.contains('high-contrast');
+  localStorage.setItem('hoogContrast', on ? '1' : '0');
+  applyContrastState(on);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  applyContrastState(localStorage.getItem('hoogContrast') === '1');
+});
 </script>
 
 <style>
