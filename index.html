@@ -350,7 +350,7 @@
   .filter-btn.alles-btn.active { background: var(--white); border-color: var(--white); color: var(--ink); }
 
   .special-banner.nureality {
-    background: linear-gradient(90deg, #E2EF70 0%, #141414 100%);
+    background: linear-gradient(90deg, #86BA90 0%, #141414 100%);
   }
 
   .filter-btn.periode-btn {
@@ -718,8 +718,8 @@
     gap: 4px;
     font-family: 'DM Sans', sans-serif;
     background: transparent;
-    color: #E2EF70;
-    border: 1px solid #E2EF70;
+    color: #86BA90;
+    border: 1px solid #86BA90;
     font-size: 9px;
     font-weight: 400;
     letter-spacing: 0.06em;
@@ -736,7 +736,7 @@
     display: inline-block;
     width: 5px; height: 5px;
     border-radius: 50%;
-    background: #E2EF70;
+    background: #86BA90;
     opacity: 0.8;
     animation: knipperen 1.2s infinite;
     flex-shrink: 0;
@@ -1080,7 +1080,7 @@
   .mc-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 1rem; border-top: 1px solid var(--border); flex-wrap: wrap; gap: 6px; font-size: 14px; color: rgba(255,255,255,0.85); }
   
   .mc-periode { padding: 0; background: transparent; }
-  .mc-lk { display: inline-flex; align-items: center; gap: 4px; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: #E2EF70; border: 1px solid #E2EF70; padding: 2px 8px; border-radius: 100px; font-family: 'DM Sans', sans-serif; }
+  .mc-lk { display: inline-flex; align-items: center; gap: 4px; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: #86BA90; border: 1px solid #86BA90; padding: 2px 8px; border-radius: 100px; font-family: 'DM Sans', sans-serif; }
 
 
   /* ── SPECIAL SECTIE ── */
@@ -1094,7 +1094,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 14px 1.5rem;
-    background: linear-gradient(90deg, #E2EF70 0%, rgba(226,239,112,0.55) 45%, rgba(226,239,112,0) 100%);
+    background: linear-gradient(90deg, #86BA90 0%, rgba(134,186,144,0.55) 45%, rgba(134,186,144,0) 100%);
     cursor: pointer;
     user-select: none;
     transition: opacity 0.2s;
@@ -1136,7 +1136,7 @@
 
   .special-arrow {
     font-size: 29px;
-    color: #E2EF70;
+    color: #86BA90;
     transition: transform 0.3s;
     opacity: 0.9;
   }
@@ -1216,8 +1216,8 @@
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: #141414;
-    background: #E2EF70;
-    border: 1px solid #E2EF70;
+    background: #86BA90;
+    border: 1px solid #86BA90;
     padding: 3px 9px 3px 8px;
     border-radius: 100px;
     font-weight: 500;
@@ -1233,6 +1233,37 @@
     background: #141414;
     opacity: 0.8;
     flex-shrink: 0;
+  }
+
+
+
+  /* ── RUIMERE UITLIJNING TABEL ── */
+  @media (min-width: 701px) {
+    col.col-foto { width: 160px; }
+    col.col-datum { width: 150px; }
+
+    .td-foto {
+      width: 160px;
+      min-width: 160px;
+      padding-right: 18px !important;
+      background: #1A1A1A;
+    }
+
+    .foto-inner,
+    .foto-inner img,
+    .foto-inner-placeholder {
+      width: 142px;
+    }
+
+    .td-datum {
+      padding-left: 1.4rem !important;
+      padding-right: 1.4rem !important;
+      min-width: 145px;
+    }
+
+    tbody td:nth-child(3) {
+      padding-left: 1.1rem !important;
+    }
   }
 
 </style>
