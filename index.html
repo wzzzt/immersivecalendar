@@ -340,6 +340,31 @@
   .filter-btn:hover { border-color: var(--pink); color: var(--pink); }
   .filter-btn.active { background: var(--pink); border-color: var(--pink); color: var(--white); }
 
+  .filter-btn.alles-btn {
+    background: var(--white);
+    border-color: var(--white);
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .filter-btn.alles-btn:hover { opacity: 0.85; border-color: var(--white); color: var(--ink); }
+  .filter-btn.alles-btn.active { background: var(--white); border-color: var(--white); color: var(--ink); }
+
+  .special-banner.nureality {
+    background: linear-gradient(90deg, #E2EF70 0%, #141414 100%);
+  }
+
+  .filter-btn.periode-btn {
+    background: linear-gradient(90deg, #FF3CAC 0%, rgba(255,60,172,0.45) 60%, rgba(255,60,172,0) 100%);
+    border-color: rgba(255,60,172,0.5);
+    color: var(--white);
+  }
+  .filter-btn.periode-btn:hover { border-color: var(--pink); color: var(--white); opacity: 0.85; }
+  .filter-btn.periode-btn.active {
+    background: var(--pink);
+    border-color: var(--pink);
+    color: var(--white);
+  }
+
   /* ── TABEL ── */
   .tabel-wrap { width: 100%; overflow-x: auto; }
 
@@ -688,23 +713,22 @@
   .over-sluit:hover { color: var(--white); }
 
   .laatste-kans-badge {
-    display: inline-block;
-    vertical-align: middle;
-    gap: 5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
     font-family: 'DM Sans', sans-serif;
     background: transparent;
-    color: #00CFFF;
-    border: 1px solid #00CFFF;
-    font-size: 10px;
+    color: #E2EF70;
+    border: 1px solid #E2EF70;
+    font-size: 9px;
     font-weight: 400;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    padding: 4px 12px 4px 10px;
+    padding: 3px 9px 3px 8px;
     border-radius: 100px;
-    margin-top: 6px;
     white-space: nowrap;
-    display: block;
     width: fit-content;
+    max-width: 100%;
   }
 
   .laatste-kans-badge::before {
@@ -712,7 +736,7 @@
     display: inline-block;
     width: 5px; height: 5px;
     border-radius: 50%;
-    background: #00CFFF;
+    background: #E2EF70;
     opacity: 0.8;
     animation: knipperen 1.2s infinite;
     flex-shrink: 0;
@@ -1005,8 +1029,8 @@
 
   /* Tabel kolombreedtes */
   table { table-layout: fixed; width: 100%; }
-  col.col-foto    { width: 145px; }
-  col.col-datum   { width: 95px; }
+  col.col-foto    { width: 130px; }
+  col.col-datum   { width: 115px; }
   col.col-event   { width: 20%; }
   col.col-type    { width: 11%; }
   col.col-stad    { width: 13%; }
@@ -1056,7 +1080,7 @@
   .mc-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 1rem; border-top: 1px solid var(--border); flex-wrap: wrap; gap: 6px; font-size: 14px; color: rgba(255,255,255,0.85); }
   
   .mc-periode { padding: 0; background: transparent; }
-  .mc-lk { display: inline-flex; align-items: center; gap: 4px; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: #00CFFF; border: 1px solid #00CFFF; padding: 2px 8px; border-radius: 100px; font-family: 'DM Sans', sans-serif; }
+  .mc-lk { display: inline-flex; align-items: center; gap: 4px; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: #E2EF70; border: 1px solid #E2EF70; padding: 2px 8px; border-radius: 100px; font-family: 'DM Sans', sans-serif; }
 
 
   /* ── SPECIAL SECTIE ── */
@@ -1070,19 +1094,19 @@
     align-items: center;
     justify-content: space-between;
     padding: 14px 1.5rem;
-    background: #FF3CAC;
+    background: linear-gradient(90deg, #E2EF70 0%, rgba(226,239,112,0.55) 45%, rgba(226,239,112,0) 100%);
     cursor: pointer;
     user-select: none;
-    transition: background 0.2s;
-    border-bottom: 2px solid rgba(20,20,20,0.15);
+    transition: opacity 0.2s;
+    border-bottom: 1px solid var(--border);
   }
-  .special-banner:hover { background: #e8009a; }
+  .special-banner:hover { opacity: 0.88; }
   .special-banner-hint {
     font-family: 'DM Sans', sans-serif;
-    font-size: 9px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: rgba(20,20,20,0.5);
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    color: rgba(255,255,255,0.85);
     white-space: nowrap;
   }
 
@@ -1112,9 +1136,9 @@
 
   .special-arrow {
     font-size: 29px;
-    color: #141414;
+    color: #E2EF70;
     transition: transform 0.3s;
-    opacity: 0.8;
+    opacity: 0.9;
   }
   .special-arrow.open { transform: rotate(90deg); }
 
@@ -1188,15 +1212,17 @@
     align-items: center;
     gap: 4px;
     font-family: 'DM Sans', sans-serif;
-    font-size: 10px;
-    letter-spacing: 0.08em;
+    font-size: 9px;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: #00FF88;
-    border: 1px solid #00FF88;
-    padding: 2px 8px;
+    color: #141414;
+    background: #E2EF70;
+    border: 1px solid #E2EF70;
+    padding: 3px 9px 3px 8px;
     border-radius: 100px;
-    font-weight: 400;
+    font-weight: 500;
     white-space: nowrap;
+    width: fit-content;
   }
   .verse-tip-badge::before {
     content: "";
@@ -1204,7 +1230,7 @@
     width: 5px;
     height: 5px;
     border-radius: 50%;
-    background: #00FF88;
+    background: #141414;
     opacity: 0.8;
     flex-shrink: 0;
   }
@@ -1510,6 +1536,36 @@ const events = [
     link: "https://soundingbodies.com/voorstelling/dreamscapes",
     uitgelicht: false
   },
+  {
+    naam: { nl: "Nothing to See: Acousmatische Muziek in 4D Geluid", en: "Nothing to See: Acousmatic Music in 4D Sound" },
+    startDag: 17, startMaandNr: 6, eindDag: 17, eindMaandNr: 6,
+    startMaand: { nl: "Jun", en: "Jun" },
+    eindDatum: null,
+    maker: "Rewire Festival",
+    duur: null, handig: "Eenmalig",
+    logline: { nl: "Sluit je ogen. Laat het geluid je omringen. Acousmatische muziek in een volledige 4D geluidsomgeving.", en: "Close your eyes. Let the sound surround you. Acousmatic music in a full 4D sound environment." },
+    beschrijving: { nl: "Een concert waarbij beeld volledig afwezig is en geluid de enige ervaring is. 4D sound plaatst je in het centrum van een meeslepende geluidswereld.", en: "A concert where image is entirely absent and sound is the only experience. 4D sound places you at the centre of an immersive sonic world." },
+    stad: "Amsterdam", locatie: "Amsterdam",
+    types: ["Audio driven immersion", "Muziek", "Spatial"],
+    foto: "/images/4dsound.jpg",
+    link: null,
+    uitgelicht: true
+  },
+  {
+    verseTip: true, naam: { nl: "House of Love", en: "House of Love" },
+    startDag: 8, startMaandNr: 5, eindDag: 30, eindMaandNr: 6,
+    startMaand: { nl: "Mei", en: "May" },
+    eindDatum: { nl: "30 Jun", en: "Jun 30" },
+    maker: "Onbekend",
+    duur: null, handig: null,
+    logline: { nl: "Een immersieve theaterervaring in de stijl van Punchdrunk — vrij ronddwalend door een wereld vol verhalen.", en: "An immersive theatre experience in the style of Punchdrunk — freely roaming through a world full of stories." },
+    beschrijving: { nl: "Free roaming immersief theater in Hoorn.", en: "Free roaming immersive theatre in Hoorn." },
+    stad: "Hoorn", locatie: "Hoorn",
+    types: ["Performatief", "Immersief theater"],
+    foto: "/images/houseoflove.jpg",
+    link: null,
+    uitgelicht: false
+  },
 ];
 
 const ui = {
@@ -1617,11 +1673,27 @@ function buildFilters() {
   const t = ui[huidigeTaal];
   const wrap = document.getElementById('filter-wrap');
   wrap.innerHTML = '';
+
+  const nuLabel = huidigeTaal === 'nl' ? 'Deze maand te zien' : 'On show this month';
+  const blLabel = huidigeTaal === 'nl' ? 'Binnenkort' : 'Coming soon';
+  const periodeFilters = [
+    { key: 'periode:nu', label: nuLabel },
+    { key: 'periode:binnenkort', label: blLabel }
+  ];
+
   ['all', ...alleTypes].forEach(type => {
     const btn = document.createElement('button');
-    btn.className = 'filter-btn' + (type === activeFilter ? ' active' : '');
+    btn.className = 'filter-btn' + (type === 'all' ? ' alles-btn' : '') + (type === activeFilter ? ' active' : '');
     btn.textContent = type === 'all' ? t.alles : (typeVertalingen[huidigeTaal][type] || type);
     btn.onclick = () => filter(type, btn);
+    wrap.appendChild(btn);
+  });
+
+  periodeFilters.forEach(p => {
+    const btn = document.createElement('button');
+    btn.className = 'filter-btn periode-btn' + (p.key === activeFilter ? ' active' : '');
+    btn.textContent = p.label;
+    btn.onclick = () => filter(p.key, btn);
     wrap.appendChild(btn);
   });
 }
@@ -1728,7 +1800,8 @@ function render() {
     return eindDatumCheck >= nu2;
   });
 
-  const filtered = activeFilter === 'all'
+  const isPeriodeFilter = activeFilter.indexOf('periode:') === 0;
+  const filtered = (activeFilter === 'all' || isPeriodeFilter)
     ? actief
     : actief.filter(e => e.types.includes(activeFilter));
 
@@ -1760,7 +1833,10 @@ function render() {
   let html = '';
   let i = 0;
 
-  if (nuTeSien.length > 0) {
+  const toonNu = activeFilter !== 'periode:binnenkort';
+  const toonBinnenkort = activeFilter !== 'periode:nu';
+
+  if (toonNu && nuTeSien.length > 0) {
     html += periodeHeader(nuLabel, false);
     nuTeSien.forEach(e => { html += eventRij(e, i++); });
     html += `<tr><td colspan="6" style="padding:0;">
@@ -1771,7 +1847,7 @@ function render() {
             <span class="special-title">Church of VR</span>
           </div>
           <div style="display:flex; align-items:center; gap:10px;">
-            <span class="special-banner-hint">Klik om alle 14 werken te zien</span>
+            <span class="special-banner-hint">${huidigeTaal === 'nl' ? 'Klik om alle 14 werken te zien' : 'Click to see all 14 works'}</span>
             <span class="special-arrow" id="special-arrow">›</span>
           </div>
         </div>
@@ -1779,12 +1855,31 @@ function render() {
           <div class="special-grid" id="special-grid"></div>
         </div>
       </div>
+      <div class="special-wrap" id="special-nureality">
+        <div class="special-banner nureality" onclick="toggleSpecialNR()">
+          <div class="special-banner-left">
+            <span class="special-tag">&#10022; Special</span>
+            <span class="special-title">NU:REALITY &mdash; The Living Gallery</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:10px;">
+            <span class="special-banner-hint">${huidigeTaal === 'nl' ? 'Klik om alle 5 werken te zien' : 'Click to see all 5 works'}</span>
+            <span class="special-arrow" id="special-arrow-nr">›</span>
+          </div>
+        </div>
+        <div class="special-grid-wrap" id="special-grid-wrap-nr">
+          <div class="special-grid" id="special-grid-nr"></div>
+        </div>
+      </div>
     </td></tr>`;
   }
 
-  if (binnenkort.length > 0) {
+  if (toonBinnenkort && binnenkort.length > 0) {
     html += periodeHeader(binnenkortLabel, true);
     binnenkort.forEach(e => { html += eventRij(e, i++); });
+  }
+
+  if (html === '') {
+    html = `<tr class="geen-events"><td colspan="6">${t.geenEvents}</td></tr>`;
   }
 
   body.innerHTML = html;
@@ -1891,38 +1986,7 @@ function aanmelden() {
 function buildMobileCards() {
   var grid = document.getElementById('mobile-cards');
   if (!grid) return;
-  var t = ui[huidigeTaal,
-  {
-    naam: { nl: "Nothing to See: Acousmatische Muziek in 4D Geluid", en: "Nothing to See: Acousmatic Music in 4D Sound" },
-    startDag: 17, startMaandNr: 6, eindDag: 17, eindMaandNr: 6,
-    startMaand: { nl: "Jun", en: "Jun" },
-    eindDatum: null,
-    maker: "Rewire Festival",
-    duur: null, handig: "Eenmalig",
-    logline: { nl: "Sluit je ogen. Laat het geluid je omringen. Acousmatische muziek in een volledige 4D geluidsomgeving.", en: "Close your eyes. Let the sound surround you. Acousmatic music in a full 4D sound environment." },
-    beschrijving: { nl: "Een concert waarbij beeld volledig afwezig is en geluid de enige ervaring is. 4D sound plaatst je in het centrum van een meeslepende geluidswereld.", en: "A concert where image is entirely absent and sound is the only experience. 4D sound places you at the centre of an immersive sonic world." },
-    stad: "Amsterdam", locatie: "Amsterdam",
-    types: ["Audio driven immersion", "Muziek", "Spatial"],
-    foto: "/images/4dsound.jpg",
-    link: null,
-    uitgelicht: true
-  },
-  {
-    verseTip: true, naam: { nl: "House of Love", en: "House of Love" },
-    startDag: 8, startMaandNr: 5, eindDag: 30, eindMaandNr: 6,
-    startMaand: { nl: "Mei", en: "May" },
-    eindDatum: { nl: "30 Jun", en: "Jun 30" },
-    maker: "Onbekend",
-    duur: null, handig: null,
-    logline: { nl: "Een immersieve theaterervaring in de stijl van Punchdrunk — vrij ronddwalend door een wereld vol verhalen.", en: "An immersive theatre experience in the style of Punchdrunk — freely roaming through a world full of stories." },
-    beschrijving: { nl: "Free roaming immersief theater in Hoorn.", en: "Free roaming immersive theatre in Hoorn." },
-    stad: "Hoorn", locatie: "Hoorn",
-    types: ["Performatief", "Immersief theater"],
-    foto: "/images/houseoflove.jpg",
-    link: null,
-    uitgelicht: false
-  }
-];
+  var t = ui[huidigeTaal];
   var nu = new Date();
   var beginVolgende = new Date(nu.getFullYear(), nu.getMonth() + 1, 1);
 
@@ -1931,7 +1995,8 @@ function buildMobileCards() {
     return new Date(ej, e.eindMaandNr - 1, e.eindDag + 1) >= nu;
   });
 
-  var filtered = activeFilter === 'all' ? actief : actief.filter(function(e) { return e.types.includes(activeFilter); });
+  var isPeriodeFilter = activeFilter.indexOf('periode:') === 0;
+  var filtered = (activeFilter === 'all' || isPeriodeFilter) ? actief : actief.filter(function(e) { return e.types.includes(activeFilter); });
 
   var nuTeSien = filtered.filter(function(e) {
     var s = new Date(nu.getFullYear(), e.startMaandNr - 1, e.startDag);
@@ -1977,11 +2042,14 @@ function buildMobileCards() {
   var nuLabel = huidigeTaal === 'nl' ? 'Deze maand te zien' : 'On show this month';
   var blLabel = huidigeTaal === 'nl' ? 'Binnenkort' : 'Coming soon';
 
-  if (nuTeSien.length > 0) {
+  var toonNu = activeFilter !== 'periode:binnenkort';
+  var toonBinnenkort = activeFilter !== 'periode:nu';
+
+  if (toonNu && nuTeSien.length > 0) {
     html += '<div class="mc-periode"><div class="periode-label">' + nuLabel + '</div></div>';
     nuTeSien.forEach(function(e) { html += mCard(e, i++); });
   }
-  if (binnenkort.length > 0) {
+  if (toonBinnenkort && binnenkort.length > 0) {
     html += '<div class="mc-periode"><div class="periode-label dimmed">' + blLabel + '</div></div>';
     binnenkort.forEach(function(e) { html += mCard(e, i++); });
   }
@@ -2043,6 +2111,37 @@ function toggleSpecial() {
   var open = wrap.classList.toggle('open');
   arrow.classList.toggle('open', open);
   if (open) buildSpecial();
+}
+
+// NU:REALITY — The Living Gallery special
+const specialEventsNR = [
+  { naam: "Caravaggio, In Tenebris", slug: "caravaggio-in-tenebris" },
+  { naam: "Dance Dance Dance - Matisse", slug: "dance-dance-dance-matisse" },
+  { naam: "A Long Goodbye", slug: "a-long-goodbye-nr" },
+  { naam: "Creation of the Worlds", slug: "creation-of-the-worlds" },
+  { naam: "The Scream", slug: "the-scream" },
+];
+
+function buildSpecialNR() {
+  var grid = document.getElementById('special-grid-nr');
+  if (!grid) return;
+  grid.innerHTML = specialEventsNR.map(function(e) {
+    var imgUrl = '/images/special/' + e.slug + '.jpg';
+    return '<a class="special-thumb" href="https://nureality.eu/nl/the-living-gallery/" target="_blank" rel="noopener">' +
+      '<div class="special-thumb-img" style="background-image:url(' + imgUrl + '); background-size:cover; background-position:center;">' +
+        '<span style="opacity:0.4; font-size:1.4rem;">' + e.naam[0] + '</span>' +
+      '</div>' +
+      '<div class="special-thumb-name">' + e.naam + '</div>' +
+    '</a>';
+  }).join('');
+}
+
+function toggleSpecialNR() {
+  var wrap = document.getElementById('special-grid-wrap-nr');
+  var arrow = document.getElementById('special-arrow-nr');
+  var open = wrap.classList.toggle('open');
+  arrow.classList.toggle('open', open);
+  if (open) buildSpecialNR();
 }
 
 // Init
