@@ -1202,6 +1202,26 @@
     object-fit: cover;
   }
 
+
+  /* Geen fallback-letters door special-thumbnails heen */
+  .special-thumb-img {
+    position: relative;
+    overflow: hidden;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    color: transparent !important;
+  }
+
+  .special-thumb-img img {
+    display: block;
+    position: relative;
+    z-index: 2;
+  }
+
+  .special-thumb-img *:not(img) {
+    display: none !important;
+  }
+
   .special-thumb-name {
     font-family: 'Fraunces', serif;
     font-style: italic;
@@ -1863,7 +1883,7 @@ const ui = {
     bedankt: "Thanks for signing up!",
     alles: "All",
     over: "About",
-    label: "No cap. Every immersive show, one place. Pretty sick ngl.",
+    label: "No cap. Every immersive show, one place. Chefs kiss from us!",
     footer: 'immersive art agenda ✦ netherlands — is run by <a href="https://www.studiozzzap.nl" target="_blank" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">studio zzzap</a>',
     tmLabel: "until",
     overTitel: "About this agenda",
@@ -2385,7 +2405,6 @@ function buildSpecial() {
     var imgUrl = e.foto || ('/images/special/' + e.slug + '.jpg');
     return '<a class="special-thumb" href="https://www.immersivetechweek.co/church-of-vr/" target="_blank" rel="noopener">' +
       '<div class="special-thumb-img" style="background-image:url(' + imgUrl + '); background-size:cover; background-position:center;">' +
-        '<span style="opacity:0.4; font-size:1.4rem;">' + e.naam[0] + '</span>' +
       '</div>' +
       '<div class="special-thumb-name">' + e.naam + '</div>' +
     '</a>';
@@ -2416,7 +2435,6 @@ function buildSpecialNR() {
     var imgUrl = e.foto || ('/images/special/' + e.slug + '.jpg');
     return '<a class="special-thumb" href="https://nureality.eu/nl/the-living-gallery/" target="_blank" rel="noopener">' +
       '<div class="special-thumb-img" style="background-image:url(' + imgUrl + '); background-size:cover; background-position:center;">' +
-        '<span style="opacity:0.4; font-size:1.4rem;">' + e.naam[0] + '</span>' +
       '</div>' +
       '<div class="special-thumb-name">' + e.naam + '</div>' +
     '</a>';
@@ -2439,7 +2457,6 @@ function buildSpecialMobile() {
     var imgUrl = e.foto || ('/images/special/' + e.slug + '.jpg');
     return '<a class="special-thumb" href="https://www.immersivetechweek.co/church-of-vr/" target="_blank" rel="noopener">' +
       '<div class="special-thumb-img" style="background-image:url(' + imgUrl + '); background-size:cover; background-position:center;">' +
-        '<span style="opacity:0.4; font-size:1.4rem;">' + e.naam[0] + '</span>' +
       '</div>' +
       '<div class="special-thumb-name">' + e.naam + '</div>' +
     '</a>';
@@ -2462,7 +2479,6 @@ function buildSpecialNRMobile() {
     var imgUrl = e.foto || ('/images/special/' + e.slug + '.jpg');
     return '<a class="special-thumb" href="https://nureality.eu/nl/the-living-gallery/" target="_blank" rel="noopener">' +
       '<div class="special-thumb-img" style="background-image:url(' + imgUrl + '); background-size:cover; background-position:center;">' +
-        '<span style="opacity:0.4; font-size:1.4rem;">' + e.naam[0] + '</span>' +
       '</div>' +
       '<div class="special-thumb-name">' + e.naam + '</div>' +
     '</a>';
