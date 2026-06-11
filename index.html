@@ -1352,7 +1352,7 @@ const events = [
     beschrijving: { nl: "In deze geanimeerde, interactieve VR-ervaring stappen we in haar wereld en beleven we een dag uit haar leven, terwijl haar grip op de realiteit langzaam vervaagt. Herinneringen en gesprekken helpen Ida zichzelf stukje bij beetje terug te vinden. Een poëtische ervaring over de impact van dementie, maar bovenal een verhaal over liefde.", en: "In this animated, interactive VR experience we step into her world and experience a day in her life as her grip on reality slowly fades. A poetic experience about the impact of dementia, but above all a story about love." },
     stad: "Randstad & Enschede, Nijmegen, Eindhoven", locatie: "NU:REALITY tour",
     types: ["XR"],
-    foto: "/images/LONGGOODBYE.jpg",
+    foto: "/images/longgoodbye2.png",
     link: "https://nureality.eu/nl/",
     uitgelicht: true
   },
@@ -1367,7 +1367,7 @@ const events = [
     beschrijving: { nl: "Werelden ontvouwen zich en reageren op je aanwezigheid, terwijl kleur, beweging en emotie tastbaar worden. Te ervaren op 7 locaties: Droog Amsterdam, LUX Nijmegen, Schuur Haarlem, Natlab Eindhoven, Concordia Enschede, Slachtstraat Utrecht, LantarenVenster Rotterdam.", en: "Worlds unfold and react to your presence, as colour, movement and emotion become tangible. Available at 7 locations across the Netherlands." },
     stad: "7 locaties NL", locatie: "Droog, LUX, Schuur, Natlab, Concordia, Slachtstraat, LantarenVenster",
     types: ["XR"],
-    foto: "/images/NUREALITY.jpg",
+    foto: "/images/nureality.jpg",
     link: "https://nureality.eu/nl/actueel/",
     uitgelicht: false
   },
@@ -2075,27 +2075,27 @@ function isLaatsteKans(e) {
 
 // Temp events voor Church of VR special
 const specialEvents = [
-  { naam: "Mirage", slug: "mirage" },
-  { naam: "A Long Goodbye", slug: "a-long-goodbye" },
-  { naam: "At the Table", slug: "at-the-table" },
-  { naam: "My Forked Dating Life", slug: "my-forked-dating-life" },
-  { naam: "Embody XR", slug: "embody-xr" },
-  { naam: "A Walk Home Alone at Night", slug: "a-walk-home-alone-at-night" },
+  { naam: "Mirage", slug: "mirage", foto: "/images/mirage.png" },
+  { naam: "A Long Goodbye", slug: "a-long-goodbye", foto: "/images/longgoodbye2.png" },
+  { naam: "At the Table", slug: "at-the-table", foto: "/images/atthetable.jpg" },
+  { naam: "My Forked Dating Life", slug: "my-forked-dating-life", foto: "/images/forkeddating.png" },
+  { naam: "Embody XR", slug: "embody-xr", foto: "/images/embodyxr.jpg" },
+  { naam: "A Walk Home Alone at Night", slug: "a-walk-home-alone-at-night", foto: "/images/homealone.png" },
   { naam: "Lesbian Simulator", slug: "lesbian-simulator" },
-  { naam: "The Sounds of the Silenced", slug: "the-sounds-of-the-silenced" },
-  { naam: "Coded Black", slug: "coded-black" },
-  { naam: "The Little Mouse", slug: "the-little-mouse" },
-  { naam: "Lacuna", slug: "lacuna" },
-  { naam: "Less Than 5gr of Saffron", slug: "less-than-5gr-of-saffron" },
-  { naam: "Exodus", slug: "exodus" },
-  { naam: "Empathy Creature", slug: "empathy-creature" },
+  { naam: "The Sounds of the Silenced", slug: "the-sounds-of-the-silenced", foto: "/images/soundssilence.jpg" },
+  { naam: "Coded Black", slug: "coded-black", foto: "/images/codedblack.jpeg" },
+  { naam: "The Little Mouse", slug: "the-little-mouse", foto: "/images/littlemouse.png" },
+  { naam: "Lacuna", slug: "lacuna", foto: "/images/lacuna.png" },
+  { naam: "Less Than 5gr of Saffron", slug: "less-than-5gr-of-saffron", foto: "/images/saffron.jpeg" },
+  { naam: "Exodus", slug: "exodus", foto: "/images/exodus.jpg" },
+  { naam: "Empathy Creature", slug: "empathy-creature", foto: "/images/empathycreatures.png" },
 ];
 
 function buildSpecial() {
   var grid = document.getElementById('special-grid');
   if (!grid) return;
   grid.innerHTML = specialEvents.map(function(e) {
-    var imgUrl = '/images/special/' + e.slug + '.jpg';
+    var imgUrl = e.foto || ('/images/special/' + e.slug + '.jpg');
     return '<a class="special-thumb" href="https://www.immersivetechweek.co/church-of-vr/" target="_blank" rel="noopener">' +
       '<div class="special-thumb-img" style="background-image:url(' + imgUrl + '); background-size:cover; background-position:center;">' +
         '<span style="opacity:0.4; font-size:1.4rem;">' + e.naam[0] + '</span>' +
@@ -2115,18 +2115,18 @@ function toggleSpecial() {
 
 // NU:REALITY — The Living Gallery special
 const specialEventsNR = [
-  { naam: "Caravaggio, In Tenebris", slug: "caravaggio-in-tenebris" },
-  { naam: "Dance Dance Dance - Matisse", slug: "dance-dance-dance-matisse" },
-  { naam: "A Long Goodbye", slug: "a-long-goodbye-nr" },
-  { naam: "Creation of the Worlds", slug: "creation-of-the-worlds" },
-  { naam: "The Scream", slug: "the-scream" },
+  { naam: "Caravaggio, In Tenebris", slug: "caravaggio-in-tenebris", foto: "/images/caravaggio.png" },
+  { naam: "Dance Dance Dance - Matisse", slug: "dance-dance-dance-matisse", foto: "/images/dancematisse.png" },
+  { naam: "A Long Goodbye", slug: "a-long-goodbye-nr", foto: "/images/longgoodbye2.png" },
+  { naam: "Creation of the Worlds", slug: "creation-of-the-worlds", foto: "/images/creationoftheworld.png" },
+  { naam: "The Scream", slug: "the-scream", foto: "/images/scream.png" },
 ];
 
 function buildSpecialNR() {
   var grid = document.getElementById('special-grid-nr');
   if (!grid) return;
   grid.innerHTML = specialEventsNR.map(function(e) {
-    var imgUrl = '/images/special/' + e.slug + '.jpg';
+    var imgUrl = e.foto || ('/images/special/' + e.slug + '.jpg');
     return '<a class="special-thumb" href="https://nureality.eu/nl/the-living-gallery/" target="_blank" rel="noopener">' +
       '<div class="special-thumb-img" style="background-image:url(' + imgUrl + '); background-size:cover; background-position:center;">' +
         '<span style="opacity:0.4; font-size:1.4rem;">' + e.naam[0] + '</span>' +
