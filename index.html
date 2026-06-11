@@ -1249,22 +1249,61 @@
 
 
 
-  /* ── RUIMERE UITLIJNING TABEL ── */
-  @media (min-width: 701px) {
-    col.col-foto { width: 160px; }
-    col.col-datum { width: 150px; }
 
-    .td-foto {
-      width: 160px;
-      min-width: 160px;
-      padding-right: 18px !important;
-      background: #1A1A1A;
+
+  /* ── KALENDER: stabiele uniforme thumbnails desktop ── */
+  @media (min-width: 701px) {
+    table { border-collapse: collapse !important; border-spacing: 0 !important; }
+    col.col-foto { width: 190px !important; }
+    col.col-datum { width: 150px !important; }
+
+    tbody td.td-foto {
+      width: 190px !important;
+      min-width: 190px !important;
+      max-width: 190px !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      vertical-align: top !important;
+      line-height: 0 !important;
+      font-size: 0 !important;
+      background: transparent !important;
+      overflow: hidden !important;
     }
 
-    .foto-inner,
-    .foto-inner img,
+    .foto-inner {
+      position: static !important;
+      width: 190px !important;
+      height: 135px !important;
+      min-height: 135px !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      overflow: hidden !important;
+      display: block !important;
+      background: #111 !important;
+      line-height: 0 !important;
+    }
+
+    .foto-inner img {
+      width: 100% !important;
+      height: 100% !important;
+      min-height: 0 !important;
+      object-fit: cover !important;
+      object-position: center center !important;
+      display: block !important;
+      border: 0 !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      transform: none !important;
+    }
+
     .foto-inner-placeholder {
-      width: 142px;
+      width: 190px !important;
+      height: 135px !important;
+      min-height: 135px !important;
+      margin: 0 !important;
+      border: 0 !important;
+      line-height: 1.2 !important;
+      display: flex !important;
     }
 
     .td-datum {
@@ -1278,45 +1317,6 @@
     }
   }
 
-
-
-  /* ── FOTO KOLOM: beeld vult hele tabelcel ── */
-  @media (min-width: 701px) {
-    col.col-foto { width: 200px; }
-
-    .td-foto {
-      width: 200px;
-      min-width: 200px;
-      padding: 0 !important;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .foto-inner {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      min-height: 100%;
-      overflow: hidden;
-      display: block;
-    }
-
-    .foto-inner img {
-      width: 100%;
-      height: 100%;
-      min-height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .foto-inner-placeholder {
-      width: 100%;
-      height: 100%;
-      min-height: 100%;
-    }
-  }
-
   @media (max-width: 700px) {
     .td-foto,
     .foto-inner {
@@ -1325,264 +1325,10 @@
       min-width: 0 !important;
       height: auto !important;
     }
-  }
-
-
-  /* ── HERSTEL: zichtbare vaste thumbnails zonder absolute positioning ── */
-  @media (min-width: 701px) {
-    col.col-foto { width: 190px !important; }
-
-    .td-foto {
-      width: 190px !important;
-      min-width: 190px !important;
-      padding: 0 !important;
-      vertical-align: top !important;
-      background: #1A1A1A !important;
-      position: static !important;
-      overflow: visible !important;
-    }
-
-    .foto-inner {
-      position: static !important;
-      width: 190px !important;
-      height: 135px !important;
-      min-height: 135px !important;
-      overflow: hidden !important;
-      display: block !important;
-      background: #111 !important;
-      line-height: 0 !important;
-    }
-
     .foto-inner img {
       width: 100% !important;
-      height: 100% !important;
-      min-height: 0 !important;
+      height: 180px !important;
       object-fit: cover !important;
-      display: block !important;
-      border: 0 !important;
-      margin: 0 !important;
-      transform: translateY(-1px) scale(1.01);
-      transform-origin: center;
-    }
-
-    .foto-inner-placeholder {
-      position: static !important;
-      width: 190px !important;
-      height: 135px !important;
-      min-height: 135px !important;
-      display: flex !important;
-    }
-  }
-
-  @media (max-width: 700px) {
-    .foto-inner img {
-      border: 0 !important;
-      margin: 0 !important;
-    }
-  }
-
-</style>
-
-<style>
-  /* ── KALENDER: uniforme thumbnails desktop ── */
-  @media (min-width: 701px) {
-    col.col-foto { width: 180px !important; }
-
-    .td-foto {
-      width: 180px !important;
-      min-width: 180px !important;
-      padding: 0 !important;
-      position: static !important;
-      overflow: visible !important;
-      vertical-align: top !important;
-      background: transparent !important;
-    }
-
-    .foto-inner {
-      position: static !important;
-      inset: auto !important;
-      width: 180px !important;
-      height: 135px !important;
-      min-height: 135px !important;
-      overflow: hidden !important;
-      display: block !important;
-      background: #1A1A1A;
-    }
-
-    .foto-inner img {
-      width: 100% !important;
-      height: 100% !important;
-      min-height: 0 !important;
-      object-fit: cover !important;
-      display: block !important;
-    }
-
-    .foto-inner-placeholder {
-      width: 180px !important;
-      height: 135px !important;
-      min-height: 135px !important;
-    }
-  }
-
-  /* ── HERSTEL: zichtbare vaste thumbnails zonder absolute positioning ── */
-  @media (min-width: 701px) {
-    col.col-foto { width: 190px !important; }
-
-    .td-foto {
-      width: 190px !important;
-      min-width: 190px !important;
-      padding: 0 !important;
-      vertical-align: top !important;
-      background: #1A1A1A !important;
-      position: static !important;
-      overflow: visible !important;
-    }
-
-    .foto-inner {
-      position: static !important;
-      width: 190px !important;
-      height: 135px !important;
-      min-height: 135px !important;
-      overflow: hidden !important;
-      display: block !important;
-      background: #111 !important;
-      line-height: 0 !important;
-    }
-
-    .foto-inner img {
-      width: 100% !important;
-      height: 100% !important;
-      min-height: 0 !important;
-      object-fit: cover !important;
-      display: block !important;
-      border: 0 !important;
-      margin: 0 !important;
-      transform: translateY(-1px) scale(1.01);
-      transform-origin: center;
-    }
-
-    .foto-inner-placeholder {
-      position: static !important;
-      width: 190px !important;
-      height: 135px !important;
-      min-height: 135px !important;
-      display: flex !important;
-    }
-  }
-
-  @media (max-width: 700px) {
-    .foto-inner img {
-      border: 0 !important;
-      margin: 0 !important;
-    }
-  }
-
-</style>
-
-<style>
-  /* ── KALENDER: vaste thumbnails zonder lege randjes ── */
-  @media (min-width: 701px) {
-    table { border-collapse: collapse !important; border-spacing: 0 !important; }
-    col.col-foto { width: 180px !important; }
-
-    tbody td.td-foto {
-      width: 180px !important;
-      min-width: 180px !important;
-      max-width: 180px !important;
-      padding: 0 !important;
-      margin: 0 !important;
-      vertical-align: top !important;
-      line-height: 0 !important;
-      font-size: 0 !important;
-      background: #141414 !important;
-      overflow: hidden !important;
-    }
-
-    .foto-inner {
-      position: relative !important;
-      inset: auto !important;
-      width: 180px !important;
-      height: 135px !important;
-      min-height: 135px !important;
-      margin: 0 !important;
-      padding: 0 !important;
-      overflow: hidden !important;
-      display: block !important;
-      background: #141414 !important;
-    }
-
-    .foto-inner img {
-      width: 100% !important;
-      height: 100% !important;
-      min-height: 0 !important;
-      object-fit: cover !important;
-      object-position: center center !important;
-      display: block !important;
-      border: 0 !important;
-      margin: 0 !important;
-      padding: 0 !important;
-      transform: scale(1.025);
-      transform-origin: center center;
-    }
-
-    .foto-inner-placeholder {
-      width: 180px !important;
-      height: 135px !important;
-      min-height: 135px !important;
-      margin: 0 !important;
-      border: 0 !important;
-      line-height: 1.2 !important;
-    }
-  }
-
-  /* ── HERSTEL: zichtbare vaste thumbnails zonder absolute positioning ── */
-  @media (min-width: 701px) {
-    col.col-foto { width: 190px !important; }
-
-    .td-foto {
-      width: 190px !important;
-      min-width: 190px !important;
-      padding: 0 !important;
-      vertical-align: top !important;
-      background: #1A1A1A !important;
-      position: static !important;
-      overflow: visible !important;
-    }
-
-    .foto-inner {
-      position: static !important;
-      width: 190px !important;
-      height: 135px !important;
-      min-height: 135px !important;
-      overflow: hidden !important;
-      display: block !important;
-      background: #111 !important;
-      line-height: 0 !important;
-    }
-
-    .foto-inner img {
-      width: 100% !important;
-      height: 100% !important;
-      min-height: 0 !important;
-      object-fit: cover !important;
-      display: block !important;
-      border: 0 !important;
-      margin: 0 !important;
-      transform: translateY(-1px) scale(1.01);
-      transform-origin: center;
-    }
-
-    .foto-inner-placeholder {
-      position: static !important;
-      width: 190px !important;
-      height: 135px !important;
-      min-height: 135px !important;
-      display: flex !important;
-    }
-  }
-
-  @media (max-width: 700px) {
-    .foto-inner img {
       border: 0 !important;
       margin: 0 !important;
     }
@@ -2622,7 +2368,7 @@ const specialEvents = [
   { naam: "My Forked Dating Life", slug: "my-forked-dating-life", foto: "/images/forkeddating.png" },
   { naam: "Embody XR", slug: "embody-xr", foto: "/images/embodyxr.jpg" },
   { naam: "A Walk Home Alone at Night", slug: "a-walk-home-alone-at-night", foto: "/images/homealone.png" },
-  { naam: "Lesbian Simulator", slug: "lesbian-simulator" foto: "/images/lesbiansimulator.png" },
+  { naam: "Lesbian Simulator", slug: "lesbian-simulator", foto: "/images/lesbiansimulator.png" },
   { naam: "The Sounds of the Silenced", slug: "the-sounds-of-the-silenced", foto: "/images/soundssilence.jpg" },
   { naam: "Coded Black", slug: "coded-black", foto: "/images/codedblack.jpeg" },
   { naam: "The Little Mouse", slug: "the-little-mouse", foto: "/images/littlemouse.png" },
@@ -2794,109 +2540,6 @@ document.addEventListener('DOMContentLoaded', function() {
   border: none !important;
   color: #ffffff !important;
 }
-
-
-  /* ── FOTO KOLOM: beeld vult hele tabelcel ── */
-  @media (min-width: 701px) {
-    col.col-foto { width: 200px; }
-
-    .td-foto {
-      width: 200px;
-      min-width: 200px;
-      padding: 0 !important;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .foto-inner {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      min-height: 100%;
-      overflow: hidden;
-      display: block;
-    }
-
-    .foto-inner img {
-      width: 100%;
-      height: 100%;
-      min-height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .foto-inner-placeholder {
-      width: 100%;
-      height: 100%;
-      min-height: 100%;
-    }
-  }
-
-  @media (max-width: 700px) {
-    .td-foto,
-    .foto-inner {
-      position: static !important;
-      width: 100% !important;
-      min-width: 0 !important;
-      height: auto !important;
-    }
-  }
-
-
-  /* ── HERSTEL: zichtbare vaste thumbnails zonder absolute positioning ── */
-  @media (min-width: 701px) {
-    col.col-foto { width: 190px !important; }
-
-    .td-foto {
-      width: 190px !important;
-      min-width: 190px !important;
-      padding: 0 !important;
-      vertical-align: top !important;
-      background: #1A1A1A !important;
-      position: static !important;
-      overflow: visible !important;
-    }
-
-    .foto-inner {
-      position: static !important;
-      width: 190px !important;
-      height: 135px !important;
-      min-height: 135px !important;
-      overflow: hidden !important;
-      display: block !important;
-      background: #111 !important;
-      line-height: 0 !important;
-    }
-
-    .foto-inner img {
-      width: 100% !important;
-      height: 100% !important;
-      min-height: 0 !important;
-      object-fit: cover !important;
-      display: block !important;
-      border: 0 !important;
-      margin: 0 !important;
-      transform: translateY(-1px) scale(1.01);
-      transform-origin: center;
-    }
-
-    .foto-inner-placeholder {
-      position: static !important;
-      width: 190px !important;
-      height: 135px !important;
-      min-height: 135px !important;
-      display: flex !important;
-    }
-  }
-
-  @media (max-width: 700px) {
-    .foto-inner img {
-      border: 0 !important;
-      margin: 0 !important;
-    }
-  }
-
 
 
   .special-banner-right {
