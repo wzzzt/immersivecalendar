@@ -370,6 +370,7 @@
     white-space: normal;
     min-width: 90px;
     line-height: 1.5;
+    vertical-align: top;
   }
 
   .td-datum small {
@@ -687,9 +688,8 @@
   .over-sluit:hover { color: var(--white); }
 
   .laatste-kans-badge {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    display: inline-block;
+    vertical-align: middle;
     gap: 5px;
     font-family: 'DM Sans', sans-serif;
     background: transparent;
@@ -1058,6 +1058,157 @@
   .mc-periode { padding: 0; background: transparent; }
   .mc-lk { display: inline-flex; align-items: center; gap: 4px; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: #00CFFF; border: 1px solid #00CFFF; padding: 2px 8px; border-radius: 100px; font-family: 'DM Sans', sans-serif; }
 
+
+  /* ── SPECIAL SECTIE ── */
+  .special-wrap {
+    margin: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .special-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 1.5rem;
+    background: #FF3CAC;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s;
+    border-bottom: 2px solid rgba(20,20,20,0.15);
+  }
+  .special-banner:hover { background: #e8009a; }
+  .special-banner-hint {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(20,20,20,0.5);
+    white-space: nowrap;
+  }
+
+  .special-banner-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .special-tag {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: rgba(20,20,20,0.6);
+  }
+
+  .special-title {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 900;
+    font-size: 1.3rem;
+    color: #141414;
+    letter-spacing: -0.01em;
+  }
+
+  .special-arrow {
+    font-size: 29px;
+    color: #141414;
+    transition: transform 0.3s;
+    opacity: 0.8;
+  }
+  .special-arrow.open { transform: rotate(90deg); }
+
+  .special-grid-wrap {
+    display: none;
+    background: #1A1A1A;
+    padding: 20px 1.5rem;
+  }
+  .special-grid-wrap.open { display: block; }
+
+  .special-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+  }
+
+  @media (max-width: 700px) {
+    .special-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .special-thumb {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .special-thumb:hover .special-thumb-img { opacity: 0.8; }
+
+  .special-thumb-img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    background: #2C2C2C;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: #FF3CAC;
+    font-weight: 900;
+  }
+
+  .special-thumb-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .special-thumb-name {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 11px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.3;
+    font-weight: 700;
+  }
+
+  .special-thumb-maker {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9px;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.03em;
+  }
+
+
+  .verse-tip-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #00FF88;
+    border: 1px solid #00FF88;
+    padding: 2px 8px;
+    border-radius: 100px;
+    font-weight: 400;
+    white-space: nowrap;
+  }
+  .verse-tip-badge::before {
+    content: "";
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #00FF88;
+    opacity: 0.8;
+    flex-shrink: 0;
+  }
+
 </style>
 </head>
 <body>
@@ -1165,7 +1316,7 @@ const events = [
     uitgelicht: true
   },
   {
-    naam: { nl: "A Long Goodbye", en: "A Long Goodbye" },
+    uitgelicht: true, naam: { nl: "A Long Goodbye", en: "A Long Goodbye" },
     startDag: 30, startMaandNr: 4, eindDag: 24, eindMaandNr: 6,
     startMaand: { nl: "Apr", en: "Apr" },
     eindDatum: { nl: "24 Jun", en: "Jun 24" },
@@ -1316,7 +1467,7 @@ const events = [
   },
   {
     naam: { nl: "Drift", en: "Drift" },
-    startDag: 14, startMaandNr: 7, eindDag: 31, eindMaandNr: 8,
+    startDag: 1, startMaandNr: 7, eindDag: 31, eindMaandNr: 8,
     startMaand: { nl: "Jul", en: "Jul" },
     eindDatum: { nl: "31 Aug", en: "Aug 31" },
     maker: "Merel uit de Machine & VPRO Medialab",
@@ -1436,6 +1587,8 @@ const typeVertalingen = {
     "Generatief": "Generatief",
     "Sociaal": "Sociaal",
     "Audio driven immersion": "Audio driven immersion",
+    "Immersief theater": "Immersief theater",
+    "Spatial": "Spatial",
   },
   en: {
     "XR": "XR",
@@ -1453,6 +1606,8 @@ const typeVertalingen = {
     "Generatief": "Generative",
     "Sociaal": "Social",
     "Audio driven immersion": "Audio driven immersion",
+    "Immersief theater": "Immersive theatre",
+    "Spatial": "Spatial",
   }
 };
 
@@ -1485,7 +1640,7 @@ function buildUitgelicht() {
     <article class="card featured-card">
       <div class="card-img"><img src="${e.foto}" alt="${e.naam[huidigeTaal]}" loading="lazy"></div>
       <div class="card-body">
-        <div class="card-tag">${e.duur ? `<span class='card-duur-pill'>◷ ${e.duur}</span>` : ''}${[...e.types.map(tp => typeVertalingen[huidigeTaal][tp] || tp), e.locatie].map(l => `<span class='card-tag-item'>${l}</span>`).join('')}${isLaatsteKans(e) ? `<span class="laatste-kans-badge">${huidigeTaal === 'nl' ? 'Laatste kans' : 'Last chance'}</span>` : ''}</div>
+        <div class="card-tag">${e.duur ? `<span class='card-duur-pill'>◷ ${e.duur}</span>` : ''}${[...e.types.map(tp => typeVertalingen[huidigeTaal][tp] || tp), e.locatie].map(l => `<span class='card-tag-item'>${l}</span>`).join('')}${e.verseTip ? `<span class="verse-tip-badge">${huidigeTaal === 'nl' ? 'Verse tip' : 'Fresh pick'}</span>` : ''} ${isLaatsteKans(e) ? `<span class="laatste-kans-badge">${huidigeTaal === 'nl' ? 'Laatste kans' : 'Last chance'}</span>` : ''}</div>
         <h2 class="card-title">${e.naam[huidigeTaal]}</h2>
         <p class="card-maker">${e.maker}</p>
         <p class="card-desc">${e.logline[huidigeTaal]}</p>
@@ -1608,6 +1763,23 @@ function render() {
   if (nuTeSien.length > 0) {
     html += periodeHeader(nuLabel, false);
     nuTeSien.forEach(e => { html += eventRij(e, i++); });
+    html += `<tr><td colspan="6" style="padding:0;">
+      <div class="special-wrap" id="special-church">
+        <div class="special-banner" onclick="toggleSpecial()">
+          <div class="special-banner-left">
+            <span class="special-tag">&#10022; Special</span>
+            <span class="special-title">Church of VR</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:10px;">
+            <span class="special-banner-hint">Klik om alle 14 werken te zien</span>
+            <span class="special-arrow" id="special-arrow">›</span>
+          </div>
+        </div>
+        <div class="special-grid-wrap" id="special-grid-wrap">
+          <div class="special-grid" id="special-grid"></div>
+        </div>
+      </div>
+    </td></tr>`;
   }
 
   if (binnenkort.length > 0) {
@@ -1638,6 +1810,7 @@ function eventRij(e, i) {
       </td>
       <td class="td-datum">
         <div style="font-size:14px; font-family:'DM Sans',sans-serif; font-weight:400;">${e.startDag} ${e.startMaand[huidigeTaal]}${e.eindDatum ? ` ${huidigeTaal === 'nl' ? 't/m' : 'until'} ${e.eindDatum[huidigeTaal]}` : ''}</div>
+        ${e.verseTip ? `<div style="margin-top:6px;"><span class="verse-tip-badge">${huidigeTaal === 'nl' ? 'Verse tip' : 'Fresh pick'}</span></div>` : ''}
         ${isLaatsteKans(e) ? `<div style="margin-top:6px;"><span class="laatste-kans-badge">${huidigeTaal === 'nl' ? 'Laatste kans' : 'Last chance'}</span></div>` : ''}
       </td>
       <td>
@@ -1718,7 +1891,38 @@ function aanmelden() {
 function buildMobileCards() {
   var grid = document.getElementById('mobile-cards');
   if (!grid) return;
-  var t = ui[huidigeTaal];
+  var t = ui[huidigeTaal,
+  {
+    uitgelicht: true, naam: { nl: "Nothing to See: Acousmatische Muziek in 4D Geluid", en: "Nothing to See: Acousmatic Music in 4D Sound" },
+    startDag: 17, startMaandNr: 6, eindDag: 17, eindMaandNr: 6,
+    startMaand: { nl: "Jun", en: "Jun" },
+    eindDatum: null,
+    maker: "Rewire Festival",
+    duur: null, handig: "Eenmalig",
+    logline: { nl: "Sluit je ogen. Laat het geluid je omringen. Acousmatische muziek in een volledige 4D geluidsomgeving.", en: "Close your eyes. Let the sound surround you. Acousmatic music in a full 4D sound environment." },
+    beschrijving: { nl: "Een concert waarbij beeld volledig afwezig is en geluid de enige ervaring is. 4D sound plaatst je in het centrum van een meeslepende geluidswereld.", en: "A concert where image is entirely absent and sound is the only experience. 4D sound places you at the centre of an immersive sonic world." },
+    stad: "Amsterdam", locatie: "Amsterdam",
+    types: ["Audio driven immersion", "Muziek", "Spatial"],
+    foto: "/images/4dsound.jpg",
+    link: null,
+    uitgelicht: false
+  },
+  {
+    verseTip: true, naam: { nl: "House of Love", en: "House of Love" },
+    startDag: 8, startMaandNr: 5, eindDag: 30, eindMaandNr: 6,
+    startMaand: { nl: "Mei", en: "May" },
+    eindDatum: { nl: "30 Jun", en: "Jun 30" },
+    maker: "Onbekend",
+    duur: null, handig: null,
+    logline: { nl: "Een immersieve theaterervaring in de stijl van Punchdrunk — vrij ronddwalend door een wereld vol verhalen.", en: "An immersive theatre experience in the style of Punchdrunk — freely roaming through a world full of stories." },
+    beschrijving: { nl: "Free roaming immersief theater in Hoorn.", en: "Free roaming immersive theatre in Hoorn." },
+    stad: "Hoorn", locatie: "Hoorn",
+    types: ["Performatief", "Immersief theater"],
+    foto: "/images/houseoflove.jpg",
+    link: null,
+    uitgelicht: false
+  }
+];
   var nu = new Date();
   var beginVolgende = new Date(nu.getFullYear(), nu.getMonth() + 1, 1);
 
@@ -1798,6 +2002,47 @@ function isLaatsteKans(e) {
   var eind = new Date(eindJaar, e.eindMaandNr - 1, e.eindDag);
   var diff = (eind - nu) / (1000 * 60 * 60 * 24);
   return diff >= 0 && diff <= 10;
+}
+
+
+// Temp events voor Church of VR special
+const specialEvents = [
+  { naam: "Mirage", slug: "mirage" },
+  { naam: "A Long Goodbye", slug: "a-long-goodbye" },
+  { naam: "At the Table", slug: "at-the-table" },
+  { naam: "My Forked Dating Life", slug: "my-forked-dating-life" },
+  { naam: "Embody XR", slug: "embody-xr" },
+  { naam: "A Walk Home Alone at Night", slug: "a-walk-home-alone-at-night" },
+  { naam: "Lesbian Simulator", slug: "lesbian-simulator" },
+  { naam: "The Sounds of the Silenced", slug: "the-sounds-of-the-silenced" },
+  { naam: "Coded Black", slug: "coded-black" },
+  { naam: "The Little Mouse", slug: "the-little-mouse" },
+  { naam: "Lacuna", slug: "lacuna" },
+  { naam: "Less Than 5gr of Saffron", slug: "less-than-5gr-of-saffron" },
+  { naam: "Exodus", slug: "exodus" },
+  { naam: "Empathy Creature", slug: "empathy-creature" },
+];
+
+function buildSpecial() {
+  var grid = document.getElementById('special-grid');
+  if (!grid) return;
+  grid.innerHTML = specialEvents.map(function(e) {
+    var imgUrl = '/images/special/' + e.slug + '.jpg';
+    return '<a class="special-thumb" href="https://www.immersivetechweek.co/church-of-vr/" target="_blank" rel="noopener">' +
+      '<div class="special-thumb-img" style="background-image:url(' + imgUrl + '); background-size:cover; background-position:center;">' +
+        '<span style="opacity:0.4; font-size:1.4rem;">' + e.naam[0] + '</span>' +
+      '</div>' +
+      '<div class="special-thumb-name">' + e.naam + '</div>' +
+    '</a>';
+  }).join('');
+}
+
+function toggleSpecial() {
+  var wrap = document.getElementById('special-grid-wrap');
+  var arrow = document.getElementById('special-arrow');
+  var open = wrap.classList.toggle('open');
+  arrow.classList.toggle('open', open);
+  if (open) buildSpecial();
 }
 
 // Init
