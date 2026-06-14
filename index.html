@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="nl">
-
+<head>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -8,21 +8,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-PPGF9RMP');</script>
 <!-- End Google Tag Manager -->
-
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-B72Q98D1DT"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-B72Q98D1DT');
 </script>
 <!-- End Google Tag Manager -->
-
-
-    
-<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Immersieve Kunst Agenda</title>
@@ -120,11 +114,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
 
   .lang-btn.active {
-    background: #86BA90;
+    background: var(--green);
     color: var(--ink);
   }
 
-  .lang-btn:hover:not(.active) { color: #86BA90; }
+  .lang-btn:hover:not(.active) { color: var(--white); }
 
   h1 {
     font-family: 'Fraunces', serif;
@@ -151,8 +145,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: #86BA90;
-    color: #141414;
+    background: var(--pink);
+    color: #fff;
     padding: 4px 14px 4px 10px;
     border-radius: 100px;
     margin-bottom: 1.4rem;
@@ -161,8 +155,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .section-label-wrap .dot {
     width: 7px; height: 7px;
     border-radius: 50%;
-    background: #141414;
-    opacity: 0.75;
+    background: #fff;
+    opacity: 0.8;
   }
 
   .section-label-wrap span {
@@ -372,7 +366,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .filter-btn.alles-btn.active { background: var(--white); border-color: var(--white); color: var(--ink); }
 
   .special-banner.nureality {
-    background: linear-gradient(90deg, #86BA90 0%, #141414 100%);
+    background: linear-gradient(90deg, #E2EF70 0%, #141414 100%);
   }
 
   .filter-btn.periode-btn {
@@ -740,8 +734,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     gap: 4px;
     font-family: 'DM Sans', sans-serif;
     background: transparent;
-    color: #86BA90;
-    border: 1px solid #86BA90;
+    color: #E2EF70;
+    border: 1px solid #E2EF70;
     font-size: 9px;
     font-weight: 400;
     letter-spacing: 0.06em;
@@ -758,7 +752,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     display: inline-block;
     width: 5px; height: 5px;
     border-radius: 50%;
-    background: #86BA90;
+    background: #E2EF70;
     opacity: 0.8;
     animation: knipperen 1.2s infinite;
     flex-shrink: 0;
@@ -881,32 +875,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     font-weight: 900;
     font-style: italic;
     letter-spacing: -0.01em;
-    color: #F2F2F0;
+    color: #111111;
     display: flex;
     align-items: center;
     gap: 12px;
-    background: linear-gradient(
-      90deg,
-      rgba(255,60,172,0.22) 0%,
-      rgba(255,60,172,0.10) 50%,
-      rgba(255,60,172,0) 100%
-    );
+    background: #FFB3D9;
     padding: 16px 28px;
     width: 100%;
     border-top: none;
     border-bottom: none;
-    border-left: 4px solid #FF3CAC;
   }
 
   .periode-label.dimmed {
-    background: linear-gradient(
-      90deg,
-      rgba(255,60,172,0.22) 0%,
-      rgba(255,60,172,0.10) 50%,
-      rgba(255,60,172,0) 100%
-    );
-    color: #F2F2F0;
-    border-left: 4px solid #FF3CAC;
+    background: #FFD6ED;
+    color: #444;
   }
 
 
@@ -1114,7 +1096,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .mc-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 1rem; border-top: 1px solid var(--border); flex-wrap: wrap; gap: 6px; font-size: 14px; color: rgba(255,255,255,0.85); }
   
   .mc-periode { padding: 0; background: transparent; }
-  .mc-lk { display: inline-flex; align-items: center; gap: 4px; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: #86BA90; border: 1px solid #86BA90; padding: 2px 8px; border-radius: 100px; font-family: 'DM Sans', sans-serif; }
+  .mc-lk { display: inline-flex; align-items: center; gap: 4px; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: #E2EF70; border: 1px solid #E2EF70; padding: 2px 8px; border-radius: 100px; font-family: 'DM Sans', sans-serif; }
 
 
   /* ── SPECIAL SECTIE ── */
@@ -1128,7 +1110,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     align-items: center;
     justify-content: space-between;
     padding: 14px 1.5rem;
-    background: linear-gradient(90deg, #86BA90 0%, rgba(134,186,144,0.55) 45%, rgba(134,186,144,0) 100%);
+    background: linear-gradient(90deg, #E2EF70 0%, rgba(226,239,112,0.55) 45%, rgba(226,239,112,0) 100%);
     cursor: pointer;
     user-select: none;
     transition: opacity 0.2s;
@@ -1170,7 +1152,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   .special-arrow {
     font-size: 29px;
-    color: #86BA90;
+    color: #E2EF70;
     transition: transform 0.3s;
     opacity: 0.9;
   }
@@ -1224,26 +1206,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     object-fit: cover;
   }
 
-
-  /* Geen fallback-letters door special-thumbnails heen */
-  .special-thumb-img {
-    position: relative;
-    overflow: hidden;
-    font-size: 0 !important;
-    line-height: 0 !important;
-    color: transparent !important;
-  }
-
-  .special-thumb-img img {
-    display: block;
-    position: relative;
-    z-index: 2;
-  }
-
-  .special-thumb-img *:not(img) {
-    display: none !important;
-  }
-
   .special-thumb-name {
     font-family: 'Fraunces', serif;
     font-style: italic;
@@ -1270,8 +1232,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: #141414;
-    background: #86BA90;
-    border: 1px solid #86BA90;
+    background: #E2EF70;
+    border: 1px solid #E2EF70;
     padding: 3px 9px 3px 8px;
     border-radius: 100px;
     font-weight: 500;
@@ -1289,248 +1251,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     flex-shrink: 0;
   }
 
-
-
-
-
-  /* ── KALENDER: stabiele uniforme thumbnails desktop ── */
-  @media (min-width: 701px) {
-    table { border-collapse: collapse !important; border-spacing: 0 !important; }
-    col.col-foto { width: 190px !important; }
-    col.col-datum { width: 150px !important; }
-
-    tbody td.td-foto {
-      width: 190px !important;
-      min-width: 190px !important;
-      max-width: 190px !important;
-      padding: 0 !important;
-      margin: 0 !important;
-      vertical-align: top !important;
-      line-height: 0 !important;
-      font-size: 0 !important;
-      background: transparent !important;
-      overflow: hidden !important;
-    }
-
-    .foto-inner {
-      position: static !important;
-      width: 190px !important;
-      height: 135px !important;
-      min-height: 135px !important;
-      margin: 0 !important;
-      padding: 0 !important;
-      overflow: hidden !important;
-      display: block !important;
-      background: #111 !important;
-      line-height: 0 !important;
-    }
-
-    .foto-inner img {
-      width: 100% !important;
-      height: 100% !important;
-      min-height: 0 !important;
-      object-fit: cover !important;
-      object-position: center center !important;
-      display: block !important;
-      border: 0 !important;
-      margin: 0 !important;
-      padding: 0 !important;
-      transform: none !important;
-    }
-
-    .foto-inner-placeholder {
-      width: 190px !important;
-      height: 135px !important;
-      min-height: 135px !important;
-      margin: 0 !important;
-      border: 0 !important;
-      line-height: 1.2 !important;
-      display: flex !important;
-    }
-
-    .td-datum {
-      padding-left: 1.4rem !important;
-      padding-right: 1.4rem !important;
-      min-width: 145px;
-    }
-
-    tbody td:nth-child(3) {
-      padding-left: 1.1rem !important;
-    }
-  }
-
-  @media (max-width: 700px) {
-    .td-foto,
-    .foto-inner {
-      position: static !important;
-      width: 100% !important;
-      min-width: 0 !important;
-      height: auto !important;
-    }
-    .foto-inner img {
-      width: 100% !important;
-      height: 180px !important;
-      object-fit: cover !important;
-      border: 0 !important;
-      margin: 0 !important;
-    }
-  }
-
-</style>
-
-<style id="high-contrast-styles">
-  /* Hoogcontrast-modus — behoudt layout, verhoogt contrast en focus-zichtbaarheid */
-  .contrast-btn {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    padding: 5px 13px;
-    border: 1px solid rgba(255,255,255,0.45);
-    border-radius: 100px;
-    background: transparent;
-    color: rgba(255,255,255,0.78);
-    cursor: pointer;
-    transition: all 0.15s;
-    white-space: nowrap;
-  }
-  .contrast-btn:hover { color: #F2F2F0; border-color: #F2F2F0; }
-  .contrast-btn.active { background: #FFFFFF; color: #000000; border-color: #FFFFFF; }
-
-  body.high-contrast {
-    --ink: #000000;
-    --white: #FFFFFF;
-    --off: #000000;
-    --muted: #E8E8E8;
-    --border: #FFFFFF;
-    background: #000000 !important;
-    color: #FFFFFF !important;
-  }
-
-  body.high-contrast header,
-  body.high-contrast .kalender,
-  body.high-contrast footer,
-  body.high-contrast .footer-bottom,
-  body.high-contrast .uitgelicht,
-  body.high-contrast .special-grid-wrap,
-  body.high-contrast .card,
-  body.high-contrast tbody tr,
-  body.high-contrast .mc,
-  body.high-contrast .over-box {
-    background: #000000 !important;
-    color: #FFFFFF !important;
-  }
-
-  body.high-contrast header,
-  body.high-contrast footer,
-  body.high-contrast .footer-bottom,
-  body.high-contrast .cards,
-  body.high-contrast .card,
-  body.high-contrast thead th,
-  body.high-contrast tbody tr,
-  body.high-contrast .kalender-header,
-  body.high-contrast .over-box {
-    border-color: #FFFFFF !important;
-  }
-
-  body.high-contrast h1 em,
-  body.high-contrast .card-title,
-  body.high-contrast .td-titel,
-  body.high-contrast .mc-titel {
-    color: #FFFFFF !important;
-  }
-
-  body.high-contrast a,
-  body.high-contrast .td-link,
-  body.high-contrast .card-link,
-  body.high-contrast .lees-meer,
-  body.high-contrast .card-leesmeer,
-  body.high-contrast .mc-leesmeer,
-  body.high-contrast .header-about {
-    color: #FFFF00 !important;
-    border-color: #FFFF00 !important;
-  }
-
-  body.high-contrast .section-label-wrap,
-  body.high-contrast .special-banner,
-  body.high-contrast .periode-label,
-  body.high-contrast .periode-label.dimmed {
-    background: #FFFFFF !important;
-    color: #000000 !important;
-    border-left: 0 !important;
-    border-color: #FFFFFF !important;
-  }
-
-  body.high-contrast .section-label-wrap span,
-  body.high-contrast .special-tag,
-  body.high-contrast .special-title,
-  body.high-contrast .special-banner-hint,
-  body.high-contrast .special-arrow {
-    color: #000000 !important;
-  }
-
-  body.high-contrast .lang-switch,
-  body.high-contrast .contrast-btn,
-  body.high-contrast .filter-btn,
-  body.high-contrast .type-tag,
-  body.high-contrast .card-tag-item,
-  body.high-contrast .laatste-kans-badge,
-  body.high-contrast .verse-tip-badge {
-    border-color: #FFFFFF !important;
-    color: #FFFFFF !important;
-    background: #000000 !important;
-  }
-
-  body.high-contrast .lang-btn { color: #FFFFFF !important; }
-  body.high-contrast .lang-btn.active,
-  body.high-contrast .contrast-btn.active,
-  body.high-contrast .filter-btn.active,
-  body.high-contrast .filter-btn.alles-btn {
-    background: #FFFF00 !important;
-    color: #000000 !important;
-    border-color: #FFFF00 !important;
-  }
-
-  body.high-contrast .laatste-kans-badge::before,
-  body.high-contrast .verse-tip-badge::before,
-  body.high-contrast .section-label-wrap .dot {
-    background: #000000 !important;
-  }
-
-  body.high-contrast .card-desc,
-  body.high-contrast .logline,
-  body.high-contrast .beschrijving,
-  body.high-contrast .mc-logline,
-  body.high-contrast .mc-desc,
-  body.high-contrast .card-maker,
-  body.high-contrast .td-maker,
-  body.high-contrast .td-stad,
-  body.high-contrast .td-locatie,
-  body.high-contrast .td-handig,
-  body.high-contrast .footer-disclaimer p,
-  body.high-contrast .footer-nieuwsbrief p,
-  body.high-contrast .header-label {
-    color: #FFFFFF !important;
-  }
-
-  body.high-contrast img { filter: none; }
-
-  body.high-contrast button:focus-visible,
-  body.high-contrast a:focus-visible,
-  body.high-contrast input:focus-visible {
-    outline: 3px solid #FFFF00 !important;
-    outline-offset: 3px !important;
-  }
-
-  @media (max-width: 700px) {
-    .header-right { gap: 0.6rem; }
-    .contrast-btn { font-size: 11px; padding: 4px 10px; }
-  }
 </style>
 </head>
 <body>
-
-    <!-- Google Tag Manager (noscript) -->
+<!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PPGF9RMP"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
@@ -1549,11 +1273,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="header-bar">
     <span class="header-label" id="header-label-el">FF alles gewoon in één overzicht. Lekker toch?</span>
     <div class="header-right">
-      <div class="lang-switch" aria-label="Taal kiezen">
+      <div class="lang-switch">
         <button class="lang-btn active" onclick="setLang('nl', this)">NL</button>
         <button class="lang-btn" onclick="setLang('en', this)">EN</button>
       </div>
-      <button class="contrast-btn" id="contrast-toggle" type="button" onclick="toggleContrast()" aria-pressed="false">Hoog contrast</button>
       <a class="header-about" href="#" onclick="openOver(event)" id="over-btn">Over</a>
     </div>
   </div>
@@ -1649,7 +1372,7 @@ const events = [
     beschrijving: { nl: "In deze geanimeerde, interactieve VR-ervaring stappen we in haar wereld en beleven we een dag uit haar leven, terwijl haar grip op de realiteit langzaam vervaagt. Herinneringen en gesprekken helpen Ida zichzelf stukje bij beetje terug te vinden. Een poëtische ervaring over de impact van dementie, maar bovenal een verhaal over liefde.", en: "In this animated, interactive VR experience we step into her world and experience a day in her life as her grip on reality slowly fades. A poetic experience about the impact of dementia, but above all a story about love." },
     stad: "Randstad & Enschede, Nijmegen, Eindhoven", locatie: "NU:REALITY tour",
     types: ["XR"],
-    foto: "/images/longgoodbye2.png",
+    foto: "/images/LONGGOODBYE.jpg",
     link: "https://nureality.eu/nl/",
     uitgelicht: true
   },
@@ -1664,10 +1387,25 @@ const events = [
     beschrijving: { nl: "Werelden ontvouwen zich en reageren op je aanwezigheid, terwijl kleur, beweging en emotie tastbaar worden. Te ervaren op 7 locaties: Droog Amsterdam, LUX Nijmegen, Schuur Haarlem, Natlab Eindhoven, Concordia Enschede, Slachtstraat Utrecht, LantarenVenster Rotterdam.", en: "Worlds unfold and react to your presence, as colour, movement and emotion become tangible. Available at 7 locations across the Netherlands." },
     stad: "7 locaties NL", locatie: "Droog, LUX, Schuur, Natlab, Concordia, Slachtstraat, LantarenVenster",
     types: ["XR"],
-    foto: "/images/nureality.jpg",
+    foto: "/images/NUREALITY.jpg",
     link: "https://nureality.eu/nl/actueel/",
     uitgelicht: false
   },
+  {
+    verseTip: true, naam: { nl: "House of Love", en: "House of Love" },
+    startDag: 8, startMaandNr: 5, eindDag: 28, eindMaandNr: 6,
+    startMaand: { nl: "Mei", en: "May" },
+    eindDatum: { nl: "28 Jun", en: "Jun 28" },
+    maker: "Jort Faber",
+    duur: null, handig: null,
+    logline: { nl: "Een Romeo-en-Juliet-geïnspireerd immersief danstheater", en: "Romeo-and-Juliet-inspired immersive dance theatre" },
+    beschrijving: { nl: "House of Love is immersief danstheater geïnspireerd op het klassieke verhaal van Romeo en Juliet. Stap in het House of Love en kijk waar dit avontuur jou brengt. Alles zien is onmogelijk: je moet keuzes maken over wat je te zien krijgt.", en: "House of Love is immersive dance theatre inspired by the classic story of Romeo and Juliet. Step inside and see where this adventure takes you. Seeing everything is impossible — you have to make choices." },
+    stad: "Hoorn", locatie: "Hoorn",
+    types: ['Performatief', 'Immersief theater'],
+    foto: "/images/houseoflove.jpg",
+    link: null,
+    uitgelicht: false
+  },,
   {
     naam: { nl: "Ferryman Collective Classics", en: "Ferryman Collective Classics" },
     startDag: 9, startMaandNr: 5, eindDag: 28, eindMaandNr: 6,
@@ -1714,21 +1452,6 @@ const events = [
     uitgelicht: false
   },
   {
-    naam: { nl: "Before the Story Starts", en: "Before the Story Starts" },
-    startDag: 12, startMaandNr: 6, eindDag: 31, eindMaandNr: 10,
-    startMaand: { nl: "Jun", en: "Jun" },
-    eindDatum: { nl: "31 Okt", en: "Oct 31" },
-    maker: "Urland",
-    duur: "90 min", handig: "Vanaf 12+",
-    logline: { nl: "Een experimentele, immersieve one-man performance op de drempel voordat een verhaal begint.", en: "An experimental, immersive one-man performance on the threshold before a story begins." },
-    beschrijving: { nl: "This is not the start of the story, we haven't started yet. What do you need to know? Before we start? We don't know why. We can guess, but we don't know. We never will. The elusive Why.", en: "This is not the start of the story, we haven't started yet. What do you need to know? Before we start? We don't know why. We can guess, but we don't know. We never will. The elusive Why." },
-    stad: "Meerdere locaties", locatie: "Oerol, Nijmegen, Bergen op Zoom, Amsterdam, Den Haag, Den Bosch",
-    types: ["Performatief", "Audio driven immersion"],
-    foto: "/images/urlandstorybeginsv2.png",
-    link: "https://urland.nl/project/before-the-story-starts",
-    uitgelicht: false
-  },
-  {
     naam: { nl: "Messages to a Posthuman Earth", en: "Messages to a Posthuman Earth" },
     startDag: 10, startMaandNr: 6, eindDag: 1, eindMaandNr: 7,
     startMaand: { nl: "Jun", en: "Jun" },
@@ -1759,19 +1482,34 @@ const events = [
     uitgelicht: false
   },
   {
-    naam: { nl: "Church of VR", en: "Church of VR" },
-    startDag: 23, startMaandNr: 6, eindDag: 25, eindMaandNr: 6,
+    naam: { nl: "Before the Story Starts", en: "Before the Story Starts" },
+    startDag: 12, startMaandNr: 6, eindDag: 31, eindMaandNr: 10,
     startMaand: { nl: "Jun", en: "Jun" },
-    eindDatum: { nl: "25 Jun", en: "Jun 25" },
-    maker: "Is onderdeel van Immersive Techweek",
-    duur: "90 min", handig: "Toegang met accreditatie",
-    logline: { nl: "16 VR-werken in één weekend — Church of VR verlegt voortdurend de grenzen van XR-verhalen vertellen.", en: "16 VR works in one weekend — Church of VR leads the way in XR storytelling, continuously pushing the boundaries." },
-    beschrijving: { nl: "Church of VR loopt voorop in XR-verhalen vertellen en verlegt voortdurend de grenzen. Stap binnen in de heilige graal van meeslepende ervaringen.", en: "Church of VR leads the way in XR storytelling. Step inside the holy grail of immersive experiences." },
-    stad: "Rotterdam", locatie: "Katoenhuis",
-    types: ["XR", "Tentoonstelling"],
-    foto: "/images/churchofvr.jpg",
-    link: "https://www.immersivetechweek.co/church-of-vr/",
+    eindDatum: { nl: "31 Okt", en: "Oct 31" },
+    maker: "Urland",
+    duur: "90 min", handig: "Vanaf 12+",
+    logline: { nl: "Een experimentele, immersieve one-man performance op de drempel voordat een verhaal begint.", en: "An experimental, immersive one-man performance on the threshold before a story begins." },
+    beschrijving: { nl: "This is not the start of the story, we haven't started yet. What do you need to know? Before we start? We don't know why. We can guess, but we don't know. We never will. The elusive Why.", en: "This is not the start of the story, we haven't started yet. What do you need to know? Before we start? We don't know why. We can guess, but we don't know. We never will. The elusive Why." },
+    stad: "Meerdere locaties", locatie: "Oerol, Nijmegen, Bergen op Zoom, Amsterdam, Den Haag, Den Bosch",
+    types: ["Performatief", "Audio driven immersion"],
+    foto: "/images/urlandstorybeginsv2.png",
+    link: "https://urland.nl/project/before-the-story-starts",
     uitgelicht: false
+  },
+  {
+    naam: { nl: "Nothing to See: Acousmatische Muziek in 4D Geluid", en: "Nothing to See: Acousmatic Music in 4D Sound" },
+    startDag: 17, startMaandNr: 6, eindDag: 17, eindMaandNr: 6,
+    startMaand: { nl: "Jun", en: "Jun" },
+    eindDatum: null,
+    maker: "4D Sound / Conservatorium van Amsterdam",
+    duur: null, handig: "Taal geen probleem",
+    logline: { nl: "NXT Museum en het Conservatorium van Amsterdam organiseren een ruimtelijke geluidsperformance, verzorgd door masterstudenten Immersive Audio.", en: "NXT Museum and the Conservatory of Amsterdam present a spatial sound performance by Immersive Audio master students." },
+    beschrijving: { nl: "Studenten blazen de Acousmatic Music-uitvoeringspraktijk nieuw leven in via 4DSOUND. Op het programma: Natasha Barrett, Francis Dhomont, Jonty Harrison en Marcel Wierckx. Deuren open 20:00, performance start 20:30.", en: "Students revive the Acousmatic Music performance tradition using 4DSOUND. Programme: Natasha Barrett, Francis Dhomont, Jonty Harrison and Marcel Wierckx. Doors open 20:00, performance starts 20:30." },
+    stad: "Amsterdam", locatie: "NXT Museum",
+    types: ["Audio driven immersion", "Muziek", "Spatial"],
+    foto: "/images/4dsound.jpg",
+    link: null,
+    uitgelicht: true
   },
   {
     naam: { nl: "Dreamscapes", en: "Dreamscapes" },
@@ -1786,6 +1524,21 @@ const events = [
     types: ["Zintuiglijk", "Muziek", "Performatief"],
     foto: "/images/dreamscapes.jpg",
     link: "https://soundingbodies.com/voorstelling/dreamscapes",
+    uitgelicht: false
+  },
+  {
+    naam: { nl: "Church of VR", en: "Church of VR" },
+    startDag: 23, startMaandNr: 6, eindDag: 25, eindMaandNr: 6,
+    startMaand: { nl: "Jun", en: "Jun" },
+    eindDatum: { nl: "25 Jun", en: "Jun 25" },
+    maker: "Is onderdeel van Immersive Techweek",
+    duur: "90 min", handig: "Toegang met accreditatie",
+    logline: { nl: "16 VR-werken in één weekend — Church of VR verlegt voortdurend de grenzen van XR-verhalen vertellen.", en: "16 VR works in one weekend — Church of VR leads the way in XR storytelling, continuously pushing the boundaries." },
+    beschrijving: { nl: "Church of VR loopt voorop in XR-verhalen vertellen en verlegt voortdurend de grenzen. Stap binnen in de heilige graal van meeslepende ervaringen.", en: "Church of VR leads the way in XR storytelling. Step inside the holy grail of immersive experiences." },
+    stad: "Rotterdam", locatie: "Katoenhuis",
+    types: ["XR", "Tentoonstelling"],
+    foto: "/images/churchofvr.jpg",
+    link: "https://www.immersivetechweek.co/church-of-vr/",
     uitgelicht: false
   },
   {
@@ -1810,12 +1563,42 @@ const events = [
     eindDatum: { nl: "27 Jul", en: "Jul 27" },
     maker: "CHOU Tung-yen",
     duur: "35 min", handig: "Vanaf 16+",
-    logline: { nl: "In een surreëel droomlandschap vind je jezelf belichaamd in een ander lichaam — geweven door verlangens, opwinding en angsten.", en: "Inside a surreal dreamscape you find yourself embodied in another body — woven by desires, excitements, and fears." },
+    logline: { nl: "In een surreëel gay-saunacomplex vind je jezelf belichaamd in het lichaam van een jonge Taiwanese man — geweven door verlangens, opwinding en angsten.", en: "Inside a surreal gay sauna, you find yourself embodied in the body of a young Taiwanese man — woven by desires, excitements, and fears." },
     beschrijving: { nl: "Terwijl je elke verdieping, gang en kamer doorloopt, valt elke laag van het labyrint onomkeerbaar uiteen. Wereldpremière IDFA DocLAB 2023, Grand Prize NewImages Paris.", en: "As you walk along every floor, corridor and room, each layer irreversibly unravels. World première IDFA DocLAB 2023, Grand Prize NewImages Paris." },
     stad: "Amsterdam", locatie: "Podium Mozaïek",
     types: ["XR", "Performatief"],
     foto: "/images/traversing.png",
     link: "https://www.podiummozaiek.nl/programma/details/tm-11972-7f94019f/traversing-the-mist-16",
+    uitgelicht: false
+  },
+  {
+    verseTip: true, naam: { nl: "Artist talk: Traversing the Mist", en: "Artist talk: Traversing the Mist" },
+    startDag: 17, startMaandNr: 7, eindDag: 17, eindMaandNr: 7,
+    startMaand: { nl: "Jul", en: "Jul" },
+    eindDatum: null,
+    maker: "CHOU Tung-Yen",
+    duur: "60 min", handig: "Aansluitend op Amsterdam Pride 2026",
+    logline: { nl: "CHOU Tung-Yen gaat in gesprek met Nina van Doren, programmeur IDFA DocLab.", en: "CHOU Tung-Yen in conversation with Nina van Doren, IDFA DocLab programmer." },
+    beschrijving: { nl: "CHOU Tung-Yen is een bekroond theaterregisseur, filmmaker en XR-maker uit Taiwan. Zijn werk verkent thema's als mens-technologierelaties en LGBTQ+-cultuur.", en: "CHOU Tung-Yen is an award-winning theatre director, filmmaker and XR creator from Taiwan. His work explores themes such as human-technology relationships and LGBTQ+ culture." },
+    stad: "Amsterdam", locatie: "Podium Mozaiek",
+    types: ["Artist talk"],
+    foto: "/images/choutungyen.jpg",
+    link: "https://www.podiummozaiek.nl/programma/details/tm-11980-d885cc38/artist-talk-met-tung-yen-chou",
+    uitgelicht: false
+  },
+  {
+    naam: { nl: "Synergy Art Festival", en: "Synergy Art Festival" },
+    startDag: 24, startMaandNr: 7, eindDag: 24, eindMaandNr: 7,
+    startMaand: { nl: "Jul", en: "Jul" },
+    eindDatum: null,
+    maker: "o.a. Aerosculpture, Stine Deja, Compagnie Barks, Kexin Hao",
+    duur: "Hele dag", handig: "De stad als immersief kunstpodium",
+    logline: { nl: "Een meeslepende dag vol beeldende kunst, performance, muziek en collectieve expressie.", en: "An immersive day of visual art, performance, music and collective expression." },
+    beschrijving: { nl: "Van mind-expanding installaties tot gratis hands-on workshops en spontane happenings.", en: "From mind-expanding installations to free hands-on workshops and spontaneous happenings." },
+    stad: "Amsterdam", locatie: "Flevopark",
+    types: ["Zintuiglijk", "In de natuur"],
+    foto: "/images/synergyfestival.jpg",
+    link: "https://synergyartfestival.nl/",
     uitgelicht: false
   },
   {
@@ -1832,37 +1615,7 @@ const events = [
     foto: "/images/dreamscapes.jpg",
     link: "https://soundingbodies.com/voorstelling/dreamscapes",
     uitgelicht: false
-  },
-  {
-    naam: { nl: "Nothing to See: Acousmatische Muziek in 4D Geluid", en: "Nothing to See: Acousmatic Music in 4D Sound" },
-    startDag: 17, startMaandNr: 6, eindDag: 17, eindMaandNr: 6,
-    startMaand: { nl: "Jun", en: "Jun" },
-    eindDatum: null,
-    maker: "4D sound & verschillende artiesten",
-    duur: "60 min", handig: "Eenmalig",
-    logline: { nl: "Nxt Museum en het Conservatorium van Amsterdam organiseren op 17 juni een ruimtelijke geluidsperformance, verzorgd door de masterstudenten Immersive Audio van het Conservatorium.", en: "Nxt Museum and the Conservatorium of Amsterdam present a spatial sound performance by the Conservatorium's Immersive Audio master's students." },
-    beschrijving: { nl: `Diede Oosterveen, Janrinke Bruinsma, Nader Adebnejad, Bartosz Gardziński en Marcel Wierckx hebben zich verdiept in Acousmatic Music, een stroming binnen de elektro-akoestische muziek die in de laatste decennia van de twintigste eeuw ontstond in Montréal, Québec.<br><br>Acousmatic Music kende een concertreeks onder de naam Rien à Voir (“Nothing to See”), waarin composities voor vaste geluidsdragers werden uitgevoerd via een orkest van luidsprekers met behulp van een techniek die bekendstaat als diffusion. De studenten blazen deze uitvoeringspraktijk nieuw leven in en gebruiken 4DSOUND als platform om diffusion te verkennen binnen een hedendaagse ruimtelijke geluidsomgeving.<br><br>Op het programma staan werken van Natasha Barrett, Francis Dhomont, Jonty Harrison en Marcel Wierckx, met als afsluiting een tweede interpretatie van Barretts Growth, waarin de performatieve mogelijkheden van diffusion opnieuw worden verkend.<br><br><strong>Programma</strong><br><br>• Natasha Barrett, Growth (2022), 6′<br>• Francis Dhomont, Chiaroscuro (1987), 17′<br>• Jonty Harrison, Pair/Impair (1978), 12′<br>• Marcel Wierckx, The Alchemist’s Flame (1978), 6′<br>• Natasha Barrett, Growth (2022), 6′ – een tweede interpretatie van het werk<br><br>De deuren openen om 20:00 uur en de bar is geopend voor een drankje. De performance begint om 20:30 uur en duurt ongeveer een uur. Na afloop blijft de bar geopend en is er gelegenheid om na te praten met de performers en andere bezoekers.`, en: "Spatial sound performance by the Immersive Audio master's students of the Conservatorium of Amsterdam in collaboration with Nxt Museum." },
-    stad: "Amsterdam", locatie: "Amsterdam",
-    types: ["Audio driven immersion", "Muziek", "Spatial"],
-    foto: "/images/nxtmuseum4dsound.jpg",
-    link: null,
-    uitgelicht: true
-  },
-  {
-    verseTip: true, naam: { nl: "House of Love", en: "House of Love" },
-    startDag: 8, startMaandNr: 5, eindDag: 30, eindMaandNr: 6,
-    startMaand: { nl: "Mei", en: "May" },
-    eindDatum: { nl: "30 Jun", en: "Jun 30" },
-    maker: "Jort Faber",
-    duur: "90 min", handig: "Free roaming",
-    logline: { nl: "Een immersieve danstheaterervaring geïnspireerd op Romeo en Juliet.", en: "An immersive dance theatre experience inspired by Romeo and Juliet." },
-    beschrijving: { nl: "House of Love is immersief danstheater is geïnspireerd op het klassieke verhaal van Romeo en Juliet. De strijd tussen de huizen van de Montagues en Capulets staat centraal. Hoe leiden zelfliefde, romantische liefde, familieliefde en liefde voor de samenleving iedereen tot verschillende keuzes? Wat zijn de gevolgen van deze keuzes voor jezelf en voor de ander? Stap in het House of Love en kijk waar dit avontuur jou brengt. Alles zien is onmogelijk: je moet keuzes maken over wat je te zien krijgt. Wees bedachtzaam — sommige keuzes hebben direct invloed op de toekomst. Welke keuzes maak jij?", en: "House of Love is immersive dance theatre inspired by the classic story of Romeo and Juliet. The conflict between the houses of Montague and Capulet is at its heart. Step inside the House of Love and see where this adventure takes you." },
-    stad: "Hoorn", locatie: "Hoorn",
-    types: ["Performatief", "Immersief theater"],
-    foto: "/images/houseoflove.jpg",
-    link: null,
-    uitgelicht: false
-  },
+  }
 ];
 
 const ui = {
@@ -1910,7 +1663,7 @@ const ui = {
     bedankt: "Thanks for signing up!",
     alles: "All",
     over: "About",
-    label: "No cap. Every immersive show, one place. Chefs kiss from us!",
+    label: "No cap. Every immersive show, one place. Pretty sick ngl.",
     footer: 'immersive art agenda ✦ netherlands — is run by <a href="https://www.studiozzzap.nl" target="_blank" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">studio zzzap</a>',
     tmLabel: "until",
     overTitel: "About this agenda",
@@ -1942,6 +1695,7 @@ const typeVertalingen = {
     "Audio driven immersion": "Audio driven immersion",
     "Immersief theater": "Immersief theater",
     "Spatial": "Spatial",
+    "Artist talk": "Artist talk",
   },
   en: {
     "XR": "XR",
@@ -1961,6 +1715,7 @@ const typeVertalingen = {
     "Audio driven immersion": "Audio driven immersion",
     "Immersief theater": "Immersive theatre",
     "Spatial": "Spatial",
+    "Artist talk": "Artist talk",
   }
 };
 
@@ -2066,7 +1821,6 @@ function filter(type, btn) {
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   render();
-  buildMobileCards();
 }
 
 function toggleCard(btn, id) {
@@ -2137,39 +1891,7 @@ function render() {
   if (toonNu && nuTeSien.length > 0) {
     html += periodeHeader(nuLabel, false);
     nuTeSien.forEach(e => { html += eventRij(e, i++); });
-    html += `<tr><td colspan="6" style="padding:0;">
-      <div class="special-wrap" id="special-church">
-        <div class="special-banner" onclick="toggleSpecial()">
-          <div class="special-banner-left">
-            <span class="special-tag">&#10022; Special</span>
-            <span class="special-title">Church of VR</span>
-          </div>
-          <div style="display:flex; align-items:center; gap:10px;">
-            <span class="special-banner-hint">${huidigeTaal === 'nl' ? 'Klik om alle 14 werken te zien' : 'Click to see all 14 works'}</span>
-            <span class="special-arrow" id="special-arrow">›</span>
-          </div>
-        </div>
-        <div class="special-grid-wrap" id="special-grid-wrap">
-          <div class="special-grid" id="special-grid"></div>
-        </div>
-      </div>
-      <div class="special-wrap" id="special-nureality">
-        <div class="special-banner nureality" onclick="toggleSpecialNR()">
-          <div class="special-banner-left">
-            <span class="special-tag">&#10022; Special</span>
-            <span class="special-title">NU:REALITY &mdash; The Living Gallery</span>
-          </div>
-          <div style="display:flex; align-items:center; gap:10px;">
-            <span class="special-banner-hint">${huidigeTaal === 'nl' ? 'Klik om alle 5 werken te zien' : 'Click to see all 5 works'}</span>
-            <span class="special-arrow" id="special-arrow-nr">›</span>
-          </div>
-        </div>
-        <div class="special-grid-wrap" id="special-grid-wrap-nr">
-          <div class="special-grid" id="special-grid-nr"></div>
-        </div>
-      </div>
-    </td></tr>`;
-  }
+      }
 
   if (toonBinnenkort && binnenkort.length > 0) {
     html += periodeHeader(binnenkortLabel, true);
@@ -2225,7 +1947,10 @@ function eventRij(e, i) {
         ` : ''}
         ${e.link ? `<div style="margin-top:0.8rem;"><a href="${e.link}" class="td-link" target="_blank">${t.kaartjes}</a></div>` : ''}
       </td>
-    </tr>`;
+    </tr>
+    ${e.naam.nl === 'Church of VR' ? `<tr><td colspan="6" style="padding:0;"><div class="special-wrap" id="special-church"><div class="special-banner" onclick="toggleSpecial()"><div class="special-banner-left"><span class="special-tag">&#10022; Special</span><span class="special-title">Church of VR</span></div><div style="display:flex;align-items:center;gap:10px;"><span class="special-banner-hint">${huidigeTaal === 'nl' ? 'Klik om alle 14 werken te zien' : 'Click to see all 14 works'}</span><span class="special-arrow" id="special-arrow">&#8250;</span></div></div><div class="special-grid-wrap" id="special-grid-wrap"><div class="special-grid" id="special-grid"></div></div></div></td></tr>` : ''}
+    ${(e.naam.nl === 'The Living Gallery – Stap Binnen in Kunst met VR') ? `<tr><td colspan="6" style="padding:0;"><div class="special-wrap" id="special-nureality"><div class="special-banner nureality" onclick="toggleSpecialNR()"><div class="special-banner-left"><span class="special-tag">&#10022; Special</span><span class="special-title">NU:REALITY &mdash; The Living Gallery</span></div><div style="display:flex;align-items:center;gap:10px;"><span class="special-banner-hint">${huidigeTaal === 'nl' ? 'Klik om alle 5 werken te zien' : 'Click to see all 5 works'}</span><span class="special-arrow" id="special-arrow-nr">&#8250;</span></div></div><div class="special-grid-wrap" id="special-grid-wrap-nr"><div class="special-grid" id="special-grid-nr"></div></div></div></td></tr>` : ''}
+  `;
 }
 
 function toggleCard(btn, id) {
@@ -2268,7 +1993,6 @@ function setLang(lang, btn) {
   buildUitgelicht();
   render();
   buildMobileCards();
-  applyContrastState(document.body.classList.contains('high-contrast'));
 }
 
 function aanmelden() {
@@ -2279,40 +2003,6 @@ function aanmelden() {
   } else {
     input.focus();
   }
-}
-
-
-function mobileSpecialBanners() {
-  return '<div class="special-wrap mobile-special" id="special-church-mobile">' +
-    '<div class="special-banner" onclick="toggleSpecialMobile()">' +
-      '<div class="special-banner-left">' +
-        '<span class="special-tag">&#10022; Special</span>' +
-        '<span class="special-title">Church of VR</span>' +
-      '</div>' +
-      '<div class="special-banner-right">' +
-        '<span class="special-banner-hint">' + (huidigeTaal === 'nl' ? 'Klik om alle 14 werken te zien' : 'Click to see all 14 works') + '</span>' +
-        '<span class="special-arrow" id="special-arrow-mobile">›</span>' +
-      '</div>' +
-    '</div>' +
-    '<div class="special-grid-wrap" id="special-grid-wrap-mobile">' +
-      '<div class="special-grid" id="special-grid-mobile"></div>' +
-    '</div>' +
-  '</div>' +
-  '<div class="special-wrap mobile-special" id="special-nureality-mobile">' +
-    '<div class="special-banner nureality" onclick="toggleSpecialNRMobile()">' +
-      '<div class="special-banner-left">' +
-        '<span class="special-tag">&#10022; Special</span>' +
-        '<span class="special-title">NU:REALITY &mdash; The Living Gallery</span>' +
-      '</div>' +
-      '<div class="special-banner-right">' +
-        '<span class="special-banner-hint">' + (huidigeTaal === 'nl' ? 'Klik om alle 5 werken te zien' : 'Click to see all 5 works') + '</span>' +
-        '<span class="special-arrow" id="special-arrow-nr-mobile">›</span>' +
-      '</div>' +
-    '</div>' +
-    '<div class="special-grid-wrap" id="special-grid-wrap-nr-mobile">' +
-      '<div class="special-grid" id="special-grid-nr-mobile"></div>' +
-    '</div>' +
-  '</div>';
 }
 
 
@@ -2381,7 +2071,6 @@ function buildMobileCards() {
   if (toonNu && nuTeSien.length > 0) {
     html += '<div class="mc-periode"><div class="periode-label">' + nuLabel + '</div></div>';
     nuTeSien.forEach(function(e) { html += mCard(e, i++); });
-    html += mobileSpecialBanners();
   }
   if (toonBinnenkort && binnenkort.length > 0) {
     html += '<div class="mc-periode"><div class="periode-label dimmed">' + blLabel + '</div></div>';
@@ -2409,29 +2098,30 @@ function isLaatsteKans(e) {
 
 // Temp events voor Church of VR special
 const specialEvents = [
-  { naam: "Mirage", slug: "mirage", foto: "/images/mirage.png" },
-  { naam: "A Long Goodbye", slug: "a-long-goodbye", foto: "/images/longgoodbye2.png" },
-  { naam: "At the Table", slug: "at-the-table", foto: "/images/atthetable.jpg" },
-  { naam: "My Forked Dating Life", slug: "my-forked-dating-life", foto: "/images/forkeddating.png" },
-  { naam: "Embody XR", slug: "embody-xr", foto: "/images/embodyxr.jpg" },
-  { naam: "A Walk Home Alone at Night", slug: "a-walk-home-alone-at-night", foto: "/images/homealone.png" },
-  { naam: "Lesbian Simulator", slug: "lesbian-simulator", foto: "/images/lesbiansimulator.png" },
-  { naam: "The Sounds of the Silenced", slug: "the-sounds-of-the-silenced", foto: "/images/soundssilence.jpg" },
-  { naam: "Coded Black", slug: "coded-black", foto: "/images/codedblack.jpeg" },
-  { naam: "The Little Mouse", slug: "the-little-mouse", foto: "/images/littlemouse.png" },
-  { naam: "Lacuna", slug: "lacuna", foto: "/images/lacuna.png" },
-  { naam: "Less Than 5gr of Saffron", slug: "less-than-5gr-of-saffron", foto: "/images/saffron.jpeg" },
-  { naam: "Exodus", slug: "exodus", foto: "/images/exodus.jpg" },
-  { naam: "Empathy Creature", slug: "empathy-creature", foto: "/images/empathycreatures.png" },
+  { naam: "Mirage", slug: "mirage" },
+  { naam: "A Long Goodbye", slug: "a-long-goodbye" },
+  { naam: "At the Table", slug: "at-the-table" },
+  { naam: "My Forked Dating Life", slug: "my-forked-dating-life" },
+  { naam: "Embody XR", slug: "embody-xr" },
+  { naam: "A Walk Home Alone at Night", slug: "a-walk-home-alone-at-night" },
+  { naam: "Lesbian Simulator", slug: "lesbian-simulator" },
+  { naam: "The Sounds of the Silenced", slug: "the-sounds-of-the-silenced" },
+  { naam: "Coded Black", slug: "coded-black" },
+  { naam: "The Little Mouse", slug: "the-little-mouse" },
+  { naam: "Lacuna", slug: "lacuna" },
+  { naam: "Less Than 5gr of Saffron", slug: "less-than-5gr-of-saffron" },
+  { naam: "Exodus", slug: "exodus" },
+  { naam: "Empathy Creature", slug: "empathy-creature" },
 ];
 
 function buildSpecial() {
   var grid = document.getElementById('special-grid');
   if (!grid) return;
   grid.innerHTML = specialEvents.map(function(e) {
-    var imgUrl = e.foto || ('/images/special/' + e.slug + '.jpg');
+    var imgUrl = '/images/special/' + e.slug + '.jpg';
     return '<a class="special-thumb" href="https://www.immersivetechweek.co/church-of-vr/" target="_blank" rel="noopener">' +
       '<div class="special-thumb-img" style="background-image:url(' + imgUrl + '); background-size:cover; background-position:center;">' +
+        '<span style="opacity:0.4; font-size:1.4rem;">' + e.naam[0] + '</span>' +
       '</div>' +
       '<div class="special-thumb-name">' + e.naam + '</div>' +
     '</a>';
@@ -2448,20 +2138,21 @@ function toggleSpecial() {
 
 // NU:REALITY — The Living Gallery special
 const specialEventsNR = [
-  { naam: "Caravaggio, In Tenebris", slug: "caravaggio-in-tenebris", foto: "/images/caravaggio.png" },
-  { naam: "Dance Dance Dance - Matisse", slug: "dance-dance-dance-matisse", foto: "/images/dancematisse.png" },
-  { naam: "A Long Goodbye", slug: "a-long-goodbye-nr", foto: "/images/longgoodbye2.png" },
-  { naam: "Creation of the Worlds", slug: "creation-of-the-worlds", foto: "/images/creationoftheworld.png" },
-  { naam: "The Scream", slug: "the-scream", foto: "/images/scream.png" },
+  { naam: "Caravaggio, In Tenebris", slug: "caravaggio-in-tenebris" },
+  { naam: "Dance Dance Dance - Matisse", slug: "dance-dance-dance-matisse" },
+  { naam: "A Long Goodbye", slug: "a-long-goodbye-nr" },
+  { naam: "Creation of the Worlds", slug: "creation-of-the-worlds" },
+  { naam: "The Scream", slug: "the-scream" },
 ];
 
 function buildSpecialNR() {
   var grid = document.getElementById('special-grid-nr');
   if (!grid) return;
   grid.innerHTML = specialEventsNR.map(function(e) {
-    var imgUrl = e.foto || ('/images/special/' + e.slug + '.jpg');
+    var imgUrl = '/images/special/' + e.slug + '.jpg';
     return '<a class="special-thumb" href="https://nureality.eu/nl/the-living-gallery/" target="_blank" rel="noopener">' +
       '<div class="special-thumb-img" style="background-image:url(' + imgUrl + '); background-size:cover; background-position:center;">' +
+        '<span style="opacity:0.4; font-size:1.4rem;">' + e.naam[0] + '</span>' +
       '</div>' +
       '<div class="special-thumb-name">' + e.naam + '</div>' +
     '</a>';
@@ -2474,51 +2165,6 @@ function toggleSpecialNR() {
   var open = wrap.classList.toggle('open');
   arrow.classList.toggle('open', open);
   if (open) buildSpecialNR();
-}
-
-
-function buildSpecialMobile() {
-  var grid = document.getElementById('special-grid-mobile');
-  if (!grid) return;
-  grid.innerHTML = specialEvents.map(function(e) {
-    var imgUrl = e.foto || ('/images/special/' + e.slug + '.jpg');
-    return '<a class="special-thumb" href="https://www.immersivetechweek.co/church-of-vr/" target="_blank" rel="noopener">' +
-      '<div class="special-thumb-img" style="background-image:url(' + imgUrl + '); background-size:cover; background-position:center;">' +
-      '</div>' +
-      '<div class="special-thumb-name">' + e.naam + '</div>' +
-    '</a>';
-  }).join('');
-}
-
-function toggleSpecialMobile() {
-  var wrap = document.getElementById('special-grid-wrap-mobile');
-  var arrow = document.getElementById('special-arrow-mobile');
-  if (!wrap || !arrow) return;
-  var open = wrap.classList.toggle('open');
-  arrow.classList.toggle('open', open);
-  if (open) buildSpecialMobile();
-}
-
-function buildSpecialNRMobile() {
-  var grid = document.getElementById('special-grid-nr-mobile');
-  if (!grid) return;
-  grid.innerHTML = specialEventsNR.map(function(e) {
-    var imgUrl = e.foto || ('/images/special/' + e.slug + '.jpg');
-    return '<a class="special-thumb" href="https://nureality.eu/nl/the-living-gallery/" target="_blank" rel="noopener">' +
-      '<div class="special-thumb-img" style="background-image:url(' + imgUrl + '); background-size:cover; background-position:center;">' +
-      '</div>' +
-      '<div class="special-thumb-name">' + e.naam + '</div>' +
-    '</a>';
-  }).join('');
-}
-
-function toggleSpecialNRMobile() {
-  var wrap = document.getElementById('special-grid-wrap-nr-mobile');
-  var arrow = document.getElementById('special-arrow-nr-mobile');
-  if (!wrap || !arrow) return;
-  var open = wrap.classList.toggle('open');
-  arrow.classList.toggle('open', open);
-  if (open) buildSpecialNRMobile();
 }
 
 // Init
@@ -2550,27 +2196,6 @@ function updateHemellichaam() {
 
 updateHemellichaam();
 setInterval(updateHemellichaam, 60000);
-
-
-function applyContrastState(on) {
-  document.body.classList.toggle('high-contrast', on);
-  var btn = document.getElementById('contrast-toggle');
-  if (btn) {
-    btn.classList.toggle('active', on);
-    btn.setAttribute('aria-pressed', on ? 'true' : 'false');
-    btn.textContent = huidigeTaal === 'en' ? (on ? 'Standard contrast' : 'High contrast') : (on ? 'Normaal contrast' : 'Hoog contrast');
-  }
-}
-
-function toggleContrast() {
-  var on = !document.body.classList.contains('high-contrast');
-  localStorage.setItem('hoogContrast', on ? '1' : '0');
-  applyContrastState(on);
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-  applyContrastState(localStorage.getItem('hoogContrast') === '1');
-});
 </script>
 
 <style>
@@ -2583,39 +2208,6 @@ document.addEventListener('DOMContentLoaded', function() {
   border: none !important;
   color: #ffffff !important;
 }
-
-
-  .special-banner-right {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  @media (max-width: 700px) {
-    .mobile-special { display: block; }
-    .special-banner {
-      padding: 13px 1.2rem;
-      gap: 10px;
-    }
-    .special-banner-left {
-      min-width: 0;
-      flex: 1;
-    }
-    .special-title {
-      font-size: 1.05rem;
-      line-height: 1.1;
-    }
-    .special-banner-hint {
-      display: none;
-    }
-    .special-banner-right {
-      flex-shrink: 0;
-    }
-    .special-grid-wrap {
-      padding: 14px 1.2rem;
-    }
-  }
-
 </style>
 
 </body>
