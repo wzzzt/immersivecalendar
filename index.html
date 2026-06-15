@@ -2098,27 +2098,27 @@ function isLaatsteKans(e) {
 
 // Temp events voor Church of VR special
 const specialEvents = [
-  { naam: "Mirage", slug: "mirage" },
-  { naam: "A Long Goodbye", slug: "a-long-goodbye" },
-  { naam: "At the Table", slug: "at-the-table" },
-  { naam: "My Forked Dating Life", slug: "my-forked-dating-life" },
-  { naam: "Embody XR", slug: "embody-xr" },
-  { naam: "A Walk Home Alone at Night", slug: "a-walk-home-alone-at-night" },
-  { naam: "Lesbian Simulator", slug: "lesbian-simulator" },
-  { naam: "The Sounds of the Silenced", slug: "the-sounds-of-the-silenced" },
-  { naam: "Coded Black", slug: "coded-black" },
-  { naam: "The Little Mouse", slug: "the-little-mouse" },
-  { naam: "Lacuna", slug: "lacuna" },
-  { naam: "Less Than 5gr of Saffron", slug: "less-than-5gr-of-saffron" },
-  { naam: "Exodus", slug: "exodus" },
-  { naam: "Empathy Creature", slug: "empathy-creature" },
+  { naam: "Mirage", slug: "mirage", imgFile: "mirage.png" },
+  { naam: "A Long Goodbye", slug: "a-long-goodbye", imgFile: "longgoodbye.jpg" },
+  { naam: "At the Table", slug: "at-the-table", imgFile: "eddieandi.jpg" },
+  { naam: "My Forked Dating Life", slug: "my-forked-dating-life", imgFile: "forkeddating.png" },
+  { naam: "Embody XR", slug: "embody-xr", imgFile: "embodyxr.jpg" },
+  { naam: "A Walk Home Alone at Night", slug: "a-walk-home-alone-at-night", imgFile: "homealone.png" },
+  { naam: "Lesbian Simulator", slug: "lesbian-simulator", imgFile: "lesbiansimulator.png" },
+  { naam: "The Sounds of the Silenced", slug: "the-sounds-of-the-silenced", imgFile: "soundssilence.jpg" },
+  { naam: "Coded Black", slug: "coded-black", imgFile: "codedblack.jpeg" },
+  { naam: "The Little Mouse", slug: "the-little-mouse", imgFile: "littlemouse.png" },
+  { naam: "Lacuna", slug: "lacuna", imgFile: "lacuna.png" },
+  { naam: "Less Than 5gr of Saffron", slug: "less-than-5gr-of-saffron", imgFile: "saffron.jpeg" },
+  { naam: "Exodus", slug: "exodus", imgFile: "exodus.jpg" },
+  { naam: "Empathy Creature", slug: "empathy-creature", imgFile: "empathycreatures.png" },
 ];
 
 function buildSpecial() {
   var grid = document.getElementById('special-grid');
   if (!grid) return;
   grid.innerHTML = specialEvents.map(function(e) {
-    var imgUrl = '/images/special/' + e.slug + '.jpg';
+    var imgUrl = e.imgFile ? '/images/' + e.imgFile : '/images/special/' + e.slug + '.jpg';
     return '<a class="special-thumb" href="https://www.immersivetechweek.co/church-of-vr/" target="_blank" rel="noopener">' +
       '<div class="special-thumb-img" style="background-image:url(' + imgUrl + '); background-size:cover; background-position:center;">' +
         '<span style="opacity:0.4; font-size:1.4rem;">' + e.naam[0] + '</span>' +
@@ -2138,18 +2138,18 @@ function toggleSpecial() {
 
 // NU:REALITY — The Living Gallery special
 const specialEventsNR = [
-  { naam: "Caravaggio, In Tenebris", slug: "caravaggio-in-tenebris" },
-  { naam: "Dance Dance Dance - Matisse", slug: "dance-dance-dance-matisse" },
-  { naam: "A Long Goodbye", slug: "a-long-goodbye-nr" },
-  { naam: "Creation of the Worlds", slug: "creation-of-the-worlds" },
-  { naam: "The Scream", slug: "the-scream" },
+  { naam: "Caravaggio, In Tenebris", slug: "caravaggio", imgFile: "caravaggio.png" },
+  { naam: "Dance Dance Dance - Matisse", slug: "dancematisse", imgFile: "dancematisse.png" },
+  { naam: "A Long Goodbye", slug: "longgoodbye2", imgFile: "longgoodbye2.png" },
+  { naam: "Creation of the Worlds", slug: "creationoftheworld", imgFile: "creationoftheworld.png" },
+  { naam: "The Scream", slug: "scream", imgFile: "scream.png" },
 ];
 
 function buildSpecialNR() {
   var grid = document.getElementById('special-grid-nr');
   if (!grid) return;
   grid.innerHTML = specialEventsNR.map(function(e) {
-    var imgUrl = '/images/special/' + e.slug + '.jpg';
+    var imgUrl = e.imgFile ? '/images/' + e.imgFile : '/images/special/' + e.slug + '.jpg';
     return '<a class="special-thumb" href="https://nureality.eu/nl/the-living-gallery/" target="_blank" rel="noopener">' +
       '<div class="special-thumb-img" style="background-image:url(' + imgUrl + '); background-size:cover; background-position:center;">' +
         '<span style="opacity:0.4; font-size:1.4rem;">' + e.naam[0] + '</span>' +
