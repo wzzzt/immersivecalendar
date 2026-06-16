@@ -308,7 +308,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   /* ── KALENDER ── */
   .kalender {
-    padding: 0 clamp(1.2rem, 4vw, 3rem) 3rem;
+    padding: 0 clamp(1.2rem, 4vw, 3rem) 0;
   }
 
   .kalender-header {
@@ -1272,7 +1272,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     transition: all 0.15s;
     white-space: nowrap;
   }
-  .hc-btn:hover { color: var(--white); border-color: rgba(255,255,255,0.7); }
+  .hc-btn:hover { color: var(--white); border-color: rgba(255,255,255,0.7); text-decoration: none; }
+  .hc-btn { text-decoration: none; }
   .hc-btn.active { background: #fff; color: #000; border-color: #fff; }
 
   /* Hoog contrast overrides — WCAG AA: min 4.5:1 ratio */
@@ -1493,45 +1494,48 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   /* ── TIP SECTIE ── */
   .tip-sectie {
-    border-bottom: 1px solid var(--border);
-    background: #1A1A1A;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    background: #141414;
+    padding: clamp(1.5rem, 4vw, 2.5rem) 0;
   }
 
   .tip-banner {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 14px 1.5rem;
-    background: linear-gradient(90deg, #FF3CAC 0%, rgba(255,60,172,0.45) 60%, rgba(255,60,172,0) 100%);
+    padding: 22px 2.5rem;
+    background: #141414;
+    border: 2px solid #FF3CAC;
+    border-radius: 100px;
     cursor: pointer;
     user-select: none;
-    transition: opacity 0.2s;
-    border-bottom: 1px solid var(--border);
+    transition: background 0.2s;
+    margin: 0 clamp(1.2rem, 4vw, 3rem);
   }
-  .tip-banner:hover { opacity: 0.88; }
+  .tip-banner:hover { background: rgba(255,60,172,0.07); }
+  .tip-banner.open { border-radius: 24px 24px 0 0; }
 
   .tip-banner-left {
     display: flex;
     align-items: center;
-    gap: 12px;
   }
 
   .tip-banner-tag {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 10px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    font-weight: 500;
-    color: rgba(20,20,20,0.6);
-  }
-
-  .tip-banner-title {
     font-family: 'Fraunces', serif;
     font-style: italic;
     font-weight: 900;
-    font-size: 1.3rem;
-    color: #141414;
-    letter-spacing: -0.01em;
+    font-size: clamp(1.6rem, 4vw, 2.8rem);
+    letter-spacing: -0.02em;
+    color: var(--pink);
+  }
+
+  .tip-banner-title {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 0;
   }
 
   .tip-banner-arrow {
@@ -1544,7 +1548,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   .tip-form-wrap {
     display: none;
-    padding: clamp(1.5rem, 4vw, 2rem) clamp(1.2rem, 4vw, 3rem);
+    padding: clamp(1.2rem, 3vw, 1.8rem) clamp(1.2rem, 4vw, 3rem) clamp(1.5rem, 4vw, 2rem);
+    border: 2px solid #FF3CAC;
+    border-top: none;
+    border-radius: 0 0 28px 28px;
+    margin: 0 clamp(1.2rem, 4vw, 3rem) 0;
   }
   .tip-form-wrap.open { display: block; }
 
@@ -1622,6 +1630,39 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   .tip-verzenden:hover { opacity: 0.85; }
 
+
+  .tip-types {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 4px;
+  }
+
+  .tip-type-check {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    cursor: pointer;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 100px;
+    padding: 5px 12px;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+
+  .tip-type-check:has(input:checked) {
+    background: rgba(255,60,172,0.2);
+    border-color: var(--pink);
+    color: var(--white);
+  }
+
+  .tip-type-check input[type="checkbox"] {
+    display: none;
+  }
+
   .tip-feedback {
     font-size: 14px;
     color: var(--white);
@@ -1655,7 +1696,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <button class="lang-btn active" onclick="setLang('nl', this)">NL</button>
         <button class="lang-btn" onclick="setLang('en', this)">EN</button>
       </div>
-      <button class="hc-btn" id="hc-btn" onclick="toggleHC()" title="Hoog contrast (WCAG AA)">HC</button>
+      <a class="hc-btn" id="tip-ons-btn" href="#tip-sectie" onclick="scrollToTip(event)" style="text-decoration:none; display:inline-flex; align-items:center; gap:5px;"><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"><path d="M12 0 L13.8 9.5 L24 12 L13.8 14.5 L12 24 L10.2 14.5 L0 12 L10.2 9.5 Z"/></svg><span id="tip-ons-tekst">Tipline!</span></a>
       <a class="header-about" href="#" onclick="openOver(event)" id="over-btn">Over</a>
     </div>
   </div>
@@ -1703,12 +1744,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <section class="tip-sectie" id="tip-sectie">
   <div class="tip-banner" onclick="toggleTip()">
-    <div class="tip-banner-left">
-      <span class="tip-banner-tag">&#10022; Tipline</span>
-      <span class="tip-banner-title">Ken jij een show die hier nog niet op staat?</span>
-    </div>
-    <div style="display:flex; align-items:center; gap:10px;">
-      <span class="special-banner-hint" id="tip-banner-hint">Klik om een tip door te sturen</span>
+    <span class="tip-banner-tag" id="tip-tag-tekst">&#10022; Tipline</span>
+    <span class="tip-banner-title" id="tip-title-tekst">Ken jij een immersief werk dat hier nog niet op staat?</span>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <span style="font-family:'DM Sans',sans-serif; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(255,60,172,0.7);" id="tip-stuur-tekst">Stuur een tip</span>
       <span class="tip-banner-arrow" id="tip-banner-arrow">›</span>
     </div>
   </div>
@@ -1735,7 +1774,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <input type="url" id="tip-foto" placeholder="https://...">
       </div>
       <div class="tip-form-group full">
-        <label>Korte omschrijving</label>
+        <label id="tip-label-type">Type / vorm</label>
+        <div class="tip-types" id="tip-types">
+          <label class="tip-type-check"><input type="checkbox" value="XR (VR, AR, MR)"> XR (VR, AR, MR)</label>
+          <label class="tip-type-check"><input type="checkbox" value="Performatief"> Performatief</label>
+          <label class="tip-type-check"><input type="checkbox" value="Tentoonstelling"> Tentoonstelling</label>
+          <label class="tip-type-check"><input type="checkbox" value="Audiowalk"> Audiowalk</label>
+          <label class="tip-type-check"><input type="checkbox" value="Audio driven immersion"> Audio driven immersion</label>
+          <label class="tip-type-check"><input type="checkbox" value="Dome"> Dome</label>
+          <label class="tip-type-check"><input type="checkbox" value="In de natuur"> In de natuur</label>
+          <label class="tip-type-check"><input type="checkbox" value="Muziek"> Muziek</label>
+          <label class="tip-type-check"><input type="checkbox" value="Generatief"> Generatief</label>
+          <label class="tip-type-check"><input type="checkbox" value="Zintuiglijk"> Zintuiglijk</label>
+          <label class="tip-type-check"><input type="checkbox" value="Sociaal"> Sociaal</label>
+          <label class="tip-type-check"><input type="checkbox" value="Spatial"> Spatial</label>
+          <label class="tip-type-check"><input type="checkbox" value="Artist talk"> Artist talk</label>
+          <label class="tip-type-check"><input type="checkbox" value="Digitale kunst"> Digitale kunst</label>
+          <label class="tip-type-check"><input type="checkbox" value="Immersief theater"> Immersief theater</label>
+          <label class="tip-type-check"><input type="checkbox" value="Immersieve installaties"> Immersieve installaties</label>
+          <label class="tip-type-check"><input type="checkbox" value="Interactief"> Interactief</label>
+          <label class="tip-type-check"><input type="checkbox" value="Stad"> Stad</label>
+          <label class="tip-type-check"><input type="checkbox" value="Geluid"> Geluid</label>
+          <label class="tip-type-check" id="tip-anders-label">
+            <input type="checkbox" value="anders" id="tip-type-anders-cb" onchange="toggleAnders(this)">
+            <span id="tip-anders-tekst">Anders, namelijk:</span>
+            <input type="text" id="tip-type-anders-input" placeholder="..." style="display:none; margin-left:6px; background:transparent; border:none; border-bottom:1px solid rgba(255,255,255,0.3); color:var(--white); font-family:'DM Sans',sans-serif; font-size:14px; outline:none; width:140px;">
+          </label>
+        </div>
+      </div>
+      <div class="tip-form-group full">
+        <label id="tip-label-tekst-el">Korte omschrijving</label>
         <textarea id="tip-tekst" placeholder="Vertel in één of twee zinnen wat het event bijzonder maakt."></textarea>
       </div>
       <div class="tip-form-group">
@@ -2072,6 +2140,21 @@ const events = [
     foto: "/images/tellart.jpg",
     link: "https://www.3x3unites.com/pro-events/3x3-festival",
     uitgelicht: false
+  },
+  {
+    naam: { nl: "William Forsythe – Choreographic Objects", en: "William Forsythe – Choreographic Objects" },
+    startDag: 6, startMaandNr: 6, eindDag: 23, eindMaandNr: 8,
+    startMaand: { nl: "Jun", en: "Jun" },
+    eindDatum: { nl: "23 Aug", en: "Aug 23" },
+    maker: "William Forsythe",
+    duur: "Take your time", handig: "Interactie gestimuleerd, niet verplicht",
+    logline: { nl: "De wereldberoemde choreograaf William Forsythe nodigt je uit om niet alleen te kijken, maar vooral te doen — elk object schept een situatie waarin beweging de belangrijkste manier is om het werk te ervaren.", en: "World-renowned choreographer William Forsythe invites you not just to look, but above all to act — each object creates a situation in which movement is the primary way to experience the work." },
+    beschrijving: { nl: "'Het lichaam is een denkend instrument', aldus William Forsythe. Zijn Choreographic Objects vormen een reeks stellingen: elk object vormt een situatie waarin beweging de belangrijkste manier is om het te ervaren. Bij Voorlinden nodigt Forsythe je uit om te experimenteren, te reageren en te ontdekken hoe je lichaam door middel van beweging denkt.", en: "'The body is a thinking instrument', says William Forsythe. His Choreographic Objects form a series of propositions: each object creates a situation in which movement is the primary way to experience it. At Voorlinden, Forsythe invites you to experiment, respond and discover how your body thinks through movement." },
+    stad: "Wassenaar", locatie: "Voorlinden",
+    types: ["Immersieve installaties", "Interactief", "Tentoonstelling"],
+    foto: "/images/voorlindenforsythe.jpg",
+    link: "https://www.voorlinden.nl/tentoonstelling/william-forsythe/",
+    uitgelicht: false
   }
 ];
 
@@ -2120,7 +2203,7 @@ const ui = {
     bedankt: "Thanks for signing up!",
     alles: "All",
     over: "About",
-    label: "No cap. Every immersive show, one place. Chefs' kiss from us!",
+    label: "No cap. Every immersive show, one place. Chefs kisses from us!",
     footer: 'immersive art agenda ✦ netherlands — is run by <a href="https://www.studiozzzap.nl" target="_blank" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">studio zzzap</a>',
     tmLabel: "until",
     overTitel: "About this agenda",
@@ -2453,6 +2536,7 @@ function setLang(lang, btn) {
   render();
   buildMobileCards();
   buildStudenten();
+  updateTipLang();
 }
 
 function aanmelden() {
@@ -2628,22 +2712,20 @@ function toggleSpecialNR() {
 }
 
 
-function toggleHC() {
-  var body = document.body;
-  var btn = document.getElementById('hc-btn');
-  var aan = body.classList.toggle('hoog-contrast');
-  btn.classList.toggle('active', aan);
-  localStorage.setItem('hoogContrast', aan ? '1' : '');
-}
-
-// Herstel voorkeur
-(function() {
-  if (localStorage.getItem('hoogContrast') === '1') {
-    document.body.classList.add('hoog-contrast');
-    var btn = document.getElementById('hc-btn');
-    if (btn) btn.classList.add('active');
+function scrollToTip(e) {
+  e.preventDefault();
+  var el = document.getElementById('tip-sectie');
+  if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  // Open het formulier als het nog dicht is
+  var wrap = document.getElementById('tip-form-wrap');
+  var arrow = document.getElementById('tip-banner-arrow');
+  var banner = document.querySelector('.tip-banner');
+  if (wrap && !wrap.classList.contains('open')) {
+    wrap.classList.add('open');
+    if (arrow) arrow.classList.add('open');
+    if (banner) banner.classList.add('open');
   }
-})();
+}
 
 
 const studentenEvents = [
@@ -2730,11 +2812,93 @@ function toggleStudentDesc(btn, id) {
 
 
 
+
+function updateTipLang() {
+  var tipOnsBtn = document.getElementById('tip-ons-btn');
+  var tipOnsTekst = document.getElementById('tip-ons-tekst'); if (tipOnsTekst) tipOnsTekst.textContent = 'Tipline!';
+  var tag = document.getElementById('tip-tag-tekst');
+  var title = document.getElementById('tip-title-tekst');
+  var stuur = document.getElementById('tip-stuur-tekst');
+  if (!tag) return;
+
+  var labels = {
+    nl: {
+      typeLabel: 'Type / vorm',
+      naam: 'Naam event', datum: 'Datum', stad: 'Stad & locatie',
+      link: 'Link naar het event', foto: 'Link naar een plaatje',
+      tekst: 'Korte omschrijving', indiener: 'Jouw naam', email: 'Jouw e-mail',
+      anders: 'Anders, namelijk:', btn: 'Verstuur tip →',
+      ph_naam: 'bijv. My Favourite Show', ph_datum: 'bijv. 12 aug – 30 sep 2026',
+      ph_stad: 'bijv. Amsterdam, Stedelijk Museum',
+      ph_tekst: 'Vertel in één of twee zinnen wat het event bijzonder maakt.',
+      ph_indiener: 'Jouw naam', ph_email: 'jouw@email.nl',
+      feedback: '✓ Bedankt! We bekijken je tip zo snel mogelijk.'
+    },
+    en: {
+      typeLabel: 'Type / format',
+      naam: 'Event name', datum: 'Date', stad: 'City & venue',
+      link: 'Link to the event', foto: 'Link to an image',
+      tekst: 'Short description', indiener: 'Your name', email: 'Your email',
+      anders: 'Other, namely:', btn: 'Send us your tip →',
+      ph_naam: 'e.g. My Favourite Show', ph_datum: 'e.g. 12 Aug – 30 Sep 2026',
+      ph_stad: 'e.g. Amsterdam, Stedelijk Museum',
+      ph_tekst: 'Tell us in one or two sentences what makes this work special.',
+      ph_indiener: 'Your name', ph_email: 'your@email.com',
+      feedback: '✓ Thanks! We\'ll review your tip as soon as possible.'
+    }
+  };
+
+  var l = labels[huidigeTaal] || labels.nl;
+
+  if (huidigeTaal === 'en') {
+    tag.innerHTML = '&#10022; Tipline';
+    title.textContent = 'Know an immersive work that\'s not on here yet?';
+    stuur.textContent = 'Send us your tip';
+  } else {
+    tag.innerHTML = '&#10022; Tipline';
+    title.textContent = 'Ken jij een immersief werk dat hier nog niet op staat?';
+    stuur.textContent = 'Stuur een tip';
+  }
+
+  function setLabel(id, val) { var el = document.getElementById(id); if (el) el.textContent = val; }
+  function setPlaceholder(id, val) { var el = document.getElementById(id); if (el) el.placeholder = val; }
+
+  setLabel('tip-label-type', l.typeLabel);
+  setLabel('tip-label-naam', l.naam);
+  setLabel('tip-label-datum', l.datum);
+  setLabel('tip-label-stad', l.stad);
+  setLabel('tip-label-link', l.link);
+  setLabel('tip-label-foto', l.foto);
+  setLabel('tip-label-tekst-el', l.tekst);
+  setLabel('tip-label-indiener', l.indiener);
+  setLabel('tip-label-email', l.email);
+  setLabel('tip-anders-tekst', l.anders);
+  setPlaceholder('tip-naam', l.ph_naam);
+  setPlaceholder('tip-datum', l.ph_datum);
+  setPlaceholder('tip-stad', l.ph_stad);
+  setPlaceholder('tip-tekst', l.ph_tekst);
+  setPlaceholder('tip-indiener', l.ph_indiener);
+  setPlaceholder('tip-email', l.ph_email);
+
+  var btn = document.querySelector('.tip-verzenden');
+  if (btn) btn.textContent = l.btn;
+  var fb = document.getElementById('tip-feedback');
+  if (fb) fb.setAttribute('data-msg', l.feedback);
+}
+
 function toggleTip() {
   var wrap = document.getElementById('tip-form-wrap');
   var arrow = document.getElementById('tip-banner-arrow');
+  var banner = document.querySelector('.tip-banner');
   var open = wrap.classList.toggle('open');
   arrow.classList.toggle('open', open);
+  banner.classList.toggle('open', open);
+}
+
+function toggleAnders(cb) {
+  var input = document.getElementById('tip-type-anders-input');
+  input.style.display = cb.checked ? 'inline-block' : 'none';
+  if (cb.checked) setTimeout(function(){ input.focus(); }, 50);
 }
 
 function verzendTip(event) {
@@ -2762,7 +2926,7 @@ function verzendTip(event) {
 
   window.location.href = 'mailto:hello@studiozzzap.nl?subject=' + onderwerp + '&body=' + body;
 
-  document.getElementById('tip-feedback').style.display = 'block';
+  var fb = document.getElementById('tip-feedback'); fb.textContent = fb.getAttribute('data-msg') || '✓ Bedankt!'; fb.style.display = 'block';
   event.target.reset();
 }
 
@@ -2773,6 +2937,7 @@ buildUitgelicht();
 render();
 buildMobileCards();
 buildStudenten();
+updateTipLang();
 
 // Zon en maan
 function updateHemellichaam() {
