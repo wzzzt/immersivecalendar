@@ -1490,6 +1490,145 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   .studenten-card-link:hover { background: rgba(226,239,112,0.22); }
 
+
+  /* ── TIP SECTIE ── */
+  .tip-sectie {
+    border-bottom: 1px solid var(--border);
+    background: #1A1A1A;
+  }
+
+  .tip-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 1.5rem;
+    background: linear-gradient(90deg, #FF3CAC 0%, rgba(255,60,172,0.45) 60%, rgba(255,60,172,0) 100%);
+    cursor: pointer;
+    user-select: none;
+    transition: opacity 0.2s;
+    border-bottom: 1px solid var(--border);
+  }
+  .tip-banner:hover { opacity: 0.88; }
+
+  .tip-banner-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .tip-banner-tag {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: rgba(20,20,20,0.6);
+  }
+
+  .tip-banner-title {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 900;
+    font-size: 1.3rem;
+    color: #141414;
+    letter-spacing: -0.01em;
+  }
+
+  .tip-banner-arrow {
+    font-size: 29px;
+    color: #FF3CAC;
+    transition: transform 0.3s;
+    opacity: 0.9;
+  }
+  .tip-banner-arrow.open { transform: rotate(90deg); }
+
+  .tip-form-wrap {
+    display: none;
+    padding: clamp(1.5rem, 4vw, 2rem) clamp(1.2rem, 4vw, 3rem);
+  }
+  .tip-form-wrap.open { display: block; }
+
+  .tip-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: 1rem;
+    max-width: 860px;
+  }
+
+  .tip-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .tip-form-group.full {
+    grid-column: 1 / -1;
+  }
+
+  .tip-form-group label {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  .tip-form-group input,
+  .tip-form-group textarea {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    padding: 10px 14px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 4px;
+    color: var(--white);
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+
+  .tip-form-group input::placeholder,
+  .tip-form-group textarea::placeholder {
+    color: rgba(255,255,255,0.3);
+  }
+
+  .tip-form-group input:focus,
+  .tip-form-group textarea:focus {
+    border-color: var(--pink);
+  }
+
+  .tip-form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+
+  .tip-verzenden {
+    margin-top: 0.5rem;
+    padding: 11px 28px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: var(--pink);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    white-space: nowrap;
+    align-self: flex-end;
+  }
+  .tip-verzenden:hover { opacity: 0.85; }
+
+  .tip-feedback {
+    font-size: 14px;
+    color: var(--white);
+    margin-top: 0.8rem;
+    display: none;
+  }
+
 </style>
 </head>
 <body>
@@ -1560,6 +1699,59 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </table>
   </div>
   <div id="mobile-cards"></div>
+</section>
+
+<section class="tip-sectie" id="tip-sectie">
+  <div class="tip-banner" onclick="toggleTip()">
+    <div class="tip-banner-left">
+      <span class="tip-banner-tag">&#10022; Tipline</span>
+      <span class="tip-banner-title">Ken jij een show die hier nog niet op staat?</span>
+    </div>
+    <div style="display:flex; align-items:center; gap:10px;">
+      <span class="special-banner-hint" id="tip-banner-hint">Klik om een tip door te sturen</span>
+      <span class="tip-banner-arrow" id="tip-banner-arrow">›</span>
+    </div>
+  </div>
+  <div class="tip-form-wrap" id="tip-form-wrap">
+    <form class="tip-form" onsubmit="verzendTip(event)">
+      <div class="tip-form-group">
+        <label>Naam event</label>
+        <input type="text" id="tip-naam" placeholder="bijv. My Favourite Show" required>
+      </div>
+      <div class="tip-form-group">
+        <label>Datum</label>
+        <input type="text" id="tip-datum" placeholder="bijv. 12 aug – 30 sep 2026" required>
+      </div>
+      <div class="tip-form-group">
+        <label>Stad & locatie</label>
+        <input type="text" id="tip-stad" placeholder="bijv. Amsterdam, Stedelijk Museum" required>
+      </div>
+      <div class="tip-form-group">
+        <label>Link naar het event</label>
+        <input type="url" id="tip-link" placeholder="https://...">
+      </div>
+      <div class="tip-form-group">
+        <label>Link naar een plaatje</label>
+        <input type="url" id="tip-foto" placeholder="https://...">
+      </div>
+      <div class="tip-form-group full">
+        <label>Korte omschrijving</label>
+        <textarea id="tip-tekst" placeholder="Vertel in één of twee zinnen wat het event bijzonder maakt."></textarea>
+      </div>
+      <div class="tip-form-group">
+        <label>Jouw naam</label>
+        <input type="text" id="tip-indiener" placeholder="Jouw naam" required>
+      </div>
+      <div class="tip-form-group">
+        <label>Jouw e-mail</label>
+        <input type="email" id="tip-email" placeholder="jouw@email.nl" required>
+      </div>
+      <div class="tip-form-group full">
+        <button type="submit" class="tip-verzenden">Verstuur tip →</button>
+        <div class="tip-feedback" id="tip-feedback">✓ Bedankt! We bekijken je tip zo snel mogelijk.</div>
+      </div>
+    </form>
+  </div>
 </section>
 
 <section class="studenten-sectie" id="studenten-sectie">
@@ -1793,7 +1985,7 @@ const events = [
   },
   {
     naam: { nl: "Drift", en: "Drift" },
-    startDag: 1, startMaandNr: 7, eindDag: 31, eindMaandNr: 8,
+    startDag: 14, startMaandNr: 7, eindDag: 31, eindMaandNr: 8,
     startMaand: { nl: "Jul", en: "Jul" },
     eindDatum: { nl: "31 Aug", en: "Aug 31" },
     maker: "Merel uit de Machine & VPRO Medialab",
@@ -1864,6 +2056,21 @@ const events = [
     types: ["Zintuiglijk", "Muziek", "Performatief"],
     foto: "/images/dreamscapes.jpg",
     link: "https://soundingbodies.com/voorstelling/dreamscapes",
+    uitgelicht: false
+  },
+  {
+    naam: { nl: "Immersive Dome at 3x3 Festival", en: "Immersive Dome at 3x3 Festival" },
+    startDag: 19, startMaandNr: 6, eindDag: 21, eindMaandNr: 6,
+    startMaand: { nl: "Jun", en: "Jun" },
+    eindDatum: { nl: "21 Jun", en: "Jun 21" },
+    maker: "Tellart & Odido",
+    duur: "15 min", handig: "50 personen tegelijk",
+    logline: { nl: "Art x Sport. Tellart viert het 10-jarig jubileum van 3x3 United met een 360° dome-experience voor 50 mensen tegelijk.", en: "Art x Sport. Tellart celebrates the 10-year anniversary of 3x3 United with a 360° dome experience for 50 people at a time." },
+    beschrijving: { nl: "Een 360° experience, waar kunst, sport en community samenkomen. Geniet daarnaast van Dome Raves met jonge DJ's.", en: "A 360° experience where art, sport and community come together. Also enjoy Dome Raves with young DJs." },
+    stad: "Amsterdam", locatie: "NDSM",
+    types: ["Dome"],
+    foto: "/images/tellart.jpg",
+    link: "https://www.3x3unites.com/pro-events/3x3-festival",
     uitgelicht: false
   }
 ];
@@ -1946,6 +2153,7 @@ const typeVertalingen = {
     "Immersief theater": "Immersief theater",
     "Spatial": "Spatial",
     "Artist talk": "Artist talk",
+    "Dome": "Dome",
   },
   en: {
     "XR": "XR",
@@ -1966,6 +2174,7 @@ const typeVertalingen = {
     "Immersief theater": "Immersive theatre",
     "Spatial": "Spatial",
     "Artist talk": "Artist talk",
+    "Dome": "Dome",
   }
 };
 
@@ -2517,6 +2726,44 @@ function toggleStudentDesc(btn, id) {
   var el = document.getElementById(id);
   var open = el.classList.toggle('open');
   btn.textContent = open ? (huidigeTaal === 'nl' ? 'Minder ↑' : 'Less ↑') : (huidigeTaal === 'nl' ? 'Lees meer ↓' : 'Read more ↓');
+}
+
+
+
+function toggleTip() {
+  var wrap = document.getElementById('tip-form-wrap');
+  var arrow = document.getElementById('tip-banner-arrow');
+  var open = wrap.classList.toggle('open');
+  arrow.classList.toggle('open', open);
+}
+
+function verzendTip(event) {
+  event.preventDefault();
+  var naam = document.getElementById('tip-naam').value;
+  var datum = document.getElementById('tip-datum').value;
+  var stad = document.getElementById('tip-stad').value;
+  var link = document.getElementById('tip-link').value;
+  var foto = document.getElementById('tip-foto').value;
+  var tekst = document.getElementById('tip-tekst').value;
+  var indiener = document.getElementById('tip-indiener').value;
+  var email = document.getElementById('tip-email').value;
+
+  var onderwerp = encodeURIComponent('Tip: ' + naam);
+  var body = encodeURIComponent(
+    'Naam event: ' + naam + '\n' +
+    'Datum: ' + datum + '\n' +
+    'Stad & locatie: ' + stad + '\n' +
+    'Link event: ' + link + '\n' +
+    'Link plaatje: ' + foto + '\n' +
+    'Omschrijving: ' + tekst + '\n\n' +
+    'Ingediend door: ' + indiener + '\n' +
+    'E-mail: ' + email
+  );
+
+  window.location.href = 'mailto:hello@studiozzzap.nl?subject=' + onderwerp + '&body=' + body;
+
+  document.getElementById('tip-feedback').style.display = 'block';
+  event.target.reset();
 }
 
 // Init
