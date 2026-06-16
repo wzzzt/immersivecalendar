@@ -1314,6 +1314,182 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   body.hoog-contrast .td-link,
   body.hoog-contrast .card-link { border-color: #fff !important; color: #fff !important; }
   body.hoog-contrast .foto-inner-placeholder { background: #111 !important; }
+
+  /* ── STUDENTEN SECTIE ── */
+  .studenten-sectie {
+    padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1.2rem, 4vw, 3rem);
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(90deg, #E2EF70 0%, rgba(226,239,112,0.55) 45%, rgba(226,239,112,0) 100%);
+  }
+
+  .studenten-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 1.4rem;
+  }
+
+  .studenten-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(90deg, #1A1A1A 0%, rgba(226,239,112,0.3) 60%, #E2EF70 100%);
+    border: 1px solid #E2EF70;
+    padding: 6px 18px 6px 12px;
+    border-radius: 100px;
+    width: fit-content;
+    overflow: visible;
+  }
+
+  .studenten-label .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #E2EF70;
+    flex-shrink: 0;
+  }
+
+  .studenten-label span {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #ffffff;
+    white-space: nowrap;
+  }
+
+  .studenten-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .studenten-card {
+    background: #1A1A1A;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: background 0.15s;
+  }
+
+  .studenten-card:hover { background: #181818; }
+
+  .studenten-card-img {
+    width: 100%;
+    aspect-ratio: 3/2;
+    overflow: hidden;
+    background: #1E1E1E;
+  }
+
+  .studenten-card-img img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .studenten-card:hover .studenten-card-img img { transform: scale(1.03); }
+
+  .studenten-card-ph {
+    width: 100%;
+    aspect-ratio: 3/2;
+    background: #1E1E1E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 2.5rem;
+    color: #E2EF70;
+  }
+
+  .studenten-card-body {
+    padding: 1.4rem 1.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+  }
+
+  .studenten-card-maker {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #E2EF70;
+    font-weight: 400;
+  }
+
+  .studenten-card-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-style: italic;
+    font-size: clamp(1.3rem, 2.5vw, 1.9rem);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--white);
+  }
+
+  .studenten-card-logline {
+    font-size: 14px;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.8);
+    flex: 1;
+  }
+
+  .studenten-card-desc {
+    font-size: 13px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.6);
+    display: none;
+    margin-top: 4px;
+  }
+  .studenten-card-desc.open { display: block; }
+
+  .studenten-card-leesmeer {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #E2EF70;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-weight: 400;
+    text-align: left;
+  }
+  .studenten-card-leesmeer:hover { text-decoration: underline; }
+
+  .studenten-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    padding-top: 0.8rem;
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 0.4rem;
+  }
+
+  .studenten-card-link {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #E2EF70;
+    background: rgba(226,239,112,0.12);
+    border: 1px solid rgba(226,239,112,0.4);
+    padding: 5px 14px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .studenten-card-link:hover { background: rgba(226,239,112,0.22); }
+
 </style>
 </head>
 <body>
@@ -1384,6 +1560,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </table>
   </div>
   <div id="mobile-cards"></div>
+</section>
+
+<section class="studenten-sectie" id="studenten-sectie">
+  <div class="studenten-header">
+    <div class="studenten-label">
+      <div class="dot"></div>
+      <span id="studenten-label-tekst">Studentenwerk</span>
+    </div>
+  </div>
+  <div class="studenten-cards" id="studenten-cards"></div>
 </section>
 
 <footer>
@@ -1642,7 +1828,7 @@ const events = [
     eindDatum: null,
     maker: "CHOU Tung-Yen",
     duur: "60 min", handig: "Aansluitend op Amsterdam Pride 2026",
-    logline: { nl: "CHOU Tung-Yen gaat in gesprek met Nina van Doren, programmeur IDFA DocLab.", en: "CHOU Tung-Yen in conversation with Nina van Doren, IDFA DocLab programmer." },
+    logline: { nl: "CHOU Tung-Yen gaat in gesprek met Kato van der Speeten.", en: "CHOU Tung-Yen in conversation with Kato van der Speeten." },
     beschrijving: { nl: "CHOU Tung-Yen is een bekroond theaterregisseur, filmmaker en XR-maker uit Taiwan. Zijn werk verkent thema's als mens-technologierelaties en LGBTQ+-cultuur.", en: "CHOU Tung-Yen is an award-winning theatre director, filmmaker and XR creator from Taiwan. His work explores themes such as human-technology relationships and LGBTQ+ culture." },
     stad: "Amsterdam", locatie: "Podium Mozaiek",
     types: ["Artist talk"],
@@ -2057,6 +2243,7 @@ function setLang(lang, btn) {
   buildUitgelicht();
   render();
   buildMobileCards();
+  buildStudenten();
 }
 
 function aanmelden() {
@@ -2249,12 +2436,96 @@ function toggleHC() {
   }
 })();
 
+
+const studentenEvents = [
+  {
+    naam: { nl: "Exposure HKU Theater", en: "Exposure HKU Theater" },
+    maker: "Alumni HKU Theater",
+    startDag: 25, startMaandNr: 6, eindDag: 28, eindMaandNr: 6,
+    startMaand: { nl: "Jun", en: "Jun" },
+    eindDatum: { nl: "28 Jun", en: "Jun 28" },
+    stad: "Utrecht", locatie: "De Nijverheid",
+    logline: { nl: "Ga op reis langs intieme en verborgen plekken met interactieve objecten en performances.", en: "Travel through intimate and hidden spaces with interactive objects and performances." },
+    beschrijving: { nl: "Laat je naar werelden vervoeren die tot leven zijn gebracht met theatrale installaties. Voel hoe de kostuums een verhaal vertellen of hoor hoe een audio walk de route uitstippelt naar morgen. Kom op de bonnefooi of naar een van de rondleidingen: onze studenten loodsen je graag langs de must sees!", en: "Let yourself be transported to worlds brought to life with theatrical installations. Feel how the costumes tell a story or hear how an audio walk maps the route to tomorrow. Come spontaneously or join one of the guided tours." },
+    foto: "/images/exposure.jpg",
+    link: "https://www.hku.nl/exposure/theater",
+    duur: "30 - 60 min"
+  },
+  {
+    naam: { nl: "Emergence Festival Rotterdam", en: "Emergence Festival Rotterdam" },
+    maker: "TU Delft & WDKA",
+    startDag: 19, startMaandNr: 6, eindDag: 19, eindMaandNr: 6,
+    startMaand: { nl: "Jun", en: "Jun" },
+    eindDatum: null,
+    stad: "Rotterdam", locatie: "Katoenhuis",
+    logline: { nl: "Een dag festival met interactieve installaties van studenten TU Delft & WDKA, onder het thema Outside the Lines.", en: "A one-day festival with interactive installations by TU Delft & WDKA students, under the theme Outside the Lines." },
+    beschrijving: { nl: "Je beweegt vrij door een reeks interactieve kunstinstallaties die verkennen hoe technologie, systemen en netwerken onze omgeving en samenleving vormgeven. Naast de expo is er muziek, eten & drinken en ruimte voor gesprek aan het water.", en: "Move freely through a series of interactive art installations exploring how technology, systems and networks shape our environment. Alongside the exhibition: music, food & drinks, and space for conversation by the water." },
+    foto: "/images/emergence.jpg",
+    link: "https://www.katoenhuis.nl/event/outside-the-lines-%E2%80%94-emergence-festival-rotterdam-2026",
+    duur: "10 - 45 min"
+  },
+  {
+    naam: { nl: "Showcase Immersive Media", en: "Showcase Immersive Media" },
+    maker: "Nederlandse Filmacademie",
+    startDag: 29, startMaandNr: 6, eindDag: 1, eindMaandNr: 7,
+    startMaand: { nl: "Jun", en: "Jun" },
+    eindDatum: { nl: "1 Jul", en: "Jul 1" },
+    stad: "Amsterdam", locatie: "Nederlandse Filmacademie",
+    logline: { nl: "Studenten Immersive Media openen hun deuren voor iedereen die nieuwsgierig is naar nieuwe vormen van storytelling, interactieve ervaringen en experimenteel werk.", en: "Immersive Media students open their doors to anyone curious about new forms of storytelling, interactive experiences and experimental work." },
+    beschrijving: { nl: "Centraal staat het afstudeerwerk Van Max Slot: Voor het te laat is. Daarnaast presenteren de tweede- en derdejaarsstudenten per klas eigen werk. Maandag 29 jun 17:00–20:00, dinsdag 30 jun & woensdag 1 jul 11:00–20:00.", en: "Central is the graduation work of Max Slot: Voor het te laat is. Second- and third-year students also present class work. Mon Jun 29 17:00–20:00, Tue Jun 30 & Wed Jul 1 11:00–20:00." },
+    foto: "/images/showcaseimmersivemedia.jpg",
+    link: "https://www.mailinglijst.nl/mailings/show.aspx?mai=209146&mem=12167&a=12765572&hash=59D568E0CA5E5EB382FAEAD0D8DA74FEC162BCEFD2D51E42BDAF31A37E7B57D3",
+    duur: "10 - 45 min"
+  }
+];
+
+function buildStudenten() {
+  var container = document.getElementById('studenten-cards');
+  if (!container) return;
+  var labelEl = document.getElementById('studenten-label-tekst');
+  if (labelEl) labelEl.textContent = huidigeTaal === 'nl' ? 'Studentenwerk' : 'Student work';
+  container.innerHTML = studentenEvents.map(function(e, idx) {
+    var id = 'st-desc-' + idx;
+    var datum = e.startDag + ' ' + e.startMaand[huidigeTaal] + (e.eindDatum ? ' — ' + e.eindDatum[huidigeTaal] : '');
+    var img = e.foto
+      ? '<div class="studenten-card-img"><img src="' + e.foto + '" loading="lazy"></div>'
+      : '<div class="studenten-card-ph">' + e.naam[huidigeTaal][0] + '</div>';
+    var leesMeer = huidigeTaal === 'nl' ? 'Lees meer ↓' : 'Read more ↓';
+    var meerInfo = huidigeTaal === 'nl' ? 'Meer info →' : 'More info →';
+    var desc = e.beschrijving
+      ? '<div class="studenten-card-desc" id="' + id + '">' + e.beschrijving[huidigeTaal] + '</div>'
+        + '<button class="studenten-card-leesmeer" data-id="' + id + '" onclick="toggleStudentDesc(this, this.dataset.id)">' + leesMeer + '</button>'
+      : '';
+    return '<div class="studenten-card">' +
+      img +
+      '<div class="studenten-card-body">' +
+        '<div class="studenten-card-maker">' + e.maker + '</div>' +
+        '<h3 class="studenten-card-title">' + e.naam[huidigeTaal] + '</h3>' +
+        '<p class="studenten-card-logline">' + e.logline[huidigeTaal] + '</p>' +
+        desc +
+        '<div class="studenten-card-meta">' +
+          '<span>' + datum + ' · ' + e.stad + (e.duur ? ' · ' + e.duur : '') + '</span>' +
+          (e.link ? '<a href="' + e.link + '" class="studenten-card-link" target="_blank">' + meerInfo + '</a>' : '') +
+        '</div>' +
+      '</div></div>';
+  }).join('');
+}
+
+
+
+function toggleStudentDesc(btn, id) {
+  var el = document.getElementById(id);
+  var open = el.classList.toggle('open');
+  btn.textContent = open ? (huidigeTaal === 'nl' ? 'Minder ↑' : 'Less ↑') : (huidigeTaal === 'nl' ? 'Lees meer ↓' : 'Read more ↓');
+}
+
 // Init
 updateStaticUI();
 buildFilters();
 buildUitgelicht();
 render();
 buildMobileCards();
+buildStudenten();
 
 // Zon en maan
 function updateHemellichaam() {
