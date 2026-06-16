@@ -2664,9 +2664,7 @@ function buildSpecial() {
   grid.innerHTML = specialEvents.map(function(e) {
     var imgUrl = e.imgFile ? '/images/' + e.imgFile : '/images/special/' + e.slug + '.jpg';
     return '<a class="special-thumb" href="https://www.immersivetechweek.co/church-of-vr/" target="_blank" rel="noopener">' +
-      '<div class="special-thumb-img" style="background-image:url(' + imgUrl + '); background-size:cover; background-position:center;">' +
-        '<span style="opacity:0.4; font-size:1.4rem;">' + e.naam[0] + '</span>' +
-      '</div>' +
+      '<div class="special-thumb-img" style="background-image:url(' + imgUrl + '); background-size:cover; background-position:center;"></div>' +
       '<div class="special-thumb-name">' + e.naam + '</div>' +
     '</a>';
   }).join('');
@@ -2695,9 +2693,7 @@ function buildSpecialNR() {
   grid.innerHTML = specialEventsNR.map(function(e) {
     var imgUrl = e.imgFile ? '/images/' + e.imgFile : '/images/special/' + e.slug + '.jpg';
     return '<a class="special-thumb" href="https://nureality.eu/nl/the-living-gallery/" target="_blank" rel="noopener">' +
-      '<div class="special-thumb-img" style="background-image:url(' + imgUrl + '); background-size:cover; background-position:center;">' +
-        '<span style="opacity:0.4; font-size:1.4rem;">' + e.naam[0] + '</span>' +
-      '</div>' +
+      '<div class="special-thumb-img" style="background-image:url(' + imgUrl + '); background-size:cover; background-position:center;"></div>' +
       '<div class="special-thumb-name">' + e.naam + '</div>' +
     '</a>';
   }).join('');
