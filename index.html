@@ -1789,96 +1789,126 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     background: #141414;
     padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1.2rem, 4vw, 3rem);
   }
+
   .leeswerk-label-wrap {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: var(--pink); color: #fff;
-    padding: 4px 14px 4px 10px; border-radius: 100px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--pink);
+    color: #fff;
+    padding: 4px 14px 4px 10px;
+    border-radius: 100px;
     margin-bottom: 1.4rem;
   }
   .leeswerk-label-wrap .dot { width: 7px; height: 7px; border-radius: 50%; background: #fff; opacity: 0.8; }
   .leeswerk-label-wrap span { font-size: 11px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; }
 
-  .leeswerk-slider { position: relative; overflow: hidden; border-radius: 8px; }
-  .leeswerk-kaarten { display: flex; transition: transform 0.4s cubic-bezier(0.22,1,0.36,1); }
+  .leeswerk-slider {
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px;
+    background: #1A1A1A;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
 
-  /* ── Kaart: foto als achtergrond, tekst onderaan ── */
+  .leeswerk-kaarten {
+    display: flex;
+    transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
+  }
+
   .leeswerk-kaart {
     min-width: 100%;
     position: relative;
-    height: auto;
-    min-height: 320px;
-    border-radius: 8px;
     overflow: hidden;
     flex-shrink: 0;
+    min-height: clamp(430px, 44vw, 560px);
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(320px, 1.08fr);
+    align-items: stretch;
   }
 
-  /* Foto vult alles */
   .leeswerk-kaart-foto {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
+    position: relative;
+    min-height: 100%;
+    order: 2;
+    overflow: hidden;
   }
+
   .leeswerk-kaart-img {
-    width: 100%; height: 100%;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    object-position: center right;
+    object-position: center;
     display: block;
   }
 
-  /* Gradient overlay */
   .leeswerk-kaart-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg,
-      rgba(20,20,20,1) 0%,
-      rgba(20,20,20,0.95) 35%,
-      rgba(20,20,20,0.5) 58%,
-      rgba(20,20,20,0) 75%
-    );
+    z-index: 1;
+    pointer-events: none;
+    background:
+      linear-gradient(90deg, #1A1A1A 0%, rgba(26,26,26,0.95) 13%, rgba(26,26,26,0.1) 42%, rgba(26,26,26,0) 100%),
+      linear-gradient(0deg, rgba(20,20,20,0.35), rgba(20,20,20,0));
   }
 
-  /* Tekst: absoluut onderaan links, max 62% breed */
   .leeswerk-kaart-tekst {
     position: relative;
     z-index: 2;
-    width: 62%;
-    padding: clamp(1.8rem, 4vw, 3rem) clamp(1.4rem, 3vw, 2.2rem);
+    order: 1;
+    width: 100%;
+    min-width: 0;
+    padding: clamp(2rem, 5vw, 4.5rem);
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    gap: 12px;
-    min-height: 320px;
+    justify-content: center;
+    gap: clamp(1rem, 2vw, 1.4rem);
   }
-  .leeswerk-kaart-content { display: flex; flex-direction: column; gap: 10px; }
 
   .leeswerk-bron {
     font-family: 'DM Sans', sans-serif;
-    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     color: var(--pink);
-    display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    flex-wrap: wrap;
   }
-  .leeswerk-bron-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--pink); flex-shrink: 0; }
+  .leeswerk-bron-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--pink); flex-shrink: 0; }
 
   .leeswerk-quote {
     font-family: 'Fraunces', serif;
-    font-style: italic; font-weight: 900;
-    font-size: clamp(1.4rem, 3vw, 2.2rem);
-    line-height: 1.2; color: var(--white);
-    letter-spacing: -0.02em;
+    font-style: italic;
+    font-weight: 900;
+    font-size: clamp(2rem, 4.6vw, 4.7rem);
+    line-height: 0.98;
+    color: var(--white);
+    letter-spacing: -0.045em;
+    max-width: 12ch;
+    text-wrap: balance;
   }
-  .leeswerk-quote::before { content: '\201C'; }
-  .leeswerk-quote::after { content: '\201D'; }
+  .leeswerk-quote::before { content: '\201C'; color: var(--pink); }
+  .leeswerk-quote::after { content: '\201D'; color: var(--pink); }
 
   .leeswerk-cta {
-    display: inline-flex; align-items: center; gap: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     font-family: 'DM Sans', sans-serif;
-    font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
-    color: #fff; background: rgba(255,255,255,0.12);
-    border: 1px solid rgba(255,255,255,0.25);
-    padding: 7px 14px; border-radius: 100px;
-    text-decoration: none; width: fit-content;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #fff;
+    background: rgba(255,60,172,0.18);
+    border: 1px solid rgba(255,60,172,0.55);
+    padding: 8px 16px;
+    border-radius: 100px;
+    text-decoration: none;
+    width: fit-content;
   }
-  .leeswerk-cta:hover { background: rgba(255,255,255,0.22); }
+  .leeswerk-cta:hover { background: rgba(255,60,172,0.3); }
 
   .leeswerk-nav { display: flex; align-items: center; justify-content: space-between; margin-top: 14px; }
   .leeswerk-dots { display: flex; gap: 8px; align-items: center; }
@@ -1899,21 +1929,49 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   .leeswerk-arrow-btn:hover { background: rgba(255,255,255,0.14); }
 
-  /* Mobiel: gradient van onder naar boven, tekst volle breedte */
-  @media (max-width: 700px) {
-    .leeswerk-sectie { padding-right: clamp(1.2rem, 4vw, 3rem); }
-    .leeswerk-kaart { height: auto; min-height: 280px; }
-    .leeswerk-kaart-img { object-position: center center; }
+  @media (max-width: 900px) {
+    .leeswerk-kaart {
+      grid-template-columns: 1fr;
+      min-height: 560px;
+    }
+    .leeswerk-kaart-foto {
+      position: absolute;
+      inset: 0;
+      order: initial;
+    }
     .leeswerk-kaart-overlay {
       background: linear-gradient(180deg,
-        rgba(20,20,20,0) 0%,
-        rgba(20,20,20,0.2) 30%,
-        rgba(20,20,20,0.9) 60%,
-        rgba(20,20,20,1) 100%
+        rgba(20,20,20,0.06) 0%,
+        rgba(20,20,20,0.38) 36%,
+        rgba(20,20,20,0.94) 72%,
+        #141414 100%
       );
     }
-    .leeswerk-kaart-tekst { width: 100%; padding: 1.6rem 1.4rem; min-height: 280px; }
-    .leeswerk-quote { font-size: clamp(1.3rem, 5vw, 1.8rem); }
+    .leeswerk-kaart-tekst {
+      justify-content: flex-end;
+      min-height: 560px;
+      padding: clamp(1.6rem, 6vw, 3rem);
+    }
+    .leeswerk-quote {
+      max-width: 13ch;
+      font-size: clamp(2rem, 9vw, 4rem);
+    }
+  }
+
+  @media (max-width: 700px) {
+    .leeswerk-sectie { padding-left: 1.2rem; padding-right: 1.2rem; }
+    .leeswerk-slider { border-radius: 14px; }
+    .leeswerk-kaart { min-height: 500px; }
+    .leeswerk-kaart-tekst { min-height: 500px; padding: 1.5rem; }
+    .leeswerk-bron { font-size: 9px; letter-spacing: 0.08em; }
+    .leeswerk-quote { font-size: clamp(1.8rem, 10vw, 3.2rem); line-height: 1.02; max-width: 12ch; }
+    .leeswerk-arrow-btn { width: 34px; height: 34px; }
+  }
+
+  @media (max-width: 420px) {
+    .leeswerk-kaart { min-height: 470px; }
+    .leeswerk-kaart-tekst { min-height: 470px; }
+    .leeswerk-quote { font-size: clamp(1.65rem, 9vw, 2.6rem); }
   }
 
   /* ── STUDENTEN SECTIE ── */
