@@ -1782,6 +1782,121 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .tip-banner-arrow { display: none; }
     .tip-form-wrap { border-radius: 0 0 28px 28px; }
   }
+
+  /* ── BOEIEND LEESWERK ── */
+  .leeswerk-sectie {
+    border-bottom: 1px solid var(--border);
+    background: #141414;
+    padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1.2rem, 4vw, 3rem);
+  }
+
+  .leeswerk-label-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--pink);
+    color: #fff;
+    padding: 4px 14px 4px 10px;
+    border-radius: 100px;
+    margin-bottom: 1.4rem;
+  }
+  .leeswerk-label-wrap .dot {
+    width: 7px; height: 7px;
+    border-radius: 50%; background: #fff; opacity: 0.8;
+  }
+  .leeswerk-label-wrap span {
+    font-size: 11px; font-weight: 400;
+    letter-spacing: 0.12em; text-transform: uppercase;
+  }
+
+  .leeswerk-slider {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+
+  .leeswerk-kaarten {
+    display: flex;
+    transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
+  }
+
+  .leeswerk-kaart {
+    min-width: 100%;
+    position: relative;
+    cursor: pointer;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .leeswerk-kaart-img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.3);
+  }
+
+  .leeswerk-kaart-content {
+    position: absolute;
+    inset: 0;
+    padding: clamp(1.2rem, 3vw, 2rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: linear-gradient(to top, rgba(20,20,20,0.95) 35%, rgba(20,20,20,0.1) 100%);
+  }
+
+  .leeswerk-bron {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--pink); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .leeswerk-bron-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--pink); }
+
+  .leeswerk-quote {
+    font-family: 'Fraunces', serif;
+    font-style: italic; font-weight: 700;
+    font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+    line-height: 1.35; color: var(--white);
+    letter-spacing: -0.01em; margin-bottom: 16px;
+  }
+  .leeswerk-quote::before { content: '“'; }
+  .leeswerk-quote::after { content: '”'; }
+
+  .leeswerk-cta {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: #fff; background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 7px 14px; border-radius: 100px;
+    text-decoration: none; width: fit-content; margin-bottom: 6px;
+  }
+  .leeswerk-cta:hover { background: rgba(255,255,255,0.22); }
+
+  .leeswerk-leestijd {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px; color: rgba(255,255,255,0.4);
+  }
+
+  .leeswerk-dots {
+    display: flex; gap: 6px; margin-top: 14px;
+  }
+  .leeswerk-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--border); cursor: pointer;
+    transition: background 0.2s; border: none; padding: 0;
+  }
+  .leeswerk-dot.active { background: var(--pink); }
+
+
+  @media (max-width: 700px) {
+    .leeswerk-sectie {
+      padding: clamp(1rem, 3vw, 1.5rem) 0 clamp(1rem, 3vw, 1.5rem) clamp(1.2rem, 4vw, 3rem);
+    }
+    .leeswerk-kaart-img { aspect-ratio: 4/3; }
+  }
 </style>
 </head>
 <body>
@@ -1933,6 +2048,47 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </form>
   </div>
 </section>
+
+<section class="leeswerk-sectie" id="leeswerk-sectie">
+  <div class="leeswerk-label-wrap">
+    <div class="dot"></div>
+    <span id="leeswerk-label">Boeiend leeswerk</span>
+  </div>
+  <div class="leeswerk-slider">
+    <div class="leeswerk-kaarten" id="leeswerk-kaarten">
+      <div class="leeswerk-kaart">
+        <img class="leeswerk-kaart-img" src="/images/entr.jpg" alt="Filmkrant">
+        <div class="leeswerk-kaart-content">
+          <div class="leeswerk-bron">Filmkrant <div class="leeswerk-bron-dot"></div> 7 minuten</div>
+          <div class="leeswerk-quote">VR heeft een huis nodig, zoals film een bioscoop</div>
+          <a href="https://filmkrant.nl/artikel/nieuw-vr-museum-entr-geopend-in-amsterdam/" class="leeswerk-cta" target="_blank" onclick="event.stopPropagation()">Lees het artikel →</a>
+        </div>
+      </div>
+      <div class="leeswerk-kaart">
+        <img class="leeswerk-kaart-img" src="/images/theaterkrant.jpg" alt="Theaterkrant">
+        <div class="leeswerk-kaart-content">
+          <div class="leeswerk-bron">Theaterkrant <div class="leeswerk-bron-dot"></div> 14 minuten</div>
+          <div class="leeswerk-quote">Steeds meer makers omarmen immersieve strategieën — maar wat is die onderdompeling precies?</div>
+          <a href="https://www.theaterkrant.nl/tm-artikel/allesomvattend-immersief-theater/" class="leeswerk-cta" target="_blank" onclick="event.stopPropagation()">Lees het artikel →</a>
+        </div>
+      </div>
+      <div class="leeswerk-kaart">
+        <img class="leeswerk-kaart-img" src="/images/kruip2.jpeg" alt="De Groene">
+        <div class="leeswerk-kaart-content">
+          <div class="leeswerk-bron">De Groene Amsterdammer <div class="leeswerk-bron-dot"></div> Essay</div>
+          <div class="leeswerk-quote">Als een ervaring eenmaal etiketten heeft gekregen, haal je die moeilijk weer weg</div>
+          <a href="https://www.groene.nl/artikel/een-gezamenlijke-droom" class="leeswerk-cta" target="_blank" onclick="event.stopPropagation()">Lees het artikel →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="leeswerk-dots">
+    <button class="leeswerk-dot active" onclick="leeswerkGo(0)"></button>
+    <button class="leeswerk-dot" onclick="leeswerkGo(1)"></button>
+    <button class="leeswerk-dot" onclick="leeswerkGo(2)"></button>
+  </div>
+</section>
+
 
 <section class="studenten-sectie" id="studenten-sectie">
   <div class="studenten-header">
@@ -3218,6 +3374,33 @@ function verzendTip(event) {
   var fb = document.getElementById('tip-feedback'); fb.textContent = fb.getAttribute('data-msg') || '✓ Bedankt!'; fb.style.display = 'block';
   event.target.reset();
 }
+
+
+var leeswerkCurrent = 0;
+function leeswerkGo(n) {
+  var kaarten = document.getElementById('leeswerk-kaarten');
+  var dots = document.querySelectorAll('.leeswerk-dot');
+  if (!kaarten) return;
+  leeswerkCurrent = n;
+  kaarten.style.transform = 'translateX(-' + (n * 100) + '%)';
+  dots.forEach(function(d, i) { d.classList.toggle('active', i === n); });
+}
+
+// Swipe
+(function() {
+  var startX = 0;
+  var slider = document.querySelector('.leeswerk-slider');
+  if (!slider) return;
+  slider.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, {passive: true});
+  slider.addEventListener('touchend', function(e) {
+    var diff = startX - e.changedTouches[0].clientX;
+    var total = document.querySelectorAll('.leeswerk-kaart').length;
+    if (Math.abs(diff) > 40) {
+      if (diff > 0 && leeswerkCurrent < total - 1) leeswerkGo(leeswerkCurrent + 1);
+      else if (diff < 0 && leeswerkCurrent > 0) leeswerkGo(leeswerkCurrent - 1);
+    }
+  }, {passive: true});
+})();
 
 // Init
 updateStaticUI();
