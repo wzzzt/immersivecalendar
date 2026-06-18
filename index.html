@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Immersieve Kunst Agenda — versie 16 juni 2026 | studio zzzap | immersievekunstagenda.nl -->
 <html lang="nl">
 <head>
 <!-- Google Tag Manager -->
@@ -19,7 +20,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Immersieve Kunst Agenda</title>
+<title>Immersieve Kunst Agenda — versie 16 juni 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,700;1,900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <!-- MailerLite Universal -->
 <script>
@@ -66,6 +67,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     justify-content: space-between;
     align-items: center;
     margin-bottom: clamp(0.5rem, 1.5vw, 0.8rem);
+    gap: 0.8rem;
   }
 
   .header-label {
@@ -224,6 +226,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     flex-wrap: wrap;
     gap: 6px;
     margin-bottom: 0.3rem;
+    overflow: hidden;
   }
 
   .card-tag-item {
@@ -237,6 +240,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     padding: 3px 12px;
     white-space: nowrap;
     display: inline-block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .card-maker {
@@ -768,100 +774,135 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   @media (max-width: 700px) {
     header, .uitgelicht, .kalender, footer, .footer-bottom { padding-left: 1.2rem; padding-right: 1.2rem; }
 
-    /* Tabel wordt een card-stack op mobiel */
-    .tabel-wrap { overflow-x: visible; }
+/* ── MOBILE: NIEUWE LIJSTWEERGAVE ── */
+  @media (max-width: 700px) {
 
-    table { table-layout: auto !important; }
-    table, thead, tbody, tr, td { display: block; width: 100% !important; }
+    /* Kalender padding */
+    .kalender { padding: 0; }
+    .kalender-header { display: none; } /* filter komt onder uitgelicht */
 
-    thead { display: none; }
-
-    colgroup { display: none; }
-
-    tbody tr {
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      margin-bottom: 12px;
-      overflow: hidden;
-      background: var(--off);
-    }
-
-    tbody tr:hover { background: var(--off); }
-
-    /* Foto bovenaan — volledige breedte */
-    .td-foto {
-      display: block !important;
-      width: 100% !important;
-      min-width: 0 !important;
-      padding: 0 !important;
-    }
-
-    .foto-inner {
-      width: 100% !important;
-    }
-
-    .foto-inner img {
-      width: 100% !important;
-      height: 180px !important;
-    }
-
-    .foto-inner-placeholder {
-      width: 100% !important;
-      height: 120px !important;
-    }
-
-    /* Datum */
-    .td-datum {
-      padding: 0.8rem 1rem 0.3rem !important;
-      font-size: 0.95rem !important;
-    }
-
-    /* Titel cel */
-    tbody td:nth-child(3) {
-      padding: 0 1rem 0.3rem;
-    }
-
-    /* Type tags — wrappen normaal */
-    tbody td:nth-child(4) {
-      padding: 0 1rem 0.3rem;
-    }
-
-    .type-tag {
-      font-size: 10px !important;
-      padding: 3px 10px !important;
-      margin-bottom: 3px;
-    }
-
-    /* Stad/locatie */
-    tbody td:nth-child(5) {
-      padding: 0 1rem 0.3rem;
-    }
-
-    /* Beschrijving/logline */
-    .uitklap-wrap {
-      padding: 0 1rem 1rem !important;
-      max-width: 100% !important;
-      min-width: 0 !important;
-    }
-
-    /* Periode labels */
-    .periode-rij td { padding: 1.2rem 0 0.4rem; }
-    .periode-label { margin-left: 0 !important; }
-
-    /* Over panel */
-    .over-box { padding: 2rem 1.5rem; }
-
-    /* Header titel kleiner op mobiel */
+    /* Header */
     h1 { font-size: clamp(2.2rem, 13vw, 4rem); }
-
-    /* Kalender header */
-    .kalender-header { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
-
-    /* Filter wrap — wraps naar meerdere regels op mobiel */
-    .filter-wrap { overflow-x: visible; flex-wrap: wrap; gap: 6px; padding-bottom: 4px; }
-
-    /* Footer */
+    .over-box { padding: 2rem 1.5rem; }
     .footer-bottom { flex-direction: column; gap: 4px; text-align: center; }
+
+    /* Verberg desktop tabel, toon mobile lijst */
+    .tabel-wrap { display: none !important; }
+    #mobile-cards { display: block; }
+
+    /* Filter ONDER uitgelicht — eigen blok */
+    .mobile-filter-bar {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding: 10px 16px;
+      background: var(--ink);
+      border-bottom: 1px solid var(--border);
+      scrollbar-width: none;
+    }
+    .mobile-filter-bar::-webkit-scrollbar { display: none; }
+
+    /* Uitgelicht: liggende kaarten */
+    .mc-uitgelicht {
+      background: #1A1418;
+      border-bottom: 1px solid var(--border);
+    }
+    .mc-uitgelicht-label {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--pink); color: #fff;
+      padding: 4px 12px 4px 8px; border-radius: 100px;
+      font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+      margin: 12px 16px 8px;
+    }
+    .mc-uitgelicht-label .dot { width: 5px; height: 5px; border-radius: 50%; background: #fff; opacity: 0.8; }
+
+    .mc-ucard {
+      display: flex; align-items: stretch;
+      background: #1A1A1A; border-top: 1px solid var(--border);
+      overflow: hidden; cursor: pointer; text-decoration: none;
+      transition: background 0.1s;
+    }
+    .mc-ucard:active { background: #181818; }
+    .mc-ucard-img {
+      width: 50%; flex-shrink: 0; overflow: hidden; background: #2C2C2C;
+    }
+    .mc-ucard-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+    .mc-ucard-ph { width: 100%; height: 100%; min-height: 88px; display: flex; align-items: center; justify-content: center; font-family: 'Fraunces', serif; font-style: italic; font-size: 2rem; color: var(--pink); }
+    .mc-ucard-body { flex: 1; padding: 10px 12px; display: flex; flex-direction: column; justify-content: center; gap: 3px; }
+    .mc-ucard-title { font-family: 'Fraunces', serif; font-style: italic; font-weight: 900; font-size: 0.95rem; color: var(--white); line-height: 1.2; }
+    .mc-ucard-maker { font-size: 11px; color: #777; }
+    .mc-ucard-meta { font-size: 11px; color: #555; margin-top: 2px; }
+    .mc-ucard-arrow { align-self: center; padding-right: 12px; color: #333; font-size: 18px; }
+
+    /* Event rijen met thumbnail */
+    .mc { display: flex; align-items: center; border-bottom: 1px solid var(--border); background: var(--ink); cursor: pointer; }
+    .mc:active { background: #1A1A1A; }
+    .mc-thumb { width: 72px; height: 72px; flex-shrink: 0; overflow: hidden; background: #2C2C2C; }
+    .mc-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+    .mc-thumb-ph { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-family: 'Fraunces', serif; font-style: italic; font-size: 1.4rem; color: var(--pink); }
+    .mc-row-body { flex: 1; min-width: 0; padding: 11px 10px; }
+    .mc-row-naam { font-family: 'Fraunces', serif; font-style: italic; font-weight: 700; font-size: 0.95rem; color: var(--white); line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .mc-row-sub { font-size: 11px; color: #666; margin-top: 3px; display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+    .mc-row-type { font-size: 9px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--pink); border: 1px solid rgba(255,60,172,0.3); padding: 1px 6px; border-radius: 100px; flex-shrink: 0; }
+    .mc-row-arrow { padding-right: 14px; color: #333; font-size: 16px; flex-shrink: 0; transition: transform 0.2s; }
+    .mc-row-arrow.open { transform: rotate(90deg); }
+
+    /* Uitklap detail */
+    .mc-detail { padding: 0 16px; background: #1A1A1A; font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.6; max-height: 0; overflow: hidden; transition: max-height 0.25s ease, padding 0.25s; }
+    .mc-detail.open { max-height: 200px; padding: 10px 16px 14px; }
+    .mc-detail a { display: inline-block; margin-top: 8px; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--pink); border: 1px solid rgba(255,60,172,0.4); padding: 4px 12px; border-radius: 100px; text-decoration: none; }
+
+    /* Special banner compact op mobiel */
+    .mc-special { display: flex; align-items: center; justify-content: space-between; padding: 9px 16px; background: linear-gradient(90deg, #E2EF70 0%, rgba(226,239,112,0.4) 50%, rgba(226,239,112,0) 100%); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); cursor: pointer; }
+    .mc-special-left { display: flex; align-items: center; gap: 8px; }
+    .mc-special-tag { font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(20,20,20,0.5); }
+    .mc-special-title { font-family: 'Fraunces', serif; font-style: italic; font-weight: 900; font-size: 0.9rem; color: #141414; }
+    .mc-special-arrow { font-size: 18px; color: #E2EF70; }
+
+    /* Periode label */
+    .mc-periode .periode-label { margin: 0; width: 100%; }
+    .mc-periode .periode-label.dimmed { }
+
+    /* Tipline op mobiel */
+    .mc-tipline { display: flex; align-items: center; justify-content: space-between; margin: 12px 16px; padding: 12px 18px; border: 2px solid var(--pink); border-radius: 100px; cursor: pointer; }
+    .mc-tipline:hover { background: rgba(255,60,172,0.05); }
+    .mc-tipline-tag { font-family: 'Fraunces', serif; font-style: italic; font-weight: 900; font-size: 1.2rem; color: var(--pink); }
+    .mc-tipline-cta { background: var(--pink); color: #fff; font-family: 'DM Sans', sans-serif; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 14px; border-radius: 100px; text-decoration: none; }
+
+    /* Studenten op mobiel */
+    .mc-studenten { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; background: linear-gradient(90deg, #E2EF70 0%, rgba(226,239,112,0.55) 45%, rgba(226,239,112,0) 100%); border-top: 2px solid rgba(226,239,112,0.4); margin-top: 8px; }
+    .mc-studenten-pill { display: inline-flex; align-items: center; gap: 6px; background: linear-gradient(90deg, #1A1A1A 0%, rgba(226,239,112,0.3) 70%, #E2EF70 100%); border: 1px solid #E2EF70; padding: 7px 16px 7px 12px; border-radius: 100px; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; font-family: 'DM Sans', sans-serif; font-weight: 500; }
+    .mc-studenten-pill .dot { width: 5px; height: 5px; border-radius: 50%; background: #E2EF70; flex-shrink: 0; }
+    .mc-studenten-arrow { font-size: 22px; color: rgba(226,239,112,0.7); font-weight: 300; transition: transform 0.3s; }
+    .mc-studenten-wrap { border-top: 2px solid rgba(226,239,112,0.4); margin-top: 8px; }
+    .mc-studenten-content { display: none; background: #141414; }
+    .mc-studenten-content.open { display: block; }
+    .mc-stucard {
+      display: flex; align-items: stretch;
+      border-bottom: 1px solid rgba(226,239,112,0.15);
+      background: rgba(226,239,112,0.04);
+      position: relative;
+    }
+    .mc-stucard-img { width: 100px; flex-shrink: 0; overflow: hidden; background: #2C2C2C; min-height: 100px; }
+    .mc-stucard-img img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+    .mc-stucard-ph { width: 100%; height: 100%; min-height: 80px; display: flex; align-items: center; justify-content: center; font-family: 'Fraunces', serif; font-style: italic; font-size: 1.6rem; color: #E2EF70; }
+    .mc-stucard-body { flex: 1; padding: 10px 12px; display: flex; flex-direction: column; gap: 2px; }
+    .mc-stucard-maker { font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; color: #E2EF70; }
+    .mc-stucard-title { font-family: 'Fraunces', serif; font-style: italic; font-weight: 700; font-size: 0.9rem; color: #F2F2F0; line-height: 1.2; }
+    .mc-stucard-meta { font-size: 10px; color: #666; margin-top: 2px; }
+    .mc-stucard-logline { font-size: 11px; color: rgba(255,255,255,0.55); line-height: 1.4; margin-top: 3px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .mc-stucard-link { display: block; font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; color: #E2EF70; padding: 8px 12px; border-top: 1px solid rgba(226,239,112,0.15); text-decoration: none; background: rgba(226,239,112,0.06); }
+
+
+    .lk-badge { font-size: 8px; letter-spacing: 0.04em; text-transform: uppercase; color: #E2EF70; border: 1px solid #E2EF70; padding: 1px 6px; border-radius: 100px; }
+    .verse-badge { font-size: 8px; letter-spacing: 0.05em; text-transform: uppercase; background: #E2EF70; color: #141414; padding: 1px 6px; border-radius: 100px; font-weight: 500; }
+
+    /* Verberg uitgelicht sectie op mobiel (zit in mobile-cards) */
+    .uitgelicht { display: none; }
+    /* Verberg tip en studenten secties op mobiel (zitten in mobile-cards) */
+    .tip-sectie { display: none; }
+    .studenten-sectie { display: none; }
+  }
   }
 
   .periode-rij td {
@@ -1671,6 +1712,76 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     display: none;
   }
 
+
+  @media (max-width: 480px) {
+    .header-label { display: none; }
+    .header-bar { justify-content: flex-end; }
+    .header-right { gap: 0.6rem; }
+    .lang-btn { padding: 4px 10px; }
+    .hc-btn { padding: 4px 10px; font-size: 11px; }
+  }
+
+  @media (max-width: 700px) {
+    .tip-banner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      padding: 22px 1.8rem;
+      border-radius: 20px;
+    }
+    .tip-banner.open { border-radius: 20px 20px 0 0; }
+    .tip-banner-tag {
+      font-size: clamp(1.8rem, 9vw, 2.4rem);
+      line-height: 1;
+    }
+    .tip-banner-title {
+      font-size: 0.9rem;
+      line-height: 1.4;
+      max-width: 90%;
+    }
+    .tip-banner > div:last-child {
+      margin-top: 8px;
+      align-self: flex-end;
+    }
+    .tip-form-wrap {
+      border-radius: 0 0 20px 20px;
+    }
+  }
+
+  .tip-banner-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #fff;
+    background: var(--pink);
+    border: none;
+    border-radius: 100px;
+    padding: 7px 16px;
+    white-space: nowrap;
+  }
+
+  .tip-banner-title--desktop {}
+
+  @media (max-width: 700px) {
+    .tip-banner {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 1.4rem;
+      border-radius: 100px;
+      gap: 12px;
+    }
+    .tip-banner.open { border-radius: 28px 28px 0 0; }
+    .tip-banner-tag { font-size: clamp(1.2rem, 6vw, 1.6rem); }
+    .tip-banner-title--desktop { display: none; }
+    .tip-banner-arrow { display: none; }
+    .tip-form-wrap { border-radius: 0 0 28px 28px; }
+  }
 </style>
 </head>
 <body>
@@ -1746,9 +1857,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="tip-sectie" id="tip-sectie">
   <div class="tip-banner" onclick="toggleTip()">
     <span class="tip-banner-tag" id="tip-tag-tekst">&#10022; Tipline</span>
-    <span class="tip-banner-title" id="tip-title-tekst">Ken jij een immersief werk dat hier nog niet op staat?</span>
-    <div style="display:flex; align-items:center; gap:8px;">
-      <span style="font-family:'DM Sans',sans-serif; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(255,60,172,0.7);" id="tip-stuur-tekst">Stuur een tip</span>
+    <span class="tip-banner-title tip-banner-title--desktop" id="tip-title-tekst">Ken jij een immersief werk dat hier nog niet op staat?</span>
+    <div class="tip-banner-cta">
+      <span id="tip-stuur-tekst">Stuur een tip</span>
       <span class="tip-banner-arrow" id="tip-banner-arrow">›</span>
     </div>
   </div>
@@ -2171,6 +2282,21 @@ const events = [
     foto: "/images/dreamscapes.jpg",
     link: "https://soundingbodies.com/voorstelling/dreamscapes",
     uitgelicht: false
+  },
+  {
+    naam: { nl: "Opstand", en: "Opstand" },
+    startDag: 12, startMaandNr: 7, eindDag: 13, eindMaandNr: 7,
+    startMaand: { nl: "Jul", en: "Jul" },
+    eindDatum: { nl: "13 Jul", en: "Jul 13" },
+    maker: "Marte Boneschansker",
+    duur: "60 min", handig: "Nederlands gesproken",
+    logline: { nl: "Een theatrale audio-voorstelling en collectieve oefening in verzet. Ontdek de rebel in jezelf.", en: "A theatrical audio performance and collective exercise in resistance. Discover the rebel in yourself." },
+    beschrijving: { nl: "Van massademonstraties tot klein, stil protest: verzet is onderdeel van ons menszijn. OPSTAND is een hoopvolle poging het stille midden in beweging te krijgen. Wie vormt de tegenkracht? Wanneer zeg jij nee? Je hébt invloed. Het heeft zin.", en: "From mass demonstrations to quiet protest: resistance is part of being human. OPSTAND is a hopeful attempt to get the silent majority moving. Who forms the counterforce? When do you say no? You have influence. It matters." },
+    stad: "Utrecht", locatie: "Stadsschouwburg Utrecht",
+    types: ["Immersief theater", "Performatief", "Spatial", "Audio driven immersion"],
+    foto: "/images/opstand.jpg",
+    link: "https://stadsschouwburg-utrecht.nl/agenda/seizoen-2025-2026/opstand-company-marte-boneschansker",
+    uitgelicht: false
   }
 ];
 
@@ -2567,8 +2693,10 @@ function buildMobileCards() {
   var nu = new Date();
   var beginVolgende = new Date(nu.getFullYear(), nu.getMonth() + 1, 1);
 
+  // Actieve events
   var actief = events.filter(function(e) {
     var ej = (e.eindMaandNr < e.startMaandNr) ? nu.getFullYear() + 1 : nu.getFullYear();
+    if (e.eindMaandNr === 12 && e.eindDag === 31) ej = 2028;
     return new Date(ej, e.eindMaandNr - 1, e.eindDag + 1) >= nu;
   });
 
@@ -2578,6 +2706,7 @@ function buildMobileCards() {
   var nuTeSien = filtered.filter(function(e) {
     var s = new Date(nu.getFullYear(), e.startMaandNr - 1, e.startDag);
     var ej = (e.eindMaandNr < e.startMaandNr) ? nu.getFullYear() + 1 : nu.getFullYear();
+    if (e.eindMaandNr === 12 && e.eindDag === 31) ej = 2028;
     return s < beginVolgende && new Date(ej, e.eindMaandNr - 1, e.eindDag) >= nu;
   });
 
@@ -2585,53 +2714,196 @@ function buildMobileCards() {
     return new Date(nu.getFullYear(), e.startMaandNr - 1, e.startDag) >= beginVolgende;
   });
 
-  function mCard(e, i) {
-    var id = 'mcd' + i;
-    var datum = e.startDag + ' ' + e.startMaand[huidigeTaal] + (e.eindDatum ? ' — ' + e.eindDatum[huidigeTaal] : '');
-    var foto = e.foto
-      ? '<div class="mc-img"><img src="' + e.foto + '" loading="lazy"></div>'
-      : '<div class="mc-img-ph">' + e.naam[huidigeTaal][0] + '</div>';
-    var tags = (e.duur ? '<span class="card-duur-pill">◗ ' + e.duur + '</span>' : '');
-    e.types.forEach(function(tp) { tags += '<span class="card-tag-item">' + (typeVertalingen[huidigeTaal][tp] || tp) + '</span>'; });
-    tags += '<span class="card-tag-item">' + e.locatie + '</span>';
-    if (e.laatsteKans) { tags += '<span class="mc-lk">● ' + (huidigeTaal === 'nl' ? 'Laatste kans' : 'Last chance') + '</span>'; }
-    var desc = '';
-    if (e.beschrijving && e.beschrijving[huidigeTaal]) {
-      desc = '<div class="mc-desc" id="' + id + '">' + e.beschrijving[huidigeTaal] + '</div>' +
-        '<button class="mc-leesmeer" data-id="' + id + '" onclick="toggleMC(this,this.dataset.id)">' + t.leesmeer + '</button>';
-    }
-    var lk = e.laatsteKans ? '<span class="mc-lk">● ' + (huidigeTaal === 'nl' ? 'Laatste kans' : 'Last chance') + '</span>' : '';
-    var link = e.link ? '<a href="' + e.link + '" class="card-link" target="_blank">' + t.kaartjes + '</a>' : '';
-
-    return '<div class="mc">' + foto +
-      '<div class="mc-body">' +
-        '<div class="mc-tags">' + tags + '</div>' +
-        '<h2 class="mc-titel">' + e.naam[huidigeTaal] + '</h2>' +
-        '<p class="mc-maker">' + e.maker + '</p>' +
-        '<p class="mc-logline">' + e.logline[huidigeTaal] + '</p>' +
-        desc +
-        '<div class="mc-footer"><span>' + datum + ' · ' + e.stad + '</span>' + link + '</div>' +
-      '</div></div>';
-  }
-
-  var html = '';
-  var i = 0;
   var nuLabel = huidigeTaal === 'nl' ? 'Deze maand te zien' : 'On show this month';
   var blLabel = huidigeTaal === 'nl' ? 'Binnenkort' : 'Coming soon';
-
   var toonNu = activeFilter !== 'periode:binnenkort';
   var toonBinnenkort = activeFilter !== 'periode:nu';
 
+  function mcRij(e, i) {
+    var id = 'mcd' + i;
+    var datum = e.startDag + ' ' + e.startMaand[huidigeTaal] + (e.eindDatum ? ' — ' + e.eindDatum[huidigeTaal] : '');
+    var thumb = e.foto
+      ? '<div class="mc-thumb"><img src="' + e.foto + '" loading="lazy"></div>'
+      : '<div class="mc-thumb"><div class="mc-thumb-ph">' + e.naam[huidigeTaal][0] + '</div></div>';
+    var badges = '';
+    if (e.verseTip) badges += ' <span class="verse-badge">' + (huidigeTaal === 'nl' ? 'Verse tip' : 'Fresh pick') + '</span>';
+    if (isLaatsteKans(e)) badges += ' <span class="lk-badge">' + (huidigeTaal === 'nl' ? 'Laatste kans' : 'Last chance') + '</span>';
+    var typeTag = e.types.length ? '<span class="mc-row-type">' + (typeVertalingen[huidigeTaal][e.types[0]] || e.types[0]) + '</span>' : '';
+    var desc = '';
+    if (e.beschrijving && e.beschrijving[huidigeTaal]) {
+      desc = '<div class="mc-detail" id="' + id + '">' + e.logline[huidigeTaal] + '<br><br>' + e.beschrijving[huidigeTaal] + (e.link ? '<br><a href="' + e.link + '" target="_blank">' + t.kaartjes + '</a>' : '') + '</div>';
+    } else if (e.link) {
+      desc = '<div class="mc-detail" id="' + id + '">' + e.logline[huidigeTaal] + (e.link ? '<br><a href="' + e.link + '" target="_blank">' + t.kaartjes + '</a>' : '') + '</div>';
+    }
+    var duurHandig = '';
+    if (e.duur) duurHandig += '<span style="color:#FF3CAC;font-size:9px;">◷ ' + e.duur + '</span>';
+    if (e.handig) duurHandig += '<span style="color:#777;font-size:9px;">★ ' + e.handig + '</span>';
+    var rij = '<div class="mc" onclick="toggleMCRij(this)">' +
+      thumb +
+      '<div class="mc-row-body">' +
+        '<div class="mc-row-naam">' + e.naam[huidigeTaal] + badges + '</div>' +
+        '<div class="mc-row-sub"><span>' + datum + ' · ' + e.stad + '</span>' + typeTag + '</div>' +
+        (duurHandig ? '<div class="mc-row-sub" style="margin-top:2px;gap:8px;">' + duurHandig + '</div>' : '') +
+      '</div>' +
+      '<div class="mc-row-arrow">›</div>' +
+    '</div>' + desc;
+
+    // Special banners direct onder het juiste event
+    if (e.naam.nl === 'The Living Gallery – Stap Binnen in Kunst met VR') {
+      rij += '<div class="mc-special" onclick="toggleSpecialNR()">' +
+        '<div class="mc-special-left"><span class="mc-special-tag">&#10022; Special</span><span class="mc-special-title">NU:REALITY — The Living Gallery</span></div>' +
+        '<span class="mc-special-arrow">&#8250;</span></div>';
+    }
+    if (e.naam.nl === 'Church of VR') {
+      rij += '<div class="mc-special" onclick="toggleSpecial()">' +
+        '<div class="mc-special-left"><span class="mc-special-tag">&#10022; Special</span><span class="mc-special-title">Church of VR</span></div>' +
+        '<span class="mc-special-arrow">&#8250;</span></div>';
+    }
+    return rij;
+  }
+
+  // Uitgelicht sectie bovenaan
+  var uitgelichtEvents = events.filter(function(e) { return e.uitgelicht === true; }).slice(0, 2);
+  var uitgelichtHtml = '';
+  if (uitgelichtEvents.length > 0 && activeFilter === 'all') {
+    var tipLabel = huidigeTaal === 'nl' ? 'Tip van de maand' : "Editor's Tip";
+    uitgelichtHtml = '<div class="mc-uitgelicht">' +
+      '<div class="mc-uitgelicht-label"><div class="dot"></div>' + tipLabel + '</div>';
+    uitgelichtEvents.forEach(function(e) {
+      var img = e.foto
+        ? '<div class="mc-ucard-img"><img src="' + e.foto + '" loading="lazy"></div>'
+        : '<div class="mc-ucard-img"><div class="mc-ucard-ph">' + e.naam[huidigeTaal][0] + '</div></div>';
+      uitgelichtHtml += '<a class="mc-ucard" href="' + (e.link || '#') + '" target="_blank">' +
+        img +
+        '<div class="mc-ucard-body">' +
+          '<div class="mc-ucard-title">' + e.naam[huidigeTaal] + '</div>' +
+          '<div class="mc-ucard-maker">' + e.maker + '</div>' +
+          '<div class="mc-ucard-meta">' + e.startDag + ' ' + e.startMaand[huidigeTaal] + (e.eindDatum ? ' — ' + e.eindDatum[huidigeTaal] : '') + ' · ' + e.stad + '</div>' +
+        '</div>' +
+        '<div class="mc-ucard-arrow">›</div>' +
+      '</a>';
+    });
+    uitgelichtHtml += '</div>';
+  }
+
+  // Filterbalk
+  var filterHtml = '<div class="mobile-filter-bar" id="mobile-filter-bar"></div>';
+
+  var html = uitgelichtHtml + filterHtml;
+  var i = 0;
+
   if (toonNu && nuTeSien.length > 0) {
     html += '<div class="mc-periode"><div class="periode-label">' + nuLabel + '</div></div>';
-    nuTeSien.forEach(function(e) { html += mCard(e, i++); });
+    nuTeSien.forEach(function(e) { html += mcRij(e, i++); });
   }
   if (toonBinnenkort && binnenkort.length > 0) {
     html += '<div class="mc-periode"><div class="periode-label dimmed">' + blLabel + '</div></div>';
-    binnenkort.forEach(function(e) { html += mCard(e, i++); });
+    binnenkort.forEach(function(e) { html += mcRij(e, i++); });
   }
+
+  // Tipline + Studenten onderaan
+  var tipTekst = huidigeTaal === 'nl' ? 'Stuur een tip' : 'Send us your tip';
+  var studentenTekst = huidigeTaal === 'nl' ? 'Studentenwerk' : 'Student work';
+  html += '<div class="mc-tipline" onclick="scrollToTip(event)">' +
+    '<span class="mc-tipline-tag">&#10022; Tipline</span>' +
+    '<span class="mc-tipline-cta">' + tipTekst + '</span>' +
+  '</div>';
+  // Studenten sectie als uitklapbare kaarten op mobiel
+  html += '<div class="mc-studenten-wrap">' +
+    '<div class="mc-studenten" onclick="toggleMCStudenten()">' +
+      '<div style="display:flex;flex-direction:column;gap:8px;flex:1;">' +
+        '<div style="display:flex;gap:5px;">' +
+          studentenEvents.map(function(se) {
+            return se.foto
+              ? '<div style="width:40px;height:40px;border-radius:50%;overflow:hidden;border:1.5px solid rgba(226,239,112,0.5);flex-shrink:0;"><img src="' + se.foto + '" style="width:100%;height:100%;object-fit:cover;"></div>'
+              : '<div style="width:40px;height:40px;border-radius:50%;background:#1A1A1A;border:1.5px solid rgba(226,239,112,0.3);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:Fraunces,serif;font-style:italic;font-size:1rem;color:#E2EF70;">' + se.naam[huidigeTaal][0] + '</div>';
+          }).join('') +
+        '</div>' +
+        '<div class="mc-studenten-pill"><div class="dot"></div>' + studentenTekst + '</div>' +
+      '</div>' +
+      '<span class="mc-studenten-arrow" id="mc-studenten-arrow">&#8250;</span>' +
+    '</div>' +
+    '<div class="mc-studenten-content" id="mc-studenten-content">' +
+      studentenEvents.map(function(se) {
+        var img = se.foto
+          ? '<div class="mc-stucard-img"><img src="' + se.foto + '" loading="lazy"></div>'
+          : '<div class="mc-stucard-img"><div class="mc-stucard-ph">' + se.naam[huidigeTaal][0] + '</div></div>';
+        var datum = se.startDag + ' ' + se.startMaand[huidigeTaal] + (se.eindDatum ? ' — ' + se.eindDatum[huidigeTaal] : '');
+        var meerInfo = huidigeTaal === 'nl' ? 'Meer info →' : 'More info →';
+        return '<div class="mc-stucard">' +
+          img +
+          '<div class="mc-stucard-body">' +
+            '<div class="mc-stucard-maker">' + se.maker + '</div>' +
+            '<div class="mc-stucard-title">' + se.naam[huidigeTaal] + '</div>' +
+            '<div class="mc-stucard-logline">' + se.logline[huidigeTaal] + '</div>' +
+            '<div class="mc-stucard-meta">' + datum + ' · ' + se.stad + (se.duur ? ' · ' + se.duur : '') + '</div>' +
+          '</div>' +
+          (se.link ? '<a href="' + se.link + '" class="mc-stucard-link" target="_blank">' + meerInfo + '</a>' : '') +
+        '</div>';
+      }).join('') +
+    '</div>' +
+  '</div>';
+
   grid.innerHTML = html;
+
+  // Bouw mobiele filterbalk
+  buildMobileFilter();
 }
+
+function buildMobileFilter() {
+  var bar = document.getElementById('mobile-filter-bar');
+  if (!bar) return;
+  var t = ui[huidigeTaal];
+  var nuLabel = huidigeTaal === 'nl' ? 'Deze maand' : 'This month';
+  var blLabel = huidigeTaal === 'nl' ? 'Binnenkort' : 'Coming soon';
+  bar.innerHTML = '';
+
+  function mkBtn(label, type, extraClass) {
+    var btn = document.createElement('button');
+    btn.className = 'filter-btn' + (extraClass ? ' ' + extraClass : '') + (activeFilter === type ? ' active' : '');
+    btn.textContent = label;
+    btn.onclick = function() { mobileFilter(this, type); };
+    bar.appendChild(btn);
+  }
+
+  mkBtn(t.alles, 'all', 'alles-btn');
+  var alleTypes2 = [...new Set(events.flatMap(function(e) { return e.types; }))];
+  alleTypes2.forEach(function(type) {
+    mkBtn(typeVertalingen[huidigeTaal][type] || type, type, '');
+  });
+  mkBtn(nuLabel, 'periode:nu', 'periode-btn');
+  mkBtn(blLabel, 'periode:binnenkort', 'periode-btn');
+}
+
+function mobileFilter(btn, type) {
+  activeFilter = type;
+  // Sync desktop filter
+  document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+  buildMobileCards();
+  buildFilters();
+}
+
+function toggleMCStudenten() {
+  var content = document.getElementById('mc-studenten-content');
+  var arrow = document.getElementById('mc-studenten-arrow');
+  if (!content) return;
+  var open = content.classList.toggle('open');
+  if (arrow) arrow.style.transform = open ? 'rotate(90deg)' : '';
+}
+
+function scrollNaarStudenten() {
+  var el = document.getElementById('studenten-sectie');
+  if (el) el.scrollIntoView({ behavior: 'smooth' });
+}
+
+function toggleMCRij(row) {
+  var detail = row.nextElementSibling;
+  if (!detail || !detail.classList.contains('mc-detail')) return;
+  var arrow = row.querySelector('.mc-row-arrow');
+  var open = detail.classList.toggle('open');
+  if (arrow) arrow.classList.toggle('open', open);
+}
+
 
 function toggleMC(btn, id) {
   var el = document.getElementById(id);
@@ -2772,6 +3044,19 @@ const studentenEvents = [
     beschrijving: { nl: "Centraal staat het afstudeerwerk Van Max Slot: Voor het te laat is. Daarnaast presenteren de tweede- en derdejaarsstudenten per klas eigen werk. Maandag 29 jun 17:00–20:00, dinsdag 30 jun & woensdag 1 jul 11:00–20:00.", en: "Central is the graduation work of Max Slot: Voor het te laat is. Second- and third-year students also present class work. Mon Jun 29 17:00–20:00, Tue Jun 30 & Wed Jul 1 11:00–20:00." },
     foto: "/images/showcaseAHK.jpg",
     link: "https://www.mailinglijst.nl/mailings/show.aspx?mai=209146&mem=12167&a=12765572&hash=59D568E0CA5E5EB382FAEAD0D8DA74FEC162BCEFD2D51E42BDAF31A37E7B57D3",
+    duur: "10 - 45 min"
+  },
+  {
+    naam: { nl: "Expo Minor Immersive Environments", en: "Expo Minor Immersive Environments" },
+    maker: "Studenten HvA i.s.m. Max Cooper, Anima & Het Nederlands Watermuseum",
+    startDag: 19, startMaandNr: 6, eindDag: 19, eindMaandNr: 6,
+    startMaand: { nl: "Jun", en: "Jun" },
+    eindDatum: null,
+    stad: "Amsterdam", locatie: "Treehouse NDSM",
+    logline: { nl: "Duik in de baanbrekende installaties van studenten van de minor Immersive Environments aan de Hogeschool van Amsterdam.", en: "Dive into the groundbreaking installations by students of the minor Immersive Environments at the Amsterdam University of Applied Sciences." },
+    beschrijving: { nl: "Studenten presenteren samen met de minor Emerging Tech VR-projecten. Samenwerkingspartners: Max Cooper, Anima en Another Kind of Blue. De expo toont zelfontworpen immersieve prototypes — interactieve installaties die de digitale en fysieke wereld verbinden via licht, sensoren, geluid en projectietechnieken.", en: "Students present VR projects together with the Emerging Tech minor. Partners include Max Cooper, Anima and Another Kind of Blue. The expo showcases self-designed immersive prototypes — interactive installations linking the digital and physical world through light, sensors, sound and projection." },
+    foto: "/images/minorimmersive.jpg",
+    link: "http://ispace.amsterdam/expo",
     duur: "10 - 45 min"
   }
 ];
