@@ -1805,7 +1805,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .leeswerk-kaart {
     min-width: 100%;
     position: relative;
-    height: 440px;
+    height: auto;
+    min-height: 320px;
     border-radius: 8px;
     overflow: hidden;
     flex-shrink: 0;
@@ -1815,6 +1816,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .leeswerk-kaart-foto {
     position: absolute;
     inset: 0;
+    z-index: 0;
   }
   .leeswerk-kaart-img {
     width: 100%; height: 100%;
@@ -1837,13 +1839,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   /* Tekst: absoluut onderaan links, max 62% breed */
   .leeswerk-kaart-tekst {
-    position: absolute;
-    bottom: 0; left: 0;
+    position: relative;
+    z-index: 2;
     width: 62%;
-    padding: clamp(1.4rem, 3vw, 2.2rem);
+    padding: clamp(1.8rem, 4vw, 3rem) clamp(1.4rem, 3vw, 2.2rem);
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    justify-content: flex-end;
+    gap: 12px;
+    min-height: 320px;
   }
   .leeswerk-kaart-content { display: flex; flex-direction: column; gap: 10px; }
 
@@ -1898,7 +1902,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   /* Mobiel: gradient van onder naar boven, tekst volle breedte */
   @media (max-width: 700px) {
     .leeswerk-sectie { padding-right: clamp(1.2rem, 4vw, 3rem); }
-    .leeswerk-kaart { height: 300px; }
+    .leeswerk-kaart { height: auto; min-height: 280px; }
     .leeswerk-kaart-img { object-position: center center; }
     .leeswerk-kaart-overlay {
       background: linear-gradient(180deg,
@@ -1908,7 +1912,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         rgba(20,20,20,1) 100%
       );
     }
-    .leeswerk-kaart-tekst { width: 100%; padding: 1.2rem 1.4rem; }
+    .leeswerk-kaart-tekst { width: 100%; padding: 1.6rem 1.4rem; min-height: 280px; }
     .leeswerk-quote { font-size: clamp(1.3rem, 5vw, 1.8rem); }
   }
 
@@ -2670,42 +2674,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="leeswerk-slider">
     <div class="leeswerk-kaarten" id="leeswerk-kaarten">
       <div class="leeswerk-kaart">
-        <div class="leeswerk-kaart-tekst">
-          <div class="leeswerk-kaart-content">
-            <div class="leeswerk-bron">Dana Linssen <div class="leeswerk-bron-dot"></div> Filmkrant <div class="leeswerk-bron-dot"></div> 7 minuten</div>
-            <div class="leeswerk-quote">VR heeft een huis nodig, zoals film een bioscoop</div>
-            <a href="https://filmkrant.nl/artikel/nieuw-vr-museum-entr-geopend-in-amsterdam/" class="leeswerk-cta" target="_blank" onclick="event.stopPropagation()">Lees het artikel →</a>
-          </div>
-        </div>
         <div class="leeswerk-kaart-foto">
-          <img class="leeswerk-kaart-img" src="/images/entr.jpg" alt="Filmkrant">
-          <div class="leeswerk-kaart-overlay"></div>
+          <img class="leeswerk-kaart-img" src="/images/entr.jpg" loading="lazy">
+        </div>
+        <div class="leeswerk-kaart-overlay"></div>
+        <div class="leeswerk-kaart-tekst">
+          <div class="leeswerk-bron">Dana Linssen <div class="leeswerk-bron-dot"></div> Filmkrant <div class="leeswerk-bron-dot"></div> 7 minuten</div>
+          <div class="leeswerk-quote">VR heeft een huis nodig, zoals film een bioscoop</div>
+          <a href="https://filmkrant.nl/artikel/nieuw-vr-museum-entr-geopend-in-amsterdam/" class="leeswerk-cta" target="_blank" onclick="event.stopPropagation()">Lees het artikel →</a>
         </div>
       </div>
       <div class="leeswerk-kaart">
-        <div class="leeswerk-kaart-tekst">
-          <div class="leeswerk-kaart-content">
-            <div class="leeswerk-bron">Marijke Hessels <div class="leeswerk-bron-dot"></div> Theaterkrant <div class="leeswerk-bron-dot"></div> 14 minuten</div>
-            <div class="leeswerk-quote">Steeds meer makers omarmen immersieve strategieën — maar wat is die onderdompeling precies?</div>
-            <a href="https://www.theaterkrant.nl/tm-artikel/allesomvattend-immersief-theater/" class="leeswerk-cta" target="_blank" onclick="event.stopPropagation()">Lees het artikel →</a>
-          </div>
-        </div>
         <div class="leeswerk-kaart-foto">
-          <img class="leeswerk-kaart-img" src="/images/theaterkrant.jpg" alt="Theaterkrant">
-          <div class="leeswerk-kaart-overlay"></div>
+          <img class="leeswerk-kaart-img" src="/images/theaterkrant.jpg" loading="lazy">
+        </div>
+        <div class="leeswerk-kaart-overlay"></div>
+        <div class="leeswerk-kaart-tekst">
+          <div class="leeswerk-bron">Marijke Hessels <div class="leeswerk-bron-dot"></div> Theaterkrant <div class="leeswerk-bron-dot"></div> 14 minuten</div>
+          <div class="leeswerk-quote">Steeds meer makers omarmen immersieve strategieën — maar wat is die onderdompeling precies?</div>
+          <a href="https://www.theaterkrant.nl/tm-artikel/allesomvattend-immersief-theater/" class="leeswerk-cta" target="_blank" onclick="event.stopPropagation()">Lees het artikel →</a>
         </div>
       </div>
       <div class="leeswerk-kaart">
-        <div class="leeswerk-kaart-tekst">
-          <div class="leeswerk-kaart-content">
-            <div class="leeswerk-bron">Roelof ten Napel <div class="leeswerk-bron-dot"></div> De Groene Amsterdammer <div class="leeswerk-bron-dot"></div> Essay</div>
-            <div class="leeswerk-quote">Als een ervaring eenmaal etiketten heeft gekregen, haal je die moeilijk weer weg</div>
-            <a href="https://www.groene.nl/artikel/een-gezamenlijke-droom" class="leeswerk-cta" target="_blank" onclick="event.stopPropagation()">Lees het artikel →</a>
-          </div>
-        </div>
         <div class="leeswerk-kaart-foto">
-          <img class="leeswerk-kaart-img" src="/images/kruip2.jpeg" alt="De Groene">
-          <div class="leeswerk-kaart-overlay"></div>
+          <img class="leeswerk-kaart-img" src="/images/kruip2.jpeg" loading="lazy">
+        </div>
+        <div class="leeswerk-kaart-overlay"></div>
+        <div class="leeswerk-kaart-tekst">
+          <div class="leeswerk-bron">Roelof ten Napel <div class="leeswerk-bron-dot"></div> De Groene Amsterdammer <div class="leeswerk-bron-dot"></div> Essay</div>
+          <div class="leeswerk-quote">Als een ervaring eenmaal etiketten heeft gekregen, haal je die moeilijk weer weg</div>
+          <a href="https://www.groene.nl/artikel/een-gezamenlijke-droom" class="leeswerk-cta" target="_blank" onclick="event.stopPropagation()">Lees het artikel →</a>
         </div>
       </div>
     </div>
