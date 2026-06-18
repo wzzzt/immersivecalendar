@@ -1825,7 +1825,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     position: relative;
     border-radius: 8px;
     overflow: hidden;
-    min-height: 380px;
+    height: 360px;
   }
 
   .leeswerk-kaart-foto {
@@ -1842,23 +1842,33 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     display: block;
   }
 
-  .leeswerk-kaart-tekst {
-    position: relative;
+  .leeswerk-kaart-overlay {
+    position: absolute;
+    inset: 0;
     z-index: 1;
-    width: 66%;
-    min-height: 380px;
+    background: linear-gradient(90deg,
+      rgba(20,20,20,1) 0%,
+      rgba(20,20,20,0.95) 35%,
+      rgba(20,20,20,0.55) 58%,
+      rgba(20,20,20,0) 78%
+    );
+  }
+
+  .leeswerk-kaart-tekst {
+    position: absolute;
+    z-index: 2;
+    bottom: 0; left: 0;
+    width: 64%;
     padding: clamp(1.5rem, 3vw, 2.5rem);
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    background: linear-gradient(90deg, rgba(20,20,20,1) 0%, rgba(20,20,20,0.95) 45%, rgba(20,20,20,0.5) 65%, rgba(20,20,20,0) 100%);
+    gap: 10px;
   }
 
   .leeswerk-kaart-content {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    height: 100%;
+    gap: 10px;
   }
 
   .leeswerk-bron {
@@ -1930,20 +1940,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
 
   @media (max-width: 700px) {
-    .leeswerk-kaart { flex-direction: column; min-height: auto; }
-    .leeswerk-kaart-foto { flex: none; height: 200px; }
-    .leeswerk-kaart-tekst { flex: none; }
     .leeswerk-sectie { padding-right: clamp(1.2rem, 4vw, 3rem); }
-  }
-
-  @media (max-width: 700px) {
-    .leeswerk-kaart { min-height: auto; }
-    .leeswerk-kaart-foto { position: relative; height: 220px; }
-    .leeswerk-kaart-foto .leeswerk-kaart-img { object-position: center center; }
+    .leeswerk-kaart { height: 320px; }
+    .leeswerk-kaart-img { object-position: center center; }
+    .leeswerk-kaart-overlay {
+      background: linear-gradient(180deg,
+        rgba(20,20,20,0) 0%,
+        rgba(20,20,20,0.3) 35%,
+        rgba(20,20,20,0.95) 65%,
+        rgba(20,20,20,1) 100%
+      ) !important;
+    }
     .leeswerk-kaart-tekst {
-      position: relative; width: 100%; min-height: auto;
-      background: linear-gradient(180deg, rgba(20,20,20,0) 0%, rgba(20,20,20,1) 30%);
-      margin-top: -60px;
+      width: 100% !important;
+      padding: 1.2rem 1.4rem !important;
     }
   }
 </style>
@@ -2115,6 +2125,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <div class="leeswerk-kaart-foto">
           <img class="leeswerk-kaart-img" src="/images/entr.jpg" alt="Filmkrant">
+          <div class="leeswerk-kaart-overlay"></div>
         </div>
       </div>
       <div class="leeswerk-kaart">
@@ -2127,6 +2138,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <div class="leeswerk-kaart-foto">
           <img class="leeswerk-kaart-img" src="/images/theaterkrant.jpg" alt="Theaterkrant">
+          <div class="leeswerk-kaart-overlay"></div>
         </div>
       </div>
       <div class="leeswerk-kaart">
@@ -2139,6 +2151,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <div class="leeswerk-kaart-foto">
           <img class="leeswerk-kaart-img" src="/images/kruip2.jpeg" alt="De Groene">
+          <div class="leeswerk-kaart-overlay"></div>
         </div>
       </div>
     </div>
