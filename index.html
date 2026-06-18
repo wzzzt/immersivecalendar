@@ -1822,28 +1822,42 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   .leeswerk-kaart {
     min-width: 100%;
-    position: relative;
-    cursor: pointer;
+    display: flex;
+    align-items: stretch;
     border-radius: 8px;
     overflow: hidden;
+    background: #1A1A1A;
+    min-height: 320px;
+  }
+
+  .leeswerk-kaart-tekst {
+    flex: 0 0 66%;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: #141414;
+  }
+
+  .leeswerk-kaart-foto {
+    flex: 0 0 34%;
+    overflow: hidden;
+    position: relative;
   }
 
   .leeswerk-kaart-img {
     width: 100%;
-    aspect-ratio: 16/9;
+    height: 100%;
     object-fit: cover;
     display: block;
-    filter: brightness(0.3);
+    filter: brightness(0.85);
   }
 
   .leeswerk-kaart-content {
-    position: absolute;
-    inset: 0;
-    padding: clamp(1.2rem, 3vw, 2rem);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    background: linear-gradient(to top, rgba(20,20,20,0.95) 35%, rgba(20,20,20,0.1) 100%);
+    height: 100%;
   }
 
   .leeswerk-bron {
@@ -1857,9 +1871,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .leeswerk-quote {
     font-family: 'Fraunces', serif;
     font-style: italic; font-weight: 700;
-    font-size: clamp(1.1rem, 2.5vw, 1.6rem);
-    line-height: 1.35; color: var(--white);
-    letter-spacing: -0.01em; margin-bottom: 16px;
+    font-size: clamp(1.9rem, 5vw, 4rem);
+    line-height: 1.3; color: var(--white);
+    letter-spacing: -0.02em; margin-bottom: 16px;
   }
   .leeswerk-quote::before { content: '“'; }
   .leeswerk-quote::after { content: '”'; }
@@ -1880,15 +1894,31 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     font-size: 11px; color: rgba(255,255,255,0.4);
   }
 
+  .leeswerk-nav {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-top: 14px;
+  }
   .leeswerk-dots {
-    display: flex; gap: 6px; margin-top: 14px;
+    display: flex; gap: 8px; align-items: center;
   }
   .leeswerk-dot {
-    width: 6px; height: 6px; border-radius: 50%;
+    width: 8px; height: 8px; border-radius: 50%;
     background: var(--border); cursor: pointer;
     transition: background 0.2s; border: none; padding: 0;
   }
-  .leeswerk-dot.active { background: var(--pink); }
+  .leeswerk-dot.active { background: var(--pink); width: 22px; border-radius: 4px; }
+  .leeswerk-arrows {
+    display: flex; gap: 8px;
+  }
+  .leeswerk-arrow-btn {
+    width: 38px; height: 38px; border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.06);
+    color: var(--white); font-size: 18px; line-height: 1;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: background 0.15s;
+  }
+  .leeswerk-arrow-btn:hover { background: rgba(255,255,255,0.14); }
 
 
   @media (max-width: 700px) {
@@ -1896,6 +1926,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       padding: clamp(1rem, 3vw, 1.5rem) 0 clamp(1rem, 3vw, 1.5rem) clamp(1.2rem, 4vw, 3rem);
     }
     .leeswerk-kaart-img { aspect-ratio: 4/3; }
+  }
+
+  @media (max-width: 700px) {
+    .leeswerk-kaart { flex-direction: column; min-height: auto; }
+    .leeswerk-kaart-foto { flex: none; height: 200px; }
+    .leeswerk-kaart-tekst { flex: none; }
+    .leeswerk-sectie { padding-right: clamp(1.2rem, 4vw, 3rem); }
   }
 </style>
 </head>
@@ -2057,35 +2094,53 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="leeswerk-slider">
     <div class="leeswerk-kaarten" id="leeswerk-kaarten">
       <div class="leeswerk-kaart">
-        <img class="leeswerk-kaart-img" src="/images/entr.jpg" alt="Filmkrant">
-        <div class="leeswerk-kaart-content">
-          <div class="leeswerk-bron">Filmkrant <div class="leeswerk-bron-dot"></div> 7 minuten</div>
-          <div class="leeswerk-quote">VR heeft een huis nodig, zoals film een bioscoop</div>
-          <a href="https://filmkrant.nl/artikel/nieuw-vr-museum-entr-geopend-in-amsterdam/" class="leeswerk-cta" target="_blank" onclick="event.stopPropagation()">Lees het artikel →</a>
+        <div class="leeswerk-kaart-tekst">
+          <div class="leeswerk-kaart-content">
+            <div class="leeswerk-bron">Dana Linssen <div class="leeswerk-bron-dot"></div> Filmkrant <div class="leeswerk-bron-dot"></div> 7 minuten</div>
+            <div class="leeswerk-quote">VR heeft een huis nodig, zoals film een bioscoop</div>
+            <a href="https://filmkrant.nl/artikel/nieuw-vr-museum-entr-geopend-in-amsterdam/" class="leeswerk-cta" target="_blank" onclick="event.stopPropagation()">Lees het artikel →</a>
+          </div>
+        </div>
+        <div class="leeswerk-kaart-foto">
+          <img class="leeswerk-kaart-img" src="/images/entr.jpg" alt="Filmkrant">
         </div>
       </div>
       <div class="leeswerk-kaart">
-        <img class="leeswerk-kaart-img" src="/images/theaterkrant.jpg" alt="Theaterkrant">
-        <div class="leeswerk-kaart-content">
-          <div class="leeswerk-bron">Theaterkrant <div class="leeswerk-bron-dot"></div> 14 minuten</div>
-          <div class="leeswerk-quote">Steeds meer makers omarmen immersieve strategieën — maar wat is die onderdompeling precies?</div>
-          <a href="https://www.theaterkrant.nl/tm-artikel/allesomvattend-immersief-theater/" class="leeswerk-cta" target="_blank" onclick="event.stopPropagation()">Lees het artikel →</a>
+        <div class="leeswerk-kaart-tekst">
+          <div class="leeswerk-kaart-content">
+            <div class="leeswerk-bron">Marijke Hessels <div class="leeswerk-bron-dot"></div> Theaterkrant <div class="leeswerk-bron-dot"></div> 14 minuten</div>
+            <div class="leeswerk-quote">Steeds meer makers omarmen immersieve strategieën — maar wat is die onderdompeling precies?</div>
+            <a href="https://www.theaterkrant.nl/tm-artikel/allesomvattend-immersief-theater/" class="leeswerk-cta" target="_blank" onclick="event.stopPropagation()">Lees het artikel →</a>
+          </div>
+        </div>
+        <div class="leeswerk-kaart-foto">
+          <img class="leeswerk-kaart-img" src="/images/theaterkrant.jpg" alt="Theaterkrant">
         </div>
       </div>
       <div class="leeswerk-kaart">
-        <img class="leeswerk-kaart-img" src="/images/kruip2.jpeg" alt="De Groene">
-        <div class="leeswerk-kaart-content">
-          <div class="leeswerk-bron">De Groene Amsterdammer <div class="leeswerk-bron-dot"></div> Essay</div>
-          <div class="leeswerk-quote">Als een ervaring eenmaal etiketten heeft gekregen, haal je die moeilijk weer weg</div>
-          <a href="https://www.groene.nl/artikel/een-gezamenlijke-droom" class="leeswerk-cta" target="_blank" onclick="event.stopPropagation()">Lees het artikel →</a>
+        <div class="leeswerk-kaart-tekst">
+          <div class="leeswerk-kaart-content">
+            <div class="leeswerk-bron">Roelof ten Napel <div class="leeswerk-bron-dot"></div> De Groene Amsterdammer <div class="leeswerk-bron-dot"></div> Essay</div>
+            <div class="leeswerk-quote">Als een ervaring eenmaal etiketten heeft gekregen, haal je die moeilijk weer weg</div>
+            <a href="https://www.groene.nl/artikel/een-gezamenlijke-droom" class="leeswerk-cta" target="_blank" onclick="event.stopPropagation()">Lees het artikel →</a>
+          </div>
+        </div>
+        <div class="leeswerk-kaart-foto">
+          <img class="leeswerk-kaart-img" src="/images/kruip2.jpeg" alt="De Groene">
         </div>
       </div>
     </div>
   </div>
-  <div class="leeswerk-dots">
-    <button class="leeswerk-dot active" onclick="leeswerkGo(0)"></button>
-    <button class="leeswerk-dot" onclick="leeswerkGo(1)"></button>
-    <button class="leeswerk-dot" onclick="leeswerkGo(2)"></button>
+  <div class="leeswerk-nav">
+    <div class="leeswerk-dots">
+      <button class="leeswerk-dot active" onclick="leeswerkGo(0)"></button>
+      <button class="leeswerk-dot" onclick="leeswerkGo(1)"></button>
+      <button class="leeswerk-dot" onclick="leeswerkGo(2)"></button>
+    </div>
+    <div class="leeswerk-arrows">
+      <button class="leeswerk-arrow-btn" onclick="leeswerkGo(Math.max(0, leeswerkCurrent-1))">‹</button>
+      <button class="leeswerk-arrow-btn" onclick="leeswerkGo(Math.min(2, leeswerkCurrent+1))">›</button>
+    </div>
   </div>
 </section>
 
@@ -2205,9 +2260,9 @@ const events = [
     startMaand: { nl: "Mei", en: "May" },
     eindDatum: { nl: "31 Dec 2028", en: "Dec 31 2028" },
     maker: "Nienke Huitenga Broeren & ENTR",
-    duur: "45 min", handig: "Vanaf 8+",
-    logline: { nl: "Een ontmoeting met drie Amsterdammers in 1652.", en: "An encounter with three Amsterdam residents in 1652." },
-    beschrijving: { nl: "Loop samen door Amsterdam van de 17e eeuw, gezien door de ogen van haar bewoners. Een gedeelde VR-ervaring waarin je de stad niet bekijkt, maar zelf betreedt.", en: "Walk through 17th-century Amsterdam through the eyes of its inhabitants. A shared VR experience in which you don't observe the city — you enter it." },
+    duur: "45 min", handig: "Vanaf 8+ · NL en EN",
+    logline: { nl: "Loop samen door het Amsterdam van de 17e eeuw, gezien door de ogen van een gewone Amsterdammer. Zie het IJ, de Dam en de nieuwe brugh en ontdek hoe mensen leefden, werkten en samenkwamen.", en: "Walk together through 17th-century Amsterdam through the eyes of an ordinary Amsterdammer. See the IJ, the Dam and the nieuwe brugh, and discover how people lived, worked and came together." },
+    beschrijving: { nl: "De ervaring is ontworpen om samen te beleven. Bezoekers bewegen gelijktijdig door dezelfde virtuele wereld en maken samen de reis door de stad. Zo ontstaat een gedeelde ervaring waarin je niet alleen naar geschiedenis kijkt, maar er middenin staat.", en: "The experience is designed to be shared. Visitors move simultaneously through the same virtual world, making the journey through the city together — not just observing history, but standing right in the middle of it." },
     stad: "Amsterdam", locatie: "ENTR",
     types: ["XR"],
     foto: "/images/kade.jpeg",
