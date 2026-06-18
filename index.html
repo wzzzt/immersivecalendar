@@ -1822,28 +1822,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   .leeswerk-kaart {
     min-width: 100%;
-    display: flex;
-    align-items: stretch;
+    position: relative;
     border-radius: 8px;
     overflow: hidden;
-    background: #141414;
-    min-height: 320px;
-    position: relative;
-  }
-
-  .leeswerk-kaart-tekst {
-    flex: 0 0 66%;
-    padding: clamp(1.5rem, 3vw, 2.5rem);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    background: linear-gradient(90deg, #141414 55%, rgba(20,20,20,0.7) 80%, rgba(20,20,20,0) 100%);
+    min-height: 340px;
   }
 
   .leeswerk-kaart-foto {
-    flex: 0 0 34%;
-    overflow: hidden;
-    position: relative;
+    position: absolute;
+    inset: 0;
+    z-index: 0;
   }
 
   .leeswerk-kaart-img {
@@ -1851,7 +1839,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     height: 100%;
     object-fit: cover;
     display: block;
-    filter: brightness(1);
+  }
+
+  .leeswerk-kaart-tekst {
+    position: relative;
+    z-index: 1;
+    width: 66%;
+    min-height: 340px;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: linear-gradient(90deg, rgba(20,20,20,0.97) 40%, rgba(20,20,20,0.75) 70%, rgba(20,20,20,0) 100%);
   }
 
   .leeswerk-kaart-content {
