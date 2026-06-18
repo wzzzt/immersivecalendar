@@ -894,8 +894,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .mc-stucard-link { display: block; font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; color: #E2EF70; padding: 8px 12px; border-top: 1px solid rgba(226,239,112,0.15); text-decoration: none; background: rgba(226,239,112,0.06); }
 
 
-    .lk-badge { font-size: 8px; letter-spacing: 0.04em; text-transform: uppercase; color: #E2EF70; border: 1px solid #E2EF70; padding: 1px 6px; border-radius: 100px; }
-    .verse-badge { font-size: 8px; letter-spacing: 0.05em; text-transform: uppercase; background: #E2EF70; color: #141414; padding: 1px 6px; border-radius: 100px; font-weight: 500; }
+    .lk-badge { font-family: 'DM Sans', sans-serif; font-size: 8px; letter-spacing: 0.04em; text-transform: uppercase; color: #E2EF70; border: 1px solid #E2EF70; padding: 1px 6px; border-radius: 100px; font-weight: 400; }
+    .verse-badge { font-family: 'DM Sans', sans-serif; font-size: 8px; letter-spacing: 0.05em; text-transform: uppercase; background: #E2EF70; color: #141414; padding: 1px 6px; border-radius: 100px; font-weight: 500; }
 
     /* Verberg uitgelicht sectie op mobiel (zit in mobile-cards) */
     .uitgelicht { display: none; }
@@ -2056,7 +2056,7 @@ const events = [
     types: ["XR"],
     foto: "/images/kade.jpeg",
     link: "https://entrmuseum.com/",
-    uitgelicht: false
+    uitgelicht: true
   },
   {
     naam: { nl: "Conversations", en: "Conversations" },
@@ -2146,7 +2146,7 @@ const events = [
     types: ["Audio driven immersion", "Muziek", "Spatial"],
     foto: "/images/nxtmuseum4dsound.jpg",
     link: "https://nxtmuseum.com/event/nothing-to-see-acousmatic-music-in-4dsound",
-    uitgelicht: true
+    uitgelicht: false
   },
   {
     naam: { nl: "Dreamscapes", en: "Dreamscapes" },
@@ -2284,7 +2284,7 @@ const events = [
     uitgelicht: false
   },
   {
-    naam: { nl: "Opstand", en: "Opstand" },
+    verseTip: true, naam: { nl: "Opstand", en: "Opstand" },
     startDag: 12, startMaandNr: 7, eindDag: 13, eindMaandNr: 7,
     startMaand: { nl: "Jul", en: "Jul" },
     eindDatum: { nl: "13 Jul", en: "Jul 13" },
@@ -2811,15 +2811,13 @@ function buildMobileCards() {
   // Studenten sectie als uitklapbare kaarten op mobiel
   html += '<div class="mc-studenten-wrap">' +
     '<div class="mc-studenten" onclick="toggleMCStudenten()">' +
-      '<div style="display:flex;flex-direction:column;gap:8px;flex:1;">' +
-        '<div style="display:flex;gap:5px;">' +
-          studentenEvents.map(function(se) {
-            return se.foto
-              ? '<div style="width:40px;height:40px;border-radius:50%;overflow:hidden;border:1.5px solid rgba(226,239,112,0.5);flex-shrink:0;"><img src="' + se.foto + '" style="width:100%;height:100%;object-fit:cover;"></div>'
-              : '<div style="width:40px;height:40px;border-radius:50%;background:#1A1A1A;border:1.5px solid rgba(226,239,112,0.3);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:Fraunces,serif;font-style:italic;font-size:1rem;color:#E2EF70;">' + se.naam[huidigeTaal][0] + '</div>';
-          }).join('') +
-        '</div>' +
-        '<div class="mc-studenten-pill"><div class="dot"></div>' + studentenTekst + '</div>' +
+      '<div style="display:flex;align-items:center;gap:6px;flex:1;">' +
+        studentenEvents.map(function(se) {
+          return se.foto
+            ? '<div style="width:30px;height:30px;border-radius:50%;overflow:hidden;border:1.5px solid rgba(226,239,112,0.5);flex-shrink:0;"><img src="' + se.foto + '" style="width:100%;height:100%;object-fit:cover;"></div>'
+            : '<div style="width:30px;height:30px;border-radius:50%;background:#1A1A1A;border:1.5px solid rgba(226,239,112,0.3);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:Fraunces,serif;font-style:italic;font-size:0.8rem;color:#E2EF70;">' + se.naam[huidigeTaal][0] + '</div>';
+        }).join('') +
+        '<div class="mc-studenten-pill" style="font-size:11px;padding:8px 18px 8px 12px;margin-left:4px;"><div class="dot"></div>' + studentenTekst + '</div>' +
       '</div>' +
       '<span class="mc-studenten-arrow" id="mc-studenten-arrow">&#8250;</span>' +
     '</div>' +
