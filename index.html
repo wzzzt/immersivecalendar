@@ -2421,10 +2421,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
   }
 
-  /* FIX 21 juni: op mobiel maar één Tipline tonen — de vaste sectie blijft zichtbaar */
-  @media (max-width: 700px) {
-    .tip-sectie { display: block !important; }
+/* Mobiel: verberg alle Lees Meer knoppen */
+@media (max-width:700px){
+  .card-leesmeer,
+  .studenten-card-leesmeer,
+  .mc-leesmeer,
+  .lees-meer {
+    display:none !important;
   }
+}
 
 </style>
 </head>
@@ -3468,8 +3473,13 @@ function buildMobileCards() {
     binnenkort.forEach(function(e) { html += mcRij(e, i++); });
   }
 
-  // Tipline staat als vaste sectie onder de kalender.
-  // Geen extra mobiele Tipline in #mobile-cards, zodat hij op mobiel maar één keer verschijnt.
+  // Tipline + Studenten onderaan
+  var tipTekst = huidigeTaal === 'nl' ? 'Stuur een tip' : 'Send us your tip';
+  var studentenTekst = huidigeTaal === 'nl' ? 'Studentenwerk' : 'Student work';
+  html += '<div class="mc-tipline" onclick="scrollToTip(event)">' +
+    '<span class="mc-tipline-tag">&#10022; Tipline</span>' +
+    '<span class="mc-tipline-cta">' + tipTekst + '</span>' +
+  '</div>';
 
     grid.innerHTML = html;
 
