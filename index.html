@@ -2420,6 +2420,33 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       grid-template-columns: 1fr;
     }
   }
+
+
+  /* Klikbare beelden */
+  .card-img-link,
+  .foto-inner-link,
+  .studenten-card-img-link,
+  .mc-thumb-link,
+  .leeswerk-kaart-foto-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .card-img-link:focus-visible,
+  .foto-inner-link:focus-visible,
+  .studenten-card-img-link:focus-visible,
+  .mc-thumb-link:focus-visible,
+  .leeswerk-kaart-foto-link:focus-visible {
+    outline: 2px solid var(--pink);
+    outline-offset: 3px;
+  }
+
+  @media (max-width: 700px) {
+    /* De tipline moet ook op mobiel zichtbaar blijven, anders kan scrollToTip niets openen. */
+    .tip-sectie { display: block !important; }
+  }
+
 </style>
 </head>
 <body>
@@ -2585,9 +2612,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="leeswerk-quote">Weinig is zo wonderschoon én angstaanjagend als het oneindige potentieel van de seconde vóór het begin</div>
           <a href="https://www.volkskrant.nl/theater/de-mindfuck-before-the-story-starts-is-een-hoogtepunt-op-theaterfestival-oerol~b4145311/" class="leeswerk-cta" target="_blank" onclick="event.stopPropagation()">Lees het artikel →</a>
         </div>
-        <div class="leeswerk-kaart-foto">
+        <a class="leeswerk-kaart-foto leeswerk-kaart-foto-link" href="https://www.volkskrant.nl/theater/de-mindfuck-before-the-story-starts-is-een-hoogtepunt-op-theaterfestival-oerol~b4145311/" target="_blank" rel="noopener" onclick="event.stopPropagation()">
           <img class="leeswerk-kaart-img" src="/images/storythomas.jpg" loading="lazy">
-        </div>
+        </a>
         <div class="leeswerk-kaart-overlay"></div>
       </div>
       <div class="leeswerk-kaart">
@@ -2596,9 +2623,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="leeswerk-quote">VR heeft een huis nodig, zoals film een bioscoop</div>
           <a href="https://filmkrant.nl/artikel/nieuw-vr-museum-entr-geopend-in-amsterdam/" class="leeswerk-cta" target="_blank" onclick="event.stopPropagation()">Lees het artikel →</a>
         </div>
-        <div class="leeswerk-kaart-foto">
+        <a class="leeswerk-kaart-foto leeswerk-kaart-foto-link" href="https://filmkrant.nl/artikel/nieuw-vr-museum-entr-geopend-in-amsterdam/" target="_blank" rel="noopener" onclick="event.stopPropagation()">
           <img class="leeswerk-kaart-img" src="/images/entr.jpg" loading="lazy">
-        </div>
+        </a>
         <div class="leeswerk-kaart-overlay"></div>
       </div>
       <div class="leeswerk-kaart">
@@ -2607,9 +2634,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="leeswerk-quote">Steeds meer makers omarmen immersieve strategieën — maar wat is die onderdompeling precies?</div>
           <a href="https://www.theaterkrant.nl/tm-artikel/allesomvattend-immersief-theater/" class="leeswerk-cta" target="_blank" onclick="event.stopPropagation()">Lees het artikel →</a>
         </div>
-        <div class="leeswerk-kaart-foto">
+        <a class="leeswerk-kaart-foto leeswerk-kaart-foto-link" href="https://www.theaterkrant.nl/tm-artikel/allesomvattend-immersief-theater/" target="_blank" rel="noopener" onclick="event.stopPropagation()">
           <img class="leeswerk-kaart-img" src="/images/theaterkrant.jpg" loading="lazy">
-        </div>
+        </a>
         <div class="leeswerk-kaart-overlay"></div>
       </div>
       <div class="leeswerk-kaart">
@@ -2618,9 +2645,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="leeswerk-quote">Als een ervaring eenmaal etiketten heeft gekregen, haal je die moeilijk weer weg</div>
           <a href="https://www.groene.nl/artikel/een-gezamenlijke-droom" class="leeswerk-cta" target="_blank" onclick="event.stopPropagation()">Lees het artikel →</a>
         </div>
-        <div class="leeswerk-kaart-foto">
+        <a class="leeswerk-kaart-foto leeswerk-kaart-foto-link" href="https://www.groene.nl/artikel/een-gezamenlijke-droom" target="_blank" rel="noopener" onclick="event.stopPropagation()">
           <img class="leeswerk-kaart-img" src="/images/kruip2.jpeg" loading="lazy">
-        </div>
+        </a>
         <div class="leeswerk-kaart-overlay"></div>
       </div>
         </div>
@@ -3101,7 +3128,7 @@ function buildUitgelicht() {
   const uitgelicht = events.filter(e => e.uitgelicht === true).slice(0, 2);
   document.getElementById('uitgelicht-cards').innerHTML = uitgelicht.map((e, idx) => `
     <article class="card featured-card">
-      <div class="card-img"><img src="${e.foto}" alt="${e.naam[huidigeTaal]}" loading="lazy"></div>
+      ${e.link ? `<a class="card-img-link" href="${e.link}" target="_blank" rel="noopener"><div class="card-img"><img src="${e.foto}" alt="${e.naam[huidigeTaal]}" loading="lazy"></div></a>` : `<div class="card-img"><img src="${e.foto}" alt="${e.naam[huidigeTaal]}" loading="lazy"></div>`}
       <div class="card-body">
         <div class="card-tag">${e.duur ? `<span class='card-duur-pill'>◷ ${e.duur}</span>` : ''}${[...e.types.map(tp => typeVertalingen[huidigeTaal][tp] || tp), e.locatie].map(l => `<span class='card-tag-item'>${l}</span>`).join('')}${e.verseTip ? `<span class="verse-tip-badge">${huidigeTaal === 'nl' ? 'Verse tip' : 'Fresh pick'}</span>` : ''} ${isLaatsteKans(e) ? `<span class="laatste-kans-badge">${huidigeTaal === 'nl' ? 'Laatste kans' : 'Last chance'}</span>` : ''}</div>
         <h2 class="card-title">${e.naam[huidigeTaal]}</h2>
@@ -3259,7 +3286,7 @@ function eventRij(e, i) {
     <tr>
       <td class="td-foto">
         ${e.foto
-          ? `<div class="foto-inner"><img src="${e.foto}" alt="${e.naam[huidigeTaal]}" loading="lazy"></div>`
+          ? (e.link ? `<a class="foto-inner-link" href="${e.link}" target="_blank" rel="noopener"><div class="foto-inner"><img src="${e.foto}" alt="${e.naam[huidigeTaal]}" loading="lazy"></div></a>` : `<div class="foto-inner"><img src="${e.foto}" alt="${e.naam[huidigeTaal]}" loading="lazy"></div>`)
           : `<div class="foto-inner-placeholder">${e.naam[huidigeTaal][0]}</div>`}
       </td>
       <td class="td-datum">
@@ -3384,7 +3411,9 @@ function buildMobileCards() {
     var id = 'mcd' + i;
     var datum = e.startDag + ' ' + e.startMaand[huidigeTaal] + (e.eindDatum ? ' — ' + e.eindDatum[huidigeTaal] : '');
     var thumb = e.foto
-      ? '<div class="mc-thumb"><img src="' + e.foto + '" loading="lazy"></div>'
+      ? (e.link
+        ? '<a class="mc-thumb-link" href="' + e.link + '" target="_blank" rel="noopener" onclick="event.stopPropagation()"><div class="mc-thumb"><img src="' + e.foto + '" loading="lazy"></div></a>'
+        : '<div class="mc-thumb"><img src="' + e.foto + '" loading="lazy"></div>')
       : '<div class="mc-thumb"><div class="mc-thumb-ph">' + e.naam[huidigeTaal][0] + '</div></div>';
     var badges = '';
     if (e.verseTip) badges += ' <span class="verse-badge">' + (huidigeTaal === 'nl' ? 'Verse tip' : 'Fresh pick') + '</span>';
@@ -3617,18 +3646,31 @@ function toggleSpecialNR() {
 
 
 function scrollToTip(e) {
-  e.preventDefault();
+  if (e) e.preventDefault();
+
   var el = document.getElementById('tip-sectie');
-  if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-  // Open het formulier als het nog dicht is
   var wrap = document.getElementById('tip-form-wrap');
   var arrow = document.getElementById('tip-banner-arrow');
   var banner = document.querySelector('.tip-banner');
+
+  // Op mobiel werd .tip-sectie eerder verborgen; dan gebeurt er visueel niets.
+  if (el) el.style.display = 'block';
+
   if (wrap && !wrap.classList.contains('open')) {
     wrap.classList.add('open');
     if (arrow) arrow.classList.add('open');
     if (banner) banner.classList.add('open');
   }
+
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Kleine delay zodat mobiel na het uitklappen netjes naar het eerste veld kan.
+  setTimeout(function() {
+    var firstInput = document.getElementById('tip-naam');
+    if (firstInput) firstInput.focus({ preventScroll: true });
+  }, 350);
 }
 
 
@@ -3670,7 +3712,9 @@ function buildStudenten() {
     var id = 'st-desc-' + idx;
     var datum = e.startDag + ' ' + e.startMaand[huidigeTaal] + (e.eindDatum ? ' — ' + e.eindDatum[huidigeTaal] : '');
     var img = e.foto
-      ? '<div class="studenten-card-img"><img src="' + e.foto + '" loading="lazy"></div>'
+      ? (e.link
+        ? '<a class="studenten-card-img-link" href="' + e.link + '" target="_blank" rel="noopener"><div class="studenten-card-img"><img src="' + e.foto + '" loading="lazy"></div></a>'
+        : '<div class="studenten-card-img"><img src="' + e.foto + '" loading="lazy"></div>')
       : '<div class="studenten-card-ph">' + e.naam[huidigeTaal][0] + '</div>';
     var leesMeer = huidigeTaal === 'nl' ? 'Lees meer ↓' : 'Read more ↓';
     var meerInfo = huidigeTaal === 'nl' ? 'Meer info →' : 'More info →';
@@ -3778,12 +3822,15 @@ function updateTipLang() {
 }
 
 function toggleTip() {
+  var section = document.getElementById('tip-sectie');
   var wrap = document.getElementById('tip-form-wrap');
   var arrow = document.getElementById('tip-banner-arrow');
   var banner = document.querySelector('.tip-banner');
+  if (section) section.style.display = 'block';
+  if (!wrap) return;
   var open = wrap.classList.toggle('open');
-  arrow.classList.toggle('open', open);
-  banner.classList.toggle('open', open);
+  if (arrow) arrow.classList.toggle('open', open);
+  if (banner) banner.classList.toggle('open', open);
 }
 
 function toggleAnders(cb) {
