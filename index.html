@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Immersieve Kunst Agenda — versie 18 juni 2026 | studio zzzap | immersievekunstagenda.nl -->
+<!-- Immersieve Kunst Agenda — versie 21 juni 2026 | studio zzzap | immersievekunstagenda.nl -->
 <html lang="nl">
 <head>
 <!-- Google Tag Manager -->
@@ -899,9 +899,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     /* Verberg uitgelicht sectie op mobiel (zit in mobile-cards) */
     .uitgelicht { display: none; }
-    /* Verberg tip en studenten secties op mobiel (zitten in mobile-cards) */
+    /* Verberg tip sectie op mobiel (zit in mobile-cards) */
     .tip-sectie { display: none; }
-    .studenten-sectie { display: none; }
+    /* Studenten sectie zichtbaar op mobiel, onder leeswerk */
   }
   }
 
@@ -1789,127 +1789,90 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     background: #141414;
     padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1.2rem, 4vw, 3rem);
   }
-
   .leeswerk-label-wrap {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--pink);
-    color: #fff;
-    padding: 4px 14px 4px 10px;
-    border-radius: 100px;
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--pink); color: #fff;
+    padding: 4px 14px 4px 10px; border-radius: 100px;
     margin-bottom: 1.4rem;
   }
   .leeswerk-label-wrap .dot { width: 7px; height: 7px; border-radius: 50%; background: #fff; opacity: 0.8; }
   .leeswerk-label-wrap span { font-size: 11px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; }
 
-  .leeswerk-slider {
-    position: relative;
-    overflow: hidden;
-    border-radius: 18px;
-    background: #1A1A1A;
-    border: 1px solid rgba(255,255,255,0.08);
-  }
+  /* Slider wrapper */
+  .leeswerk-slider { position: relative; overflow: hidden; border-radius: 8px; }
+  .leeswerk-kaarten { display: flex; transition: transform 0.4s cubic-bezier(0.22,1,0.36,1); }
 
-  .leeswerk-kaarten {
-    display: flex;
-    transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
-  }
-
+  /* Kaart: twee kolommen naast elkaar */
   .leeswerk-kaart {
     min-width: 100%;
-    position: relative;
-    overflow: hidden;
-    flex-shrink: 0;
-    min-height: clamp(430px, 44vw, 560px);
     display: grid;
-    grid-template-columns: minmax(0, 0.92fr) minmax(320px, 1.08fr);
-    align-items: stretch;
+    grid-template-columns: 1fr 1fr;
+    min-height: 340px;
+    border-radius: 8px;
+    overflow: hidden;
   }
 
+  /* Linkerkolom: tekst */
+  .leeswerk-kaart-tekst {
+    background: #141414;
+    padding: clamp(1.6rem, 3vw, 2.5rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 12px;
+  }
+
+  /* Rechterkolom: foto */
   .leeswerk-kaart-foto {
     position: relative;
-    min-height: 100%;
-    order: 2;
     overflow: hidden;
   }
-
   .leeswerk-kaart-img {
-    width: 100%;
-    height: 100%;
+    width: 100%; height: 100%;
     object-fit: cover;
     object-position: center;
     display: block;
   }
-
-  .leeswerk-kaart-overlay {
+  /* Subtiele gradient van links zodat foto vloeiend aansluit op tekst */
+  .leeswerk-kaart-foto::after {
+    content: '';
     position: absolute;
     inset: 0;
-    z-index: 1;
-    pointer-events: none;
-    background:
-      linear-gradient(90deg, #1A1A1A 0%, rgba(26,26,26,0.95) 13%, rgba(26,26,26,0.1) 42%, rgba(26,26,26,0) 100%),
-      linear-gradient(0deg, rgba(20,20,20,0.35), rgba(20,20,20,0));
+    background: linear-gradient(90deg, rgba(20,20,20,0.5) 0%, rgba(20,20,20,0) 40%);
   }
-
-  .leeswerk-kaart-tekst {
-    position: relative;
-    z-index: 2;
-    order: 1;
-    width: 100%;
-    min-width: 0;
-    padding: clamp(2rem, 5vw, 4.5rem);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: clamp(1rem, 2vw, 1.4rem);
-  }
+  .leeswerk-kaart-overlay { display: none; }
 
   .leeswerk-bron {
     font-family: 'DM Sans', sans-serif;
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
     color: var(--pink);
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    flex-wrap: wrap;
+    display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
   }
-  .leeswerk-bron-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--pink); flex-shrink: 0; }
+  .leeswerk-bron-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--pink); flex-shrink: 0; }
 
   .leeswerk-quote {
     font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-weight: 900;
-    font-size: clamp(2rem, 4.6vw, 4.7rem);
-    line-height: 0.98;
-    color: var(--white);
-    letter-spacing: -0.045em;
-    max-width: 12ch;
-    text-wrap: balance;
+    font-style: italic; font-weight: 900;
+    font-size: clamp(1.4rem, 2.2vw, 2rem);
+    line-height: 1.25; color: var(--white);
+    letter-spacing: -0.02em;
   }
-  .leeswerk-quote::before { content: '\201C'; color: var(--pink); }
-  .leeswerk-quote::after { content: '\201D'; color: var(--pink); }
+  .leeswerk-quote::before { content: '\201C'; }
+  .leeswerk-quote::after { content: '\201D'; }
 
   .leeswerk-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
+    display: inline-flex; align-items: center; gap: 6px;
     font-family: 'DM Sans', sans-serif;
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: #fff;
-    background: rgba(255,60,172,0.18);
-    border: 1px solid rgba(255,60,172,0.55);
-    padding: 8px 16px;
-    border-radius: 100px;
-    text-decoration: none;
-    width: fit-content;
+    font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: #fff; background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 7px 14px; border-radius: 100px;
+    text-decoration: none; width: fit-content;
   }
-  .leeswerk-cta:hover { background: rgba(255,60,172,0.3); }
+  .leeswerk-cta:hover { background: rgba(255,255,255,0.22); }
+  .leeswerk-kaart-content { display: contents; }
 
+  /* Navigatie */
   .leeswerk-nav { display: flex; align-items: center; justify-content: space-between; margin-top: 14px; }
   .leeswerk-dots { display: flex; gap: 8px; align-items: center; }
   .leeswerk-dot {
@@ -1929,49 +1892,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   .leeswerk-arrow-btn:hover { background: rgba(255,255,255,0.14); }
 
-  @media (max-width: 900px) {
-    .leeswerk-kaart {
-      grid-template-columns: 1fr;
-      min-height: 560px;
-    }
-    .leeswerk-kaart-foto {
-      position: absolute;
-      inset: 0;
-      order: initial;
-    }
-    .leeswerk-kaart-overlay {
-      background: linear-gradient(180deg,
-        rgba(20,20,20,0.06) 0%,
-        rgba(20,20,20,0.38) 36%,
-        rgba(20,20,20,0.94) 72%,
-        #141414 100%
-      );
-    }
-    .leeswerk-kaart-tekst {
-      justify-content: flex-end;
-      min-height: 560px;
-      padding: clamp(1.6rem, 6vw, 3rem);
-    }
-    .leeswerk-quote {
-      max-width: 13ch;
-      font-size: clamp(2rem, 9vw, 4rem);
-    }
-  }
-
+  /* Mobiel: foto boven, tekst onder */
   @media (max-width: 700px) {
-    .leeswerk-sectie { padding-left: 1.2rem; padding-right: 1.2rem; }
-    .leeswerk-slider { border-radius: 14px; }
-    .leeswerk-kaart { min-height: 500px; }
-    .leeswerk-kaart-tekst { min-height: 500px; padding: 1.5rem; }
-    .leeswerk-bron { font-size: 9px; letter-spacing: 0.08em; }
-    .leeswerk-quote { font-size: clamp(1.8rem, 10vw, 3.2rem); line-height: 1.02; max-width: 12ch; }
-    .leeswerk-arrow-btn { width: 34px; height: 34px; }
-  }
-
-  @media (max-width: 420px) {
-    .leeswerk-kaart { min-height: 470px; }
-    .leeswerk-kaart-tekst { min-height: 470px; }
-    .leeswerk-quote { font-size: clamp(1.65rem, 9vw, 2.6rem); }
+    .leeswerk-sectie { padding-right: clamp(1.2rem, 4vw, 3rem); }
+    .leeswerk-kaart { grid-template-columns: 1fr; grid-template-rows: 200px auto; }
+    .leeswerk-kaart-foto { height: 200px; }
+    .leeswerk-kaart-foto::after { background: linear-gradient(180deg, rgba(20,20,20,0) 0%, rgba(20,20,20,0.6) 100%); }
+    .leeswerk-kaart-tekst { padding: 1.4rem; }
+    .leeswerk-quote { font-size: clamp(1.2rem, 5vw, 1.6rem); }
   }
 
   /* ── STUDENTEN SECTIE ── */
@@ -2572,6 +2500,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       padding: 1.2rem 1.4rem !important;
     }
   }
+
+  @media (max-width: 700px) {
+    .studenten-sectie {
+      padding: clamp(1.2rem, 3vw, 1.8rem) clamp(1.2rem, 4vw, 3rem);
+    }
+    .studenten-cards {
+      grid-template-columns: 1fr;
+    }
+  }
 </style>
 </head>
 <body>
@@ -2733,6 +2670,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="leeswerk-kaarten" id="leeswerk-kaarten">
       <div class="leeswerk-kaart">
         <div class="leeswerk-kaart-foto">
+          <img class="leeswerk-kaart-img" src="/images/storythomas.jpg" loading="lazy">
+        </div>
+        <div class="leeswerk-kaart-overlay"></div>
+        <div class="leeswerk-kaart-tekst">
+          <div class="leeswerk-bron">Sander Janssens <div class="leeswerk-bron-dot"></div> de Volkskrant <div class="leeswerk-bron-dot"></div> 5 minuten</div>
+          <div class="leeswerk-quote">Weinig is zo wonderschoon én angstaanjagend als het oneindige potentieel van de seconde vóór het begin</div>
+          <a href="https://www.volkskrant.nl/theater/de-mindfuck-before-the-story-starts-is-een-hoogtepunt-op-theaterfestival-oerol~b4145311/" class="leeswerk-cta" target="_blank" onclick="event.stopPropagation()">Lees het artikel →</a>
+        </div>
+      </div>
+      <div class="leeswerk-kaart">
+        <div class="leeswerk-kaart-foto">
           <img class="leeswerk-kaart-img" src="/images/entr.jpg" loading="lazy">
         </div>
         <div class="leeswerk-kaart-overlay"></div>
@@ -2764,17 +2712,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <a href="https://www.groene.nl/artikel/een-gezamenlijke-droom" class="leeswerk-cta" target="_blank" onclick="event.stopPropagation()">Lees het artikel →</a>
         </div>
       </div>
-    </div>
+        </div>
   </div>
   <div class="leeswerk-nav">
     <div class="leeswerk-dots">
       <button class="leeswerk-dot active" onclick="leeswerkGo(0)"></button>
       <button class="leeswerk-dot" onclick="leeswerkGo(1)"></button>
       <button class="leeswerk-dot" onclick="leeswerkGo(2)"></button>
+      <button class="leeswerk-dot" onclick="leeswerkGo(3)"></button>
     </div>
     <div class="leeswerk-arrows">
       <button class="leeswerk-arrow-btn" onclick="leeswerkGo(Math.max(0, leeswerkCurrent-1))">‹</button>
-      <button class="leeswerk-arrow-btn" onclick="leeswerkGo(Math.min(2, leeswerkCurrent+1))">›</button>
+      <button class="leeswerk-arrow-btn" onclick="leeswerkGo(Math.min(3, leeswerkCurrent+1))">›</button>
     </div>
   </div>
 </section>
@@ -2815,18 +2764,18 @@ let activeFilter = 'all';
 
 const events = [
   {
-    naam: { nl: "Still Processing", en: "Still Processing" },
-    startDag: 7, startMaandNr: 2, eindDag: 30, eindMaandNr: 6,
-    startMaand: { nl: "Feb", en: "Feb" },
-    eindDatum: { nl: "30 Jun", en: "Jun 30" },
-    maker: "Curated by Bogomir Doringer",
-    duur: "90 min", handig: "Taal geen probleem",
-    logline: { nl: "Still Processing onderzoekt hoe mensen en technologie data omzetten in betekenis.", en: "Still Processing explores how people and technology translate data into meaning." },
-    beschrijving: { nl: "Still Processing onderzoekt hoe mensen en technologie data omzetten in betekenis. Hoe navigeren we tussen het rationele en het emotionele? Verspreid over zeven grootschalige, immersieve installaties en drie kleinere ruimtes.", en: "Still Processing explores how people and technology translate data into meaning. How do we navigate between the rational and the emotional? Spread across seven large-scale, immersive installations and three smaller transitional spaces." },
-    stad: "Amsterdam", locatie: "NXT Museum",
-    types: ["Tentoonstelling", "Digitale kunst", "Immersieve installaties"],
-    foto: "/images/stillprocessing.jpg",
-    link: "https://nxtmuseum.com/artist/duration-boris-acket",
+    naam: { nl: "Immersive Dome at 3x3 Festival", en: "Immersive Dome at 3x3 Festival" },
+    startDag: 19, startMaandNr: 6, eindDag: 21, eindMaandNr: 6,
+    startMaand: { nl: "Jun", en: "Jun" },
+    eindDatum: { nl: "21 Jun", en: "Jun 21" },
+    maker: "Tellart & Odido",
+    duur: "15 min", handig: "50 personen tegelijk",
+    logline: { nl: "Art x Sport. Tellart viert het 10-jarig jubileum van 3x3 United met een 360° dome-experience voor 50 mensen tegelijk.", en: "Art x Sport. Tellart celebrates the 10-year anniversary of 3x3 United with a 360° dome experience for 50 people at a time." },
+    beschrijving: { nl: "Een 360° experience, waar kunst, sport en community samenkomen. Geniet daarnaast van Dome Raves met jonge DJ's.", en: "A 360° experience where art, sport and community come together. Also enjoy Dome Raves with young DJs." },
+    stad: "Amsterdam", locatie: "NDSM",
+    types: ["Dome"],
+    foto: "/images/tellart.jpeg",
+    link: "https://www.3x3unites.com/pro-events/3x3-festival",
     uitgelicht: false
   },
   {
@@ -2860,96 +2809,6 @@ const events = [
     uitgelicht: false
   },
   {
-    verseTip: true, naam: { nl: "House of Love", en: "House of Love" },
-    startDag: 8, startMaandNr: 5, eindDag: 28, eindMaandNr: 6,
-    startMaand: { nl: "Mei", en: "May" },
-    eindDatum: { nl: "28 Jun", en: "Jun 28" },
-    maker: "Jort Faber",
-    duur: null, handig: null,
-    logline: { nl: "Een Romeo-en-Juliet-geïnspireerd immersief danstheater", en: "Romeo-and-Juliet-inspired immersive dance theatre" },
-    beschrijving: { nl: "House of Love is immersief danstheater geïnspireerd op het klassieke verhaal van Romeo en Juliet. Stap in het House of Love en kijk waar dit avontuur jou brengt. Alles zien is onmogelijk: je moet keuzes maken over wat je te zien krijgt.", en: "House of Love is immersive dance theatre inspired by the classic story of Romeo and Juliet. Step inside and see where this adventure takes you. Seeing everything is impossible — you have to make choices." },
-    stad: "Hoorn", locatie: "Hoorn",
-    types: ["Performatief", "Immersief theater"],
-    foto: "/images/houseoflove.jpg",
-    link: "https://houseoflove.info/en/",
-    uitgelicht: false
-  },
-  {
-    naam: { nl: "Ferryman Collective Classics", en: "Ferryman Collective Classics" },
-    startDag: 9, startMaandNr: 5, eindDag: 28, eindMaandNr: 6,
-    startMaand: { nl: "Mei", en: "May" },
-    eindDatum: { nl: "28 Jun", en: "Jun 28" },
-    maker: "Ferryman Collective",
-    duur: "75 min", handig: "Deelnemen is key",
-    logline: { nl: "Vier klassiekers uit het oeuvre van het beroemde Ferryman Collective — online te beleven in VR Chat.", en: "During May and June the infamous Ferryman Collective reruns four classics from their oeuvre." },
-    beschrijving: { nl: "Je hebt een draadloze Meta Quest 2, 3, 3s, Pro nodig, of een PCVR-headset verbonden met een computer.", en: "You will need an untethered Meta Quest 2, 3, 3s, Pro, or a PCVR HMD tethered to a computer." },
-    stad: "Online", locatie: "VR Chat — Virtual world",
-    types: ["XR", "Performatief", "Sociaal"],
-    foto: "/images/wiilii.jpg",
-    link: "https://www.ferrymancollective.com/now-showing",
-    uitgelicht: false
-  },
-  {
-    naam: { nl: "Amsterdam 1652", en: "Amsterdam 1652" },
-    startDag: 21, startMaandNr: 5, eindDag: 31, eindMaandNr: 12,
-    startMaand: { nl: "Mei", en: "May" },
-    eindDatum: { nl: "31 Dec 2028", en: "Dec 31 2028" },
-    maker: "Nienke Huitenga Broeren & ENTR",
-    duur: "45 min", handig: "Vanaf 8+ · NL en EN",
-    logline: { nl: "Loop samen door het Amsterdam van de 17e eeuw, gezien door de ogen van een gewone Amsterdammer. Zie het IJ, de Dam en de nieuwe brugh en ontdek hoe mensen leefden, werkten en samenkwamen.", en: "Walk together through 17th-century Amsterdam through the eyes of an ordinary Amsterdammer. See the IJ, the Dam and the nieuwe brugh, and discover how people lived, worked and came together." },
-    beschrijving: { nl: "De ervaring is ontworpen om samen te beleven. Bezoekers bewegen gelijktijdig door dezelfde virtuele wereld en maken samen de reis door de stad. Zo ontstaat een gedeelde ervaring waarin je niet alleen naar geschiedenis kijkt, maar er middenin staat.", en: "The experience is designed to be shared. Visitors move simultaneously through the same virtual world, making the journey through the city together — not just observing history, but standing right in the middle of it." },
-    stad: "Amsterdam", locatie: "ENTR",
-    types: ["XR"],
-    foto: "/images/kade.jpeg",
-    link: "https://entrmuseum.com/",
-    uitgelicht: true
-  },
-  {
-    naam: { nl: "Conversations", en: "Conversations" },
-    startDag: 4, startMaandNr: 6, eindDag: 6, eindMaandNr: 6,
-    startMaand: { nl: "Jun", en: "Jun" },
-    eindDatum: { nl: "6 Jun", en: "Jun 6" },
-    maker: "Paul Boereboom & Leon Rogissart",
-    duur: null, handig: null,
-    logline: { nl: "Zintuiglijke XR-performance waarin beweging, muziek en technologie samensmelten.", en: "A sensory XR performance in which movement, music and technology merge." },
-    beschrijving: { nl: "Conversations is een gelaagde ontmoeting tussen fysieke en digitale realiteiten. Met behulp van extended reality vloeien tastbare en virtuele werelden in elkaar over.", en: "Conversations is a layered encounter between physical and digital realities. Using extended reality, tangible and virtual worlds merge." },
-    stad: "Amsterdam", locatie: "Frascati",
-    types: ["XR", "Performatief"],
-    foto: "/images/conversations.png",
-    link: "https://www.frascatitheater.nl/nl/agenda/conversations-n1vr",
-    uitgelicht: false
-  },
-  {
-    verseTip: true, naam: { nl: "William Forsythe – Choreographic Objects", en: "William Forsythe – Choreographic Objects" },
-    startDag: 6, startMaandNr: 6, eindDag: 23, eindMaandNr: 8,
-    startMaand: { nl: "Jun", en: "Jun" },
-    eindDatum: { nl: "23 Aug", en: "Aug 23" },
-    maker: "William Forsythe",
-    duur: "Take your time", handig: "Interactie gestimuleerd, niet verplicht",
-    logline: { nl: "De wereldberoemde choreograaf William Forsythe nodigt je uit om niet alleen te kijken, maar vooral te doen — elk object schept een situatie waarin beweging de belangrijkste manier is om het werk te ervaren.", en: "World-renowned choreographer William Forsythe invites you not just to look, but above all to act — each object creates a situation in which movement is the primary way to experience the work." },
-    beschrijving: { nl: "'Het lichaam is een denkend instrument', aldus William Forsythe. Zijn Choreographic Objects vormen een reeks stellingen: elk object vormt een situatie waarin beweging de belangrijkste manier is om het te ervaren. Bij Voorlinden nodigt Forsythe je uit om te experimenteren, te reageren en te ontdekken hoe je lichaam door middel van beweging denkt.", en: "'The body is a thinking instrument', says William Forsythe. His Choreographic Objects form a series of propositions: each object creates a situation in which movement is the primary way to experience it. At Voorlinden, Forsythe invites you to experiment, respond and discover how your body thinks through movement." },
-    stad: "Wassenaar", locatie: "Voorlinden",
-    types: ["Immersieve installaties", "Interactief", "Tentoonstelling"],
-    foto: "/images/voorlindenforsythe.jpg",
-    link: "https://www.voorlinden.nl/tentoonstelling/william-forsythe/",
-    uitgelicht: false
-  },
-  {
-    naam: { nl: "Messages to a Posthuman Earth", en: "Messages to a Posthuman Earth" },
-    startDag: 10, startMaandNr: 6, eindDag: 1, eindMaandNr: 7,
-    startMaand: { nl: "Jun", en: "Jun" },
-    eindDatum: { nl: "1 Jul", en: "Jul 1" },
-    maker: "Anagram",
-    duur: "45 min", handig: "English spoken",
-    logline: { nl: "Een interactieve, multi-sensorische audioreis voor twee door een tuin om jullie relatie met de natuur te herdenken.", en: "An interactive, multi-sensory audio journey for two through a garden to reimagine your relationship with the natural world." },
-    beschrijving: { nl: "In een echte tuin ontdekken jij en je partner dat de natuur een hoorend, levend wezen is. Audio-vertelling en AR-content nodigen uit tot bezinning op de levende omgeving.", en: "In a real garden, you and your partner discover that the natural world is a hearing, living thing. Audio narration and AR content invite musing on the living environment and a future world without humans." },
-    stad: "Amsterdam", locatie: "Vondelpark",
-    types: ["Geluid", "In de natuur", "Performatief", "Audiowalk"],
-    foto: "/images/anagram.jpg",
-    link: "https://www.idfa.nl/en/cinema/d3f5f4cb-b838-47cf-9162-fa7d1ca9615e/messages-to-a-post-human-earth/",
-    uitgelicht: false
-  },
-  {
     naam: { nl: "Only Expansion", en: "Only Expansion" },
     startDag: 10, startMaandNr: 6, eindDag: 24, eindMaandNr: 6,
     startMaand: { nl: "Jun", en: "Jun" },
@@ -2962,66 +2821,6 @@ const events = [
     types: ["Audiowalk", "Stad", "Geluid"],
     foto: "/images/1920.jpg",
     link: "https://www.idfa.nl/en/cinema/d633afe6-c489-4ee8-bfad-c30b91e5f15f/only-expansion/",
-    uitgelicht: false
-  },
-  {
-    naam: { nl: "Before the Story Starts", en: "Before the Story Starts" },
-    startDag: 12, startMaandNr: 6, eindDag: 31, eindMaandNr: 10,
-    startMaand: { nl: "Jun", en: "Jun" },
-    eindDatum: { nl: "31 Okt", en: "Oct 31" },
-    maker: "Urland",
-    duur: "90 min", handig: "Vanaf 12+",
-    logline: { nl: "Een experimentele, immersieve one-man performance op de drempel voordat een verhaal begint.", en: "An experimental, immersive one-man performance on the threshold before a story begins." },
-    beschrijving: { nl: "This is not the start of the story, we haven't started yet. What do you need to know? Before we start? We don't know why. We can guess, but we don't know. We never will. The elusive Why.", en: "This is not the start of the story, we haven't started yet. What do you need to know? Before we start? We don't know why. We can guess, but we don't know. We never will. The elusive Why." },
-    stad: "Meerdere locaties", locatie: "Oerol, Nijmegen, Bergen op Zoom, Amsterdam, Den Haag, Den Bosch",
-    types: ["Performatief", "Audio driven immersion"],
-    foto: "/images/urlandstorybeginsv2.png",
-    link: "https://urland.nl/project/before-the-story-starts",
-    uitgelicht: false
-  },
-  {
-    naam: { nl: "Nothing to See: Acousmatische Muziek in 4D Geluid", en: "Nothing to See: Acousmatic Music in 4D Sound" },
-    startDag: 17, startMaandNr: 6, eindDag: 17, eindMaandNr: 6,
-    startMaand: { nl: "Jun", en: "Jun" },
-    eindDatum: null,
-    maker: "4D Sound / Conservatorium van Amsterdam",
-    duur: null, handig: "Taal geen probleem",
-    logline: { nl: "NXT Museum en het Conservatorium van Amsterdam organiseren een ruimtelijke geluidsperformance, verzorgd door masterstudenten Immersive Audio.", en: "NXT Museum and the Conservatory of Amsterdam present a spatial sound performance by Immersive Audio master students." },
-    beschrijving: { nl: "Studenten blazen de Acousmatic Music-uitvoeringspraktijk nieuw leven in via 4DSOUND. Op het programma: Natasha Barrett, Francis Dhomont, Jonty Harrison en Marcel Wierckx. Deuren open 20:00, performance start 20:30.", en: "Students revive the Acousmatic Music performance tradition using 4DSOUND. Programme: Natasha Barrett, Francis Dhomont, Jonty Harrison and Marcel Wierckx. Doors open 20:00, performance starts 20:30." },
-    stad: "Amsterdam", locatie: "NXT Museum",
-    types: ["Audio driven immersion", "Muziek", "Spatial"],
-    foto: "/images/nxtmuseum4dsound.jpg",
-    link: "https://nxtmuseum.com/event/nothing-to-see-acousmatic-music-in-4dsound",
-    uitgelicht: false
-  },
-  {
-    naam: { nl: "Dreamscapes", en: "Dreamscapes" },
-    startDag: 19, startMaandNr: 6, eindDag: 19, eindMaandNr: 6,
-    startMaand: { nl: "Jun", en: "Jun" },
-    eindDatum: null,
-    maker: "Anna van Nieukerken, Claire Adams, Els Mondelaers, Jacqueline Hamelink",
-    duur: "75 min", handig: "Taal geen probleem",
-    logline: { nl: "Dreamscapes is een intieme immersieve performance waarin nieuwe muziek, beweging en zintuiglijke ervaring samensmelten.", en: "Dreamscapes is an intimate immersive performance in which new music, movement and sensory experience merge into a space where we can dream." },
-    beschrijving: { nl: "Vertrekkend vanuit John Cage's In a Landscape ontvouwt zich een gelaagd klank- en bewegingslandschap. Vier performers gidsen maximaal 50 bezoekers door een cyclische droomwereld.", en: "Departing from John Cage's In a Landscape, four performers guide up to 50 visitors through a cyclical dream world where sound, light, scent and touch come together." },
-    stad: "Nijmegen", locatie: "Stevenskerk",
-    types: ["Zintuiglijk", "Muziek", "Performatief"],
-    foto: "/images/dreamscapes.jpg",
-    link: "https://soundingbodies.com/voorstelling/dreamscapes",
-    uitgelicht: false
-  },
-  {
-    naam: { nl: "Immersive Dome at 3x3 Festival", en: "Immersive Dome at 3x3 Festival" },
-    startDag: 19, startMaandNr: 6, eindDag: 21, eindMaandNr: 6,
-    startMaand: { nl: "Jun", en: "Jun" },
-    eindDatum: { nl: "21 Jun", en: "Jun 21" },
-    maker: "Tellart & Odido",
-    duur: "15 min", handig: "50 personen tegelijk",
-    logline: { nl: "Art x Sport. Tellart viert het 10-jarig jubileum van 3x3 United met een 360° dome-experience voor 50 mensen tegelijk.", en: "Art x Sport. Tellart celebrates the 10-year anniversary of 3x3 United with a 360° dome experience for 50 people at a time." },
-    beschrijving: { nl: "Een 360° experience, waar kunst, sport en community samenkomen. Geniet daarnaast van Dome Raves met jonge DJ's.", en: "A 360° experience where art, sport and community come together. Also enjoy Dome Raves with young DJs." },
-    stad: "Amsterdam", locatie: "NDSM",
-    types: ["Dome"],
-    foto: "/images/tellart.jpeg",
-    link: "https://www.3x3unites.com/pro-events/3x3-festival",
     uitgelicht: false
   },
   {
@@ -3055,33 +2854,78 @@ const events = [
     uitgelicht: true
   },
   {
-    naam: { nl: "Traversing the Mist", en: "Traversing the Mist" },
-    startDag: 12, startMaandNr: 7, eindDag: 27, eindMaandNr: 7,
-    startMaand: { nl: "Jul", en: "Jul" },
-    eindDatum: { nl: "27 Jul", en: "Jul 27" },
-    maker: "CHOU Tung-yen",
-    duur: "35 min", handig: "Vanaf 16+",
-    logline: { nl: "In een surreëel gay-saunacomplex vind je jezelf belichaamd in het lichaam van een jonge Taiwanese man — geweven door verlangens, opwinding en angsten.", en: "Inside a surreal gay sauna, you find yourself embodied in the body of a young Taiwanese man — woven by desires, excitements, and fears." },
-    beschrijving: { nl: "Terwijl je elke verdieping, gang en kamer doorloopt, valt elke laag van het labyrint onomkeerbaar uiteen. Wereldpremière IDFA DocLAB 2023, Grand Prize NewImages Paris.", en: "As you walk along every floor, corridor and room, each layer irreversibly unravels. World première IDFA DocLAB 2023, Grand Prize NewImages Paris." },
-    stad: "Amsterdam", locatie: "Podium Mozaïek",
-    types: ["XR", "Performatief"],
-    foto: "/images/traversing.png",
-    link: "https://www.podiummozaiek.nl/programma/details/tm-11972-7f94019f/traversing-the-mist-16",
+    verseTip: true, naam: { nl: "House of Love", en: "House of Love" },
+    startDag: 8, startMaandNr: 5, eindDag: 28, eindMaandNr: 6,
+    startMaand: { nl: "Mei", en: "May" },
+    eindDatum: { nl: "28 Jun", en: "Jun 28" },
+    maker: "Jort Faber",
+    duur: null, handig: null,
+    logline: { nl: "Een Romeo-en-Juliet-geïnspireerd immersief danstheater", en: "Romeo-and-Juliet-inspired immersive dance theatre" },
+    beschrijving: { nl: "House of Love is immersief danstheater geïnspireerd op het klassieke verhaal van Romeo en Juliet. Stap in het House of Love en kijk waar dit avontuur jou brengt. Alles zien is onmogelijk: je moet keuzes maken over wat je te zien krijgt.", en: "House of Love is immersive dance theatre inspired by the classic story of Romeo and Juliet. Step inside and see where this adventure takes you. Seeing everything is impossible — you have to make choices." },
+    stad: "Hoorn", locatie: "Hoorn",
+    types: ["Performatief", "Immersief theater"],
+    foto: "/images/houseoflove.jpg",
+    link: "https://houseoflove.info/en/",
     uitgelicht: false
   },
   {
-    naam: { nl: "Drift", en: "Drift" },
-    startDag: 14, startMaandNr: 7, eindDag: 31, eindMaandNr: 8,
+    naam: { nl: "Ferryman Collective Classics", en: "Ferryman Collective Classics" },
+    startDag: 9, startMaandNr: 5, eindDag: 28, eindMaandNr: 6,
+    startMaand: { nl: "Mei", en: "May" },
+    eindDatum: { nl: "28 Jun", en: "Jun 28" },
+    maker: "Ferryman Collective",
+    duur: "75 min", handig: "Deelnemen is key",
+    logline: { nl: "Vier klassiekers uit het oeuvre van het beroemde Ferryman Collective — online te beleven in VR Chat.", en: "During May and June the infamous Ferryman Collective reruns four classics from their oeuvre." },
+    beschrijving: { nl: "Je hebt een draadloze Meta Quest 2, 3, 3s, Pro nodig, of een PCVR-headset verbonden met een computer.", en: "You will need an untethered Meta Quest 2, 3, 3s, Pro, or a PCVR HMD tethered to a computer." },
+    stad: "Online", locatie: "VR Chat — Virtual world",
+    types: ["XR", "Performatief", "Sociaal"],
+    foto: "/images/wiilii.jpg",
+    link: "https://www.ferrymancollective.com/now-showing",
+    uitgelicht: false
+  },
+  {
+    naam: { nl: "Still Processing", en: "Still Processing" },
+    startDag: 7, startMaandNr: 2, eindDag: 30, eindMaandNr: 6,
+    startMaand: { nl: "Feb", en: "Feb" },
+    eindDatum: { nl: "30 Jun", en: "Jun 30" },
+    maker: "Curated by Bogomir Doringer",
+    duur: "90 min", handig: "Taal geen probleem",
+    logline: { nl: "Still Processing onderzoekt hoe mensen en technologie data omzetten in betekenis.", en: "Still Processing explores how people and technology translate data into meaning." },
+    beschrijving: { nl: "Still Processing onderzoekt hoe mensen en technologie data omzetten in betekenis. Hoe navigeren we tussen het rationele en het emotionele? Verspreid over zeven grootschalige, immersieve installaties en drie kleinere ruimtes.", en: "Still Processing explores how people and technology translate data into meaning. How do we navigate between the rational and the emotional? Spread across seven large-scale, immersive installations and three smaller transitional spaces." },
+    stad: "Amsterdam", locatie: "NXT Museum",
+    types: ["Tentoonstelling", "Digitale kunst", "Immersieve installaties"],
+    foto: "/images/stillprocessing.jpg",
+    link: "https://nxtmuseum.com/artist/duration-boris-acket",
+    uitgelicht: false
+  },
+  {
+    naam: { nl: "Messages to a Posthuman Earth", en: "Messages to a Posthuman Earth" },
+    startDag: 10, startMaandNr: 6, eindDag: 1, eindMaandNr: 7,
+    startMaand: { nl: "Jun", en: "Jun" },
+    eindDatum: { nl: "1 Jul", en: "Jul 1" },
+    maker: "Anagram",
+    duur: "45 min", handig: "English spoken",
+    logline: { nl: "Een interactieve, multi-sensorische audioreis voor twee door een tuin om jullie relatie met de natuur te herdenken.", en: "An interactive, multi-sensory audio journey for two through a garden to reimagine your relationship with the natural world." },
+    beschrijving: { nl: "In een echte tuin ontdekken jij en je partner dat de natuur een hoorend, levend wezen is. Audio-vertelling en AR-content nodigen uit tot bezinning op de levende omgeving.", en: "In a real garden, you and your partner discover that the natural world is a hearing, living thing. Audio narration and AR content invite musing on the living environment and a future world without humans." },
+    stad: "Amsterdam", locatie: "Vondelpark",
+    types: ["Geluid", "In de natuur", "Performatief", "Audiowalk"],
+    foto: "/images/anagram.jpg",
+    link: "https://www.idfa.nl/en/cinema/d3f5f4cb-b838-47cf-9162-fa7d1ca9615e/messages-to-a-post-human-earth/",
+    uitgelicht: false
+  },
+  {
+    verseTip: true, naam: { nl: "Opstand", en: "Opstand" },
+    startDag: 12, startMaandNr: 7, eindDag: 13, eindMaandNr: 7,
     startMaand: { nl: "Jul", en: "Jul" },
-    eindDatum: { nl: "31 Aug", en: "Aug 31" },
-    maker: "Merel uit de Machine & VPRO Medialab",
-    duur: "Volgt het ritme van de maan", handig: "Gratis · English spoken",
-    logline: { nl: "Een generatieve audio-ervaring over zeespiegelstijging en AI — een podcast die geen podcast is.", en: "A generative audio experience about rising sea levels and AI — a podcast that is not a podcast." },
-    beschrijving: { nl: "Drift koppelt de zeespiegelstijging en klimaatcrisis aan de opkomst van AI in een generatieve audio-ervaring. De verhaalwereld combineert verbeelding met feitelijke bronnen zoals realtimeweersvoorspellingen van het KNMI.", en: "Drift links rising sea levels and the climate crisis to the rise of AI in a generative audio experience. The story world combines imagination with factual sources including real-time weather forecasts from KNMI." },
-    stad: "Online", locatie: "In je podcast app",
-    types: ["Audio driven immersion", "Generatief"],
-    foto: "/images/drift-cover-v2.png",
-    link: "https://www.merel.club/drift/",
+    eindDatum: { nl: "13 Jul", en: "Jul 13" },
+    maker: "Marte Boneschansker",
+    duur: "60 min", handig: "Nederlands gesproken",
+    logline: { nl: "Een theatrale audio-voorstelling en collectieve oefening in verzet. Ontdek de rebel in jezelf.", en: "A theatrical audio performance and collective exercise in resistance. Discover the rebel in yourself." },
+    beschrijving: { nl: "Van massademonstraties tot klein, stil protest: verzet is onderdeel van ons menszijn. OPSTAND is een hoopvolle poging het stille midden in beweging te krijgen. Wie vormt de tegenkracht? Wanneer zeg jij nee? Je hébt invloed. Het heeft zin.", en: "From mass demonstrations to quiet protest: resistance is part of being human. OPSTAND is a hopeful attempt to get the silent majority moving. Who forms the counterforce? When do you say no? You have influence. It matters." },
+    stad: "Utrecht", locatie: "Stadsschouwburg Utrecht",
+    types: ["Immersief theater", "Performatief", "Spatial", "Audio driven immersion"],
+    foto: "/images/opstand.jpg",
+    link: "https://stadsschouwburg-utrecht.nl/agenda/seizoen-2025-2026/opstand-company-marte-boneschansker",
     uitgelicht: false
   },
   {
@@ -3115,6 +2959,51 @@ const events = [
     uitgelicht: false
   },
   {
+    naam: { nl: "Traversing the Mist", en: "Traversing the Mist" },
+    startDag: 12, startMaandNr: 7, eindDag: 27, eindMaandNr: 7,
+    startMaand: { nl: "Jul", en: "Jul" },
+    eindDatum: { nl: "27 Jul", en: "Jul 27" },
+    maker: "CHOU Tung-yen",
+    duur: "35 min", handig: "Vanaf 16+",
+    logline: { nl: "In een surreëel gay-saunacomplex vind je jezelf belichaamd in het lichaam van een jonge Taiwanese man — geweven door verlangens, opwinding en angsten.", en: "Inside a surreal gay sauna, you find yourself embodied in the body of a young Taiwanese man — woven by desires, excitements, and fears." },
+    beschrijving: { nl: "Terwijl je elke verdieping, gang en kamer doorloopt, valt elke laag van het labyrint onomkeerbaar uiteen. Wereldpremière IDFA DocLAB 2023, Grand Prize NewImages Paris.", en: "As you walk along every floor, corridor and room, each layer irreversibly unravels. World première IDFA DocLAB 2023, Grand Prize NewImages Paris." },
+    stad: "Amsterdam", locatie: "Podium Mozaïek",
+    types: ["XR", "Performatief"],
+    foto: "/images/traversing.png",
+    link: "https://www.podiummozaiek.nl/programma/details/tm-11972-7f94019f/traversing-the-mist-16",
+    uitgelicht: false
+  },
+  {
+    verseTip: true, naam: { nl: "William Forsythe – Choreographic Objects", en: "William Forsythe – Choreographic Objects" },
+    startDag: 6, startMaandNr: 6, eindDag: 23, eindMaandNr: 8,
+    startMaand: { nl: "Jun", en: "Jun" },
+    eindDatum: { nl: "23 Aug", en: "Aug 23" },
+    maker: "William Forsythe",
+    duur: "Take your time", handig: "Interactie gestimuleerd, niet verplicht",
+    logline: { nl: "De wereldberoemde choreograaf William Forsythe nodigt je uit om niet alleen te kijken, maar vooral te doen — elk object schept een situatie waarin beweging de belangrijkste manier is om het werk te ervaren.", en: "World-renowned choreographer William Forsythe invites you not just to look, but above all to act — each object creates a situation in which movement is the primary way to experience the work." },
+    beschrijving: { nl: "'Het lichaam is een denkend instrument', aldus William Forsythe. Zijn Choreographic Objects vormen een reeks stellingen: elk object vormt een situatie waarin beweging de belangrijkste manier is om het te ervaren. Bij Voorlinden nodigt Forsythe je uit om te experimenteren, te reageren en te ontdekken hoe je lichaam door middel van beweging denkt.", en: "'The body is a thinking instrument', says William Forsythe. His Choreographic Objects form a series of propositions: each object creates a situation in which movement is the primary way to experience it. At Voorlinden, Forsythe invites you to experiment, respond and discover how your body thinks through movement." },
+    stad: "Wassenaar", locatie: "Voorlinden",
+    types: ["Immersieve installaties", "Interactief", "Tentoonstelling"],
+    foto: "/images/voorlindenforsythe.jpg",
+    link: "https://www.voorlinden.nl/tentoonstelling/william-forsythe/",
+    uitgelicht: false
+  },
+  {
+    naam: { nl: "Drift", en: "Drift" },
+    startDag: 14, startMaandNr: 7, eindDag: 31, eindMaandNr: 8,
+    startMaand: { nl: "Jul", en: "Jul" },
+    eindDatum: { nl: "31 Aug", en: "Aug 31" },
+    maker: "Merel uit de Machine & VPRO Medialab",
+    duur: "Volgt het ritme van de maan", handig: "Gratis · English spoken",
+    logline: { nl: "Een generatieve audio-ervaring over zeespiegelstijging en AI — een podcast die geen podcast is.", en: "A generative audio experience about rising sea levels and AI — a podcast that is not a podcast." },
+    beschrijving: { nl: "Drift koppelt de zeespiegelstijging en klimaatcrisis aan de opkomst van AI in een generatieve audio-ervaring. De verhaalwereld combineert verbeelding met feitelijke bronnen zoals realtimeweersvoorspellingen van het KNMI.", en: "Drift links rising sea levels and the climate crisis to the rise of AI in a generative audio experience. The story world combines imagination with factual sources including real-time weather forecasts from KNMI." },
+    stad: "Online", locatie: "In je podcast app",
+    types: ["Audio driven immersion", "Generatief"],
+    foto: "/images/drift-cover-v2.png",
+    link: "https://www.merel.club/drift/",
+    uitgelicht: false
+  },
+  {
     naam: { nl: "Dreamscapes", en: "Dreamscapes" },
     startDag: 20, startMaandNr: 9, eindDag: 20, eindMaandNr: 9,
     startMaand: { nl: "Sep", en: "Sep" },
@@ -3130,19 +3019,34 @@ const events = [
     uitgelicht: false
   },
   {
-    verseTip: true, naam: { nl: "Opstand", en: "Opstand" },
-    startDag: 12, startMaandNr: 7, eindDag: 13, eindMaandNr: 7,
-    startMaand: { nl: "Jul", en: "Jul" },
-    eindDatum: { nl: "13 Jul", en: "Jul 13" },
-    maker: "Marte Boneschansker",
-    duur: "60 min", handig: "Nederlands gesproken",
-    logline: { nl: "Een theatrale audio-voorstelling en collectieve oefening in verzet. Ontdek de rebel in jezelf.", en: "A theatrical audio performance and collective exercise in resistance. Discover the rebel in yourself." },
-    beschrijving: { nl: "Van massademonstraties tot klein, stil protest: verzet is onderdeel van ons menszijn. OPSTAND is een hoopvolle poging het stille midden in beweging te krijgen. Wie vormt de tegenkracht? Wanneer zeg jij nee? Je hébt invloed. Het heeft zin.", en: "From mass demonstrations to quiet protest: resistance is part of being human. OPSTAND is a hopeful attempt to get the silent majority moving. Who forms the counterforce? When do you say no? You have influence. It matters." },
-    stad: "Utrecht", locatie: "Stadsschouwburg Utrecht",
-    types: ["Immersief theater", "Performatief", "Spatial", "Audio driven immersion"],
-    foto: "/images/opstand.jpg",
-    link: "https://stadsschouwburg-utrecht.nl/agenda/seizoen-2025-2026/opstand-company-marte-boneschansker",
+    naam: { nl: "Before the Story Starts", en: "Before the Story Starts" },
+    startDag: 12, startMaandNr: 6, eindDag: 31, eindMaandNr: 10,
+    startMaand: { nl: "Jun", en: "Jun" },
+    eindDatum: { nl: "31 Okt", en: "Oct 31" },
+    maker: "Urland",
+    duur: "90 min", handig: "Vanaf 12+",
+    logline: { nl: "Een experimentele, immersieve one-man performance op de drempel voordat een verhaal begint.", en: "An experimental, immersive one-man performance on the threshold before a story begins." },
+    beschrijving: { nl: "This is not the start of the story, we haven't started yet. What do you need to know? Before we start? We don't know why. We can guess, but we don't know. We never will. The elusive Why.", en: "This is not the start of the story, we haven't started yet. What do you need to know? Before we start? We don't know why. We can guess, but we don't know. We never will. The elusive Why." },
+    stad: "Meerdere locaties", locatie: "Oerol, Nijmegen, Bergen op Zoom, Amsterdam, Den Haag, Den Bosch",
+    types: ["Performatief", "Audio driven immersion"],
+    foto: "/images/urlandstorybeginsv2.png",
+    link: "https://urland.nl/project/before-the-story-starts",
     uitgelicht: false
+  },
+  {
+    naam: { nl: "Amsterdam 1652", en: "Amsterdam 1652" },
+    startDag: 21, startMaandNr: 5, eindDag: 31, eindMaandNr: 12,
+    startMaand: { nl: "Mei", en: "May" },
+    eindDatum: { nl: "31 Dec 2028", en: "Dec 31 2028" },
+    maker: "Nienke Huitenga Broeren & ENTR",
+    duur: "45 min", handig: "Vanaf 8+ · NL en EN",
+    logline: { nl: "Loop samen door het Amsterdam van de 17e eeuw, gezien door de ogen van een gewone Amsterdammer. Zie het IJ, de Dam en de nieuwe brugh en ontdek hoe mensen leefden, werkten en samenkwamen.", en: "Walk together through 17th-century Amsterdam through the eyes of an ordinary Amsterdammer. See the IJ, the Dam and the nieuwe brugh, and discover how people lived, worked and came together." },
+    beschrijving: { nl: "De ervaring is ontworpen om samen te beleven. Bezoekers bewegen gelijktijdig door dezelfde virtuele wereld en maken samen de reis door de stad. Zo ontstaat een gedeelde ervaring waarin je niet alleen naar geschiedenis kijkt, maar er middenin staat.", en: "The experience is designed to be shared. Visitors move simultaneously through the same virtual world, making the journey through the city together — not just observing history, but standing right in the middle of it." },
+    stad: "Amsterdam", locatie: "ENTR",
+    types: ["XR"],
+    foto: "/images/kade.jpeg",
+    link: "https://entrmuseum.com/",
+    uitgelicht: true
   }
 ];
 
@@ -3865,19 +3769,6 @@ const studentenEvents = [
     duur: "30 - 60 min"
   },
   {
-    naam: { nl: "Emergence Festival Rotterdam", en: "Emergence Festival Rotterdam" },
-    maker: "TU Delft & WDKA",
-    startDag: 19, startMaandNr: 6, eindDag: 19, eindMaandNr: 6,
-    startMaand: { nl: "Jun", en: "Jun" },
-    eindDatum: null,
-    stad: "Rotterdam", locatie: "Katoenhuis",
-    logline: { nl: "Een dag festival met interactieve installaties van studenten TU Delft & WDKA, onder het thema Outside the Lines.", en: "A one-day festival with interactive installations by TU Delft & WDKA students, under the theme Outside the Lines." },
-    beschrijving: { nl: "Je beweegt vrij door een reeks interactieve kunstinstallaties die verkennen hoe technologie, systemen en netwerken onze omgeving en samenleving vormgeven. Naast de expo is er muziek, eten & drinken en ruimte voor gesprek aan het water.", en: "Move freely through a series of interactive art installations exploring how technology, systems and networks shape our environment. Alongside the exhibition: music, food & drinks, and space for conversation by the water." },
-    foto: "/images/emergence.png",
-    link: "https://www.katoenhuis.nl/event/outside-the-lines-%E2%80%94-emergence-festival-rotterdam-2026",
-    duur: "10 - 45 min"
-  },
-  {
     naam: { nl: "Showcase Immersive Media", en: "Showcase Immersive Media" },
     maker: "Nederlandse Filmacademie",
     startDag: 29, startMaandNr: 6, eindDag: 1, eindMaandNr: 7,
@@ -3888,19 +3779,6 @@ const studentenEvents = [
     beschrijving: { nl: "Centraal staat het afstudeerwerk Van Max Slot: Voor het te laat is. Daarnaast presenteren de tweede- en derdejaarsstudenten per klas eigen werk. Maandag 29 jun 17:00–20:00, dinsdag 30 jun & woensdag 1 jul 11:00–20:00.", en: "Central is the graduation work of Max Slot: Voor het te laat is. Second- and third-year students also present class work. Mon Jun 29 17:00–20:00, Tue Jun 30 & Wed Jul 1 11:00–20:00." },
     foto: "/images/showcaseAHK.jpg",
     link: "https://www.mailinglijst.nl/mailings/show.aspx?mai=209146&mem=12167&a=12765572&hash=59D568E0CA5E5EB382FAEAD0D8DA74FEC162BCEFD2D51E42BDAF31A37E7B57D3",
-    duur: "10 - 45 min"
-  },
-  {
-    naam: { nl: "Expo Minor Immersive Environments", en: "Expo Minor Immersive Environments" },
-    maker: "Studenten HvA i.s.m. Max Cooper, Anima & Het Nederlands Watermuseum",
-    startDag: 19, startMaandNr: 6, eindDag: 19, eindMaandNr: 6,
-    startMaand: { nl: "Jun", en: "Jun" },
-    eindDatum: null,
-    stad: "Amsterdam", locatie: "Treehouse NDSM",
-    logline: { nl: "Duik in de baanbrekende installaties van studenten van de minor Immersive Environments aan de Hogeschool van Amsterdam.", en: "Dive into the groundbreaking installations by students of the minor Immersive Environments at the Amsterdam University of Applied Sciences." },
-    beschrijving: { nl: "Studenten presenteren samen met de minor Emerging Tech VR-projecten. Samenwerkingspartners: Max Cooper, Anima en Another Kind of Blue. De expo toont zelfontworpen immersieve prototypes — interactieve installaties die de digitale en fysieke wereld verbinden via licht, sensoren, geluid en projectietechnieken.", en: "Students present VR projects together with the Emerging Tech minor. Partners include Max Cooper, Anima and Another Kind of Blue. The expo showcases self-designed immersive prototypes — interactive installations linking the digital and physical world through light, sensors, sound and projection." },
-    foto: "/images/minorimmersive.jpg",
-    link: "http://ispace.amsterdam/expo",
     duur: "10 - 45 min"
   }
 ];
@@ -4135,79 +4013,6 @@ setInterval(updateHemellichaam, 60000);
   border: none !important;
   color: #ffffff !important;
 }
-
-
-  /* ── BOEIEND LEESWERK FIX v2: quote niet afsnijden ── */
-  @media (min-width: 701px) {
-    .leeswerk-slider {
-      border-radius: 10px !important;
-      background: #1A1A1A !important;
-      border: 1px solid rgba(255,255,255,0.12) !important;
-    }
-
-    .leeswerk-kaart {
-      height: clamp(520px, 42vw, 660px) !important;
-      min-height: 520px !important;
-    }
-
-    .leeswerk-kaart-img {
-      object-position: center center !important;
-    }
-
-    .leeswerk-kaart-overlay {
-      background: linear-gradient(90deg,
-        rgba(20,20,20,1) 0%,
-        rgba(20,20,20,0.96) 28%,
-        rgba(20,20,20,0.68) 52%,
-        rgba(20,20,20,0.12) 76%,
-        rgba(20,20,20,0) 100%
-      ) !important;
-    }
-
-    .leeswerk-kaart-tekst {
-      top: 50% !important;
-      bottom: auto !important;
-      left: 0 !important;
-      transform: translateY(-50%) !important;
-      width: min(62%, 820px) !important;
-      padding: clamp(2rem, 4vw, 3.8rem) !important;
-      gap: 12px !important;
-    }
-
-    .leeswerk-quote {
-      font-weight: 900 !important;
-      font-size: clamp(2.1rem, 3.35vw, 3.75rem) !important;
-      line-height: 1.08 !important;
-      letter-spacing: -0.035em !important;
-      max-width: 17ch !important;
-      margin-bottom: 1.1rem !important;
-      text-wrap: balance !important;
-    }
-
-    .leeswerk-bron {
-      margin-bottom: 0.4rem !important;
-    }
-  }
-
-  @media (max-width: 700px) {
-    .leeswerk-kaart {
-      height: auto !important;
-      min-height: 520px !important;
-    }
-
-    .leeswerk-kaart-tekst {
-      bottom: 0 !important;
-      top: auto !important;
-      transform: none !important;
-      padding: 1.35rem !important;
-    }
-
-    .leeswerk-quote {
-      font-size: clamp(1.7rem, 8.2vw, 2.75rem) !important;
-      line-height: 1.08 !important;
-      max-width: 14ch !important;
-    }
-  }
 </style>
 
 </body>
