@@ -2421,14 +2421,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
   }
 
-/* Mobiel: verberg alle Lees Meer knoppen */
+
+/* Mobiel: verberg alle Lees Meer / Lees het artikel knoppen */
 @media (max-width:700px){
   .card-leesmeer,
   .studenten-card-leesmeer,
   .mc-leesmeer,
-  .lees-meer {
+  .lees-meer,
+  .leeswerk-cta {
     display:none !important;
   }
+}
+
+.leeswerk-img-link {
+  display:block;
+  width:100%;
+  height:100%;
+  text-decoration:none;
+}
+.leeswerk-img-link img {
+  width:100%;
+  height:100%;
 }
 
 </style>
@@ -2597,7 +2610,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <a href="https://www.volkskrant.nl/theater/de-mindfuck-before-the-story-starts-is-een-hoogtepunt-op-theaterfestival-oerol~b4145311/" class="leeswerk-cta" target="_blank" onclick="event.stopPropagation()">Lees het artikel →</a>
         </div>
         <div class="leeswerk-kaart-foto">
-          <img class="leeswerk-kaart-img" src="/images/storythomas.jpg" loading="lazy">
+          <a href="https://www.volkskrant.nl/theater/de-mindfuck-before-the-story-starts-is-een-hoogtepunt-op-theaterfestival-oerol~b4145311/" target="_blank" class="leeswerk-img-link"><img class="leeswerk-kaart-img" src="/images/storythomas.jpg" loading="lazy"></a>
         </div>
         <div class="leeswerk-kaart-overlay"></div>
       </div>
@@ -2608,7 +2621,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <a href="https://filmkrant.nl/artikel/nieuw-vr-museum-entr-geopend-in-amsterdam/" class="leeswerk-cta" target="_blank" onclick="event.stopPropagation()">Lees het artikel →</a>
         </div>
         <div class="leeswerk-kaart-foto">
-          <img class="leeswerk-kaart-img" src="/images/entr.jpg" loading="lazy">
+          <a href="https://filmkrant.nl/artikel/nieuw-vr-museum-entr-geopend-in-amsterdam/" target="_blank" class="leeswerk-img-link"><img class="leeswerk-kaart-img" src="/images/entr.jpg" loading="lazy"></a>
         </div>
         <div class="leeswerk-kaart-overlay"></div>
       </div>
@@ -2619,7 +2632,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <a href="https://www.theaterkrant.nl/tm-artikel/allesomvattend-immersief-theater/" class="leeswerk-cta" target="_blank" onclick="event.stopPropagation()">Lees het artikel →</a>
         </div>
         <div class="leeswerk-kaart-foto">
-          <img class="leeswerk-kaart-img" src="/images/theaterkrant.jpg" loading="lazy">
+          <a href="https://www.theaterkrant.nl/tm-artikel/allesomvattend-immersief-theater/" target="_blank" class="leeswerk-img-link"><img class="leeswerk-kaart-img" src="/images/theaterkrant.jpg" loading="lazy"></a>
         </div>
         <div class="leeswerk-kaart-overlay"></div>
       </div>
@@ -2630,7 +2643,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <a href="https://www.groene.nl/artikel/een-gezamenlijke-droom" class="leeswerk-cta" target="_blank" onclick="event.stopPropagation()">Lees het artikel →</a>
         </div>
         <div class="leeswerk-kaart-foto">
-          <img class="leeswerk-kaart-img" src="/images/kruip2.jpeg" loading="lazy">
+          <a href="https://www.groene.nl/artikel/een-gezamenlijke-droom" target="_blank" class="leeswerk-img-link"><img class="leeswerk-kaart-img" src="/images/kruip2.jpeg" loading="lazy"></a>
         </div>
         <div class="leeswerk-kaart-overlay"></div>
       </div>
