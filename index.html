@@ -901,7 +901,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .uitgelicht { display: none; }
     /* Verberg tip sectie op mobiel (zit in mobile-cards) */
     .tip-sectie { display: none; }
-    /* Studenten sectie zichtbaar op mobiel, onder leeswerk */
+    /* Studenten sectie zichtbaar op mobiel, onder leeswerk — display blijft default */
   }
   }
 
@@ -1907,13 +1907,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .leeswerk-sectie { padding-right: clamp(1.2rem, 4vw, 3rem); }
     .leeswerk-kaart {
       grid-template-columns: 1fr;
-      grid-template-rows: 180px auto;
+      grid-template-rows: 160px auto;
+      height: auto;
     }
+    .leeswerk-kaart-foto { height: 160px; }
     .leeswerk-kaart-tekst {
-      padding: 1.4rem;
+      padding: 1.2rem 1.4rem;
       justify-content: flex-start;
+      height: auto;
     }
-    .leeswerk-quote { font-size: clamp(1.1rem, 5vw, 1.4rem); }
+    .leeswerk-quote { font-size: clamp(1rem, 4.5vw, 1.3rem); }
   }
 
   /* ── STUDENTEN SECTIE ── */
@@ -3466,41 +3469,8 @@ function buildMobileCards() {
     '<span class="mc-tipline-tag">&#10022; Tipline</span>' +
     '<span class="mc-tipline-cta">' + tipTekst + '</span>' +
   '</div>';
-  // Studenten sectie als uitklapbare kaarten op mobiel
-  html += '<div class="mc-studenten-wrap">' +
-    '<div class="mc-studenten" onclick="toggleMCStudenten()">' +
-      '<div style="display:flex;align-items:center;gap:6px;flex:1;">' +
-        studentenEvents.map(function(se) {
-          return se.foto
-            ? '<div style="width:30px;height:30px;border-radius:50%;overflow:hidden;border:1.5px solid rgba(226,239,112,0.5);flex-shrink:0;"><img src="' + se.foto + '" style="width:100%;height:100%;object-fit:cover;"></div>'
-            : '<div style="width:30px;height:30px;border-radius:50%;background:#1A1A1A;border:1.5px solid rgba(226,239,112,0.3);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:Fraunces,serif;font-style:italic;font-size:0.8rem;color:#E2EF70;">' + se.naam[huidigeTaal][0] + '</div>';
-        }).join('') +
-        '<div class="mc-studenten-pill" style="font-size:11px;padding:8px 18px 8px 12px;margin-left:4px;"><div class="dot"></div>' + studentenTekst + '</div>' +
-      '</div>' +
-      '<span class="mc-studenten-arrow" id="mc-studenten-arrow">&#8250;</span>' +
-    '</div>' +
-    '<div class="mc-studenten-content" id="mc-studenten-content">' +
-      studentenEvents.map(function(se) {
-        var img = se.foto
-          ? '<div class="mc-stucard-img"><img src="' + se.foto + '" loading="lazy"></div>'
-          : '<div class="mc-stucard-img"><div class="mc-stucard-ph">' + se.naam[huidigeTaal][0] + '</div></div>';
-        var datum = se.startDag + ' ' + se.startMaand[huidigeTaal] + (se.eindDatum ? ' — ' + se.eindDatum[huidigeTaal] : '');
-        var meerInfo = huidigeTaal === 'nl' ? 'Meer info →' : 'More info →';
-        return '<div class="mc-stucard">' +
-          img +
-          '<div class="mc-stucard-body">' +
-            '<div class="mc-stucard-maker">' + se.maker + '</div>' +
-            '<div class="mc-stucard-title">' + se.naam[huidigeTaal] + '</div>' +
-            '<div class="mc-stucard-logline">' + se.logline[huidigeTaal] + '</div>' +
-            '<div class="mc-stucard-meta">' + datum + ' · ' + se.stad + (se.duur ? ' · ' + se.duur : '') + '</div>' +
-          '</div>' +
-          (se.link ? '<a href="' + se.link + '" class="mc-stucard-link" target="_blank">' + meerInfo + '</a>' : '') +
-        '</div>';
-      }).join('') +
-    '</div>' +
-  '</div>';
 
-  grid.innerHTML = html;
+    grid.innerHTML = html;
 
   // Bouw mobiele filterbalk
   buildMobileFilter();
