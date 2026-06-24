@@ -2591,7 +2591,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <script>
-let huidigeTaal = 'nl';
+let huidigeTaal = window.location.search.indexOf('lang=en') !== -1 ? 'en' : 'nl';
 let activeFilter = 'all';
 
 const events = [
@@ -3848,20 +3848,7 @@ function updateHemellichaam() {
 updateHemellichaam();
 setInterval(updateHemellichaam, 60000);
 
-// Auto-taal op basis van ?lang=en
-(function() {
-  var isEn = window.location.search.indexOf('lang=en') !== -1;
-  if (!isEn) return;
-  // Meteen instellen
-  huidigeTaal = 'en';
-  // En nogmaals na render voor zekerheid
-  setTimeout(function() {
-    var btns = document.querySelectorAll('.lang-btn');
-    var enBtn = null;
-    btns.forEach(function(b) { if (b.textContent.trim() === 'EN') enBtn = b; });
-    if (enBtn) setLang('en', enBtn);
-  }, 100);
-})();
+
 
 </script>
 
