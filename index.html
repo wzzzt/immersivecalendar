@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Immersieve Kunst Agenda — versie 21 juni 2026 | studio zzzap | immersievekunstagenda.nl -->
+<!-- Immersieve Kunst Agenda — versie 24 juni 2026 | studio zzzap | immersievekunstagenda.nl -->
 <html lang="nl">
 <head>
 <!-- Google Tag Manager -->
@@ -899,8 +899,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     /* Verberg uitgelicht sectie op mobiel (zit in mobile-cards) */
     .uitgelicht { display: none; }
-    /* Verberg tip sectie op mobiel (zit in mobile-cards) */
-    .tip-sectie { display: none; }
+    .tip-sectie { display: none; } /* verborgen op mobiel, mc-tipline in mobile-cards doet het werk */
     /* Studenten sectie zichtbaar op mobiel, onder leeswerk — display blijft default */
   }
   }
@@ -1916,7 +1915,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       justify-content: flex-start;
       height: auto;
     }
-    .leeswerk-quote { font-size: clamp(1rem, 4.5vw, 1.3rem); }
+    .leeswerk-quote { font-size: clamp(0.85rem, 3.8vw, 1.1rem); }
   }
 
   /* ── STUDENTEN SECTIE ── */
@@ -2420,46 +2419,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       grid-template-columns: 1fr;
     }
   }
-
-
-/* Mobiel: verberg alle Lees Meer / Lees het artikel knoppen */
-@media (max-width:700px){
-  .card-leesmeer,
-  .studenten-card-leesmeer,
-  .mc-leesmeer,
-  .lees-meer,
-  .leeswerk-cta {
-    display:none !important;
-  }
-}
-
-.leeswerk-img-link {
-  display:block;
-  width:100%;
-  height:100%;
-  text-decoration:none;
-}
-.leeswerk-img-link img {
-  width:100%;
-  height:100%;
-}
-
-
-/* Leeswerk polish: consistente titels + Before the Story beeld iets lager */
-.leeswerk-werk {
-  text-transform: uppercase;
-}
-
-.leeswerk-img-before-story {
-  object-position: center 62% !important;
-}
-
-@media (max-width:700px){
-  .leeswerk-img-before-story {
-    object-position: center 68% !important;
-  }
-}
-
 </style>
 </head>
 <body>
@@ -2621,23 +2580,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="leeswerk-kaarten" id="leeswerk-kaarten">
       <div class="leeswerk-kaart">
         <div class="leeswerk-kaart-tekst">
-          <div class="leeswerk-werk">BEFORE THE STORY BEGINS - URLAND</div><div class="leeswerk-bron">Sander Janssens <div class="leeswerk-bron-dot"></div> de Volkskrant <div class="leeswerk-bron-dot"></div> 5 minuten</div>
+          <div class="leeswerk-werk">Before the Story Starts</div><div class="leeswerk-bron">Sander Janssens <div class="leeswerk-bron-dot"></div> de Volkskrant <div class="leeswerk-bron-dot"></div> 5 minuten</div>
           <div class="leeswerk-quote">Weinig is zo wonderschoon én angstaanjagend als het oneindige potentieel van de seconde vóór het begin</div>
           <a href="https://www.volkskrant.nl/theater/de-mindfuck-before-the-story-starts-is-een-hoogtepunt-op-theaterfestival-oerol~b4145311/" class="leeswerk-cta" target="_blank" onclick="event.stopPropagation()">Lees het artikel →</a>
         </div>
         <div class="leeswerk-kaart-foto">
-          <a href="https://www.volkskrant.nl/theater/de-mindfuck-before-the-story-starts-is-een-hoogtepunt-op-theaterfestival-oerol~b4145311/" target="_blank" class="leeswerk-img-link"><img class="leeswerk-kaart-img leeswerk-img-before-story" src="/images/storythomas.jpg" loading="lazy"></a>
+          <img class="leeswerk-kaart-img" src="/images/storythomas.jpg" loading="lazy">
         </div>
         <div class="leeswerk-kaart-overlay"></div>
       </div>
       <div class="leeswerk-kaart">
         <div class="leeswerk-kaart-tekst">
-          <div class="leeswerk-werk">AMSTERDAM 1652 - ENTR</div><div class="leeswerk-bron">Dana Linssen <div class="leeswerk-bron-dot"></div> Filmkrant <div class="leeswerk-bron-dot"></div> 7 minuten</div>
+          <div class="leeswerk-werk">Amsterdam 1652 / ENTR</div><div class="leeswerk-bron">Dana Linssen <div class="leeswerk-bron-dot"></div> Filmkrant <div class="leeswerk-bron-dot"></div> 7 minuten</div>
           <div class="leeswerk-quote">VR heeft een huis nodig, zoals film een bioscoop</div>
           <a href="https://filmkrant.nl/artikel/nieuw-vr-museum-entr-geopend-in-amsterdam/" class="leeswerk-cta" target="_blank" onclick="event.stopPropagation()">Lees het artikel →</a>
         </div>
         <div class="leeswerk-kaart-foto">
-          <a href="https://filmkrant.nl/artikel/nieuw-vr-museum-entr-geopend-in-amsterdam/" target="_blank" class="leeswerk-img-link"><img class="leeswerk-kaart-img" src="/images/entr.jpg" loading="lazy"></a>
+          <img class="leeswerk-kaart-img" src="/images/entr.jpg" loading="lazy">
         </div>
         <div class="leeswerk-kaart-overlay"></div>
       </div>
@@ -2648,7 +2607,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <a href="https://www.theaterkrant.nl/tm-artikel/allesomvattend-immersief-theater/" class="leeswerk-cta" target="_blank" onclick="event.stopPropagation()">Lees het artikel →</a>
         </div>
         <div class="leeswerk-kaart-foto">
-          <a href="https://www.theaterkrant.nl/tm-artikel/allesomvattend-immersief-theater/" target="_blank" class="leeswerk-img-link"><img class="leeswerk-kaart-img" src="/images/theaterkrant.jpg" loading="lazy"></a>
+          <img class="leeswerk-kaart-img" src="/images/theaterkrant.jpg" loading="lazy">
         </div>
         <div class="leeswerk-kaart-overlay"></div>
       </div>
@@ -2659,7 +2618,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <a href="https://www.groene.nl/artikel/een-gezamenlijke-droom" class="leeswerk-cta" target="_blank" onclick="event.stopPropagation()">Lees het artikel →</a>
         </div>
         <div class="leeswerk-kaart-foto">
-          <a href="https://www.groene.nl/artikel/een-gezamenlijke-droom" target="_blank" class="leeswerk-img-link"><img class="leeswerk-kaart-img" src="/images/kruip2.jpeg" loading="lazy"></a>
+          <img class="leeswerk-kaart-img" src="/images/kruip2.jpeg" loading="lazy">
         </div>
         <div class="leeswerk-kaart-overlay"></div>
       </div>
@@ -2730,14 +2689,14 @@ const events = [
     uitgelicht: false
   },
   {
-    uitgelicht: false, naam: { nl: "A Long Goodbye", en: "A Long Goodbye" },
+    naam: { nl: "A Long Goodbye", en: "A Long Goodbye" },
     startDag: 30, startMaandNr: 4, eindDag: 24, eindMaandNr: 6,
     startMaand: { nl: "Apr", en: "Apr" },
     eindDatum: { nl: "24 Jun", en: "Jun 24" },
     maker: "Kate Voet & Victor Maes",
     duur: "30 min", handig: "Onderdeel van XR tour NU:REALITY",
     logline: { nl: "Het prijswinnende A Long Goodbye vertelt het verhaal van Ida, een 72-jarige pianiste met dementie.", en: "Award-winning A Long Goodbye tells the story of Ida, a 72-year-old pianist living with dementia." },
-    beschrijving: { nl: "In deze geanimeerde, interactieve VR-ervaring stappen we in haar wereld en beleven we een dag uit haar leven, terwijl haar grip op de realiteit langzaam vervaagt. Herinneringen en gesprekken helpen Ida zichzelf stukje bij beetje terug te vinden. Een poëtische ervaring over de impact van dementie, maar bovenal een verhaal over liefde.", en: "In this animated, interactive VR experience we step into her world and experience a day in her life as her grip on reality slowly fades. A poetic experience about the impact of dementia, but above all a story about love." },
+    beschrijving: { nl: "In deze geanimeerde, interactieve VR-ervaring stappen we in haar wereld en beleven we een dag uit haar leven, terwijl haar grip op de realiteit langzaam vervaagt. Een poëtische ervaring over de impact van dementie, maar bovenal een verhaal over liefde.", en: "In this animated, interactive VR experience we step into her world and experience a day in her life as her grip on reality slowly fades. A poetic experience about the impact of dementia, but above all a story about love." },
     stad: "Randstad & Enschede, Nijmegen, Eindhoven", locatie: "NU:REALITY tour",
     types: ["XR"],
     foto: "/images/LONGGOODBYE.jpg",
@@ -2752,12 +2711,12 @@ const events = [
     maker: "NU:Reality tour",
     duur: "20-30 min", handig: "XR vertoond in bioscopen",
     logline: { nl: "Met een VR-bril stap je schilderijen binnen en reis je door de verbeelding van kunstenaars als Caravaggio, Edvard Munch en Henri Matisse.", en: "With a VR headset you step inside paintings and travel through the imagination of artists like Caravaggio, Edvard Munch and Henri Matisse." },
-    beschrijving: { nl: "Werelden ontvouwen zich en reageren op je aanwezigheid, terwijl kleur, beweging en emotie tastbaar worden. Te ervaren op 7 locaties: Droog Amsterdam, LUX Nijmegen, Schuur Haarlem, Natlab Eindhoven, Concordia Enschede, Slachtstraat Utrecht, LantarenVenster Rotterdam.", en: "Worlds unfold and react to your presence, as colour, movement and emotion become tangible. Available at 7 locations across the Netherlands." },
+    beschrijving: { nl: "Werelden ontvouwen zich en reageren op je aanwezigheid, terwijl kleur, beweging en emotie tastbaar worden. Te ervaren op 7 locaties.", en: "Worlds unfold and react to your presence, as colour, movement and emotion become tangible. Available at 7 locations across the Netherlands." },
     stad: "7 locaties NL", locatie: "Droog, LUX, Schuur, Natlab, Concordia, Slachtstraat, LantarenVenster",
     types: ["XR"],
     foto: "/images/NUREALITY.jpg",
     link: "https://nureality.eu/nl/actueel/",
-    uitgelicht: false
+    uitgelicht: true
   },
   {
     naam: { nl: "Only Expansion", en: "Only Expansion" },
@@ -2790,7 +2749,7 @@ const events = [
     uitgelicht: false
   },
   {
-    uitgelicht: true, naam: { nl: "A Possibility", en: "A Possibility" },
+    uitgelicht: false, naam: { nl: "A Possibility", en: "A Possibility" },
     startDag: 25, startMaandNr: 6, eindDag: 26, eindMaandNr: 6,
     startMaand: { nl: "Jun", en: "Jun" },
     eindDatum: { nl: "26 Jun", en: "Jun 26" },
@@ -2802,7 +2761,7 @@ const events = [
     types: ["Performatief", "Licht", "Theater", "Installatie"],
     foto: "/images/apossibility.jpg",
     link: "https://www.plt.nl/programma/germaine-kruip-a-possibility-holland-festival/26-06-2026-20-00",
-    uitgelicht: true
+    uitgelicht: false
   },
   {
     verseTip: true, naam: { nl: "House of Love", en: "House of Love" },
@@ -2848,6 +2807,21 @@ const events = [
     foto: "/images/stillprocessing.jpg",
     link: "https://nxtmuseum.com/artist/duration-boris-acket",
     uitgelicht: false
+  },
+  {
+    naam: { nl: "exec.DEUS", en: "exec.DEUS" },
+    startDag: 1, startMaandNr: 6, eindDag: 30, eindMaandNr: 6,
+    startMaand: { nl: "Jun", en: "Jun" },
+    eindDatum: { nl: "30 Jun", en: "Jun 30" },
+    maker: "Urland",
+    duur: "5 - 15 min", handig: "Engels gesproken",
+    logline: { nl: "In een biechtbox vol AI beken je je zonden aan exec.DEUS — een kunstmatige intelligentie die zich oefent in goddelijkheid.", en: "Enter a confessional booth inhabited by an AI. exec.DEUS rehearses divinity — all it needs are your sins." },
+    beschrijving: { nl: "exec.DEUS is een intieme, performatieve installatie in de vorm van een biechtbox bewoond door een kunstmatige intelligentie. De bezoeker knielt en gaat via de biecht een intiem gesprek aan met deze A.I. over schuld, twijfel, zonde, verantwoordelijkheid, geloof en goddelijkheid.", en: "exec.DEUS is an intimate, one-person, performative installation in the form of a confessional booth inhabited by an artificial intelligence. The visitor kneels and, through confession, enters a one-on-one conversation with this A.I. about guilt, doubt, sin, responsibility, faith, absolution and divinity." },
+    stad: "Rotterdam", locatie: "Centrale Bibliotheek",
+    types: ["Installatie", "Interactief", "AI-driven"],
+    foto: "/images/execdeus.png",
+    link: "https://urland.nl/project/exec-deus/",
+    uitgelicht: true
   },
   {
     naam: { nl: "Messages to a Posthuman Earth", en: "Messages to a Posthuman Earth" },
@@ -2997,7 +2971,7 @@ const events = [
     types: ["XR"],
     foto: "/images/kade.jpeg",
     link: "https://entrmuseum.com/",
-    uitgelicht: true
+    uitgelicht: false
   }
 ];
 
@@ -3080,6 +3054,8 @@ const typeVertalingen = {
     "Spatial": "Spatial",
     "Artist talk": "Artist talk",
     "Dome": "Dome",
+    "Installatie": "Installation",
+    "AI-driven": "AI-driven",
   },
   en: {
     "XR": "XR",
@@ -3101,6 +3077,8 @@ const typeVertalingen = {
     "Spatial": "Spatial",
     "Artist talk": "Artist talk",
     "Dome": "Dome",
+    "Installatie": "Installation",
+    "AI-driven": "AI-driven",
   }
 };
 
@@ -3227,7 +3205,7 @@ function render() {
   const nu2 = new Date();
   const actief = events.filter(e => {
     const eindJaar = (e.eindMaandNr < e.startMaandNr) ? nu2.getFullYear() + 1 : nu2.getFullYear();
-    const eindDatumCheck = new Date(eindJaar, e.eindMaandNr - 1, e.eindDag + 1); // +1 dag buffer
+    const eindDatumCheck = new Date(eindJaar, e.eindMaandNr - 1, e.eindDag + 2); // +2 dag buffer
     return eindDatumCheck >= nu2;
   });
 
@@ -3240,7 +3218,7 @@ function render() {
   const nuTeSien = filtered.filter(e => {
     const startDatum = new Date(nu.getFullYear(), e.startMaandNr - 1, e.startDag);
     const eindJaar = (e.eindMaandNr < e.startMaandNr) ? nu.getFullYear() + 1 : nu.getFullYear();
-    const eindDatum = new Date(eindJaar, e.eindMaandNr - 1, e.eindDag);
+    const eindDatum = new Date(eindJaar, e.eindMaandNr - 1, e.eindDag + 1);
     // Start deze maand of eerder, nog niet voorbij, start vóór volgende maand
     return startDatum < beginVolgende && eindDatum >= nu;
   });
@@ -3398,7 +3376,7 @@ function buildMobileCards() {
   var actief = events.filter(function(e) {
     var ej = (e.eindMaandNr < e.startMaandNr) ? nu.getFullYear() + 1 : nu.getFullYear();
     if (e.eindMaandNr === 12 && e.eindDag === 31) ej = 2028;
-    return new Date(ej, e.eindMaandNr - 1, e.eindDag + 1) >= nu;
+    return new Date(ej, e.eindMaandNr - 1, e.eindDag + 2) >= nu;
   });
 
   var isPeriodeFilter = activeFilter.indexOf('periode:') === 0;
@@ -3408,7 +3386,7 @@ function buildMobileCards() {
     var s = new Date(nu.getFullYear(), e.startMaandNr - 1, e.startDag);
     var ej = (e.eindMaandNr < e.startMaandNr) ? nu.getFullYear() + 1 : nu.getFullYear();
     if (e.eindMaandNr === 12 && e.eindDag === 31) ej = 2028;
-    return s < beginVolgende && new Date(ej, e.eindMaandNr - 1, e.eindDag) >= nu;
+    return s < beginVolgende && new Date(ej, e.eindMaandNr - 1, e.eindDag + 1) >= nu;
   });
 
   var binnenkort = filtered.filter(function(e) {
@@ -3657,10 +3635,11 @@ function toggleSpecialNR() {
 
 
 function scrollToTip(e) {
-  e.preventDefault();
-  var el = document.getElementById('tip-sectie');
-  if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-  // Open het formulier als het nog dicht is
+  if (e) e.preventDefault();
+  var tipSectie = document.getElementById('tip-sectie');
+  // Maak tip-sectie zichtbaar op mobiel
+  if (tipSectie) tipSectie.style.display = 'block';
+  // Open het formulier
   var wrap = document.getElementById('tip-form-wrap');
   var arrow = document.getElementById('tip-banner-arrow');
   var banner = document.querySelector('.tip-banner');
@@ -3669,6 +3648,10 @@ function scrollToTip(e) {
     if (arrow) arrow.classList.add('open');
     if (banner) banner.classList.add('open');
   }
+  // Dan scrollen
+  setTimeout(function() {
+    if (tipSectie) tipSectie.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 50);
 }
 
 
