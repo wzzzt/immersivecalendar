@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Immersieve Kunst Agenda — versie 16 juni 2026 | studio zzzap | immersievekunstagenda.nl -->
+<!-- Immersieve Kunst Agenda — versie 24 juni 2026 | studio zzzap | immersievekunstagenda.nl -->
 <html lang="nl">
 <head>
 <!-- Google Tag Manager -->
@@ -3848,17 +3848,19 @@ function updateHemellichaam() {
 updateHemellichaam();
 setInterval(updateHemellichaam, 60000);
 
-// Auto-taal op basis van ?lang=en parameter of hash
+// Auto-taal op basis van ?lang=en
 (function() {
-  var search = window.location.search;
-  var hash = window.location.hash;
-  var isEn = search.indexOf('lang=en') !== -1 || hash.indexOf('lang=en') !== -1;
-  if (isEn) {
+  var isEn = window.location.search.indexOf('lang=en') !== -1;
+  if (!isEn) return;
+  // Meteen instellen
+  huidigeTaal = 'en';
+  // En nogmaals na render voor zekerheid
+  setTimeout(function() {
     var btns = document.querySelectorAll('.lang-btn');
     var enBtn = null;
     btns.forEach(function(b) { if (b.textContent.trim() === 'EN') enBtn = b; });
     if (enBtn) setLang('en', enBtn);
-  }
+  }, 100);
 })();
 
 </script>
