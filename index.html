@@ -3848,11 +3848,18 @@ function updateHemellichaam() {
 updateHemellichaam();
 setInterval(updateHemellichaam, 60000);
 
-// Auto-taal op basis van domein — na init zodat alles correct rendert
-if (window.location.hostname.indexOf('immersiveartcalendar') !== -1) {
-  var enBtn = document.querySelector('.lang-btn:last-child');
-  if (enBtn) setLang('en', enBtn);
-}
+// Auto-taal op basis van ?lang=en parameter of hash
+(function() {
+  var search = window.location.search;
+  var hash = window.location.hash;
+  var isEn = search.indexOf('lang=en') !== -1 || hash.indexOf('lang=en') !== -1;
+  if (isEn) {
+    var btns = document.querySelectorAll('.lang-btn');
+    var enBtn = null;
+    btns.forEach(function(b) { if (b.textContent.trim() === 'EN') enBtn = b; });
+    if (enBtn) setLang('en', enBtn);
+  }
+})();
 
 </script>
 
