@@ -899,7 +899,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     /* Verberg uitgelicht sectie op mobiel (zit in mobile-cards) */
     .uitgelicht { display: none; }
-    .tip-sectie { display: none; } /* verborgen op mobiel, mc-tipline in mobile-cards doet het werk */
+    .tip-sectie { display: none; } /* verborgen op mobiel */
+    .tip-sectie.tip-mobiel-open { display: block !important; }
+    .tip-sectie.tip-mobiel-open ~ * .mc-tipline,
+    body.tip-open .mc-tipline { display: none !important; }
     /* Studenten sectie zichtbaar op mobiel, onder leeswerk — display blijft default */
   }
 
@@ -2424,6 +2427,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   @media (max-width: 700px) {
     .leeswerk-cta { display: none !important; }
   }
+
+  @media (max-width: 700px) {
+    body.tip-open .mc-tipline { display: none !important; }
+  }
 </style>
 </head>
 <body>
@@ -2583,7 +2590,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
   <div class="leeswerk-slider">
     <div class="leeswerk-kaarten" id="leeswerk-kaarten">
-      <div class="leeswerk-kaart">
+      <div class="leeswerk-kaart" style="cursor:pointer;" onclick="window.open('https://www.volkskrant.nl/theater/de-mindfuck-before-the-story-starts-is-een-hoogtepunt-op-theaterfestival-oerol~b4145311/','_blank')">
         <div class="leeswerk-kaart-tekst">
           <div class="leeswerk-werk">Before the Story Starts</div><div class="leeswerk-bron">Sander Janssens <div class="leeswerk-bron-dot"></div> de Volkskrant <div class="leeswerk-bron-dot"></div> 5 minuten</div>
           <div class="leeswerk-quote">Weinig is zo wonderschoon én angstaanjagend als het oneindige potentieel van de seconde vóór het begin</div>
@@ -2594,7 +2601,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <div class="leeswerk-kaart-overlay"></div>
       </div>
-      <div class="leeswerk-kaart">
+      <div class="leeswerk-kaart" style="cursor:pointer;" onclick="window.open('https://filmkrant.nl/artikel/nieuw-vr-museum-entr-geopend-in-amsterdam/','_blank')">
         <div class="leeswerk-kaart-tekst">
           <div class="leeswerk-werk">Amsterdam 1652 / ENTR</div><div class="leeswerk-bron">Dana Linssen <div class="leeswerk-bron-dot"></div> Filmkrant <div class="leeswerk-bron-dot"></div> 7 minuten</div>
           <div class="leeswerk-quote">VR heeft een huis nodig, zoals film een bioscoop</div>
@@ -2605,7 +2612,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <div class="leeswerk-kaart-overlay"></div>
       </div>
-      <div class="leeswerk-kaart">
+      <div class="leeswerk-kaart" style="cursor:pointer;" onclick="window.open('https://www.theaterkrant.nl/tm-artikel/allesomvattend-immersief-theater/','_blank')">
         <div class="leeswerk-kaart-tekst">
           <div class="leeswerk-werk">Over immersief theater</div><div class="leeswerk-bron">Marijke Hessels <div class="leeswerk-bron-dot"></div> Theaterkrant <div class="leeswerk-bron-dot"></div> 14 minuten</div>
           <div class="leeswerk-quote">Steeds meer makers omarmen immersieve strategieën — maar wat is die onderdompeling precies?</div>
@@ -2616,7 +2623,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <div class="leeswerk-kaart-overlay"></div>
       </div>
-      <div class="leeswerk-kaart">
+      <div class="leeswerk-kaart" style="cursor:pointer;" onclick="window.open('https://www.groene.nl/artikel/een-gezamenlijke-droom','_blank')">
         <div class="leeswerk-kaart-tekst">
           <div class="leeswerk-werk">A Possibility — Germaine Kruip</div><div class="leeswerk-bron">Roelof ten Napel <div class="leeswerk-bron-dot"></div> De Groene Amsterdammer <div class="leeswerk-bron-dot"></div> Essay</div>
           <div class="leeswerk-quote">Als een ervaring eenmaal etiketten heeft gekregen, haal je die moeilijk weer weg</div>
@@ -3641,46 +3648,26 @@ function toggleSpecialNR() {
 
 function scrollToTip(e) {
   if (e) e.preventDefault();
-  var isMobiel = window.innerWidth <= 700;
   var tipSectie = document.getElementById('tip-sectie');
   var wrap = document.getElementById('tip-form-wrap');
   var arrow = document.getElementById('tip-banner-arrow');
   var banner = document.querySelector('.tip-banner');
 
-  if (isMobiel) {
-    // Op mobiel: verberg tip-sectie, toon een modal overlay
-    if (!document.getElementById('tip-modal')) {
-      var modal = document.createElement('div');
-      modal.id = 'tip-modal';
-      modal.style.cssText = 'position:fixed;inset:0;z-index:2000;background:rgba(20,20,20,0.97);overflow-y:auto;padding:1.5rem 1.2rem 3rem;';
-      var sluitBtn = document.createElement('button');
-      sluitBtn.textContent = '×';
-      sluitBtn.style.cssText = 'position:sticky;top:0;float:right;font-size:24px;background:none;border:none;color:#fff;cursor:pointer;padding:4px 8px;';
-      sluitBtn.onclick = function() { document.getElementById('tip-modal').remove(); };
-      var inner = document.createElement('div');
-      inner.style.cssText = 'clear:both;padding-top:0.5rem;';
-      inner.innerHTML = document.getElementById('tip-sectie').innerHTML;
-      modal.appendChild(sluitBtn);
-      modal.appendChild(inner);
-      document.body.appendChild(modal);
-      // Herbind de form submit
-      var form = modal.querySelector('.tip-form');
-      if (form) form.onsubmit = verzendTip;
-      var banner2 = modal.querySelector('.tip-banner');
-      if (banner2) banner2.style.display = 'none';
-    }
-  } else {
-    // Desktop: scroll naar sectie en open formulier
-    if (tipSectie) tipSectie.style.display = '';
-    if (wrap && !wrap.classList.contains('open')) {
-      wrap.classList.add('open');
-      if (arrow) arrow.classList.add('open');
-      if (banner) banner.classList.add('open');
-    }
-    setTimeout(function() {
-      if (tipSectie) tipSectie.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 50);
+  // Zorg dat tip-sectie zichtbaar is (ook op mobiel)
+  if (tipSectie) {
+    tipSectie.classList.add('tip-mobiel-open');
+    document.body.classList.add('tip-open');
   }
+  // Open formulier
+  if (wrap && !wrap.classList.contains('open')) {
+    wrap.classList.add('open');
+    if (arrow) arrow.classList.add('open');
+    if (banner) banner.classList.add('open');
+  }
+  // Scroll ernaar toe
+  setTimeout(function() {
+    if (tipSectie) tipSectie.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 80);
 }
 
 
