@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Immersieve Kunst Agenda — versie 24 juni 2026 | studio zzzap | immersievekunstagenda.nl -->
+<!-- Immersieve Kunst Agenda — versie 16 juni 2026 | studio zzzap | immersievekunstagenda.nl -->
 <html lang="nl">
 <head>
 <!-- Google Tag Manager -->
@@ -2591,7 +2591,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <script>
-let huidigeTaal = window.location.search.indexOf('lang=en') !== -1 ? 'en' : 'nl';
+let huidigeTaal = (window.location.search.indexOf('lang=en') !== -1 || window.location.hash.indexOf('lang=en') !== -1) ? 'en' : 'nl';
 let activeFilter = 'all';
 
 const events = [
