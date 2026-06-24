@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Immersieve Kunst Agenda — versie 16 juni 2026 | studio zzzap | immersievekunstagenda.nl -->
+<!-- Immersieve Kunst Agenda — versie 24 juni 2026 | studio zzzap | immersievekunstagenda.nl -->
 <html lang="nl">
 <head>
 <!-- Google Tag Manager -->
@@ -2325,6 +2325,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   @media (max-width: 700px) {
     body.tip-open .mc-tipline { display: none !important; }
   }
+
+  /* ── BEEHIIV WIDGET ── */
+  .beehiiv-wrap {
+    margin-top: 0.5rem;
+  }
+  .beehiiv-wrap iframe,
+  [data-beehiiv-form],
+  script[data-beehiiv-form] + * {
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  /* Verberg de grote witte ruimte boven/onder het formulier */
+  .footer-nieuwsbrief script[src*="beehiiv"] {
+    display: block;
+    max-height: 80px;
+  }
 </style>
 </head>
 <body>
@@ -2566,7 +2582,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="footer-nieuwsbrief">
     <strong id="nieuwsbrief-titel">Nieuwsbrief</strong>
     <p id="nieuwsbrief-tekst">Ontvang een maandelijks overzicht van nieuwe immersieve experiences in jouw mailbox.</p>
-    <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="385b1af3-4b8b-41c5-abd1-2e9c12176ac2"></script>
+    <div class="beehiiv-wrap"><script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="385b1af3-4b8b-41c5-abd1-2e9c12176ac2"></script></div>
   </div>
 </footer>
 <div class="footer-bottom" id="footer-bottom">
@@ -3779,6 +3795,38 @@ function leeswerkGo(n) {
       else if (diff < 0 && leeswerkCurrent > 0) leeswerkGo(leeswerkCurrent - 1);
     }
   }, {passive: true});
+})();
+
+
+// Style Beehiiv iframe zodra die laadt
+(function() {
+  function styleBeehiiv() {
+    var iframes = document.querySelectorAll('iframe[src*="beehiiv"]');
+    iframes.forEach(function(iframe) {
+      iframe.style.borderRadius = '6px';
+      iframe.style.border = 'none';
+      // Probeer de hoogte te beperken
+      iframe.style.maxHeight = '80px';
+      iframe.style.minHeight = '60px';
+    });
+  }
+  var observer = new MutationObserver(styleBeehiiv);
+  observer.observe(document.body, { childList: true, subtree: true });
+  setTimeout(styleBeehiiv, 2000);
+})();
+
+
+// Auto-taal op basis van domein
+(function() {
+  var host = window.location.hostname;
+  if (host.indexOf('immersiveartcalendar') !== -1 || host.indexOf('immersiveartcalendar.com') !== -1) {
+    huidigeTaal = 'en';
+    var enBtn = document.querySelector('.lang-btn:last-child');
+    var nlBtn = document.querySelector('.lang-btn:first-child');
+    if (enBtn) enBtn.classList.add('active');
+    if (nlBtn) nlBtn.classList.remove('active');
+    document.documentElement.lang = 'en';
+  }
 })();
 
 // Init
