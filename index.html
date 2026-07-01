@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Immersieve Kunst Agenda — versie 30 juni 2026 | studio zzzap | immersievekunstagenda.nl -->
+<!-- Immersieve Kunst Agenda — versie 01 juli 2026 | studio zzzap | immersievekunstagenda.nl -->
 <html lang="nl">
 <head>
 <!-- Google Tag Manager -->
@@ -2596,21 +2596,6 @@ let activeFilter = 'all';
 
 const events = [
   {
-    naam: { nl: "Messages to a Posthuman Earth", en: "Messages to a Posthuman Earth" },
-    startDag: 10, startMaandNr: 6, eindDag: 1, eindMaandNr: 7,
-    startMaand: { nl: "Jun", en: "Jun" },
-    eindDatum: { nl: "1 Jul", en: "Jul 1" },
-    maker: "Anagram",
-    duur: "45 min", handig: "English spoken",
-    logline: { nl: "Een interactieve, multi-sensorische audioreis voor twee door een tuin om jullie relatie met de natuur te herdenken.", en: "An interactive, multi-sensory audio journey for two through a garden to reimagine your relationship with the natural world." },
-    beschrijving: { nl: "In een echte tuin ontdekken jij en je partner dat de natuur een hoorend, levend wezen is. Audio-vertelling en AR-content nodigen uit tot bezinning op de levende omgeving.", en: "In a real garden, you and your partner discover that the natural world is a hearing, living thing. Audio narration and AR content invite musing on the living environment and a future world without humans." },
-    stad: "Amsterdam", locatie: "Vondelpark",
-    types: ["Geluid", "In de natuur", "Performatief", "Audiowalk"],
-    foto: "/images/anagram.jpg",
-    link: "https://www.idfa.nl/en/cinema/d3f5f4cb-b838-47cf-9162-fa7d1ca9615e/messages-to-a-post-human-earth/",
-    uitgelicht: true
-  },
-  {
     naam: { nl: "Opstand", en: "Opstand" },
     startDag: 12, startMaandNr: 7, eindDag: 13, eindMaandNr: 7,
     startMaand: { nl: "Jul", en: "Jul" },
@@ -2701,6 +2686,21 @@ const events = [
     uitgelicht: false
   },
   {
+    naam: { nl: "Pioneers of Media Art", en: "Pioneers of Media Art" },
+    startDag: 10, startMaandNr: 6, eindDag: 10, eindMaandNr: 9,
+    startMaand: { nl: "Jun", en: "Jun" },
+    eindDatum: { nl: "10 Sep", en: "Sep 10" },
+    maker: "Verschillende makers",
+    duur: "60 min", handig: "Ontmoet de klassiekers",
+    logline: { nl: "Hoe verandert kunst wanneer een nieuw medium opduikt? En wat gebeurt er wanneer kunstenaars de grenzen van dat medium verleggen?", en: "How does art change when a new medium emerges? And what happens when artists push the boundaries of that medium?" },
+    beschrijving: { nl: "Deze tentoonstelling neemt je mee op een reis door 10 ruimtes — die elk onderzoeken hoe generaties kunstenaars de grenzen van kunst, technologie en ervaring hebben verlegd. Van early video art tot AI-gedreven installaties.", en: "This exhibition takes you on a journey through 10 spaces — each exploring how generations of artists have pushed the boundaries of art, technology and experience. From early video art to AI-driven installations." },
+    stad: "Amsterdam", locatie: "NXT Museum",
+    types: ["Tentoonstelling", "Media Art History"],
+    foto: "/images/pioneers.jpg",
+    link: "https://nxtmuseum.com/exhibition/pioneers-of-media-art",
+    uitgelicht: false
+  },
+  {
     naam: { nl: "Dreamscapes", en: "Dreamscapes" },
     startDag: 20, startMaandNr: 9, eindDag: 20, eindMaandNr: 9,
     startMaand: { nl: "Sep", en: "Sep" },
@@ -2744,6 +2744,21 @@ const events = [
     foto: "/images/urlandstorybeginsv2.png",
     link: "https://urland.nl/project/before-the-story-starts",
     uitgelicht: false
+  },
+  {
+    verseTip: true, naam: { nl: "Tales of Two", en: "Tales of Two" },
+    startDag: 2, startMaandNr: 7, eindDag: 31, eindMaandNr: 10,
+    startMaand: { nl: "Jul", en: "Jul" },
+    eindDatum: { nl: "31 Okt", en: "Oct 31" },
+    maker: "Yonk",
+    duur: "5 - 20 min", handig: "Leuk voor verschillende leeftijden",
+    logline: { nl: "3D-animatiestudio YONK en NXT nodigen bezoekers uit voor een nieuw soort digitaal poppenspel, waarbij een eeuwenoude traditie de toekomst van storytelling verkent.", en: "3D animation studio YONK and NXT invite visitors into a new kind of digital puppet theatre, where an age-old tradition explores the future of storytelling." },
+    beschrijving: { nl: "YONK is een 3D-animatiestudio in Den Haag, opgericht door kunstenaars Niels van der Donk en Victoria Young. In Tales of Two worden bezoekers ondergedompeld in een wereld waar digitale personages tot leven komen in een meeslepende omgeving.", en: "YONK is a 3D animation studio in The Hague, founded by artists Niels van der Donk and Victoria Young. In Tales of Two, visitors are immersed in a world where digital characters come to life in an immersive environment." },
+    stad: "Amsterdam", locatie: "NXT Museum",
+    types: ["Immersieve installaties", "Interactief"],
+    foto: "/images/Yonk.jpg",
+    link: "https://nxtmuseum.com/nl/event/tales-of-two-van-yonk",
+    uitgelicht: true
   },
   {
     naam: { nl: "Amsterdam 1652", en: "Amsterdam 1652" },
@@ -2824,48 +2839,32 @@ const typeVertalingen = {
   nl: {
     "XR": "XR",
     "Performatief": "Performatief",
-    "Audiowalk": "Audiowalk",
-    "In de natuur": "In de natuur",
-    "Stad": "Stad",
     "Tentoonstelling": "Tentoonstelling",
     "Digitale kunst": "Digitale kunst",
-    "Immersief": "Immersief",
-    "Geluid": "Geluid",
     "Zintuiglijk": "Zintuiglijk",
     "Muziek": "Muziek",
-    "Online": "Online",
     "Generatief": "Generatief",
-    "Sociaal": "Sociaal",
     "Audio driven immersion": "Audio driven immersion",
     "Immersief theater": "Immersief theater",
     "Spatial": "Spatial",
-    "Artist talk": "Artist talk",
-    "Dome": "Dome",
-    "Installatie": "Installation",
-    "AI-driven": "AI-driven",
+    "Immersieve installaties": "Immersieve installaties",
+    "Interactief": "Interactief",
+    "Media Art History": "Media Art History",
   },
   en: {
     "XR": "XR",
     "Performatief": "Performative",
-    "Audiowalk": "Audiowalk",
-    "In de natuur": "In nature",
-    "Stad": "Urban",
     "Tentoonstelling": "Exhibition",
     "Digitale kunst": "Digital art",
-    "Immersief": "Immersive",
-    "Geluid": "Sound",
     "Zintuiglijk": "Sensory",
     "Muziek": "Music",
-    "Online": "Online",
     "Generatief": "Generative",
-    "Sociaal": "Social",
     "Audio driven immersion": "Audio driven immersion",
     "Immersief theater": "Immersive theatre",
     "Spatial": "Spatial",
-    "Artist talk": "Artist talk",
-    "Dome": "Dome",
-    "Installatie": "Installation",
-    "AI-driven": "AI-driven",
+    "Immersieve installaties": "Immersive installations",
+    "Interactief": "Interactive",
+    "Media Art History": "Media Art History",
   }
 };
 
