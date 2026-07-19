@@ -1,0 +1,355 @@
+{
+  "events": [
+    {
+      "naam": {
+        "nl": "Opstand",
+        "en": "Opstand"
+      },
+      "start": "2026-07-12",
+      "eind": "2026-07-13",
+      "maker": "Marte Boneschansker",
+      "duur": "60 min",
+      "handig": "Nederlands gesproken",
+      "logline": {
+        "nl": "Een theatrale audio-voorstelling en collectieve oefening in verzet. Ontdek de rebel in jezelf.",
+        "en": "A theatrical audio performance and collective exercise in resistance. Discover the rebel in yourself."
+      },
+      "beschrijving": {
+        "nl": "Van massademonstraties tot klein, stil protest: verzet is onderdeel van ons menszijn. OPSTAND is een hoopvolle poging het stille midden in beweging te krijgen. Wie vormt de tegenkracht? Wanneer zeg jij nee? Je hébt invloed. Het heeft zin.",
+        "en": "From mass demonstrations to quiet protest: resistance is part of being human. OPSTAND is a hopeful attempt to get the silent majority moving. Who forms the counterforce? When do you say no? You have influence. It matters."
+      },
+      "stad": "Utrecht",
+      "locatie": "Stadsschouwburg Utrecht",
+      "types": [
+        "Immersief theater",
+        "Performatief",
+        "Spatial",
+        "Audio driven immersion"
+      ],
+      "foto": "/images/opstand.jpg",
+      "link": "https://stadsschouwburg-utrecht.nl/agenda/seizoen-2025-2026/opstand-company-marte-boneschansker",
+      "uitgelicht": false,
+      "verseTip": false
+    },
+    {
+      "naam": {
+        "nl": "Artist talk: Traversing the Mist",
+        "en": "Artist talk: Traversing the Mist"
+      },
+      "start": "2026-07-17",
+      "eind": "2026-07-17",
+      "maker": "CHOU Tung-Yen",
+      "duur": "60 min",
+      "handig": "Aansluitend op Amsterdam Pride 2026",
+      "logline": {
+        "nl": "CHOU Tung-Yen gaat in gesprek met Kato van der Speeten.",
+        "en": "CHOU Tung-Yen in conversation with Kato van der Speeten."
+      },
+      "beschrijving": {
+        "nl": "CHOU Tung-Yen is een bekroond theaterregisseur, filmmaker en XR-maker uit Taiwan. Zijn werk verkent thema's als mens-technologierelaties en LGBTQ+-cultuur.",
+        "en": "CHOU Tung-Yen is an award-winning theatre director, filmmaker and XR creator from Taiwan. His work explores themes such as human-technology relationships and LGBTQ+ culture."
+      },
+      "stad": "Amsterdam",
+      "locatie": "Podium Mozaiek",
+      "types": [
+        "Artist talk"
+      ],
+      "foto": "/images/choutungyen.jpg",
+      "link": "https://www.podiummozaiek.nl/programma/details/tm-11980-d885cc38/artist-talk-met-tung-yen-chou",
+      "uitgelicht": false,
+      "verseTip": false
+    },
+    {
+      "naam": {
+        "nl": "Synergy Art Festival",
+        "en": "Synergy Art Festival"
+      },
+      "start": "2026-07-24",
+      "eind": "2026-07-24",
+      "maker": "o.a. Aerosculpture, Stine Deja, Compagnie Barks, Kexin Hao",
+      "duur": "Hele dag",
+      "handig": "De stad als immersief kunstpodium",
+      "logline": {
+        "nl": "Een meeslepende dag vol beeldende kunst, performance, muziek en collectieve expressie.",
+        "en": "An immersive day of visual art, performance, music and collective expression."
+      },
+      "beschrijving": {
+        "nl": "Van mind-expanding installaties tot gratis hands-on workshops en spontane happenings.",
+        "en": "From mind-expanding installations to free hands-on workshops and spontaneous happenings."
+      },
+      "stad": "Amsterdam",
+      "locatie": "Flevopark",
+      "types": [
+        "Zintuiglijk",
+        "In de natuur"
+      ],
+      "foto": "/images/synergyfestival.jpg",
+      "link": "https://synergyartfestival.nl/",
+      "uitgelicht": false,
+      "verseTip": false
+    },
+    {
+      "naam": {
+        "nl": "Traversing the Mist",
+        "en": "Traversing the Mist"
+      },
+      "start": "2026-07-12",
+      "eind": "2026-07-27",
+      "maker": "CHOU Tung-yen",
+      "duur": "35 min",
+      "handig": "Vanaf 16+",
+      "logline": {
+        "nl": "In een surreëel gay-saunacomplex vind je jezelf belichaamd in het lichaam van een jonge Taiwanese man — geweven door verlangens, opwinding en angsten.",
+        "en": "Inside a surreal gay sauna, you find yourself embodied in the body of a young Taiwanese man — woven by desires, excitements, and fears."
+      },
+      "beschrijving": {
+        "nl": "Terwijl je elke verdieping, gang en kamer doorloopt, valt elke laag van het labyrint onomkeerbaar uiteen. Wereldpremière IDFA DocLAB 2023, Grand Prize NewImages Paris.",
+        "en": "As you walk along every floor, corridor and room, each layer irreversibly unravels. World première IDFA DocLAB 2023, Grand Prize NewImages Paris."
+      },
+      "stad": "Amsterdam",
+      "locatie": "Podium Mozaïek",
+      "types": [
+        "XR",
+        "Performatief"
+      ],
+      "foto": "/images/traversing.png",
+      "link": "https://www.podiummozaiek.nl/programma/details/tm-11972-7f94019f/traversing-the-mist-16",
+      "uitgelicht": false,
+      "verseTip": false
+    },
+    {
+      "naam": {
+        "nl": "William Forsythe – Choreographic Objects",
+        "en": "William Forsythe – Choreographic Objects"
+      },
+      "start": "2026-06-06",
+      "eind": "2026-08-23",
+      "maker": "William Forsythe",
+      "duur": "Take your time",
+      "handig": "Interactie gestimuleerd, niet verplicht",
+      "logline": {
+        "nl": "De wereldberoemde choreograaf William Forsythe nodigt je uit om niet alleen te kijken, maar vooral te doen — elk object schept een situatie waarin beweging de belangrijkste manier is om het werk te ervaren.",
+        "en": "World-renowned choreographer William Forsythe invites you not just to look, but above all to act — each object creates a situation in which movement is the primary way to experience the work."
+      },
+      "beschrijving": {
+        "nl": "'Het lichaam is een denkend instrument', aldus William Forsythe. Zijn Choreographic Objects vormen een reeks stellingen: elk object vormt een situatie waarin beweging de belangrijkste manier is om het te ervaren. Bij Voorlinden nodigt Forsythe je uit om te experimenteren, te reageren en te ontdekken hoe je lichaam door middel van beweging denkt.",
+        "en": "'The body is a thinking instrument', says William Forsythe. His Choreographic Objects form a series of propositions: each object creates a situation in which movement is the primary way to experience it. At Voorlinden, Forsythe invites you to experiment, respond and discover how your body thinks through movement."
+      },
+      "stad": "Wassenaar",
+      "locatie": "Voorlinden",
+      "types": [
+        "Immersieve installaties",
+        "Interactief",
+        "Tentoonstelling"
+      ],
+      "foto": "/images/voorlindenforsythe.jpg",
+      "link": "https://www.voorlinden.nl/tentoonstelling/william-forsythe/",
+      "uitgelicht": true,
+      "verseTip": false
+    },
+    {
+      "naam": {
+        "nl": "Drift",
+        "en": "Drift"
+      },
+      "start": "2026-07-14",
+      "eind": "2026-08-31",
+      "maker": "Merel uit de Machine & VPRO Medialab",
+      "duur": "Volgt het ritme van de maan",
+      "handig": "Gratis · English spoken",
+      "logline": {
+        "nl": "Een generatieve audio-ervaring over zeespiegelstijging en AI — een podcast die geen podcast is.",
+        "en": "A generative audio experience about rising sea levels and AI — a podcast that is not a podcast."
+      },
+      "beschrijving": {
+        "nl": "Drift koppelt de zeespiegelstijging en klimaatcrisis aan de opkomst van AI in een generatieve audio-ervaring. De verhaalwereld combineert verbeelding met feitelijke bronnen zoals realtimeweersvoorspellingen van het KNMI.",
+        "en": "Drift links rising sea levels and the climate crisis to the rise of AI in a generative audio experience. The story world combines imagination with factual sources including real-time weather forecasts from KNMI."
+      },
+      "stad": "Online",
+      "locatie": "In je podcast app",
+      "types": [
+        "Audio driven immersion",
+        "Generatief"
+      ],
+      "foto": "/images/drift-cover-v2.png",
+      "link": "https://www.merel.club/drift/",
+      "uitgelicht": false,
+      "verseTip": false
+    },
+    {
+      "naam": {
+        "nl": "Pioneers of Media Art",
+        "en": "Pioneers of Media Art"
+      },
+      "start": "2026-06-10",
+      "eind": "2026-09-10",
+      "maker": "Verschillende makers",
+      "duur": "60 min",
+      "handig": "Ontmoet de klassiekers",
+      "logline": {
+        "nl": "Hoe verandert kunst wanneer een nieuw medium opduikt? En wat gebeurt er wanneer kunstenaars de grenzen van dat medium verleggen?",
+        "en": "How does art change when a new medium emerges? And what happens when artists push the boundaries of that medium?"
+      },
+      "beschrijving": {
+        "nl": "Deze tentoonstelling neemt je mee op een reis door 10 ruimtes — die elk onderzoeken hoe generaties kunstenaars de grenzen van kunst, technologie en ervaring hebben verlegd. Van early video art tot AI-gedreven installaties.",
+        "en": "This exhibition takes you on a journey through 10 spaces — each exploring how generations of artists have pushed the boundaries of art, technology and experience. From early video art to AI-driven installations."
+      },
+      "stad": "Amsterdam",
+      "locatie": "NXT Museum",
+      "types": [
+        "Tentoonstelling",
+        "Media Art History"
+      ],
+      "foto": "/images/pioneers.jpg",
+      "link": "https://nxtmuseum.com/exhibition/pioneers-of-media-art",
+      "uitgelicht": false,
+      "verseTip": false
+    },
+    {
+      "naam": {
+        "nl": "Dreamscapes",
+        "en": "Dreamscapes"
+      },
+      "start": "2026-09-20",
+      "eind": "2026-09-20",
+      "maker": "Anna van Nieukerken, Claire Adams, Els Mondelaers, Jacqueline Hamelink",
+      "duur": "75 min",
+      "handig": "Taal geen probleem",
+      "logline": {
+        "nl": "Dreamscapes is een intieme immersieve performance waarin nieuwe muziek, beweging en zintuiglijke ervaring samensmelten.",
+        "en": "Dreamscapes is an intimate immersive performance in which new music, movement and sensory experience merge into a space where we can dream."
+      },
+      "beschrijving": {
+        "nl": "Vertrekkend vanuit John Cage's In a Landscape ontvouwt zich een gelaagd klank- en bewegingslandschap. Vier performers gidsen maximaal 50 bezoekers door een cyclische droomwereld.",
+        "en": "Departing from John Cage's In a Landscape, four performers guide up to 50 visitors through a cyclical dream world where sound, light, scent and touch come together."
+      },
+      "stad": "Tilburg",
+      "locatie": "Theater de Nieuwe Vorst",
+      "types": [
+        "Zintuiglijk",
+        "Muziek",
+        "Performatief"
+      ],
+      "foto": "/images/dreamscapes.jpg",
+      "link": "https://soundingbodies.com/voorstelling/dreamscapes",
+      "uitgelicht": false,
+      "verseTip": false
+    },
+    {
+      "naam": {
+        "nl": "Synthetic Halo",
+        "en": "Synthetic Halo"
+      },
+      "start": "2026-03-18",
+      "eind": "2026-10-11",
+      "maker": "Kurina Sohn",
+      "duur": "10 min",
+      "handig": "Gratis",
+      "logline": {
+        "nl": "Ervaar de Halo Machine. Je hersenactiviteit wordt gemeten en vertaald naar een unieke soundscape.",
+        "en": "Experience the Halo Machine. Your brain activity is measured and translated into a unique soundscape."
+      },
+      "beschrijving": {
+        "nl": "Synthetic Halo onderzoekt de vraag of verlichting — een staat die traditioneel wordt bereikt door langdurige meditatie — kan worden waargenomen, gemeten en gedeeld. Kurina gebruikt AI en innovatieve technologie om individuele hersengolven om te zetten in een veranderende geluids- en beeldervaring, gebaseerd op 3D-scans en geluidsopnames uit Odaesan National Park en Woljeongsa-tempel in Zuid-Korea.",
+        "en": "Synthetic Halo explores whether enlightenment — a state traditionally achieved through prolonged meditation — can be perceived, measured and shared. Kurina uses AI and innovative technology to translate individual brainwaves into a shifting sound and image experience, based on 3D scans and field recordings from Odaesan National Park and Woljeongsa Temple in South Korea."
+      },
+      "stad": "Enschede",
+      "locatie": "Tetem",
+      "types": [
+        "Immersieve installaties",
+        "AI-driven"
+      ],
+      "foto": "/images/synthetichalo.png",
+      "link": "https://tetem.nl/event/synthetic-halo/",
+      "uitgelicht": false,
+      "verseTip": true
+    },
+    {
+      "naam": {
+        "nl": "Before the Story Starts",
+        "en": "Before the Story Starts"
+      },
+      "start": "2026-06-12",
+      "eind": "2026-10-31",
+      "maker": "Urland",
+      "duur": "90 min",
+      "handig": "Vanaf 12+",
+      "logline": {
+        "nl": "Een experimentele, immersieve one-man performance op de drempel voordat een verhaal begint.",
+        "en": "An experimental, immersive one-man performance on the threshold before a story begins."
+      },
+      "beschrijving": {
+        "nl": "This is not the start of the story, we haven't started yet. What do you need to know? Before we start? We don't know why. We can guess, but we don't know. We never will. The elusive Why.",
+        "en": "This is not the start of the story, we haven't started yet. What do you need to know? Before we start? We don't know why. We can guess, but we don't know. We never will. The elusive Why."
+      },
+      "stad": "Meerdere locaties",
+      "locatie": "Oerol, Nijmegen, Bergen op Zoom, Amsterdam, Den Haag, Den Bosch",
+      "types": [
+        "Performatief",
+        "Audio driven immersion"
+      ],
+      "foto": "/images/urlandstorybeginsv2.png",
+      "link": "https://urland.nl/project/before-the-story-starts",
+      "uitgelicht": false,
+      "verseTip": false
+    },
+    {
+      "naam": {
+        "nl": "Tales of Two",
+        "en": "Tales of Two"
+      },
+      "start": "2026-07-02",
+      "eind": "2026-10-31",
+      "maker": "Yonk",
+      "duur": "5 - 20 min",
+      "handig": "Leuk voor verschillende leeftijden",
+      "logline": {
+        "nl": "3D-animatiestudio YONK en NXT nodigen bezoekers uit voor een nieuw soort digitaal poppenspel, waarbij een eeuwenoude traditie de toekomst van storytelling verkent.",
+        "en": "3D animation studio YONK and NXT invite visitors into a new kind of digital puppet theatre, where an age-old tradition explores the future of storytelling."
+      },
+      "beschrijving": {
+        "nl": "YONK is een 3D-animatiestudio in Den Haag, opgericht door kunstenaars Niels van der Donk en Victoria Young. In Tales of Two worden bezoekers ondergedompeld in een wereld waar digitale personages tot leven komen in een meeslepende omgeving.",
+        "en": "YONK is a 3D animation studio in The Hague, founded by artists Niels van der Donk and Victoria Young. In Tales of Two, visitors are immersed in a world where digital characters come to life in an immersive environment."
+      },
+      "stad": "Amsterdam",
+      "locatie": "NXT Museum",
+      "types": [
+        "Immersieve installaties",
+        "Interactief"
+      ],
+      "foto": "/images/Yonk.jpg",
+      "link": "https://nxtmuseum.com/nl/event/tales-of-two-van-yonk",
+      "uitgelicht": true,
+      "verseTip": true
+    },
+    {
+      "naam": {
+        "nl": "Amsterdam 1652",
+        "en": "Amsterdam 1652"
+      },
+      "start": "2026-05-21",
+      "eind": "2028-12-31",
+      "maker": "Nienke Huitenga Broeren & ENTR",
+      "duur": "45 min",
+      "handig": "Vanaf 8+ · NL en EN",
+      "logline": {
+        "nl": "Loop samen door het Amsterdam van de 17e eeuw, gezien door de ogen van een gewone Amsterdammer. Zie het IJ, de Dam en de nieuwe brugh en ontdek hoe mensen leefden, werkten en samenkwamen.",
+        "en": "Walk together through 17th-century Amsterdam through the eyes of an ordinary Amsterdammer. See the IJ, the Dam and the nieuwe brugh, and discover how people lived, worked and came together."
+      },
+      "beschrijving": {
+        "nl": "De ervaring is ontworpen om samen te beleven. Bezoekers bewegen gelijktijdig door dezelfde virtuele wereld en maken samen de reis door de stad. Zo ontstaat een gedeelde ervaring waarin je niet alleen naar geschiedenis kijkt, maar er middenin staat.",
+        "en": "The experience is designed to be shared. Visitors move simultaneously through the same virtual world, making the journey through the city together — not just observing history, but standing right in the middle of it."
+      },
+      "stad": "Amsterdam",
+      "locatie": "ENTR",
+      "types": [
+        "XR"
+      ],
+      "foto": "/images/kade.jpeg",
+      "link": "https://entrmuseum.com/",
+      "uitgelicht": false,
+      "verseTip": false
+    }
+  ],
+  "studentenEvents": []
+}
