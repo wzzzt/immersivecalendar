@@ -2,65 +2,6 @@
   "events": [
     {
       "naam": {
-        "nl": "Opstand",
-        "en": "Opstand"
-      },
-      "start": "2026-07-12",
-      "eind": "2026-07-13",
-      "maker": "Marte Boneschansker",
-      "duur": "60 min",
-      "handig": "Nederlands gesproken",
-      "logline": {
-        "nl": "Een theatrale audio-voorstelling en collectieve oefening in verzet. Ontdek de rebel in jezelf.",
-        "en": "A theatrical audio performance and collective exercise in resistance. Discover the rebel in yourself."
-      },
-      "beschrijving": {
-        "nl": "Van massademonstraties tot klein, stil protest: verzet is onderdeel van ons menszijn. OPSTAND is een hoopvolle poging het stille midden in beweging te krijgen. Wie vormt de tegenkracht? Wanneer zeg jij nee? Je hébt invloed. Het heeft zin.",
-        "en": "From mass demonstrations to quiet protest: resistance is part of being human. OPSTAND is a hopeful attempt to get the silent majority moving. Who forms the counterforce? When do you say no? You have influence. It matters."
-      },
-      "stad": "Utrecht",
-      "locatie": "Stadsschouwburg Utrecht",
-      "types": [
-        "Immersief theater",
-        "Performatief",
-        "Spatial",
-        "Audio driven immersion"
-      ],
-      "foto": "/images/opstand.jpg",
-      "link": "https://stadsschouwburg-utrecht.nl/agenda/seizoen-2025-2026/opstand-company-marte-boneschansker",
-      "uitgelicht": false,
-      "verseTip": false
-    },
-    {
-      "naam": {
-        "nl": "Artist talk: Traversing the Mist",
-        "en": "Artist talk: Traversing the Mist"
-      },
-      "start": "2026-07-17",
-      "eind": "2026-07-17",
-      "maker": "CHOU Tung-Yen",
-      "duur": "60 min",
-      "handig": "Aansluitend op Amsterdam Pride 2026",
-      "logline": {
-        "nl": "CHOU Tung-Yen gaat in gesprek met Kato van der Speeten.",
-        "en": "CHOU Tung-Yen in conversation with Kato van der Speeten."
-      },
-      "beschrijving": {
-        "nl": "CHOU Tung-Yen is een bekroond theaterregisseur, filmmaker en XR-maker uit Taiwan. Zijn werk verkent thema's als mens-technologierelaties en LGBTQ+-cultuur.",
-        "en": "CHOU Tung-Yen is an award-winning theatre director, filmmaker and XR creator from Taiwan. His work explores themes such as human-technology relationships and LGBTQ+ culture."
-      },
-      "stad": "Amsterdam",
-      "locatie": "Podium Mozaiek",
-      "types": [
-        "Artist talk"
-      ],
-      "foto": "/images/choutungyen.jpg",
-      "link": "https://www.podiummozaiek.nl/programma/details/tm-11980-d885cc38/artist-talk-met-tung-yen-chou",
-      "uitgelicht": false,
-      "verseTip": false
-    },
-    {
-      "naam": {
         "nl": "Synergy Art Festival",
         "en": "Synergy Art Festival"
       },
@@ -114,7 +55,35 @@
       ],
       "foto": "/images/traversing.png",
       "link": "https://www.podiummozaiek.nl/programma/details/tm-11972-7f94019f/traversing-the-mist-16",
-      "uitgelicht": false,
+      "uitgelicht": true,
+      "verseTip": false
+    },
+    {
+      "naam": {
+        "nl": "Lesbian Simulator",
+        "en": "Lesbian Simulator"
+      },
+      "start": "2026-08-05",
+      "eind": "2026-08-08",
+      "maker": "Iris van der Meule",
+      "duur": null,
+      "handig": "Wereldpremière IDFA · selectie SXSW",
+      "logline": {
+        "nl": "'Lesbian Simulator' is een interactief virtual reality kunstwerk en videogame waarmee je de wereld ervaart vanuit het perspectief van een lesbienne.",
+        "en": "'Lesbian Simulator' is an interactive virtual reality artwork and video game which will prompt users to experience the world from the perspective of a lesbian."
+      },
+      "beschrijving": {
+        "nl": "Geïnspireerd op de persoonlijke ervaringen van Iris van der Meule en haar naasten wil 'Lesbian Simulator' op een speelse manier bewustzijn creëren. Je ervaart sleutelmomenten uit het bestaan van een queer persoon: uit de kast komen, nieuwe vrienden maken, op date gaan, maar ook de eerste keer discriminatie ervaren. Een ode aan liefde en seksualiteit, en een viering van diversiteit en inclusiviteit.",
+        "en": "Inspired by the personal experiences of Iris van der Meule and those close to her, 'Lesbian Simulator' aims to create awareness in a playful manner. Users experience key aspects of a queer person's existence: coming out, making new friends, going on a date, but also facing discrimination for the first time. An ode to love and sexuality, and a celebration of diversity and inclusivity."
+      },
+      "stad": "Amsterdam",
+      "locatie": "World Pride Museumplein",
+      "types": [
+        "XR"
+      ],
+      "foto": "/images/Lesbian_Simulator20copy.png",
+      "link": "https://pride.amsterdam/en/event/lesbian-simulator-at-the-pride-village/#event-content",
+      "uitgelicht": true,
       "verseTip": false
     },
     {
@@ -144,7 +113,7 @@
       ],
       "foto": "/images/voorlindenforsythe.jpg",
       "link": "https://www.voorlinden.nl/tentoonstelling/william-forsythe/",
-      "uitgelicht": true,
+      "uitgelicht": false,
       "verseTip": false
     },
     {
@@ -202,6 +171,34 @@
       ],
       "foto": "/images/pioneers.jpg",
       "link": "https://nxtmuseum.com/exhibition/pioneers-of-media-art",
+      "uitgelicht": false,
+      "verseTip": false
+    },
+    {
+      "naam": {
+        "nl": "Opening THEA",
+        "en": "Opening THEA"
+      },
+      "start": "2026-09-12",
+      "eind": "2026-09-13",
+      "maker": "THEA",
+      "duur": null,
+      "handig": "Openingsweekend",
+      "logline": {
+        "nl": "In het cultuurdeel van de Niemeyer in Groningen komen beeldende kunst en technologie samen in een nieuw presentatie- en onderzoeksplatform.",
+        "en": "In the cultural wing of the Niemeyer building in Groningen, visual art and technology come together in a new presentation and research platform."
+      },
+      "beschrijving": {
+        "nl": "Thea programmeert kunstenaars die werken op het snijvlak van beeld, technologie en maatschappij, en ontwikkelt zich de komende twee jaar als een plek waar die vragen publiek worden gemaakt. Op 12 en 13 september 2026 opent Thea met een openingsweekend: een tentoonstelling, performances en muziek.",
+        "en": "Thea programmes artists working at the intersection of image, technology and society, developing over the next two years as a place where these questions are made public. On 12 and 13 September 2026, Thea opens with a launch weekend: an exhibition, performances and music."
+      },
+      "stad": "Groningen",
+      "locatie": "Niemeyer",
+      "types": [
+        "New venue"
+      ],
+      "foto": "/images/thea.jpg",
+      "link": "http://www.theagroningen.nl",
       "uitgelicht": false,
       "verseTip": false
     },
@@ -319,8 +316,36 @@
       ],
       "foto": "/images/Yonk.jpg",
       "link": "https://nxtmuseum.com/nl/event/tales-of-two-van-yonk",
-      "uitgelicht": true,
+      "uitgelicht": false,
       "verseTip": true
+    },
+    {
+      "naam": {
+        "nl": "Begin Again",
+        "en": "Begin Again"
+      },
+      "start": "2026-10-22",
+      "eind": "2027-01-29",
+      "maker": "BrotherTill & Lisa Weeda",
+      "duur": null,
+      "handig": null,
+      "logline": {
+        "nl": "In een tijd waarin het nut van de mens ter discussie staat, pleit een moeder voor een wereld zonder ego. Haar zoon houdt halsstarrig vast aan een wereld mét ego.",
+        "en": "In a time when the usefulness of humankind is up for debate, a mother pleads for a world without ego. Her son stubbornly clings to a world with ego."
+      },
+      "beschrijving": {
+        "nl": "In de zintuiglijke, muzikale voorstelling BEGIN AGAIN zoeken prijswinnend interdisciplinair kunstcollectief BrotherTill en schrijver Lisa Weeda opnieuw de grenzen van het theater op. Bij binnenkomst krijgt iedereen een steen mee. Wat volgt is een wervelend afscheid: een mix van hypertechnologie, meeslepende muziek en een intens menselijke beleving. Het publiek bevindt zich midden in het verhaal. De zaal zoemt. De stenen zingen: bevrijd ons.",
+        "en": "In the sensory, musical performance BEGIN AGAIN, award-winning interdisciplinary art collective BrotherTill and writer Lisa Weeda once again push the boundaries of theatre. Upon entry, everyone receives a stone. What follows is a whirling farewell: a mix of hypertechnology, immersive music and an intensely human experience. The audience stands right in the middle of the story."
+      },
+      "stad": "Verschillende steden",
+      "locatie": "Tournee",
+      "types": [
+        "Immersief theater"
+      ],
+      "foto": "/images/beginagain.jpg",
+      "link": "https://www.brothertill.nl/projects/begin-again/",
+      "uitgelicht": false,
+      "verseTip": false
     },
     {
       "naam": {
