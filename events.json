@@ -88,6 +88,35 @@
     },
     {
       "naam": {
+        "nl": "Zonsverduistering",
+        "en": "Solar Eclipse"
+      },
+      "start": "2026-08-12",
+      "eind": "2026-08-12",
+      "maker": "De kosmos",
+      "duur": null,
+      "handig": "Liveshow om 15.00 uur",
+      "logline": {
+        "nl": "12 augustus staat ons een bijzonder schouwspel te wachten: een zonsverduistering of zonne-eclips.",
+        "en": "On 12 August a rare spectacle awaits us: a solar eclipse."
+      },
+      "beschrijving": {
+        "nl": "In het ARTIS-Planetarium word je die dag tijdens de liveshow Reis door het heelaal om 15.00 uur voorbereid hoe je dit verschijnsel het beste kunt waarnemen.",
+        "en": "At the ARTIS Planetarium, the live show Journey through the Universe at 3pm prepares you for how best to observe this phenomenon."
+      },
+      "stad": "Amsterdam",
+      "locatie": "Artis",
+      "types": [
+        "In de natuur",
+        "Planetarium"
+      ],
+      "foto": "/images/verduistering.png",
+      "link": "https://www.artis.nl/nl/artis-park/planetarium/eclips",
+      "uitgelicht": false,
+      "verseTip": true
+    },
+    {
+      "naam": {
         "nl": "William Forsythe – Choreographic Objects",
         "en": "William Forsythe – Choreographic Objects"
       },
