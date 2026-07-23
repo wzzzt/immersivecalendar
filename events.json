@@ -263,6 +263,101 @@
     },
     {
       "naam": {
+        "nl": "Nederlands Film Festival",
+        "en": "Netherlands Film Festival"
+      },
+      "start": "2026-09-25",
+      "eind": "2026-10-02",
+      "maker": "Nederlands Film Festival",
+      "duur": null,
+      "handig": null,
+      "logline": {
+        "nl": "De 46e editie van het Nederlands Film Festival toont twaalf immersieve en interactieve werken van Nederlandse makers.",
+        "en": "The 46th edition of the Netherlands Film Festival presents twelve immersive and interactive works by Dutch creators."
+      },
+      "beschrijving": {
+        "nl": null,
+        "en": null
+      },
+      "stad": "Utrecht",
+      "locatie": "Diverse locaties",
+      "types": [
+        "XR"
+      ],
+      "foto": "/images/nff.jpg",
+      "link": "https://www.filmfestival.nl/",
+      "uitgelicht": false,
+      "verseTip": false,
+      "special": {
+        "titel": "Nederlands Film Festival",
+        "kleur": "geel",
+        "link": "https://www.filmfestival.nl/",
+        "werken": [
+          {
+            "naam": "Alterity",
+            "maker": "Jacco Gardner (UPscaleXR)",
+            "foto": "/images/alterity.jpg"
+          },
+          {
+            "naam": "Amsterdam 1652",
+            "maker": "Nienke Huitenga Broeren (ENTR)",
+            "foto": "/images/kade.jpeg"
+          },
+          {
+            "naam": "Being Gregor",
+            "maker": "Camiel Schouwenaar (Happy Ship)",
+            "foto": "/images/beinggregor.png"
+          },
+          {
+            "naam": "Conversations",
+            "maker": "Paul Boereboom, Leon Rogissart (Podium Bloos)",
+            "foto": "/images/conversations.png"
+          },
+          {
+            "naam": "Deep Soup",
+            "maker": "Luna Maurer, Roel Wouters (Studio Biarritz)",
+            "foto": "/images/deepsoup.jpg"
+          },
+          {
+            "naam": "exec.DEUS",
+            "maker": "URLAND (URLAND, Innovation:Lab, Theater de Maagd)",
+            "foto": "/images/execdeus.png"
+          },
+          {
+            "naam": "Graves’ End",
+            "maker": "Finn Stevenhagen (Finn Stevenhagen)",
+            "foto": "/images/gravesend.jpg"
+          },
+          {
+            "naam": "The Great Orator",
+            "maker": "Daniel Ernst (The Shoebox Diorama)",
+            "foto": "/images/greatorator.jpg"
+          },
+          {
+            "naam": "INNERVERSE",
+            "maker": "Arno Coenen (Arno Coenen)",
+            "foto": null
+          },
+          {
+            "naam": "Lesbian Simulator",
+            "maker": "Iris van der Meule (Studio Biarritz)",
+            "foto": "/images/Lesbian_Simulator20copy.png"
+          },
+          {
+            "naam": "Nothing to see here",
+            "maker": "Celine Daemen (Studio Nergens)",
+            "foto": "/images/nothing.jpg"
+          },
+          {
+            "naam": "Tracing Colombia",
+            "maker": "Jan Rothuizen (Docmakers, Zesbaans)",
+            "foto": "/images/tracingcolombia.png"
+          }
+        ]
+      }
+    },
+    {
+      "naam": {
         "nl": "Synthetic Halo",
         "en": "Synthetic Halo"
       },
@@ -288,7 +383,7 @@
       "foto": "/images/synthetichalo.png",
       "link": "https://tetem.nl/event/synthetic-halo/",
       "uitgelicht": false,
-      "verseTip": true
+      "verseTip": false
     },
     {
       "naam": {
@@ -346,7 +441,7 @@
       "foto": "/images/Yonk.jpg",
       "link": "https://nxtmuseum.com/nl/event/tales-of-two-van-yonk",
       "uitgelicht": false,
-      "verseTip": true
+      "verseTip": false
     },
     {
       "naam": {
