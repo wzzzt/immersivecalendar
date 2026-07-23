@@ -7,9 +7,9 @@
       },
       "start": "2026-07-24",
       "eind": "2026-07-24",
-      "maker": "o.a. Aerosculpture, Stine Deja, Compagnie Barks, Kexin Hao",
-      "duur": null,
-      "handig": null,
+      "maker": "o.a. Aéreosculpture, Stine Deja, Compagnie Barks, Kexin Hao",
+      "duur": "chillax time",
+      "handig": "De stad als (immersief) kunstpodium",
       "logline": {
         "nl": "een immersieve dag vol beeldende kunst, performance, muziek en collectieve expressie",
         "en": "an immersive day of visual art, performance, music, and collective expression"
@@ -38,7 +38,7 @@
       "eind": "2026-07-27",
       "maker": "CHOU Tung-yen",
       "duur": "35 min",
-      "handig": null,
+      "handig": "vanaf 16+",
       "logline": {
         "nl": "In een surrealistische gay sauna bevind je je in het lichaam van een jonge Taiwanese man. Je waagt je in dit droomlandschap, geweven uit verlangens, opwinding en angsten, en kruist blikken met de andere saunabezoekers, die allemaal hetzelfde gezicht hebben.",
         "en": "Inside a surreal gay sauna, you find yourself embodied in the body of a young Taiwanese man. You venture into this dreamscape, woven by desires, excitements, and fears, crossing eyes with the other sauna-goers who all have the same faces."
@@ -66,8 +66,8 @@
       "start": "2026-08-05",
       "eind": "2026-08-08",
       "maker": "Iris van der Meule",
-      "duur": null,
-      "handig": null,
+      "duur": "40 min",
+      "handig": "Voiced by Hanna van Vliet (NL and EN)",
       "logline": {
         "nl": "'Lesbian Simulator' is een interactief virtual reality-kunstwerk en videogame dat gebruikers de wereld laat ervaren vanuit het perspectief van een lesbienne.",
         "en": "‘Lesbian Simulator’ is an interactive virtual reality artwork and video game which will prompt users to experience the world from the perspective of a lesbian."
@@ -94,8 +94,8 @@
       "start": "2026-08-12",
       "eind": "2026-08-12",
       "maker": "De kosmos",
-      "duur": null,
-      "handig": null,
+      "duur": "30 min",
+      "handig": "Gratis * de zonsverduistering is slechts 7,5 min",
       "logline": {
         "nl": "12 augustus staat ons een bijzonder schouwspel te wachten: een zonsverduistering of zonne-eclips.",
         "en": "On 12 August a remarkable spectacle awaits us: a solar eclipse."
@@ -123,8 +123,8 @@
       "start": "2026-06-06",
       "eind": "2026-08-23",
       "maker": "William Forsythe",
-      "duur": null,
-      "handig": null,
+      "duur": "take your time",
+      "handig": "interactie gestimuleerd, maar niet verplicht",
       "logline": {
         "nl": "Met zijn Choreographic Objects nodigt de wereldberoemde choreograaf William Forsythe je uit om niet alleen te kijken, maar vooral om te doen. Zijn werken komen pas echt tot leven wanneer jij er actief, lichamelijk mee aan de slag gaat. Elk object schept een situatie waarin beweging de belangrijkste manier wordt om het werk te ervaren.",
         "en": "With his Choreographic Objects, the world-renowned choreographer William Forsythe invites you not just to look, but above all to do. His works only truly come to life when you engage with them actively and physically. Each object creates a situation in which movement becomes the primary way to experience the work."
@@ -153,8 +153,8 @@
       "start": "2026-07-14",
       "eind": "2026-08-31",
       "maker": "Merel uit de Machine & VPRO Medialab",
-      "duur": null,
-      "handig": null,
+      "duur": "volgt het ritme van de maan / slow listening",
+      "handig": "Gratis & English spoken",
       "logline": {
         "nl": "Het is 2024, of – tijd doet er niet zo toe – 2529: een octopus als verteller, oude dijken die de contouren vormen van waar ooit land was. Drift koppelt de zeespiegelstijging en klimaatcrisis aan de opkomst van AI in een generatieve audio-ervaring, een podcast die geen podcast is.",
         "en": "It is 2024, or — time hardly matters — 2529: an octopus as narrator, old dykes tracing the contours of what was once land. Drift links sea level rise and the climate crisis to the emergence of AI in a generative audio experience, a podcast that is not a podcast."
@@ -163,8 +163,8 @@
         "nl": "Drift koppelt de zeespiegelstijging en klimaatcrisis aan de opkomst van AI in een generatieve audio-ervaring, een podcast die geen podcast is.\n\nDe verhaalwereld combineert verbeelding met feitelijke bronnen, zoals realtimeweersvoorspellingen van het KNMI en het klimaatrapport van het IPCC. In de verre toekomst heeft de samenleving harde lessen geleerd van milieuverwaarlozing. Vervuiling en een hogere zeespiegel: Nederland, zoals het ooit was, bestaat niet meer. De wateren zijn inmiddels door AI geïnjecteerd. Een techno-vloeibare omgeving dient als levende opslagplaats van kennis. Een nieuwe werkelijkheid waarin de luisteraar al drijvend kan ronddwalen.",
         "en": "Drift links sea level rise and the climate crisis to the emergence of AI in a generative audio experience, a podcast that is not a podcast.\n\nThe story world combines imagination with factual sources, such as real-time weather forecasts from the KNMI and the IPCC climate report. In the distant future, society has learned hard lessons from environmental neglect. Pollution and a higher sea level: the Netherlands as it once was no longer exists. The waters have since been injected by AI. A techno-fluid environment serves as a living repository of knowledge. A new reality in which the listener can drift and wander."
       },
-      "stad": "Online",
-      "locatie": "In je podcast app",
+      "stad": "in je podcast app",
+      "locatie": "online",
       "types": [
         "Audio driven immersion",
         "Generatief"
@@ -211,8 +211,8 @@
       "start": "2026-09-12",
       "eind": "2026-09-13",
       "maker": "THEA",
-      "duur": null,
-      "handig": null,
+      "duur": "flex",
+      "handig": "Programmamaker Rosa Wevers, kwartiermakers Roosje Klap en Dorine Schreurs geven vorm aan THEA tot en met 2028",
       "logline": {
         "nl": "In het cultuurdeel van de Niemeyer in Groningen komen beeldende kunst en technologie samen in een nieuw presentatie- en onderzoeksplatform.",
         "en": "In the cultural wing of the Niemeyer building in Groningen, visual art and technology come together in a new presentation and research platform."
@@ -268,30 +268,32 @@
       },
       "start": "2026-09-25",
       "eind": "2026-10-02",
-      "maker": "Nederlands Film Festival",
-      "duur": null,
-      "handig": null,
+      "maker": null,
+      "duur": "15min of meer",
+      "handig": "De beste digitale cultuurproducties van Nederland, te zien bij NFF",
       "logline": {
-        "nl": "De 46e editie van het Nederlands Film Festival toont twaalf immersieve en interactieve werken van Nederlandse makers.",
-        "en": "The 46th edition of the Netherlands Film Festival presents twelve immersive and interactive works by Dutch creators."
+        "nl": "In de Storyspace expositie in Bibliotheek Utrecht op de Neude komen uiteenlopende verhalen tot leven die gebruik maken van digitale technieken buiten de grenzen van film en televisie.",
+        "en": "In the Storyspace exhibition at Bibliotheek Utrecht on the Neude, a range of stories come to life using digital techniques beyond the boundaries of film and television."
       },
       "beschrijving": {
-        "nl": null,
-        "en": null
+        "nl": "Selectie Gouden Kalf Competitie 2026:\n\n- Alterity - Jacco Gardner (UPscaleXR)\n- Amsterdam 1652 - Nienke Huitenga Broeren (ENTR)\n- Being Gregor - Camiel Schouwenaar (Happy Ship)\n- Conversations - Paul Boereboom, Leon Rogissart (Podium Bloos)- \n- Deep Soup - Luna Maurer, Roel Wouters (Studio Biarritz)\n- exec.DEUS - URLAND (URLAND, Innovation:Lab, Theater de Maagd)\n- Graves’ End - Finn Stevenhagen (Finn Stevenhagen)\n- The Great Orator - Daniel Ernst (The Shoebox Diorama)\n- INNERVERSE - Arno Coenen (Arno Coenen)\n- Lesbian Simulator - Iris van der Meule (Studio Biarritz)\n- Nothing to see here - Celine Daemen (Studio Nergens)\n- Tracing Colombia - Jan Rothuizen (Docmakers, Zesbaans)",
+        "en": "Golden Calf Competition selection 2026:\n\n- Alterity - Jacco Gardner (UPscaleXR)\n- Amsterdam 1652 - Nienke Huitenga Broeren (ENTR)\n- Being Gregor - Camiel Schouwenaar (Happy Ship)\n- Conversations - Paul Boereboom, Leon Rogissart (Podium Bloos)- \n- Deep Soup - Luna Maurer, Roel Wouters (Studio Biarritz)\n- exec.DEUS - URLAND (URLAND, Innovation:Lab, Theater de Maagd)\n- Graves’ End - Finn Stevenhagen (Finn Stevenhagen)\n- The Great Orator - Daniel Ernst (The Shoebox Diorama)\n- INNERVERSE - Arno Coenen (Arno Coenen)\n- Lesbian Simulator - Iris van der Meule (Studio Biarritz)\n- Nothing to see here - Celine Daemen (Studio Nergens)\n- Tracing Colombia - Jan Rothuizen (Docmakers, Zesbaans)"
       },
       "stad": "Utrecht",
-      "locatie": "Diverse locaties",
+      "locatie": "Verschillende locaties",
       "types": [
-        "XR"
+        "XR",
+        "Tentoonstelling",
+        "Digitale kunst"
       ],
-      "foto": "/images/nff.jpg",
-      "link": "https://www.filmfestival.nl/",
+      "foto": "/images/nff.jpeg",
+      "link": "https://www.filmfestival.nl/nieuws/gouden-kalf-selectie-digitale-cultuur-2026-bekend",
       "uitgelicht": false,
-      "verseTip": false,
+      "verseTip": true,
       "special": {
         "titel": "Nederlands Film Festival",
         "kleur": "geel",
-        "link": "https://www.filmfestival.nl/",
+        "link": "https://www.filmfestival.nl/nieuws/gouden-kalf-selectie-digitale-cultuur-2026-bekend",
         "werken": [
           {
             "naam": "Alterity",
@@ -394,7 +396,7 @@
       "eind": "2026-10-31",
       "maker": "Urland",
       "duur": "90 min",
-      "handig": null,
+      "handig": "vanaf 12+",
       "logline": {
         "nl": "Before the Story Starts is een experimentele, immersieve, one man performance die zich afspeelt op de drempel voordat een (of HET) verhaal begint.",
         "en": "Before the Story Starts is an experimental, immersive one-man performance set on the threshold before a (or THE) story begins."
@@ -404,7 +406,7 @@
         "en": "This is not the start of the story, we haven’t started yet. \nThis is not the beginning. \n\nWhat do you need to know? Before we start? \nWe don’t know why.\nWe can guess, but we don’t know. We never will.\nWe can choose. And be satisfied with an answer. But we never know.\n\nThe elusive Why."
       },
       "stad": "Meerdere locaties",
-      "locatie": "Oerol, Nijmegen, Bergen op Zoom, Amsterdam, Den Haag, Den Bosch",
+      "locatie": "Oerol, Nijmegen, Bergen op Zoom, Amsterdam, etc.",
       "types": [
         "Performatief",
         "Audio driven immersion"
@@ -445,14 +447,42 @@
     },
     {
       "naam": {
+        "nl": "Eternal",
+        "en": "Eternal"
+      },
+      "start": "2026-04-01",
+      "eind": "2026-12-31",
+      "maker": "Darkfield",
+      "duur": "23 min",
+      "handig": "Engels gesproken",
+      "logline": {
+        "nl": "“I want you to believe...to believe in things that you cannot.” - Bram Stoker",
+        "en": "“I want you to believe...to believe in things that you cannot.” - Bram Stoker"
+      },
+      "beschrijving": {
+        "nl": "ETERNAL is een immersieve audio-ervaring van 20 minuten voor één persoon, alleen in bed. Het verkent het vraagstuk van het eeuwige leven en vraagt zich af welke prijs je ervoor zou willen betalen. ETERNAL werd in opdracht gemaakt voor het Bram Stoker Festival 2020 in Dublin en had zijn eerste fysieke installatie in 2022 bij Centre Phi, Montreal.",
+        "en": "ETERNAL is a 20 minute immersive audio experience for one person, alone in their bed. It explores the quandary of eternal life and wonders what price you would settle for to achieve it. ETERNAL was commissioned by the 2020 Bram Stoker Festival, Dublin, and had its first physical installation in 2022 at Centre Phi, Montreal"
+      },
+      "stad": "Online beschikbaar",
+      "locatie": "",
+      "types": [
+        "Audio driven immersion"
+      ],
+      "foto": "/images/eternal.jpeg",
+      "link": "https://darkfield.com.au/shows/eternal",
+      "uitgelicht": false,
+      "verseTip": false
+    },
+    {
+      "naam": {
         "nl": "Begin Again",
         "en": "Begin Again"
       },
       "start": "2026-10-22",
       "eind": "2027-01-29",
-      "maker": "BrotherTill & Lisa Weeda",
-      "duur": null,
-      "handig": null,
+      "maker": "Brother Till & Lisa Weeda",
+      "duur": "90 min",
+      "handig": "tweede deel van de mens-technologie-trilogie",
       "logline": {
         "nl": "In een tijd waarin het nut van de mens ter discussie staat, pleit een moeder voor een wereld zonder ego. Haar zoon houdt halsstarrig vast aan een wereld mét ego.",
         "en": "In a time when the usefulness of humankind is up for debate, a mother argues for a world without ego. Her son stubbornly clings to a world with ego."
@@ -469,7 +499,7 @@
       "foto": "/images/beginagain.jpg",
       "link": "https://www.brothertill.nl/projects/begin-again/",
       "uitgelicht": false,
-      "verseTip": false
+      "verseTip": true
     },
     {
       "naam": {
@@ -480,7 +510,7 @@
       "eind": "2028-12-31",
       "maker": "Nienke Huitenga Broeren & ENTR",
       "duur": "45 min",
-      "handig": null,
+      "handig": "vanaf 8+ / in NL en EN",
       "logline": {
         "nl": "Loop samen door het Amsterdam van de 17e eeuw, gezien door de ogen van een gewone Amsterdammer. Zie het IJ, de Dam en de nieuwe brugh en ontdek hoe mensen leefden, werkten en samenkwamen.",
         "en": "Walk together through the Amsterdam of the 17th century, seen through the eyes of an ordinary Amsterdammer. See the IJ, the Dam and the nieuwe brugh, and discover how people lived, worked and came together."
