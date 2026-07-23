@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Immersieve Kunst Agenda — versie 19 juli 2026 | events in events.json | studio zzzap | immersievekunstagenda.nl -->
+<!-- Immersieve Kunst Agenda — versie 23 juli 2026 | events in events.json | studio zzzap | immersievekunstagenda.nl -->
 <html lang="nl">
 <head>
 <!-- Google Tag Manager -->
@@ -363,9 +363,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .filter-btn.alles-btn:hover { opacity: 0.85; border-color: var(--white); color: var(--ink); }
   .filter-btn.alles-btn.active { background: var(--white); border-color: var(--white); color: var(--ink); }
 
-  .special-banner.nureality {
-    background: linear-gradient(90deg, #E2EF70 0%, #141414 100%);
+  .special-banner.roze {
+    background: linear-gradient(90deg, #FF3CAC 0%, rgba(255,60,172,0.55) 45%, rgba(255,60,172,0) 100%);
   }
+  .special-banner.roze .special-tag { color: rgba(255,255,255,0.75); }
+  .special-banner.roze .special-title { color: #fff; }
+  .special-banner.roze .special-arrow { color: #FF3CAC; }
+  .mc-special.roze {
+    background: linear-gradient(90deg, #FF3CAC 0%, rgba(255,60,172,0.45) 50%, rgba(255,60,172,0) 100%);
+  }
+  .mc-special.roze .mc-special-tag { color: rgba(255,255,255,0.75); }
+  .mc-special.roze .mc-special-title { color: #fff; }
 
   .filter-btn.periode-btn {
     background: linear-gradient(90deg, #FF3CAC 0%, rgba(255,60,172,0.45) 60%, rgba(255,60,172,0) 100%);
@@ -1248,7 +1256,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   body.hoog-contrast .laatste-kans-badge { color: #ffff00 !important; border-color: #ffff00 !important; }
   body.hoog-contrast .verse-tip-badge { background: #ffff00 !important; color: #000 !important; border-color: #ffff00 !important; }
   body.hoog-contrast .special-banner { background: linear-gradient(90deg, #ff99dd 0%, rgba(255,153,221,0.4) 60%, rgba(0,0,0,0) 100%) !important; }
-  body.hoog-contrast .special-banner.nureality { background: linear-gradient(90deg, #ffff00 0%, rgba(255,255,0,0.4) 60%, rgba(0,0,0,0) 100%) !important; }
+  body.hoog-contrast .special-banner.roze { background: linear-gradient(90deg, #ffff00 0%, rgba(255,255,0,0.4) 60%, rgba(0,0,0,0) 100%) !important; }
+  body.hoog-contrast .special-banner.roze .special-title { color: #000 !important; }
   body.hoog-contrast footer,
   body.hoog-contrast .footer-bottom { background: #000 !important; border-color: #fff !important; }
   body.hoog-contrast .td-link,
@@ -2874,8 +2883,7 @@ function eventRij(e, i) {
         ${e.link ? `<div style="margin-top:0.8rem;"><a href="${e.link}" class="td-link" target="_blank">${t.kaartjes}</a></div>` : ''}
       </td>
     </tr>
-    ${e.naam.nl === 'Church of VR' ? `<tr><td colspan="6" style="padding:0;"><div class="special-wrap" id="special-church"><div class="special-banner" onclick="toggleSpecial()"><div class="special-banner-left"><span class="special-tag">&#10022; Special</span><span class="special-title">Church of VR</span></div><div style="display:flex;align-items:center;gap:10px;"><span class="special-banner-hint">${huidigeTaal === 'nl' ? 'Klik om alle 14 werken te zien' : 'Click to see all 14 works'}</span><span class="special-arrow" id="special-arrow">&#8250;</span></div></div><div class="special-grid-wrap" id="special-grid-wrap"><div class="special-grid" id="special-grid"></div></div></div></td></tr>` : ''}
-    ${(e.naam.nl === 'The Living Gallery – Stap Binnen in Kunst met VR') ? `<tr><td colspan="6" style="padding:0;"><div class="special-wrap" id="special-nureality"><div class="special-banner nureality" onclick="toggleSpecialNR()"><div class="special-banner-left"><span class="special-tag">&#10022; Special</span><span class="special-title">NU:REALITY &mdash; The Living Gallery</span></div><div style="display:flex;align-items:center;gap:10px;"><span class="special-banner-hint">${huidigeTaal === 'nl' ? 'Klik om alle 5 werken te zien' : 'Click to see all 5 works'}</span><span class="special-arrow" id="special-arrow-nr">&#8250;</span></div></div><div class="special-grid-wrap" id="special-grid-wrap-nr"><div class="special-grid" id="special-grid-nr"></div></div></div></td></tr>` : ''}
+    ${specialBannerHTML(e, i)}
   `;
 }
 
@@ -2994,17 +3002,17 @@ function buildMobileCards() {
       '<div class="mc-row-arrow">›</div>' +
     '</div>' + desc;
 
-    // Special banners direct onder het juiste event
-    if (e.naam.nl === 'The Living Gallery – Stap Binnen in Kunst met VR') {
-      rij += '<div class="mc-special" onclick="toggleSpecialNR()">' +
-        '<div class="mc-special-left"><span class="mc-special-tag">&#10022; Special</span><span class="mc-special-title">NU:REALITY — The Living Gallery</span></div>' +
-        '<span class="mc-special-arrow">&#8250;</span></div>';
+    // Special banner (festival met meerdere werken) — uit events.json
+    if (e.special && e.special.werken && e.special.werken.length) {
+      var sid = registreerSpecial('spm' + i, e);
+      var kleurCls = (e.special.kleur === 'roze') ? ' roze' : '';
+      rij += '<div class="mc-special' + kleurCls + '" onclick="toggleSpecial(\'' + sid + '\')">' +
+        '<div class="mc-special-left"><span class="mc-special-tag">&#10022; Special</span>' +
+        '<span class="mc-special-title">' + (e.special.titel || e.naam[huidigeTaal]) + '</span></div>' +
+        '<span class="mc-special-arrow" id="' + sid + '-arrow">&#8250;</span></div>' +
+        '<div class="special-grid-wrap" id="' + sid + '-wrap"><div class="special-grid" id="' + sid + '-grid"></div></div>';
     }
-    if (e.naam.nl === 'Church of VR') {
-      rij += '<div class="mc-special" onclick="toggleSpecial()">' +
-        '<div class="mc-special-left"><span class="mc-special-tag">&#10022; Special</span><span class="mc-special-title">Church of VR</span></div>' +
-        '<span class="mc-special-arrow">&#8250;</span></div>';
-    }
+
     return rij;
   }
 
@@ -3131,73 +3139,63 @@ function isLaatsteKans(e) {
 }
 
 
-// Temp events voor Church of VR special
-const specialEvents = [
-  { naam: "Mirage", slug: "mirage", imgFile: "mirage.png" },
-  { naam: "A Long Goodbye", slug: "a-long-goodbye", imgFile: "longgoodbye.jpg" },
-  { naam: "At the Table", slug: "at-the-table", imgFile: "eddieandi.jpg" },
-  { naam: "My Forked Dating Life", slug: "my-forked-dating-life", imgFile: "forkeddating.png" },
-  { naam: "Embody XR", slug: "embody-xr", imgFile: "embodyxr.jpg" },
-  { naam: "A Walk Home Alone at Night", slug: "a-walk-home-alone-at-night", imgFile: "homealone.png" },
-  { naam: "Lesbian Simulator", slug: "lesbian-simulator", imgFile: "lesbiansimulator.png" },
-  { naam: "The Sounds of the Silenced", slug: "the-sounds-of-the-silenced", imgFile: "soundssilence.jpg" },
-  { naam: "Coded Black", slug: "coded-black", imgFile: "codedblack.jpeg" },
-  { naam: "The Little Mouse", slug: "the-little-mouse", imgFile: "littlemouse.png" },
-  { naam: "Lacuna", slug: "lacuna", imgFile: "lacuna.png" },
-  { naam: "Less Than 5gr of Saffron", slug: "less-than-5gr-of-saffron", imgFile: "saffron.jpeg" },
-  { naam: "Exodus", slug: "exodus", imgFile: "exodus.jpg" },
-  { naam: "Empathy Creature", slug: "empathy-creature", imgFile: "empathycreatures.png" },
-];
+// ── SPECIAL BANNER (festival met meerdere werken) ──
+// Data komt uit events.json: event.special = { titel, kleur, link, werken: [{naam, foto, link}] }
 
-function buildSpecial() {
-  var grid = document.getElementById('special-grid');
-  if (!grid) return;
-  grid.innerHTML = specialEvents.map(function(e) {
-    var imgUrl = e.imgFile ? '/images/' + e.imgFile : '/images/special/' + e.slug + '.jpg';
-    return '<a class="special-thumb" href="https://www.immersivetechweek.co/church-of-vr/" target="_blank" rel="noopener">' +
-      '<div class="special-thumb-img" style="background-image:url(' + imgUrl + '); background-size:cover; background-position:center;"></div>' +
-      '<div class="special-thumb-name">' + e.naam + '</div>' +
+function specialBannerHTML(e, i) {
+  if (!e.special || !e.special.werken || !e.special.werken.length) return '';
+  var sid = registreerSpecial('sp' + i, e);
+  var n = e.special.werken.length;
+  var hint = huidigeTaal === 'nl'
+    ? 'Klik om alle ' + n + ' werken te zien'
+    : 'Click to see all ' + n + ' works';
+  var kleurCls = (e.special.kleur === 'roze') ? ' roze' : '';
+  return '<tr><td colspan="6" style="padding:0;"><div class="special-wrap">' +
+    '<div class="special-banner' + kleurCls + '" onclick="toggleSpecial(\'' + sid + '\')">' +
+      '<div class="special-banner-left">' +
+        '<span class="special-tag">&#10022; Special</span>' +
+        '<span class="special-title">' + (e.special.titel || e.naam[huidigeTaal]) + '</span>' +
+      '</div>' +
+      '<div style="display:flex;align-items:center;gap:10px;">' +
+        '<span class="special-banner-hint">' + hint + '</span>' +
+        '<span class="special-arrow" id="' + sid + '-arrow">&#8250;</span>' +
+      '</div>' +
+    '</div>' +
+    '<div class="special-grid-wrap" id="' + sid + '-wrap"><div class="special-grid" id="' + sid + '-grid"></div></div>' +
+  '</div></td></tr>';
+}
+
+var specialRegister = {};   // sid -> event, gevuld tijdens het renderen
+
+function registreerSpecial(sid, e) { specialRegister[sid] = e; return sid; }
+
+function toggleSpecial(sid) {
+  var wrap = document.getElementById(sid + '-wrap');
+  var arrow = document.getElementById(sid + '-arrow');
+  if (!wrap) return;
+  var open = wrap.classList.toggle('open');
+  if (arrow) arrow.classList.toggle('open', open);
+  if (open) buildSpecialGrid(sid);
+}
+
+function buildSpecialGrid(sid) {
+  var grid = document.getElementById(sid + '-grid');
+  var e = specialRegister[sid];
+  if (!grid || !e) return;
+  var fallback = e.special.link || e.link || '#';
+  grid.innerHTML = e.special.werken.map(function(w) {
+    var href = w.link || fallback;
+    var foto = w.foto || '';
+    var img = foto
+      ? '<div class="special-thumb-img" style="background-image:url(' + foto + ');background-size:cover;background-position:center;"></div>'
+      : '<div class="special-thumb-img">' + (w.naam || '?')[0] + '</div>';
+    return '<a class="special-thumb" href="' + href + '" target="_blank" rel="noopener">' +
+      img +
+      '<div class="special-thumb-name">' + (w.naam || '') + '</div>' +
+      (w.maker ? '<div class="special-thumb-maker">' + w.maker + '</div>' : '') +
     '</a>';
   }).join('');
 }
-
-function toggleSpecial() {
-  var wrap = document.getElementById('special-grid-wrap');
-  var arrow = document.getElementById('special-arrow');
-  var open = wrap.classList.toggle('open');
-  arrow.classList.toggle('open', open);
-  if (open) buildSpecial();
-}
-
-// NU:REALITY — The Living Gallery special
-const specialEventsNR = [
-  { naam: "Caravaggio, In Tenebris", slug: "caravaggio", imgFile: "caravaggio.png" },
-  { naam: "Dance Dance Dance - Matisse", slug: "dancematisse", imgFile: "dancematisse.png" },
-  { naam: "A Long Goodbye", slug: "longgoodbye2", imgFile: "longgoodbye2.png" },
-  { naam: "Creation of the Worlds", slug: "creationoftheworld", imgFile: "creationoftheworld.png" },
-  { naam: "The Scream", slug: "scream", imgFile: "scream.png" },
-];
-
-function buildSpecialNR() {
-  var grid = document.getElementById('special-grid-nr');
-  if (!grid) return;
-  grid.innerHTML = specialEventsNR.map(function(e) {
-    var imgUrl = e.imgFile ? '/images/' + e.imgFile : '/images/special/' + e.slug + '.jpg';
-    return '<a class="special-thumb" href="https://nureality.eu/nl/the-living-gallery/" target="_blank" rel="noopener">' +
-      '<div class="special-thumb-img" style="background-image:url(' + imgUrl + '); background-size:cover; background-position:center;"></div>' +
-      '<div class="special-thumb-name">' + e.naam + '</div>' +
-    '</a>';
-  }).join('');
-}
-
-function toggleSpecialNR() {
-  var wrap = document.getElementById('special-grid-wrap-nr');
-  var arrow = document.getElementById('special-arrow-nr');
-  var open = wrap.classList.toggle('open');
-  arrow.classList.toggle('open', open);
-  if (open) buildSpecialNR();
-}
-
 
 function scrollToTip(e) {
   if (e) e.preventDefault();
