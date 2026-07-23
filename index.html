@@ -2350,6 +2350,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     display: block;
     max-height: 80px;
   }
+
+  /* Klikbaar beeld */
+  .foto-link { display: block; text-decoration: none; cursor: pointer; }
+  .foto-link img { transition: opacity 0.2s, transform 0.4s ease; }
+  .foto-link:hover img { opacity: 0.82; }
+  .card .foto-link:hover img { transform: scale(1.03); }
 </style>
 </head>
 <body>
@@ -2699,11 +2705,11 @@ function buildUitgelicht() {
   const uitgelicht = events.filter(e => e.uitgelicht === true).slice(0, 2);
   document.getElementById('uitgelicht-cards').innerHTML = uitgelicht.map((e, idx) => `
     <article class="card featured-card">
-      <div class="card-img"><img src="${e.foto}" alt="${e.naam[huidigeTaal]}" loading="lazy"></div>
+      ${fotoLink(e, `<div class="card-img"><img src="${e.foto}" alt="${e.naam[huidigeTaal]}" loading="lazy"></div>`)}
       <div class="card-body">
         <div class="card-tag">${e.duur ? `<span class='card-duur-pill'>◷ ${e.duur}</span>` : ''}${[...e.types.map(tp => typeVertalingen[huidigeTaal][tp] || tp), e.locatie].map(l => `<span class='card-tag-item'>${l}</span>`).join('')}${e.verseTip ? `<span class="verse-tip-badge">${huidigeTaal === 'nl' ? 'Verse tip' : 'Fresh pick'}</span>` : ''} ${isLaatsteKans(e) ? `<span class="laatste-kans-badge">${huidigeTaal === 'nl' ? 'Laatste kans' : 'Last chance'}</span>` : ''}</div>
         <h2 class="card-title">${e.naam[huidigeTaal]}</h2>
-        <p class="card-maker">${e.maker}</p>
+        ${e.maker ? `<p class="card-maker">${e.maker}</p>` : ''}
         <p class="card-desc">${e.logline[huidigeTaal]}</p>
         ${e.beschrijving && e.beschrijving[huidigeTaal] ? `
           <div class="card-beschrijving" id="card-desc-${idx}" style="display:none; font-size:13px; line-height:1.6; color:rgba(255,255,255,0.75); margin-top:0.4rem;">${e.beschrijving[huidigeTaal]}</div>
@@ -2711,7 +2717,7 @@ function buildUitgelicht() {
         ` : ''}
         <div class="card-meta">
           <div style="display:flex; flex-direction:column; gap:4px;">
-            <span>${e.startDag} ${e.startMaand[huidigeTaal]}${e.eindDatum ? ' — ' + e.eindDatum[huidigeTaal] : ''} · ${e.stad}</span>
+            <span>${e.startDag} ${e.startMaand[huidigeTaal]}${e.eindDatum ? ' — ' + e.eindDatum[huidigeTaal] : ''}${e.stad ? ' · ' + e.stad : ''}</span>
           </div>
           <a href="${e.link}" class="card-link" target="_blank">${t.kaartjes}</a>
         </div>
@@ -2847,6 +2853,15 @@ function periodeHeader(label, dimmed) {
   </td></tr>`;
 }
 
+// Maakt een beeld klikbaar naar de website van het event
+function fotoLink(e, inner, stopBubble) {
+  if (!e.link) return inner;
+  var stop = stopBubble ? ' onclick="event.stopPropagation()"' : '';
+  return '<a href="' + e.link + '" target="_blank" rel="noopener" class="foto-link"'
+       + stop + ' title="' + (e.naam[huidigeTaal] || '').replace(/"/g, '&quot;') + '">'
+       + inner + '</a>';
+}
+
 function eventRij(e, i) {
   const t = ui[huidigeTaal];
   const descId = 'desc-' + i;
@@ -2854,9 +2869,9 @@ function eventRij(e, i) {
   return `
     <tr>
       <td class="td-foto">
-        ${e.foto
+        ${fotoLink(e, e.foto
           ? `<div class="foto-inner"><img src="${e.foto}" alt="${e.naam[huidigeTaal]}" loading="lazy"></div>`
-          : `<div class="foto-inner-placeholder">${e.naam[huidigeTaal][0]}</div>`}
+          : `<div class="foto-inner-placeholder">${e.naam[huidigeTaal][0]}</div>`)}
       </td>
       <td class="td-datum">
         <div style="font-size:14px; font-family:'DM Sans',sans-serif; font-weight:400;">${e.startDag} ${e.startMaand[huidigeTaal]}${e.eindDatum ? ` ${huidigeTaal === 'nl' ? 't/m' : 'until'} ${e.eindDatum[huidigeTaal]}` : ''}</div>
@@ -2865,14 +2880,14 @@ function eventRij(e, i) {
       </td>
       <td>
         <div class="td-titel">${e.naam[huidigeTaal]}</div>
-        <div class="td-maker">${e.maker}</div>
+        ${e.maker ? `<div class="td-maker">${e.maker}</div>` : ''}
         ${e.duur ? `<div class="td-duur">◷ ${e.duur}</div>` : ''}
         ${e.handig ? `<div class="td-handig">★ ${e.handig}</div>` : ''}
       </td>
       <td>${e.types.map(tp => `<span class="type-tag">${typeVertalingen[huidigeTaal][tp] || tp}</span>`).join('')}</td>
       <td>
-        <div class="td-stad">${e.stad}</div>
-        <div class="td-locatie">${e.locatie}</div>
+        ${e.stad ? `<div class="td-stad">${e.stad}</div>` : ''}
+        ${e.locatie ? `<div class="td-locatie">${e.locatie}</div>` : ''}
       </td>
       <td class="uitklap-wrap">
         <div class="logline">${e.logline[huidigeTaal]}</div>
@@ -2976,9 +2991,10 @@ function buildMobileCards() {
   function mcRij(e, i) {
     var id = 'mcd' + i;
     var datum = e.startDag + ' ' + e.startMaand[huidigeTaal] + (e.eindDatum ? ' — ' + e.eindDatum[huidigeTaal] : '');
-    var thumb = e.foto
+    var thumbInner = e.foto
       ? '<div class="mc-thumb"><img src="' + e.foto + '" loading="lazy"></div>'
       : '<div class="mc-thumb"><div class="mc-thumb-ph">' + e.naam[huidigeTaal][0] + '</div></div>';
+    var thumb = fotoLink(e, thumbInner, true);
     var badges = '';
     if (e.verseTip) badges += ' <span class="verse-badge">' + (huidigeTaal === 'nl' ? 'Verse tip' : 'Fresh pick') + '</span>';
     if (isLaatsteKans(e)) badges += ' <span class="lk-badge">' + (huidigeTaal === 'nl' ? 'Laatste kans' : 'Last chance') + '</span>';
@@ -2996,7 +3012,7 @@ function buildMobileCards() {
       thumb +
       '<div class="mc-row-body">' +
         '<div class="mc-row-naam">' + e.naam[huidigeTaal] + badges + '</div>' +
-        '<div class="mc-row-sub"><span>' + datum + ' · ' + e.stad + '</span>' + typeTag + '</div>' +
+        '<div class="mc-row-sub"><span>' + datum + (e.stad ? ' · ' + e.stad : '') + '</span>' + typeTag + '</div>' +
         (duurHandig ? '<div class="mc-row-sub" style="margin-top:2px;gap:8px;">' + duurHandig + '</div>' : '') +
       '</div>' +
       '<div class="mc-row-arrow">›</div>' +
@@ -3031,8 +3047,8 @@ function buildMobileCards() {
         img +
         '<div class="mc-ucard-body">' +
           '<div class="mc-ucard-title">' + e.naam[huidigeTaal] + '</div>' +
-          '<div class="mc-ucard-maker">' + e.maker + '</div>' +
-          '<div class="mc-ucard-meta">' + e.startDag + ' ' + e.startMaand[huidigeTaal] + (e.eindDatum ? ' — ' + e.eindDatum[huidigeTaal] : '') + ' · ' + e.stad + '</div>' +
+          (e.maker ? '<div class="mc-ucard-maker">' + e.maker + '</div>' : '') +
+          '<div class="mc-ucard-meta">' + e.startDag + ' ' + e.startMaand[huidigeTaal] + (e.eindDatum ? ' — ' + e.eindDatum[huidigeTaal] : '') + (e.stad ? ' · ' + e.stad : '') + '</div>' +
         '</div>' +
         '<div class="mc-ucard-arrow">›</div>' +
       '</a>';
@@ -3251,12 +3267,12 @@ function buildStudenten() {
     return '<div class="studenten-card">' +
       img +
       '<div class="studenten-card-body">' +
-        '<div class="studenten-card-maker">' + e.maker + '</div>' +
+        (e.maker ? '<div class="studenten-card-maker">' + e.maker + '</div>' : '') +
         '<h3 class="studenten-card-title">' + e.naam[huidigeTaal] + '</h3>' +
         '<p class="studenten-card-logline">' + e.logline[huidigeTaal] + '</p>' +
         desc +
         '<div class="studenten-card-meta">' +
-          '<span>' + datum + ' · ' + e.stad + (e.duur ? ' · ' + e.duur : '') + '</span>' +
+          '<span>' + datum + (e.stad ? ' · ' + e.stad : '') + (e.duur ? ' · ' + e.duur : '') + '</span>' +
           (e.link ? '<a href="' + e.link + '" class="studenten-card-link" target="_blank">' + meerInfo + '</a>' : '') +
         '</div>' +
       '</div></div>';
@@ -3451,9 +3467,10 @@ function converteerEvent(e) {
   ev.startJaar = s[0]; ev.startMaandNr = s[1]; ev.startDag = s[2];
   ev.eindJaar = x[0]; ev.eindMaandNr = x[1]; ev.eindDag = x[2];
   ev.startMaand = { nl: MAANDEN.nl[s[1]-1], en: MAANDEN.en[s[1]-1] };
+  var jaarSuffix = (x[0] !== s[0]) ? ' ' + x[0] : '';   // toon jaartal alleen als het afwijkt
   ev.eindDatum = (e.start === e.eind) ? null : {
-    nl: x[2] + ' ' + MAANDEN.nl[x[1]-1],
-    en: MAANDEN.en[x[1]-1] + ' ' + x[2]
+    nl: x[2] + ' ' + MAANDEN.nl[x[1]-1] + jaarSuffix,
+    en: MAANDEN.en[x[1]-1] + ' ' + x[2] + jaarSuffix
   };
   return ev;
 }
