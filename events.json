@@ -2,118 +2,31 @@
   "events": [
     {
       "naam": {
-        "nl": "Synergy Art Festival",
-        "en": "Synergy Art Festival"
+        "nl": "VR Silent Disco",
+        "en": "VR Silent Disco"
       },
-      "start": "2026-07-24",
-      "eind": "2026-07-24",
-      "maker": "o.a. Aéreosculpture, Stine Deja, Compagnie Barks, Kexin Hao",
-      "duur": "chillax time",
-      "handig": "De stad als (immersief) kunstpodium",
+      "start": "2026-08-20",
+      "eind": "2026-08-20",
+      "maker": "Studio VRij",
+      "duur": "30min",
+      "handig": "Book a timeslot between 1800 and 2030",
       "logline": {
-        "nl": "een immersieve dag vol beeldende kunst, performance, muziek en collectieve expressie",
-        "en": "an immersive day of visual art, performance, music, and collective expression"
+        "nl": "Stap in de tweede editie van Show Me the Light, een VR Silent Disco van Studio Vrij in samenwerking met Brass Rave Unit.",
+        "en": "step into the second edition of Show Me the Light, a VR Silent Disco created by Studio Vrij in collaboration with Brass Rave Unit."
       },
       "beschrijving": {
-        "nl": "Van geestverruimende installaties tot gratis hands-on workshops en spontane happenings – elk moment is een stukje van de puzzel die alleen samen met jou compleet wordt.",
-        "en": "From mind-expanding installations to free hands-on workshops and spontaneous happenings - every moment is a piece of the puzzle that only comes together with you."
+        "nl": "Zodra de headset op is, delen tot acht deelnemers een virtuele dansvloer, elk als avatar. Geleid door de beat beweeg je samen terwijl de wereld om je heen verschuift. En terwijl het ritme je meevoert, blijft een stille vraag hangen: wie heeft er eigenlijk controle over je bewegingen?\n\nDeze editie vindt plaats binnen Staging Collective VR Experiences, een CIIIC-onderzoeksproject van HvA, Studio Vrij en Nxt Museum. Tijdens de showcase onderzoekt de HvA hoe mensen samen door collectieve VR bewegen.",
+        "en": "Once the headset is on, up to eight participants share a virtual dance floor, each appearing as an avatar. Guided by the beat, you move together as the world shifts around you. And as the rhythm pulls you along, a quiet question lingers: who is really in control of your actions?\n\nThis edition takes place as part of Staging Collective VR Experiences, a CIIIC research project by HvA, Studio Vrij and Nxt Museum. During the showcase, HvA joins to study how people share and move through collective VR together."
       },
       "stad": "Amsterdam",
-      "locatie": "Flevopark",
-      "types": [
-        "Zintuiglijk",
-        "In de natuur"
-      ],
-      "foto": "/images/synergyfestival.jpg",
-      "link": "https://synergyartfestival.nl/",
-      "uitgelicht": false,
-      "verseTip": false
-    },
-    {
-      "naam": {
-        "nl": "Traversing the Mist",
-        "en": "Traversing the Mist"
-      },
-      "start": "2026-07-12",
-      "eind": "2026-07-27",
-      "maker": "CHOU Tung-yen",
-      "duur": "35 min",
-      "handig": "vanaf 16+",
-      "logline": {
-        "nl": "In een surrealistische gay sauna bevind je je in het lichaam van een jonge Taiwanese man. Je waagt je in dit droomlandschap, geweven uit verlangens, opwinding en angsten, en kruist blikken met de andere saunabezoekers, die allemaal hetzelfde gezicht hebben.",
-        "en": "Inside a surreal gay sauna, you find yourself embodied in the body of a young Taiwanese man. You venture into this dreamscape, woven by desires, excitements, and fears, crossing eyes with the other sauna-goers who all have the same faces."
-      },
-      "beschrijving": {
-        "nl": "Terwijl je over elke verdieping, door elke gang en kamer loopt, rafelt elke laag van het doolhof onherroepelijk achter je rug uiteen. Uiteindelijk verdwijnt alles. Met Traversing the Mist verlegt maker CHOU Tung-Yen de grenzen van realtime XR-technologie en verhaalvertelling. Traversing the Mist ging in wereldpremière op IDFA DocLab 2023, draaide in competitie in Cannes en won de Grand Prize op NewImages Paris.",
-        "en": "As you walk along every floor, corridor, and room, each layer of the maze irreversibly unravels behind your back. Eventually, everything disappears. With Traversing the Mist, creator CHOU Tung-Yen pushes the boundaries of real-time XR technology and narrative.  Traversing the Mist had its world première in IDFA DocLAB 2023, competed in Cannes, and won the Grand Prize in NewImages Paris."
-      },
-      "stad": "Amsterdam",
-      "locatie": "Podium Mozaïek",
-      "types": [
-        "XR",
-        "Performatief"
-      ],
-      "foto": "/images/traversing.png",
-      "link": "https://www.podiummozaiek.nl/programma/details/tm-11972-7f94019f/traversing-the-mist-16",
-      "uitgelicht": true,
-      "verseTip": false
-    },
-    {
-      "naam": {
-        "nl": "Lesbian Simulator",
-        "en": "Lesbian Simulator"
-      },
-      "start": "2026-08-05",
-      "eind": "2026-08-08",
-      "maker": "Iris van der Meule",
-      "duur": "40 min",
-      "handig": "Voiced by Hanna van Vliet (NL and EN)",
-      "logline": {
-        "nl": "'Lesbian Simulator' is een interactief virtual reality-kunstwerk en videogame dat gebruikers de wereld laat ervaren vanuit het perspectief van een lesbienne.",
-        "en": "‘Lesbian Simulator’ is an interactive virtual reality artwork and video game which will prompt users to experience the world from the perspective of a lesbian."
-      },
-      "beschrijving": {
-        "nl": "Geïnspireerd op de persoonlijke ervaringen van Iris van der Meule en haar naasten wil 'Lesbian Simulator' op een speelse manier bewustzijn creëren. Gebruikers ervaren enkele sleutelmomenten uit het bestaan van een queer persoon, zoals: uit de kast komen bij verschillende mensen, nieuwe vrienden maken, op date gaan, maar ook de eerste keer dat je discriminatie of zelfs verbaal geweld ervaart. 'Lesbian Simulator' weerspiegelt de blinde vlekken in onze samenleving als het gaat om de acceptatie van lesbiennes (en indirect van queer personen in het algemeen). Het is een ode aan liefde en seksualiteit, over het verkennen van je seksuele oriëntatie en over omarmd worden door de lesbische en queer gemeenschap. Het is een viering van diversiteit en inclusiviteit.\n\nVan Iris van der Meule\n\nWereldpremière op IDFA 2025\nOfficiële selectie op SXSW 2026",
-        "en": "Inspired by the personal experiences of Iris van der Meule and those close to her, ‘Lesbian Simulator’ aims to create awareness in a playful manner. Users experience some of the key aspects in the existence of a queer person such as: coming-out to various people, making new friends, going on a date but also the first time feeling discriminated or even verbally abused.  ’Lesbian Simulator’ mirrors the blind spots within our society in relation to the acceptance of lesbians (and indirectly, of queer people in general). It is an ode to love and sexuality, about the exploration of your sexual orientation and about being embraced by the lesbian and queer community. It is a celebration of diversity and inclusivity. \n\nBy Iris van der Meule\n\nWorld premiere at IDFA 2025\nOfficial selection at SXSW 2026"
-      },
-      "stad": "Amsterdam",
-      "locatie": "World Pride Museumplein",
+      "locatie": "NXT Museum",
       "types": [
         "XR"
       ],
-      "foto": "/images/Lesbian_Simulator20copy.png",
-      "link": "https://pride.amsterdam/en/event/lesbian-simulator-at-the-pride-village/#event-content",
+      "foto": "/images/silentdisco.jpg",
+      "link": "https://nxtmuseum.com/event/vr-silent-disco",
       "uitgelicht": true,
       "verseTip": false
-    },
-    {
-      "naam": {
-        "nl": "Zonsverduistering",
-        "en": "Solar Eclipse"
-      },
-      "start": "2026-08-12",
-      "eind": "2026-08-12",
-      "maker": "De kosmos",
-      "duur": "30 min",
-      "handig": "Gratis * de zonsverduistering is slechts 7,5 min",
-      "logline": {
-        "nl": "12 augustus staat ons een bijzonder schouwspel te wachten: een zonsverduistering of zonne-eclips.",
-        "en": "On 12 August a remarkable spectacle awaits us: a solar eclipse."
-      },
-      "beschrijving": {
-        "nl": "In het ARTIS-Planetarium word je die dag tijdens de liveshow Reis door het heelaal om 15.00 uur voorbereid hoe je dit verschijnsel het beste kunt waarnemen.",
-        "en": "At the ARTIS Planetarium, the live show Journey through the Universe at 3pm will prepare you for how best to observe this phenomenon."
-      },
-      "stad": "Amsterdam",
-      "locatie": "Artis",
-      "types": [
-        "In de natuur",
-        "Planetarium"
-      ],
-      "foto": "/images/verduistering.png",
-      "link": "https://www.artis.nl/nl/artis-park/planetarium/eclips",
-      "uitgelicht": false,
-      "verseTip": true
     },
     {
       "naam": {
@@ -143,6 +56,34 @@
       "foto": "/images/voorlindenforsythe.jpg",
       "link": "https://www.voorlinden.nl/tentoonstelling/william-forsythe/",
       "uitgelicht": false,
+      "verseTip": false
+    },
+    {
+      "naam": {
+        "nl": "ALTERITY",
+        "en": "ALTERITY"
+      },
+      "start": "2026-08-28",
+      "eind": "2026-08-29",
+      "maker": "Jacco Gardner",
+      "duur": "25 min",
+      "handig": "Gratis toegang | Voor en na de optredens kun je ook onze tentoonstelling Metabolising Time bezoeken. Na de live sessies zal ALTERITY zelf door blijven spelen bij MU tot en met 20 september. // Vrijdag 28 augustus: 19:00 & 20:45 // Zaterdag 29 augustus: 16:00 & 20:45",
+      "logline": {
+        "nl": "ALTERITY van kunstenaar/muzikant en media-archeoloog Jacco Gardner bestaat uit een live-performance bij een gesproken verhaal over verborgen toekomstvisies",
+        "en": "ALTERITY by artist/musician and media archaeologist Jacco Gardner consists of a live performance accompanying a spoken story about hidden visions of the future."
+      },
+      "beschrijving": {
+        "nl": "Tijdens de voorstelling klinkt een spoelbandrecorder waarop de stem van Gardner een essay voorleest. De tekst, geschreven door kunsthistorica Maria Pandiello, gaat dieper in op het eeuwenoude menselijke verlangen om onszelf weerspiegeld te zien in iets dat we maken, en in die weerspiegeling iets te ontdekken wat we niet verwachten",
+        "en": "During the performance a reel-to-reel recorder plays Gardner's voice reading an essay. The text, written by art historian Maria Pandiello, delves into the age-old human desire to see ourselves reflected in something we make, and to discover in that reflection something we did not expect."
+      },
+      "stad": "Eindhoven",
+      "locatie": "MU Hybrid Art House",
+      "types": [
+        "Immersieve installaties"
+      ],
+      "foto": "/images/alterity.jpg",
+      "link": "https://mu.nl/event/alterity-by-jacco-gardner-hit-the-city",
+      "uitgelicht": true,
       "verseTip": false
     },
     {
@@ -360,6 +301,35 @@
     },
     {
       "naam": {
+        "nl": "OTION presents W.A.V.E. part 3",
+        "en": "OTION presents W.A.V.E. part 3"
+      },
+      "start": "2026-10-03",
+      "eind": "2026-10-03",
+      "maker": "Otion",
+      "duur": "60 min",
+      "handig": "English spoken",
+      "logline": {
+        "nl": "OTION keert terug naar Felix Meritis met het derde deel van W.A.V.E: Making the Wave, een immersieve performancereeks over de onzichtbare krachten die geluid, lichaam en ruimte verbinden.",
+        "en": "OTION returns to Felix Meritis with the third part of W.A.V.E: Making the Wave, an immersive performance series exploring the invisible forces that connect sound, body, and space"
+      },
+      "beschrijving": {
+        "nl": "Via geluid, beweging en rituele verhalen transformeert OTION live muziek tot een volledig ruimtelijke ervaring, waarin geluid niet alleen gehoord maar fysiek gevoeld wordt.\n\nDe reeks ontvouwt zich in drie hoofdstukken: Floating on the WAVE, Riding the WAVE en Making the WAVE, elk met een eigen sfeer binnen een doorlopende reis. Samen met een geluidskunstenaar en danser activeert OTION drie essentiële elementen: ruimte, stem en lichaam.",
+        "en": "Through sound, movement, and ritual storytelling, OTION transforms live music into a fully spatial experience, where sound is not just heard, but physically felt.\n\nThe series unfolds in three chapters: Floating on the WAVE, Riding the WAVE, and Making the WAVE, each offering a distinct atmosphere within a continuous journey. Together with a sound artist and dancer, OTION activates three essential elements: space, voice, and body, guiding audiences along a path from listening, to embodiment, to creation; from surrender, to safety, to play."
+      },
+      "stad": "Amsterdam",
+      "locatie": "Felix Meritis",
+      "types": [
+        "Performatief",
+        "Immersief theater"
+      ],
+      "foto": "/images/otion.png",
+      "link": "https://felixmeritis.nl/programma/otion-presents-w-a-v-e-3/",
+      "uitgelicht": false,
+      "verseTip": false
+    },
+    {
+      "naam": {
         "nl": "Synthetic Halo",
         "en": "Synthetic Halo"
       },
@@ -442,6 +412,35 @@
       ],
       "foto": "/images/Yonk.jpg",
       "link": "https://nxtmuseum.com/nl/event/tales-of-two-van-yonk",
+      "uitgelicht": false,
+      "verseTip": false
+    },
+    {
+      "naam": {
+        "nl": "Junebug",
+        "en": "Junebug"
+      },
+      "start": "2026-09-23",
+      "eind": "2026-12-12",
+      "maker": "Anna Verkouteren Jansen",
+      "duur": "40 min",
+      "handig": "English spoken",
+      "logline": {
+        "nl": "June leidt een onzichtbaar bestaan in een blokhut in het diepe zuiden van de VS. Omringd door de bossen slijt ze haar dagen voor de TV, tot het signaal begint te haperen. Met de ruis op onze hielen flitsen we door een Amerikaans droomlandschap van tv-mediums, afhaalburrito’s, mistige motelkamers en geesten uit het verleden.",
+        "en": "June leads an invisible existence in a cabin in the deep south of the USA. Surrounded by forests she passes her days in front of the TV, until the signal starts to falter. With the static on our heels we flash through an American dreamscape of TV mediums, takeaway burritos, misty motel rooms and ghosts from the past."
+      },
+      "beschrijving": {
+        "nl": "Junebug is een cinematische en tactiele voorstelling over de dingen in onszelf waar we liever niet naar kijken. Over escapisme, eenzaamheid en de zinloosheid van het bestaan. Op luchtige én mystieke manier toont Anna Verkouteren Jansen hoe we allemaal op onze eigen manier omgaan met het grote niets. Terwijl je wordt meegevoerd naar de Paris, Texas-achtige binnenwerelden van eenzame butch June, ontvouwt zich een weird, gevoelig en zwartkomisch verhaal",
+        "en": "Junebug is a cinematic and tactile performance about the things within ourselves we would rather not look at. About escapism, loneliness and the futility of existence. In a light yet mystical way, Anna Verkouteren Jansen shows how each of us deals with the great nothing in our own way. As you are carried into the Paris, Texas-like inner worlds of lonely butch June, a weird, sensitive and darkly comic story unfolds."
+      },
+      "stad": "Verschillende locaties",
+      "locatie": "Den Haag, Mechelen (BE), Leuven (BE), Amsterdam",
+      "types": [
+        "Immersieve installaties",
+        "Audio driven immersion"
+      ],
+      "foto": "/images/junebug.jpg",
+      "link": "https://annaverkouterenjansen.com/index.php/junebug/",
       "uitgelicht": false,
       "verseTip": false
     },
