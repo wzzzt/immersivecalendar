@@ -326,7 +326,7 @@
       "foto": "/images/otion.png",
       "link": "https://felixmeritis.nl/programma/otion-presents-w-a-v-e-3/",
       "uitgelicht": false,
-      "verseTip": false
+      "verseTip": true
     },
     {
       "naam": {
@@ -442,7 +442,7 @@
       "foto": "/images/junebug.jpg",
       "link": "https://annaverkouterenjansen.com/index.php/junebug/",
       "uitgelicht": false,
-      "verseTip": false
+      "verseTip": true
     },
     {
       "naam": {
@@ -498,7 +498,7 @@
       "foto": "/images/beginagain.jpg",
       "link": "https://www.brothertill.nl/projects/begin-again/",
       "uitgelicht": false,
-      "verseTip": true
+      "verseTip": false
     },
     {
       "naam": {
