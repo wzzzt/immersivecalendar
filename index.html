@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Immersieve Kunst Agenda — versie 23 juli 2026 | events in events.json | studio zzzap | immersievekunstagenda.nl -->
+<!-- Immersieve Kunst Agenda — versie 23 aug 2026 | events in events.json | studio zzzap | immersievekunstagenda.nl -->
 <html lang="nl">
 <head>
 <!-- Google Tag Manager -->
@@ -1119,35 +1119,34 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   .special-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
   }
 
-  @media (max-width: 700px) {
-    .special-grid { grid-template-columns: repeat(3, 1fr); }
-  }
+  @media (max-width: 900px) { .special-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 600px) { .special-grid { grid-template-columns: repeat(2, 1fr); } }
 
   .special-thumb {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+    display: block;
     cursor: pointer;
     text-decoration: none;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    background: #222;
+    aspect-ratio: 4/3;
   }
-  .special-thumb:hover .special-thumb-img { opacity: 0.8; }
 
   .special-thumb-img {
-    width: 100%;
-    aspect-ratio: 1/1;
+    position: absolute;
+    inset: 0;
     background: #2C2C2C;
-    border-radius: 4px;
-    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: 'Fraunces', serif;
     font-style: italic;
-    font-size: 1.2rem;
+    font-size: 2rem;
     color: #FF3CAC;
     font-weight: 900;
   }
@@ -1156,41 +1155,35 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .special-thumb:hover .special-thumb-img img { transform: scale(1.06); }
+
+  .special-thumb-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0.8rem 0.9rem;
+    background: linear-gradient(to top, rgba(10,9,12,0.92) 0%, rgba(10,9,12,0.35) 55%, transparent 100%);
   }
 
   .special-thumb-name {
     font-family: 'Fraunces', serif;
     font-style: italic;
-    font-size: 11px;
-    color: rgba(255,255,255,0.7);
-    line-height: 1.3;
-    font-weight: 700;
+    font-size: 13px;
+    font-weight: 900;
+    line-height: 1.15;
+    color: #fff;
   }
 
   .special-thumb-maker {
     font-family: 'DM Sans', sans-serif;
-    font-size: 9px;
-    color: rgba(255,255,255,0.3);
-    letter-spacing: 0.03em;
-  }
-
-
-  .verse-tip-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 9px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: #141414;
-    background: #E2EF70;
-    border: 1px solid #E2EF70;
-    padding: 3px 9px 3px 8px;
-    border-radius: 100px;
-    font-weight: 500;
-    white-space: nowrap;
-    width: fit-content;
+    font-size: 10px;
+    color: rgba(255,255,255,0.7);
+    margin-top: 3px;
+    line-height: 1.3;
   }
   .verse-tip-badge::before {
     content: "";
@@ -2356,6 +2349,51 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .foto-link img { transition: opacity 0.2s, transform 0.4s ease; }
   .foto-link:hover img { opacity: 0.82; }
   .card .foto-link:hover img { transform: scale(1.03); }
+
+  /* ── STEUN-KAARTJE ── */
+  .steun-rij td { padding: 1.5rem 0 !important; border-bottom: none !important; }
+  .steun-kaart {
+    display: grid; grid-template-columns: 1fr 300px;
+    background: #1A1A1A; border: 1px solid var(--border); border-radius: 14px;
+    overflow: hidden; text-decoration: none; color: inherit;
+    transition: border-color 0.2s;
+  }
+  .steun-kaart:hover { border-color: rgba(255,60,172,0.5); }
+  .steun-tekst { padding: 2.2rem 2.4rem; display: flex; flex-direction: column; justify-content: center; }
+  .steun-label {
+    display: inline-flex; align-items: center; gap: 6px; width: fit-content;
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--pink); border: 1px solid var(--pink); border-radius: 100px;
+    padding: 4px 12px 4px 10px; margin-bottom: 1.2rem;
+  }
+  .steun-label::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--pink); }
+  .steun-titel {
+    font-family: 'Fraunces', serif; font-weight: 900; font-style: italic;
+    font-size: clamp(1.6rem, 3.5vw, 2.2rem); line-height: 1.05; letter-spacing: -0.01em; color: var(--white);
+  }
+  .steun-maker { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 0.5rem; }
+  .steun-pitch { font-size: 15px; line-height: 1.65; color: rgba(255,255,255,0.85); margin-top: 1rem; }
+  .steun-cta {
+    display: inline-flex; align-items: center; gap: 8px; width: fit-content; margin-top: 1.6rem;
+    font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;
+    background: var(--pink); color: #fff; padding: 11px 22px; border-radius: 100px;
+  }
+  .steun-kaart:hover .steun-cta { opacity: 0.9; }
+  .steun-sub { font-size: 12px; color: var(--muted); margin-top: 0.8rem; }
+  .steun-foto { background: #111; position: relative; min-height: 220px; }
+  .steun-foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .steun-foto.ph::after {
+    content: attr(data-letter); position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Fraunces', serif; font-style: italic; font-weight: 900;
+    font-size: 4rem; color: var(--pink); opacity: 0.4;
+  }
+  .mc-steun-wrap { padding: 1rem 0; }
+  @media (max-width: 640px) {
+    .steun-kaart { grid-template-columns: 1fr; }
+    .steun-foto { min-height: 160px; order: -1; }
+    .steun-tekst { padding: 1.6rem 1.4rem; }
+  }
 </style>
 </head>
 <body>
@@ -2699,13 +2737,33 @@ function buildFilters() {
   });
 }
 
+// Welke uitgelichte events zijn nu geldig?
+// Een event valt automatisch af zodra het voorbij is; de volgende in de rij neemt het over.
+// Optioneel in events.json:  "uitgelichtVan": "2026-08-01"   (pas vanaf die datum tonen)
+//                            "uitgelichtTot": "2026-08-20"   (na die datum niet meer tonen)
+function actieveUitgelicht(aantal) {
+  var nu = new Date();
+  var vandaag = new Date(nu.getFullYear(), nu.getMonth(), nu.getDate());
+  return events.filter(function(e) {
+    if (e.uitgelicht !== true) return false;
+    // voorbij? dan uit de banner (zelfde buffer als de agenda zelf)
+    if (new Date(e.eindJaar, e.eindMaandNr - 1, e.eindDag + 2) < vandaag) return false;
+    if (e.uitgelichtVan) { var v = e.uitgelichtVan.split('-'); if (new Date(+v[0], v[1]-1, +v[2]) > vandaag) return false; }
+    if (e.uitgelichtTot) { var t = e.uitgelichtTot.split('-'); if (new Date(+t[0], t[1]-1, +t[2]) < vandaag) return false; }
+    return true;
+  }).slice(0, aantal || 2);
+}
+
 function buildUitgelicht() {
   const t = ui[huidigeTaal];
   document.getElementById('section-uitgelicht').textContent = t.uitgelicht;
-  const uitgelicht = events.filter(e => e.uitgelicht === true).slice(0, 2);
+  const uitgelicht = actieveUitgelicht(2);
+  // Geen geldige tips? Verberg de hele sectie in plaats van een lege kop te tonen.
+  const sectie = document.querySelector('.uitgelicht');
+  if (sectie) sectie.style.display = uitgelicht.length ? '' : 'none';
   document.getElementById('uitgelicht-cards').innerHTML = uitgelicht.map((e, idx) => `
     <article class="card featured-card">
-      ${fotoLink(e, `<div class="card-img"><img src="${e.foto}" alt="${e.naam[huidigeTaal]}" loading="lazy"></div>`)}
+      ${fotoLink(e, `<div class="card-img"><img src="https://immersievekunstagenda.nl${e.foto}" alt="${e.naam[huidigeTaal]}" loading="lazy"></div>`)}
       <div class="card-body">
         <div class="card-tag">${e.duur ? `<span class='card-duur-pill'>◷ ${e.duur}</span>` : ''}${[...e.types.map(tp => typeVertalingen[huidigeTaal][tp] || tp), e.locatie].map(l => `<span class='card-tag-item'>${l}</span>`).join('')}${e.verseTip ? `<span class="verse-tip-badge">${huidigeTaal === 'nl' ? 'Verse tip' : 'Fresh pick'}</span>` : ''} ${isLaatsteKans(e) ? `<span class="laatste-kans-badge">${huidigeTaal === 'nl' ? 'Laatste kans' : 'Last chance'}</span>` : ''}</div>
         <h2 class="card-title">${e.naam[huidigeTaal]}</h2>
@@ -2781,6 +2839,45 @@ function toggleBeschrijving(btn, id) {
   btn.textContent = open ? ui[huidigeTaal].leesminder : ui[huidigeTaal].leesmeer;
 }
 
+// ── STEUN-KAARTJE (crowdfunding, tussen "nu" en "binnenkort") ──
+// Op null zetten om het kaartje te verbergen.
+const steunKaartje = {
+  label:    { nl: "Steun dit project", en: "Support this project" },
+  titel:    "The Invisible Woman",
+  ondertitel: "Tamara Shogaolu · an opera you walk through",
+  pitch:    {
+    nl: "Een immersieve opera die je al wandelend beleeft. De campagne loopt nu op Kickstarter — elke bijdrage helpt het werk werkelijkheid te maken.",
+    en: "An immersive opera you walk through. The campaign is live on Kickstarter — every contribution helps make the work a reality."
+  },
+  cta:      { nl: "Steun op Kickstarter →", en: "Back it on Kickstarter →" },
+  sub:      { nl: "Je verlaat de agenda en gaat naar kickstarter.com", en: "You'll leave the agenda for kickstarter.com" },
+  foto:     "/images/invisiblewoman.jpg",
+  link:     "https://www.kickstarter.com/projects/tamarashogaolu/the-invisible-woman-an-opera-you-walk-through"
+};
+
+function steunHTML(colspan) {
+  const s = steunKaartje;
+  if (!s) return '';
+  const foto = s.foto
+    ? `<div class="steun-foto"><img src="${s.foto}" alt="${s.titel}" loading="lazy" onerror="this.parentNode.classList.add('ph');this.parentNode.dataset.letter='${s.titel[0]}';this.remove();"></div>`
+    : `<div class="steun-foto ph" data-letter="${s.titel[0]}"></div>`;
+  const inner = `
+    <a class="steun-kaart" href="${s.link}" target="_blank" rel="noopener">
+      <div class="steun-tekst">
+        <span class="steun-label">${s.label[huidigeTaal]}</span>
+        <div class="steun-titel">${s.titel}</div>
+        <div class="steun-maker">${s.ondertitel}</div>
+        <div class="steun-pitch">${s.pitch[huidigeTaal]}</div>
+        <span class="steun-cta">${s.cta[huidigeTaal]}</span>
+        <div class="steun-sub">${s.sub[huidigeTaal]}</div>
+      </div>
+      ${foto}
+    </a>`;
+  return colspan
+    ? `<tr class="steun-rij"><td colspan="${colspan}">${inner}</td></tr>`
+    : inner;
+}
+
 function render() {
   const t = ui[huidigeTaal];
   const nu = new Date();
@@ -2834,6 +2931,11 @@ function render() {
     nuTeSien.forEach(e => { html += eventRij(e, i++); });
       }
 
+  // Steun-kaartje tussen de twee periodes (alleen bij "alles" of geen periodefilter)
+  if (steunKaartje && activeFilter !== 'periode:nu' && activeFilter !== 'periode:binnenkort') {
+    html += steunHTML(6);
+  }
+
   if (toonBinnenkort && binnenkort.length > 0) {
     html += periodeHeader(binnenkortLabel, true);
     binnenkort.forEach(e => { html += eventRij(e, i++); });
@@ -2870,7 +2972,7 @@ function eventRij(e, i) {
     <tr>
       <td class="td-foto">
         ${fotoLink(e, e.foto
-          ? `<div class="foto-inner"><img src="${e.foto}" alt="${e.naam[huidigeTaal]}" loading="lazy"></div>`
+          ? `<div class="foto-inner"><img src="https://immersievekunstagenda.nl${e.foto}" alt="${e.naam[huidigeTaal]}" loading="lazy"></div>`
           : `<div class="foto-inner-placeholder">${e.naam[huidigeTaal][0]}</div>`)}
       </td>
       <td class="td-datum">
@@ -3033,7 +3135,7 @@ function buildMobileCards() {
   }
 
   // Uitgelicht sectie bovenaan
-  var uitgelichtEvents = events.filter(function(e) { return e.uitgelicht === true; }).slice(0, 2);
+  var uitgelichtEvents = actieveUitgelicht(2);
   var uitgelichtHtml = '';
   if (uitgelichtEvents.length > 0 && activeFilter === 'all') {
     var tipLabel = huidigeTaal === 'nl' ? 'Tip van de maand' : "Editor's Tip";
@@ -3065,6 +3167,9 @@ function buildMobileCards() {
   if (toonNu && nuTeSien.length > 0) {
     html += '<div class="mc-periode"><div class="periode-label">' + nuLabel + '</div></div>';
     nuTeSien.forEach(function(e) { html += mcRij(e, i++); });
+  }
+  if (steunKaartje && activeFilter !== 'periode:nu' && activeFilter !== 'periode:binnenkort') {
+    html += '<div class="mc-steun-wrap">' + steunHTML(0) + '</div>';
   }
   if (toonBinnenkort && binnenkort.length > 0) {
     html += '<div class="mc-periode"><div class="periode-label dimmed">' + blLabel + '</div></div>';
@@ -3203,12 +3308,14 @@ function buildSpecialGrid(sid) {
     var href = w.link || fallback;
     var foto = w.foto || '';
     var img = foto
-      ? '<div class="special-thumb-img" style="background-image:url(' + foto + ');background-size:cover;background-position:center;"></div>'
+      ? '<div class="special-thumb-img"><img src="' + foto + '" alt="" loading="lazy" onerror="this.parentNode.textContent=\'' + (w.naam || '?')[0].replace(/'/g,'') + '\'"></div>'
       : '<div class="special-thumb-img">' + (w.naam || '?')[0] + '</div>';
     return '<a class="special-thumb" href="' + href + '" target="_blank" rel="noopener">' +
       img +
-      '<div class="special-thumb-name">' + (w.naam || '') + '</div>' +
-      (w.maker ? '<div class="special-thumb-maker">' + w.maker + '</div>' : '') +
+      '<div class="special-thumb-overlay">' +
+        '<div class="special-thumb-name">' + (w.naam || '') + '</div>' +
+        (w.maker ? '<div class="special-thumb-maker">' + w.maker + '</div>' : '') +
+      '</div>' +
     '</a>';
   }).join('');
 }
@@ -3503,7 +3610,9 @@ function initSite() {
   updateTipLang();
 }
 
-laadEvents().then(initSite);
+events = [{"naam": {"nl": "VR Silent Disco", "en": "VR Silent Disco"}, "start": "2026-08-20", "eind": "2026-08-20", "maker": "Studio VRij", "duur": "30min", "handig": "Book a timeslot between 1800 and 2030", "logline": {"nl": "Stap in de tweede editie van Show Me the Light, een VR Silent Disco van Studio Vrij in samenwerking met Brass Rave Unit.", "en": "step into the second edition of Show Me the Light, a VR Silent Disco created by Studio Vrij in collaboration with Brass Rave Unit."}, "beschrijving": {"nl": "Zodra de headset op is, delen tot acht deelnemers een virtuele dansvloer, elk als avatar. Geleid door de beat beweeg je samen terwijl de wereld om je heen verschuift. En terwijl het ritme je meevoert, blijft een stille vraag hangen: wie heeft er eigenlijk controle over je bewegingen?\n\nDeze editie vindt plaats binnen Staging Collective VR Experiences, een CIIIC-onderzoeksproject van HvA, Studio Vrij en Nxt Museum. Tijdens de showcase onderzoekt de HvA hoe mensen samen door collectieve VR bewegen.", "en": "Once the headset is on, up to eight participants share a virtual dance floor, each appearing as an avatar. Guided by the beat, you move together as the world shifts around you. And as the rhythm pulls you along, a quiet question lingers: who is really in control of your actions?\n\nThis edition takes place as part of Staging Collective VR Experiences, a CIIIC research project by HvA, Studio Vrij and Nxt Museum. During the showcase, HvA joins to study how people share and move through collective VR together."}, "stad": "Amsterdam", "locatie": "NXT Museum", "types": ["XR"], "foto": "/images/silentdisco.jpg", "link": "https://nxtmuseum.com/event/vr-silent-disco", "uitgelicht": false, "verseTip": false}, {"naam": {"nl": "William Forsythe – Choreographic Objects", "en": "William Forsythe – Choreographic Objects"}, "start": "2026-06-06", "eind": "2026-08-23", "maker": "William Forsythe", "duur": "take your time", "handig": "interactie gestimuleerd, maar niet verplicht", "logline": {"nl": "Met zijn Choreographic Objects nodigt de wereldberoemde choreograaf William Forsythe je uit om niet alleen te kijken, maar vooral om te doen. Zijn werken komen pas echt tot leven wanneer jij er actief, lichamelijk mee aan de slag gaat. Elk object schept een situatie waarin beweging de belangrijkste manier wordt om het werk te ervaren.", "en": "With his Choreographic Objects, the world-renowned choreographer William Forsythe invites you not just to look, but above all to do. His works only truly come to life when you engage with them actively and physically. Each object creates a situation in which movement becomes the primary way to experience the work."}, "beschrijving": {"nl": "Het lichaam is een denkend instrument’, aldus William Forsythe. De iconische choreograaf bedacht zijn Choreographic Objects als een reeks stellingen: elk object vormt een situatie waarin beweging de belangrijkste manier is om het te ervaren – hoewel je ook altijd anderen kunt observeren. Bij Voorlinden nodigt Forsythe je uit om te experimenteren, te reageren en te ontdekken hoe je lichaam door middel van beweging denkt.", "en": "'The body is a thinking instrument,' according to William Forsythe. The iconic choreographer conceived his Choreographic Objects as a series of propositions: each object forms a situation in which movement is the primary way to experience it — though you can always observe others as well. At Voorlinden, Forsythe invites you to experiment, to respond and to discover how your body thinks through movement."}, "stad": "Wassenaar", "locatie": "Voorlinden", "types": ["Immersieve installaties", "Interactief", "Tentoonstelling"], "foto": "/images/voorlindenforsythe.jpg", "link": "https://www.voorlinden.nl/tentoonstelling/william-forsythe/", "uitgelicht": false, "verseTip": false}, {"naam": {"nl": "ALTERITY", "en": "ALTERITY"}, "start": "2026-08-28", "eind": "2026-08-29", "maker": "Jacco Gardner", "duur": "25 min", "handig": "Gratis toegang | Voor en na de optredens kun je ook onze tentoonstelling Metabolising Time bezoeken. Na de live sessies zal ALTERITY zelf door blijven spelen bij MU tot en met 20 september. // Vrijdag 28 augustus: 19:00 & 20:45 // Zaterdag 29 augustus: 16:00 & 20:45", "logline": {"nl": "ALTERITY van kunstenaar/muzikant en media-archeoloog Jacco Gardner bestaat uit een live-performance bij een gesproken verhaal over verborgen toekomstvisies", "en": "ALTERITY by artist/musician and media archaeologist Jacco Gardner consists of a live performance accompanying a spoken story about hidden visions of the future."}, "beschrijving": {"nl": "Tijdens de voorstelling klinkt een spoelbandrecorder waarop de stem van Gardner een essay voorleest. De tekst, geschreven door kunsthistorica Maria Pandiello, gaat dieper in op het eeuwenoude menselijke verlangen om onszelf weerspiegeld te zien in iets dat we maken, en in die weerspiegeling iets te ontdekken wat we niet verwachten", "en": "During the performance a reel-to-reel recorder plays Gardner's voice reading an essay. The text, written by art historian Maria Pandiello, delves into the age-old human desire to see ourselves reflected in something we make, and to discover in that reflection something we did not expect."}, "stad": "Eindhoven", "locatie": "MU Hybrid Art House", "types": ["Immersieve installaties"], "foto": "/images/alterity.jpg", "link": "https://mu.nl/event/alterity-by-jacco-gardner-hit-the-city", "uitgelicht": true, "verseTip": false}, {"naam": {"nl": "Drift", "en": "Drift"}, "start": "2026-07-14", "eind": "2026-08-31", "maker": "Merel uit de Machine & VPRO Medialab", "duur": "volgt het ritme van de maan / slow listening", "handig": "Gratis & English spoken", "logline": {"nl": "Het is 2024, of – tijd doet er niet zo toe – 2529: een octopus als verteller, oude dijken die de contouren vormen van waar ooit land was. Drift koppelt de zeespiegelstijging en klimaatcrisis aan de opkomst van AI in een generatieve audio-ervaring, een podcast die geen podcast is.", "en": "It is 2024, or — time hardly matters — 2529: an octopus as narrator, old dykes tracing the contours of what was once land. Drift links sea level rise and the climate crisis to the emergence of AI in a generative audio experience, a podcast that is not a podcast."}, "beschrijving": {"nl": "Drift koppelt de zeespiegelstijging en klimaatcrisis aan de opkomst van AI in een generatieve audio-ervaring, een podcast die geen podcast is.\n\nDe verhaalwereld combineert verbeelding met feitelijke bronnen, zoals realtimeweersvoorspellingen van het KNMI en het klimaatrapport van het IPCC. In de verre toekomst heeft de samenleving harde lessen geleerd van milieuverwaarlozing. Vervuiling en een hogere zeespiegel: Nederland, zoals het ooit was, bestaat niet meer. De wateren zijn inmiddels door AI geïnjecteerd. Een techno-vloeibare omgeving dient als levende opslagplaats van kennis. Een nieuwe werkelijkheid waarin de luisteraar al drijvend kan ronddwalen.", "en": "Drift links sea level rise and the climate crisis to the emergence of AI in a generative audio experience, a podcast that is not a podcast.\n\nThe story world combines imagination with factual sources, such as real-time weather forecasts from the KNMI and the IPCC climate report. In the distant future, society has learned hard lessons from environmental neglect. Pollution and a higher sea level: the Netherlands as it once was no longer exists. The waters have since been injected by AI. A techno-fluid environment serves as a living repository of knowledge. A new reality in which the listener can drift and wander."}, "stad": "in je podcast app", "locatie": "online", "types": ["Audio driven immersion", "Generatief"], "foto": "/images/drift-cover-v2.png", "link": "https://www.merel.club/drift/", "uitgelicht": false, "verseTip": false}, {"naam": {"nl": "Pioneers of Media Art", "en": "Pioneers of Media Art"}, "start": "2026-06-10", "eind": "2026-09-10", "maker": "Verschillende makers", "duur": "60 min", "handig": "Ontmoet de klassiekers", "logline": {"nl": "Hoe verandert kunst wanneer een nieuw medium opduikt? En wat gebeurt er wanneer kunstenaars de grenzen van dat medium verkennen?", "en": "How does art change when a new medium emerges? And what happens when artists explore the boundaries of that medium?"}, "beschrijving": {"nl": "Deze tentoonstelling neemt je mee op een reis door 10 ruimtes – die elk onderzoeken hoe generaties kunstenaars de grenzen van audiovisuele storytelling voortdurend hebben verlegd, gebruikmakend van verschillende technologieën en artistieke vormen.\n\nDe tentoonstelling, is tot stand gekomen in samenwerking met LI-MA – living media art. De expo blikt terug op de beginjaren van MonteVideo, de eerste galerie in Nederland die volledig gewijd was aan videokunst.\n\nCreaties van Livinus en Jeep van de Bundt, Nam June Paik, Nan Hoover, SERVAAS, Tom Klinkowstein en Trevor Batten worden tentoongesteld naast hedendaagse vernieuwers: 4DSOUND, Balfua, Boris Acket, Children of the Light en Lumus Instruments.", "en": "This exhibition takes you on a journey through 10 spaces — each exploring how generations of artists have continually pushed the boundaries of audiovisual storytelling, using various technologies and artistic forms.\n\nThe exhibition was created in collaboration with LI-MA – living media art. It looks back at the early years of MonteVideo, the first gallery in the Netherlands devoted entirely to video art.\n\nWorks by Livinus and Jeep van de Bundt, Nam June Paik, Nan Hoover, SERVAAS, Tom Klinkowstein and Trevor Batten are shown alongside contemporary innovators: 4DSOUND, Balfua, Boris Acket, Children of the Light and Lumus Instruments."}, "stad": "Amsterdam", "locatie": "NXT Museum", "types": ["Tentoonstelling", "Media Art History"], "foto": "/images/pioneers.jpg", "link": "https://nxtmuseum.com/exhibition/pioneers-of-media-art", "uitgelicht": false, "verseTip": false}, {"naam": {"nl": "Opening THEA", "en": "Opening THEA"}, "start": "2026-09-12", "eind": "2026-09-13", "maker": "THEA", "duur": "flex", "handig": "Programmamaker Rosa Wevers, kwartiermakers Roosje Klap en Dorine Schreurs geven vorm aan THEA tot en met 2028", "logline": {"nl": "In het cultuurdeel van de Niemeyer in Groningen komen beeldende kunst en technologie samen in een nieuw presentatie- en onderzoeksplatform.", "en": "In the cultural wing of the Niemeyer building in Groningen, visual art and technology come together in a new presentation and research platform."}, "beschrijving": {"nl": "Thea programmeert kunstenaars die werken op het snijvlak van beeld, technologie en maatschappij, en ontwikkelt zich de komende twee jaar als een plek waar die vragen publiek worden gemaakt. Op 12 en 13 september 2026 opent Thea met een openingsweekend: een tentoonstelling, performances en muziek. De toekenning van een pilotsubsidie door het Mondriaan Fonds en de Gemeente Groningen maakt dat mogelijk, terwijl de verbouwing van de fabriek nog moet beginnen.", "en": "Thea programmes artists working at the intersection of image, technology and society, and over the coming two years will develop as a place where those questions are made public. On 12 and 13 September 2026 Thea opens with a launch weekend: an exhibition, performances and music. A pilot grant from the Mondriaan Fund and the Municipality of Groningen makes this possible, while the renovation of the factory has yet to begin."}, "stad": "Groningen", "locatie": "Niemeyer", "types": ["New venue"], "foto": "/images/thea.jpg", "link": "http://www.theagroningen.nl", "uitgelicht": false, "verseTip": false}, {"naam": {"nl": "Dreamscapes", "en": "Dreamscapes"}, "start": "2026-09-20", "eind": "2026-09-20", "maker": "Anna van Nieukerken, Claire Adams, Els Mondelaers, Jacqueline Hamelink", "duur": "75 min", "handig": "Taal geen probleem", "logline": {"nl": "Dreamscapes is een intieme immersieve performance waarin nieuwe muziek, beweging en zintuiglijke ervaring samensmelten tot een ruimte waarin we kunnen dromen.", "en": "Dreamscapes is an intimate immersive performance in which new music, movement and sensory experience merge into a space where we can dream."}, "beschrijving": {"nl": "Grote veranderingen beginnen vaak met een droom – een vaag beeld van hoe het anders kan. Toch raken dromen en verbeelding steeds meer op de achtergrond in een cultuur van controle, efficiëntie en pasklare antwoorden. Terwijl juist dromen ruimte bieden voor ambiguïteit, traagheid en het niet-weten. De gevolgen van dit denken zijn pijnlijk zichtbaar. Crises tonen de grenzen van maakbaarheid. Polarisatie vergroot de afstand tussen groepen, terwijl dialoog ontbreekt. Ooit waren dromen een vanzelfsprekend kompas. Kunnen we leren luisteren naar wat in dit schemergebied ontstaat? Kunnen we elkaar daar ook ontmoeten?\n\nVertrekkend vanuit John Cage’s In a Landscape ontvouwt zich een gelaagd klank- en bewegingslandschap dat uitnodigt tot vertraging, aandachtig luisteren en overgave aan de verbeelding. Vier performers – gidsen maximaal 50 bezoekers per keer door een cyclische, associatieve droomwereld waarin klank, licht, geur en aanraking samenkomen. Componist Aart Strootman verweeft Cage’s toonmateriaal tot een ruimtelijke akoestische droomruimte in een fluïde, veranderlijk decor.\n\nDreamscapes onderzoekt de kracht van vertraging, ambiguïteit en collectieve verbeelding als tegenstem in een samenleving gedomineerd door snelheid, efficiëntie en maakbaarheid, en creëert zo een tijdelijke gemeenschap waarin persoonlijke en gedeelde dromen ruimte krijgen.\n\n\nWat gebeurt er als je even niets anders hoeft te doen dan dromen?", "en": "Great changes often begin with a dream — a vague image of how things could be different. Yet dreams and imagination are increasingly pushed into the background in a culture of control, efficiency and ready-made answers. While it is precisely dreams that offer room for ambiguity, slowness and not-knowing. The consequences of this thinking are painfully visible. Crises reveal the limits of what can be engineered. Polarisation widens the distance between groups, while dialogue is absent. Dreams were once a self-evident compass. Can we learn to listen to what emerges in this twilight zone? Can we meet each other there too?\n\nDeparting from John Cage's In a Landscape, a layered landscape of sound and movement unfolds that invites slowing down, attentive listening and surrender to the imagination. Four performers guide a maximum of 50 visitors at a time through a cyclical, associative dream world in which sound, light, scent and touch come together. Composer Aart Strootman weaves Cage's tonal material into a spatial acoustic dream space within a fluid, shifting set.\n\nDreamscapes explores the power of slowness, ambiguity and collective imagination as a counter-voice in a society dominated by speed, efficiency and engineering, creating a temporary community in which personal and shared dreams are given space.\n\n\nWhat happens when, for a moment, you need do nothing but dream?"}, "stad": "Tilburg", "locatie": "Theater de Nieuwe Vorst", "types": ["Zintuiglijk", "Muziek", "Performatief"], "foto": "/images/dreamscapes.jpg", "link": "https://soundingbodies.com/voorstelling/dreamscapes", "uitgelicht": false, "verseTip": false}, {"naam": {"nl": "Nederlands Film Festival", "en": "Netherlands Film Festival"}, "start": "2026-09-25", "eind": "2026-10-02", "maker": null, "duur": "15min of meer", "handig": "De beste digitale cultuurproducties van Nederland, te zien bij NFF", "logline": {"nl": "In de Storyspace expositie in Bibliotheek Utrecht op de Neude komen uiteenlopende verhalen tot leven die gebruik maken van digitale technieken buiten de grenzen van film en televisie.", "en": "In the Storyspace exhibition at Bibliotheek Utrecht on the Neude, a range of stories come to life using digital techniques beyond the boundaries of film and television."}, "beschrijving": {"nl": "Selectie Gouden Kalf Competitie 2026:\n\n- Alterity - Jacco Gardner (UPscaleXR)\n- Amsterdam 1652 - Nienke Huitenga Broeren (ENTR)\n- Being Gregor - Camiel Schouwenaar (Happy Ship)\n- Conversations - Paul Boereboom, Leon Rogissart (Podium Bloos)- \n- Deep Soup - Luna Maurer, Roel Wouters (Studio Biarritz)\n- exec.DEUS - URLAND (URLAND, Innovation:Lab, Theater de Maagd)\n- Graves’ End - Finn Stevenhagen (Finn Stevenhagen)\n- The Great Orator - Daniel Ernst (The Shoebox Diorama)\n- INNERVERSE - Arno Coenen (Arno Coenen)\n- Lesbian Simulator - Iris van der Meule (Studio Biarritz)\n- Nothing to see here - Celine Daemen (Studio Nergens)\n- Tracing Colombia - Jan Rothuizen (Docmakers, Zesbaans)", "en": "Golden Calf Competition selection 2026:\n\n- Alterity - Jacco Gardner (UPscaleXR)\n- Amsterdam 1652 - Nienke Huitenga Broeren (ENTR)\n- Being Gregor - Camiel Schouwenaar (Happy Ship)\n- Conversations - Paul Boereboom, Leon Rogissart (Podium Bloos)- \n- Deep Soup - Luna Maurer, Roel Wouters (Studio Biarritz)\n- exec.DEUS - URLAND (URLAND, Innovation:Lab, Theater de Maagd)\n- Graves’ End - Finn Stevenhagen (Finn Stevenhagen)\n- The Great Orator - Daniel Ernst (The Shoebox Diorama)\n- INNERVERSE - Arno Coenen (Arno Coenen)\n- Lesbian Simulator - Iris van der Meule (Studio Biarritz)\n- Nothing to see here - Celine Daemen (Studio Nergens)\n- Tracing Colombia - Jan Rothuizen (Docmakers, Zesbaans)"}, "stad": "Utrecht", "locatie": "Verschillende locaties", "types": ["XR", "Tentoonstelling", "Digitale kunst"], "foto": "/images/nff.jpeg", "link": "https://www.filmfestival.nl/nieuws/gouden-kalf-selectie-digitale-cultuur-2026-bekend", "uitgelicht": false, "verseTip": true, "special": {"titel": "Nederlands Film Festival", "kleur": "geel", "link": "https://www.filmfestival.nl/nieuws/gouden-kalf-selectie-digitale-cultuur-2026-bekend", "werken": [{"naam": "Alterity", "maker": "Jacco Gardner (UPscaleXR)", "foto": "/images/alterity.jpg"}, {"naam": "Amsterdam 1652", "maker": "Nienke Huitenga Broeren (ENTR)", "foto": "/images/kade.jpeg"}, {"naam": "Being Gregor", "maker": "Camiel Schouwenaar (Happy Ship)", "foto": "/images/beinggregor.png"}, {"naam": "Conversations", "maker": "Paul Boereboom, Leon Rogissart (Podium Bloos)", "foto": "/images/conversations.png"}, {"naam": "Deep Soup", "maker": "Luna Maurer, Roel Wouters (Studio Biarritz)", "foto": "/images/deepsoup.jpg"}, {"naam": "exec.DEUS", "maker": "URLAND (URLAND, Innovation:Lab, Theater de Maagd)", "foto": "/images/execdeus.png"}, {"naam": "Graves’ End", "maker": "Finn Stevenhagen (Finn Stevenhagen)", "foto": "/images/gravesend.jpg"}, {"naam": "The Great Orator", "maker": "Daniel Ernst (The Shoebox Diorama)", "foto": "/images/greatorator.jpg"}, {"naam": "INNERVERSE", "maker": "Arno Coenen (Arno Coenen)", "foto": null}, {"naam": "Lesbian Simulator", "maker": "Iris van der Meule (Studio Biarritz)", "foto": "/images/Lesbian_Simulator20copy.png"}, {"naam": "Nothing to see here", "maker": "Celine Daemen (Studio Nergens)", "foto": "/images/nothing.jpg"}, {"naam": "Tracing Colombia", "maker": "Jan Rothuizen (Docmakers, Zesbaans)", "foto": "/images/tracingcolombia.png"}]}}, {"naam": {"nl": "OTION presents W.A.V.E. part 3", "en": "OTION presents W.A.V.E. part 3"}, "start": "2026-10-03", "eind": "2026-10-03", "maker": "Otion", "duur": "60 min", "handig": "English spoken", "logline": {"nl": "OTION keert terug naar Felix Meritis met het derde deel van W.A.V.E: Making the Wave, een immersieve performancereeks over de onzichtbare krachten die geluid, lichaam en ruimte verbinden.", "en": "OTION returns to Felix Meritis with the third part of W.A.V.E: Making the Wave, an immersive performance series exploring the invisible forces that connect sound, body, and space"}, "beschrijving": {"nl": "Via geluid, beweging en rituele verhalen transformeert OTION live muziek tot een volledig ruimtelijke ervaring, waarin geluid niet alleen gehoord maar fysiek gevoeld wordt.\n\nDe reeks ontvouwt zich in drie hoofdstukken: Floating on the WAVE, Riding the WAVE en Making the WAVE, elk met een eigen sfeer binnen een doorlopende reis. Samen met een geluidskunstenaar en danser activeert OTION drie essentiële elementen: ruimte, stem en lichaam.", "en": "Through sound, movement, and ritual storytelling, OTION transforms live music into a fully spatial experience, where sound is not just heard, but physically felt.\n\nThe series unfolds in three chapters: Floating on the WAVE, Riding the WAVE, and Making the WAVE, each offering a distinct atmosphere within a continuous journey. Together with a sound artist and dancer, OTION activates three essential elements: space, voice, and body, guiding audiences along a path from listening, to embodiment, to creation; from surrender, to safety, to play."}, "stad": "Amsterdam", "locatie": "Felix Meritis", "types": ["Performatief", "Immersief theater"], "foto": "/images/otion.png", "link": "https://felixmeritis.nl/programma/otion-presents-w-a-v-e-3/", "uitgelicht": false, "verseTip": false}, {"naam": {"nl": "Synthetic Halo", "en": "Synthetic Halo"}, "start": "2026-03-18", "eind": "2026-10-11", "maker": "Kurina Sohn", "duur": "10 min", "handig": "Gratis", "logline": {"nl": "Ervaar de Halo Machine. Je hersenactiviteit wordt gemeten en vertaald naar een unieke soundscape. De beelden, geluiden en omgevingen zijn gebaseerd op 3D-scans en geluidsopnames uit Odaesan National Park en Woljeongsa-tempel in Zuid-Korea.", "en": "Experience the Halo Machine. Your brain activity is measured and translated into a unique soundscape. The images, sounds and environments are based on 3D scans and field recordings from Odaesan National Park and Woljeongsa Temple in South Korea."}, "beschrijving": {"nl": "Synthetic Halo onderzoekt de vraag of verlichting – een staat die traditioneel wordt bereikt door langdurige meditatie – kan worden waargenomen, gemeten en gedeeld. Kurina gebruikt AI en innovatieve technologie om individuele hersengolven om te zetten in een veranderende geluids- en beeldervaring. Het werk plaatst eeuwenoude spirituele inzichten naast hedendaagse technische mogelijkheden en nodigt het publiek uit te verkennen hoe deze werelden elkaar kunnen raken.", "en": "Synthetic Halo explores the question of whether enlightenment — a state traditionally reached through prolonged meditation — can be perceived, measured and shared. Kurina uses AI and innovative technology to translate individual brainwaves into a shifting experience of sound and image. The work places age-old spiritual insights alongside contemporary technical possibilities and invites audiences to explore how these worlds might touch."}, "stad": "Enschede", "locatie": "Tetem", "types": ["Immersieve installaties", "AI-driven"], "foto": "/images/synthetichalo.png", "link": "https://tetem.nl/event/synthetic-halo/", "uitgelicht": false, "verseTip": false}, {"naam": {"nl": "Before the Story Starts", "en": "Before the Story Starts"}, "start": "2026-06-12", "eind": "2026-10-31", "maker": "Urland", "duur": "90 min", "handig": "vanaf 12+", "logline": {"nl": "Before the Story Starts is een experimentele, immersieve, one man performance die zich afspeelt op de drempel voordat een (of HET) verhaal begint.", "en": "Before the Story Starts is an experimental, immersive one-man performance set on the threshold before a (or THE) story begins."}, "beschrijving": {"nl": "This is not the start of the story, we haven’t started yet. \nThis is not the beginning. \n\nWhat do you need to know? Before we start? \nWe don’t know why.\nWe can guess, but we don’t know. We never will.\nWe can choose. And be satisfied with an answer. But we never know.\n\nThe elusive Why.", "en": "This is not the start of the story, we haven’t started yet. \nThis is not the beginning. \n\nWhat do you need to know? Before we start? \nWe don’t know why.\nWe can guess, but we don’t know. We never will.\nWe can choose. And be satisfied with an answer. But we never know.\n\nThe elusive Why."}, "stad": "Meerdere locaties", "locatie": "Oerol, Nijmegen, Bergen op Zoom, Amsterdam, etc.", "types": ["Performatief", "Audio driven immersion"], "foto": "/images/urlandstorybeginsv2.png", "link": "https://urland.nl/project/before-the-story-starts", "uitgelicht": false, "verseTip": false}, {"naam": {"nl": "Tales of Two", "en": "Tales of Two"}, "start": "2026-07-02", "eind": "2026-10-31", "maker": "Yonk", "duur": "5 - 20 min", "handig": "Leuk voor verschillende leeftijden", "logline": {"nl": "3D-animatiestudio YONK en Nxt nodigen bezoekers uit voor een nieuw soort digitale poppenspel, waarbij een eeuwenoude traditie wordt herontdekt met technologie.", "en": "3D animation studio YONK and Nxt invite visitors into a new kind of digital puppet theatre, in which an age-old tradition is rediscovered through technology."}, "beschrijving": {"nl": "YONK is een 3D-animatiestudio in Den Haag, opgericht door kunstenaars Niels van der Donk (1992, NL) en Victoria Young (1995, VK). Met een speelse en experimentele werkwijze brengt YONK een menselijk gevoel in het digitale domein, waarbij persoonlijkheid en onvolmaaktheid belangrijker zijn dan perfectie of automatisering.\n\nHun werk draait om expressieve personages en levendige, tastbare werelden, vaak gevormd met innovatieve tools zoals VR-sculpting.", "en": "YONK is a 3D animation studio in The Hague, founded by artists Niels van der Donk (1992, NL) and Victoria Young (1995, UK). With a playful and experimental approach, YONK brings a human feeling into the digital domain, where personality and imperfection matter more than perfection or automation.\n\nTheir work revolves around expressive characters and vivid, tangible worlds, often shaped with innovative tools such as VR sculpting."}, "stad": "Amsterdam", "locatie": "NXT Museum", "types": ["Immersieve installaties", "Interactief"], "foto": "/images/Yonk.jpg", "link": "https://nxtmuseum.com/nl/event/tales-of-two-van-yonk", "uitgelicht": false, "verseTip": false}, {"naam": {"nl": "Junebug", "en": "Junebug"}, "start": "2026-09-23", "eind": "2026-12-12", "maker": "Anna Verkouteren Jansen", "duur": "40 min", "handig": "English spoken", "logline": {"nl": "June leidt een onzichtbaar bestaan in een blokhut in het diepe zuiden van de VS. Omringd door de bossen slijt ze haar dagen voor de TV, tot het signaal begint te haperen. Met de ruis op onze hielen flitsen we door een Amerikaans droomlandschap van tv-mediums, afhaalburrito’s, mistige motelkamers en geesten uit het verleden.", "en": "June leads an invisible existence in a cabin in the deep south of the USA. Surrounded by forests she passes her days in front of the TV, until the signal starts to falter. With the static on our heels we flash through an American dreamscape of TV mediums, takeaway burritos, misty motel rooms and ghosts from the past."}, "beschrijving": {"nl": "Junebug is een cinematische en tactiele voorstelling over de dingen in onszelf waar we liever niet naar kijken. Over escapisme, eenzaamheid en de zinloosheid van het bestaan. Op luchtige én mystieke manier toont Anna Verkouteren Jansen hoe we allemaal op onze eigen manier omgaan met het grote niets. Terwijl je wordt meegevoerd naar de Paris, Texas-achtige binnenwerelden van eenzame butch June, ontvouwt zich een weird, gevoelig en zwartkomisch verhaal", "en": "Junebug is a cinematic and tactile performance about the things within ourselves we would rather not look at. About escapism, loneliness and the futility of existence. In a light yet mystical way, Anna Verkouteren Jansen shows how each of us deals with the great nothing in our own way. As you are carried into the Paris, Texas-like inner worlds of lonely butch June, a weird, sensitive and darkly comic story unfolds."}, "stad": "Verschillende locaties", "locatie": "Den Haag, Mechelen (BE), Leuven (BE), Amsterdam", "types": ["Immersieve installaties", "Audio driven immersion"], "foto": "/images/junebug.jpg", "link": "https://annaverkouterenjansen.com/index.php/junebug/", "uitgelicht": true, "verseTip": false}, {"naam": {"nl": "Eternal", "en": "Eternal"}, "start": "2026-04-01", "eind": "2026-12-31", "maker": "Darkfield", "duur": "23 min", "handig": "Engels gesproken", "logline": {"nl": "“I want you to believe...to believe in things that you cannot.” - Bram Stoker", "en": "“I want you to believe...to believe in things that you cannot.” - Bram Stoker"}, "beschrijving": {"nl": "ETERNAL is een immersieve audio-ervaring van 20 minuten voor één persoon, alleen in bed. Het verkent het vraagstuk van het eeuwige leven en vraagt zich af welke prijs je ervoor zou willen betalen. ETERNAL werd in opdracht gemaakt voor het Bram Stoker Festival 2020 in Dublin en had zijn eerste fysieke installatie in 2022 bij Centre Phi, Montreal.", "en": "ETERNAL is a 20 minute immersive audio experience for one person, alone in their bed. It explores the quandary of eternal life and wonders what price you would settle for to achieve it. ETERNAL was commissioned by the 2020 Bram Stoker Festival, Dublin, and had its first physical installation in 2022 at Centre Phi, Montreal"}, "stad": "Online beschikbaar", "locatie": "", "types": ["Audio driven immersion"], "foto": "/images/eternal.jpeg", "link": "https://darkfield.com.au/shows/eternal", "uitgelicht": false, "verseTip": true}, {"naam": {"nl": "Begin Again", "en": "Begin Again"}, "start": "2026-10-22", "eind": "2027-01-29", "maker": "Brother Till & Lisa Weeda", "duur": "90 min", "handig": "tweede deel van de mens-technologie-trilogie", "logline": {"nl": "In een tijd waarin het nut van de mens ter discussie staat, pleit een moeder voor een wereld zonder ego. Haar zoon houdt halsstarrig vast aan een wereld mét ego.", "en": "In a time when the usefulness of humankind is up for debate, a mother argues for a world without ego. Her son stubbornly clings to a world with ego."}, "beschrijving": {"nl": "In de zintuiglijke, muzikale voorstelling BEGIN AGAIN zoeken prijswinnend interdisciplinair kunstcollectief BrotherTill en schrijver Lisa Weeda opnieuw de grenzen van het theater op. BEGIN AGAIN draait om één existentiële overtuiging: we moeten iets wezenlijks loslaten om verder te kunnen. Kunnen we vastgeroeste hiërarchieën achter ons laten en het ecologische perspectief boven de mens plaatsen? \n\nDe moeder, activiste en uitvinder, vond diep in de aarde een alwetende steen. Volgens haar is deze steen de laatste gids die de mens nodig heeft om zich weer met de natuur te verenigen. Haar zoon is beeldhouwer. Hij groeide op tussen deze alwetende stenen, met een moeder die er zelden was. Terwijl zij een nieuwe wereld voor ogen heeft, blijft hij koppig vasthouden aan zijn mensbeeld.\n\nBij binnenkomst krijgt iedereen een steen mee. Wat volgt is een wervelend afscheid: een mix van hypertechnologie, meeslepende muziek en een intens menselijke beleving. Het publiek bevindt zich midden in het verhaal. De zaal zoemt. De stenen zingen: bevrijd ons, het einde van de mens moet beginnen.", "en": "In the sensory, musical performance BEGIN AGAIN, award-winning interdisciplinary art collective BrotherTill and writer Lisa Weeda once again seek out the boundaries of theatre. BEGIN AGAIN revolves around one existential conviction: we must let go of something essential in order to move on. Can we leave entrenched hierarchies behind and place the ecological perspective above the human one?\n\nThe mother, activist and inventor, found an all-knowing stone deep in the earth. According to her, this stone is the last guide humankind needs to reunite with nature. Her son is a sculptor. He grew up among these all-knowing stones, with a mother who was rarely there. While she envisions a new world, he stubbornly holds on to his image of humanity.\n\nOn entering, everyone is given a stone. What follows is a whirling farewell: a mix of hypertechnology, immersive music and an intensely human experience. The audience finds itself in the middle of the story. The hall hums. The stones sing: free us, the end of humankind must begin."}, "stad": "Verschillende steden", "locatie": "Tournee", "types": ["Immersief theater"], "foto": "/images/beginagain.jpg", "link": "https://www.brothertill.nl/projects/begin-again/", "uitgelicht": false, "verseTip": true}, {"naam": {"nl": "Amsterdam 1652", "en": "Amsterdam 1652"}, "start": "2026-05-21", "eind": "2028-12-31", "maker": "Nienke Huitenga Broeren & ENTR", "duur": "45 min", "handig": "vanaf 8+ / in NL en EN", "logline": {"nl": "Loop samen door het Amsterdam van de 17e eeuw, gezien door de ogen van een gewone Amsterdammer. Zie het IJ, de Dam en de nieuwe brugh en ontdek hoe mensen leefden, werkten en samenkwamen.", "en": "Walk together through the Amsterdam of the 17th century, seen through the eyes of an ordinary Amsterdammer. See the IJ, the Dam and the nieuwe brugh, and discover how people lived, worked and came together."}, "beschrijving": {"nl": "De ervaring is ontworpen om samen te beleven. Bezoekers bewegen gelijktijdig door dezelfde virtuele wereld en maken samen de reis door de stad. Zo ontstaat een gedeelde ervaring waarin je niet alleen naar geschiedenis kijkt, maar er middenin staat.", "en": "The experience is designed to be shared. Visitors move simultaneously through the same virtual world and make the journey through the city together. This creates a shared experience in which you are not simply looking at history, but standing right in the middle of it."}, "stad": "Amsterdam", "locatie": "ENTR", "types": ["XR"], "foto": "/images/kade.jpeg", "link": "https://entrmuseum.com/", "uitgelicht": false, "verseTip": false}].map(converteerEvent);
+studentenEvents = [];
+initSite();
 
 // Zon en maan
 function updateHemellichaam() {
