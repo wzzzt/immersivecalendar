@@ -25,7 +25,7 @@
       ],
       "foto": "/images/silentdisco.jpg",
       "link": "https://nxtmuseum.com/event/vr-silent-disco",
-      "uitgelicht": true,
+      "uitgelicht": false,
       "verseTip": false
     },
     {
@@ -326,7 +326,7 @@
       "foto": "/images/otion.png",
       "link": "https://felixmeritis.nl/programma/otion-presents-w-a-v-e-3/",
       "uitgelicht": false,
-      "verseTip": true
+      "verseTip": false
     },
     {
       "naam": {
@@ -441,8 +441,8 @@
       ],
       "foto": "/images/junebug.jpg",
       "link": "https://annaverkouterenjansen.com/index.php/junebug/",
-      "uitgelicht": false,
-      "verseTip": true
+      "uitgelicht": true,
+      "verseTip": false
     },
     {
       "naam": {
@@ -498,7 +498,7 @@
       "foto": "/images/beginagain.jpg",
       "link": "https://www.brothertill.nl/projects/begin-again/",
       "uitgelicht": false,
-      "verseTip": false
+      "verseTip": true
     },
     {
       "naam": {
