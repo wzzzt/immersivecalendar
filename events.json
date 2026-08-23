@@ -117,6 +117,37 @@
     },
     {
       "naam": {
+        "nl": "My Unrelenting Skin",
+        "en": "My Unrelenting Skin"
+      },
+      "start": "2026-09-04",
+      "eind": "2026-09-06",
+      "maker": "Ezra Menard",
+      "duur": "30 min",
+      "handig": "English spoken",
+      "logline": {
+        "nl": "De kunstenaar en een deelnemer spelen samen een verhaal uit voor een intiem publiek. De deelnemer speelt Henry: een man op zoek naar romantische connectie.",
+        "en": "Together, the artist and a participant play out a story for an intimate audience. The participant plays Henry: a man looking for romantic connection with other men, but whose own fears and anxieties constantly hold him back."
+      },
+      "beschrijving": {
+        "nl": "Henry ondergaat een lichamelijke transformatie die hem in direct conflict brengt met zijn eigen verlangens. Op zoek naar troost in een kleine gay-club-wc probeert hij grip te krijgen op wat er met hem gebeurt.",
+        "en": "Henry undergoes a bodily transformation that brings him in direct conflict with his own desires. Searching for solace in a small gay club bathroom, Henry encounters a barmannamed David and discovers that he is perhaps not as alone as he thinks. Horror genre meets transformative play and LARP."
+      },
+      "stad": "Amsterdam",
+      "locatie": "Fringe Festival",
+      "types": [
+        "Immersief theater",
+        "Interactief",
+        "Participatief",
+        "Intiem"
+      ],
+      "foto": "/images/skin.png",
+      "link": "https://amsterdamfringefestival.nl/en/this-unrelenting-skin-2/",
+      "uitgelicht": false,
+      "verseTip": false
+    },
+    {
+      "naam": {
         "nl": "Pioneers of Media Art",
         "en": "Pioneers of Media Art"
       },
@@ -199,6 +230,64 @@
       ],
       "foto": "/images/dreamscapes.jpg",
       "link": "https://soundingbodies.com/voorstelling/dreamscapes",
+      "uitgelicht": false,
+      "verseTip": false
+    },
+    {
+      "naam": {
+        "nl": "Open Lab Sessions",
+        "en": "Open Lab Sessions"
+      },
+      "start": "2026-09-26",
+      "eind": "2026-09-29",
+      "maker": "Studio Nullshima, Studio Nergens, Studio ZZZAP & Studio Richard Vijgen i.s.m. NFF & HERFT consortium",
+      "duur": "Verschillende tijden",
+      "handig": "Dit is allemaal work in progress, pril immersief werk dat graag een publiek ontmoet",
+      "logline": {
+        "nl": "Four studio’s test new immersive material during NFF",
+        "en": "Four studios test new immersive material during NFF."
+      },
+      "beschrijving": {
+        "nl": "Studio Nullshima, Studio Nergens, Studio Richard Vijgen and Studio ZZZAP open up their new immersive ideas for audience testing. Expect an exciting array of open lab sessions: there will be a full work to experience in new presentation setup, early immersive experiments for large groups, a performative vr-theatre experiment and a never ending library that challenges you to not go mad in all the knowledge of the world.",
+        "en": "Studio Nullshima, Studio Nergens, Studio Richard Vijgen and Studio ZZZAP open up their new immersive ideas for audience testing. Expect an exciting array of early-stage immersive work."
+      },
+      "stad": "Utrecht",
+      "locatie": "Kinepolis",
+      "types": [
+        "XR"
+      ],
+      "foto": null,
+      "link": "https://www.filmfestival.nl/en/digitale-cultuur/heft?switch_to=en",
+      "uitgelicht": false,
+      "verseTip": false
+    },
+    {
+      "naam": {
+        "nl": "Digital Darkroom x NFF x Nemo Vos",
+        "en": "Digital Darkroom x NFF x Nemo Vos"
+      },
+      "start": "2026-10-01",
+      "eind": "2026-10-01",
+      "maker": "curator Nemo Vos, NFF, De Helling",
+      "duur": "21:00 - 02:00",
+      "handig": "Line-up: Akemiö Grey St Paul Indy Aponno Performance: Kamiel Rongen en Lost Alter (more names coming)",
+      "logline": {
+        "nl": "Hallucinerend minifestival met VR-kunst in de hoofdrol, zonder de creepy big-tech-vibes. Wat gebeurt er als je digitale kunst uitkleedt tot z'n rauwe kern?",
+        "en": "Hallucinating mini festival with VR art taking center stage, minus the creepy big-tech vibes. Have you always wondered what happens when you strip digital art of all algorithms, megacorporations, and chastity filters, and replace it with Taiwanese avant-garde films, Parisian cyber queer fetish performances, and eclectic DJs from Utrecht?"
+      },
+      "beschrijving": {
+        "nl": "",
+        "en": ""
+      },
+      "stad": "Utrecht",
+      "locatie": "De Helling",
+      "types": [
+        "Muziek",
+        "Performatief",
+        "XR"
+      ],
+      "foto": "/images/digitaldarkroomnff.jpg",
+      "link": "https://dehelling.nl/agenda/digital-darkroom-x-nff-x-nemo-vos-01-10-2026/",
       "uitgelicht": false,
       "verseTip": false
     },
@@ -359,6 +448,118 @@
     },
     {
       "naam": {
+        "nl": "Colin Benders x Othernode",
+        "en": "Colin Benders x Othernode"
+      },
+      "start": "2026-10-22",
+      "eind": "2026-10-22",
+      "maker": "Colin Benders, Othernode",
+      "duur": "60 min",
+      "handig": "Part of ADE",
+      "logline": {
+        "nl": "De meeste concerten lopen op rails. Dit niet.",
+        "en": "Most concerts run on rails. This one doesn't."
+      },
+      "beschrijving": {
+        "nl": "Geen setlist en geen vast einde — alleen een gedeeld systeem van geluid en beeld dat Colin Benders en Othernode uit elkaar trekken en weer opbouwen terwijl ze spelen.",
+        "en": "There's no setlist and no fixed ending — just a shared system of sound and image that Colin Benders and Othernode pull apart and rebuild as they play.\n\nBenders drives it with his modular synthesiser, chasing rhythms and textures that keep shifting under his hands. Othernode answers in light, projection and images that crawl across the room. Neither one is backing the other up. The sound and the visuals are arguing, agreeing and building the piece together, right in front of you, and nobody in the room knows exactly where it goes."
+      },
+      "stad": "Amsterdam",
+      "locatie": "ADE, Fabrique des Lumières",
+      "types": [
+        "Dome concert"
+      ],
+      "foto": "/images/othernode.jpg",
+      "link": "https://www.amsterdam-dance-event.nl/en/program/2026/dome-concerts-presents-colin-benders-othernode/2817051/",
+      "uitgelicht": false,
+      "verseTip": false
+    },
+    {
+      "naam": {
+        "nl": "Erratic Weather",
+        "en": "Erratic Weather"
+      },
+      "start": "2026-10-23",
+      "eind": "2026-10-23",
+      "maker": "Maarten Vos, Maotik",
+      "duur": "60 min",
+      "handig": "Part of ADE",
+      "logline": {
+        "nl": "ERRATIC WEATHER vertaalt historische orkaandata naar een levend audiovisueel landschap dat zich in real time ontvouwt.",
+        "en": "ERRATIC WEATHER translates historical hurricane data into a living audiovisual landscape that unfolds in real time."
+      },
+      "beschrijving": {
+        "nl": "Voor elke performance kiest het systeem een historische orkaan uit een database. Wetenschappelijke data – geolocatie, luchtdruk, temperatuur – voeden een live audiovisueel landschap.",
+        "en": "Before each performance, the system selects a historical hurricane from a database. Scientific data—including geolocation, atmospheric pressure, temperature and wind speed—forms the foundation for a unique composition of sound and visuals. No two performances are ever the same. Each show follows the life cycle of a different storm, allowing audiences to experience the beauty, power and unpredictability of nature through an ever-changing generative artwork."
+      },
+      "stad": "Amsterdam",
+      "locatie": "ADE, ARTIS planetarium",
+      "types": [
+        "Dome concert"
+      ],
+      "foto": "/images/maotik.jpg",
+      "link": "https://www.amsterdam-dance-event.nl/en/program/2026/maarten-vos-maotik-present-erratic-weather/2819936/",
+      "uitgelicht": false,
+      "verseTip": false
+    },
+    {
+      "naam": {
+        "nl": "Max Cooper 3D AV",
+        "en": "Max Cooper 3D AV"
+      },
+      "start": "2026-10-24",
+      "eind": "2026-10-24",
+      "maker": "Max Cooper",
+      "duur": "60 min",
+      "handig": "Part of ADE",
+      "logline": {
+        "nl": "“Where art, science and electronic music converge.” — ADE",
+        "en": "“Where art, science and electronic music converge.” - ADE"
+      },
+      "beschrijving": {
+        "nl": "Max Cooper begon als computationeel bioloog voordat hij zich op muziek stortte, en hij graaft al meer dan vijftien jaar vanuit beide kanten naar hetzelfde.",
+        "en": "Max Cooper started out as a computational biologist before turning to music, and he's spent over fifteen years digging into the same thing from both sides: the hidden patterns that run through nature, through us, through the science that tries to pin them down. His work doesn't sit neatly in either camp, it's what happens when a scientist refuses to stop being curious.\n\nAt Fabrique des Lumières, he turns the entire building into the instrument. Music, light and architecture collapse into one thing. You come out hearing differently."
+      },
+      "stad": "Amsterdam",
+      "locatie": "ADE, Fabrique des Lumières",
+      "types": [
+        "Dome concert"
+      ],
+      "foto": "/images/max.png",
+      "link": "https://www.amsterdam-dance-event.nl/en/program/2026/dome-concerts-presents-max-cooper-3d-av/2817049/",
+      "uitgelicht": false,
+      "verseTip": false
+    },
+    {
+      "naam": {
+        "nl": "Deep Seeing Currents",
+        "en": "Deep Seeing Currents"
+      },
+      "start": "2026-10-21",
+      "eind": "2026-10-25",
+      "maker": "Olafur Eliasson",
+      "duur": "at your own pace",
+      "handig": "You needs an ARTIS park ticket",
+      "logline": {
+        "nl": "Terwijl je DEEP SEEING CURRENTS nadert, word je langzaam omhuld door duisternis en de geluiden van het leven onder water.",
+        "en": "As you approach DEEP SEEING CURRENTS you are slowly enveloped by darkness and the sounds of life underwater."
+      },
+      "beschrijving": {
+        "nl": "Lagen van oceanische kakofonie – walviszang, het gerommel van hydrothermale bronnen en door mensen gemaakt geluid – omringen je, terwijl de trillingen door je heen gaan.",
+        "en": "Layers of oceanic cacophony – whale songs, rumbling of hydrothermal vents, and human-made noises, among others – surround you, while the vibrations can be felt throughout your entire body, emulating the experience of pressure in the deep sea.  \n\nThe immersive sound of Deep seeing currents is brought to life by 4DSOUND. The exhibition is located inside the ARTIS Aquarium and can be visited with a valid ARTIS Park ticket."
+      },
+      "stad": "Amsterdam",
+      "locatie": "ADE, ARTIS Aquarium",
+      "types": [
+        "Dome concert"
+      ],
+      "foto": "/images/aquarium.jpg",
+      "link": "https://www.amsterdam-dance-event.nl/en/venues/artis/2813296/",
+      "uitgelicht": false,
+      "verseTip": false
+    },
+    {
+      "naam": {
         "nl": "Before the Story Starts",
         "en": "Before the Story Starts"
       },
@@ -412,6 +613,35 @@
       ],
       "foto": "/images/Yonk.jpg",
       "link": "https://nxtmuseum.com/nl/event/tales-of-two-van-yonk",
+      "uitgelicht": false,
+      "verseTip": false
+    },
+    {
+      "naam": {
+        "nl": "The Invisible Woman",
+        "en": "The Invisible Woman"
+      },
+      "start": "2026-11-12",
+      "eind": "2026-11-15",
+      "maker": "Tamara Shogaolu / Ado Ato Pictures",
+      "duur": "tbd",
+      "handig": "Be the first to support this project",
+      "logline": {
+        "nl": "Amsterdam, 1632. Een vrije zwarte vrouw leidt een gemeenschap terwijl de slavenhandel opbloeit. De geschiedenis wiste haar uit. Een immersieve opera brengt haar terug.",
+        "en": "Amsterdam, 1632. A free Black woman leads a community as the slave trade booms. History erased her. An immersive opera brings her back."
+      },
+      "beschrijving": {
+        "nl": "Met een gedurfde creatieve visie weeft Ado Ato Pictures historisch onderzoek, visueel ontwerp en creatieve technologie samen tot The Invisible Woman.",
+        "en": "With an exciting creative vision Ado Ato Pictures weaves cutting edge historic research, visual design and creative tech together to bring you The Invisible Woman. It is a living story world that audiences can step inside. The moment audiences enter light spills across the floor. Voices emerge from every direction. Vast animated landscapes bloom around them. You are suspended between memory, history, and dream. Live performers share the stage with their animated counterparts. Afro-diasporic musical traditions, are mixed with electronic textures, and contemporary soundscapes.\n\nThere is no fixed front row. No single perspective. Audiences move through the performance, discovering new layers of the story with every step, becoming participants in the act of remembering. \n\nThe performing team is Tony Award winner Adriane Lenox is The Future Ancestor. World-renowned soprano Claron McFadden is Idil. Mezzo-soprano Carla Nahadi Babelegoto, of Dutch National Opera & Ballet, is Francisca. Thalia Oyewole, Shanice Skinner, and Bahghi are the Ancestors."
+      },
+      "stad": "Amsterdam",
+      "locatie": "Nederlandse Opera en Ballet in partnership with IDFA",
+      "types": [
+        "Opera",
+        "Immersief theater"
+      ],
+      "foto": "/images/invisiblewoman.jpg",
+      "link": "https://www.kickstarter.com/projects/tamarashogaolu/the-invisible-woman-an-opera-you-walk-through/description",
       "uitgelicht": false,
       "verseTip": false
     },
