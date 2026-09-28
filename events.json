@@ -15,11 +15,7 @@
         "en": "Four studio’s test new immersive material during NFF"
       },
       "beschrijving": {
-        "nl": {
-          "state": "generated",
-          "value": "Studio Nullshima, Studio Nergens, Studio Richard Vijgen and Studio ZZZAP open up their new immersive ideas for audience testing. Expect an exciting array of open lab sessions: there will be a full work to experience in new presentation setup, early immersive experiments for large groups, a performative vr-theatre experiment and a never ending library that challenges you to not go mad in all the knowledge of the world.",
-          "isStale": true
-        },
+        "nl": "Studio Nullshima, Studio Nergens, Studio Richard Vijgen and Studio ZZZAP open up their new immersive ideas for audience testing. Expect an exciting array of open lab sessions: there will be a full work to experience in new presentation setup, early immersive experiments for large groups, a performative vr-theatre experiment and a never ending library that challenges you to not go mad in all the knowledge of the world.",
         "en": "Studio Nullshima, Studio Nergens, Studio Richard Vijgen and Studio ZZZAP open up their new immersive ideas for audience testing. Expect an exciting range of open lab sessions: a complete work to experience in a new presentation setup, early immersive experiments for large groups, a performative VR theatre experiment and a never-ending library that challenges you not to go mad amid all the knowledge in the world."
       },
       "stad": "Utrecht",
@@ -27,7 +23,7 @@
       "types": [
         "XR"
       ],
-      "foto": null,
+      "foto": "/images/openlabsession.png",
       "link": "https://www.filmfestival.nl/en/digitale-cultuur/heft?switch_to=en",
       "uitgelicht": false,
       "verseTip": false
@@ -47,11 +43,7 @@
         "en": "Hallucinating mini festival with VR art taking center stage, minus the creepy big-tech vibes. Have you always wondered what happens when you strip digital art of all algorithms, megacorporations, and chastity filters, and replace it with Taiwanese avant-garde films, Parisian cyber queer fetish performances, and eclectic DJs from Utrecht?"
       },
       "beschrijving": {
-        "nl": {
-          "state": "generated",
-          "value": "Je ontdekt het op 1 oktober tijdens Digital Darkroom: een tollende microkosmos waar meer dan 30 verschillende makers de grenzen tussen live performance, korte films, VR, kunst en muziek met elkaar versmelten. Het enige overkoepelende motief? Als Elon Musk het zou zien, zou hij stampvoetend de stekker uit zijn datacenters trekken en schreeuwen: ‘Als het zo moet, hoeft het van mij ook niet meer!’",
-          "isStale": false
-        },
+        "nl": "Je ontdekt het op 1 oktober tijdens Digital Darkroom: een tollende microkosmos waar meer dan 30 verschillende makers de grenzen tussen live performance, korte films, VR, kunst en muziek met elkaar versmelten. Het enige overkoepelende motief? Als Elon Musk het zou zien, zou hij stampvoetend de stekker uit zijn datacenters trekken en schreeuwen: ‘Als het zo moet, hoeft het van mij ook niet meer!’",
         "en": "You'll find out on 1 October at Digital Darkroom: a whirling microcosm where more than 30 different makers melt the boundaries between live performance, short film, VR, art and music. The only common thread? If Elon Musk saw it, he'd stamp his feet, pull the plug on his data centres and shout: \"If that's how it's going to be, then I'm done with the whole thing!"
       },
       "stad": "Utrecht",
@@ -61,7 +53,7 @@
         "performance",
         "XR"
       ],
-      "foto": null,
+      "foto": "/images/digitaldarkroomnff.jpg",
       "link": "https://dehelling.nl/agenda/digital-darkroom-x-nff-x-nemo-vos-01-10-2026/",
       "uitgelicht": true,
       "verseTip": false
@@ -81,11 +73,7 @@
         "en": "At the Storyspace exhibition in Bibliotheek Utrecht at the Neude, a wide range of stories come to life through digital techniques that reach beyond film and television."
       },
       "beschrijving": {
-        "nl": {
-          "state": "generated",
-          "value": "Selectie Gouden Kalf Competitie 2026:\n\n- Alterity - Jacco Gardner (UPscaleXR)\n- Amsterdam 1652 - Nienke Huitenga Broeren (ENTR)\n- Being Gregor - Camiel Schouwenaar (Happy Ship)\n- Conversations - Paul Boereboom, Leon Rogissart (Podium Bloos)- \n- Deep Soup - Luna Maurer, Roel Wouters (Studio Biarritz)\n- exec.DEUS - URLAND (URLAND, Innovation:Lab, Theater de Maagd)\n- Graves’ End - Finn Stevenhagen (Finn Stevenhagen)\n- The Great Orator - Daniel Ernst (The Shoebox Diorama)\n- INNERVERSE - Arno Coenen (Arno Coenen)\n- Lesbian Simulator - Iris van der Meule (Studio Biarritz)\n- Nothing to see here - Celine Daemen (Studio Nergens)\n- Tracing Colombia - Jan Rothuizen (Docmakers, Zesbaans)",
-          "isStale": true
-        },
+        "nl": "Selectie Gouden Kalf Competitie 2026:\n\n- Alterity - Jacco Gardner (UPscaleXR)\n- Amsterdam 1652 - Nienke Huitenga Broeren (ENTR)\n- Being Gregor - Camiel Schouwenaar (Happy Ship)\n- Conversations - Paul Boereboom, Leon Rogissart (Podium Bloos)- \n- Deep Soup - Luna Maurer, Roel Wouters (Studio Biarritz)\n- exec.DEUS - URLAND (URLAND, Innovation:Lab, Theater de Maagd)\n- Graves’ End - Finn Stevenhagen (Finn Stevenhagen)\n- The Great Orator - Daniel Ernst (The Shoebox Diorama)\n- INNERVERSE - Arno Coenen (Arno Coenen)\n- Lesbian Simulator - Iris van der Meule (Studio Biarritz)\n- Nothing to see here - Celine Daemen (Studio Nergens)\n- Tracing Colombia - Jan Rothuizen (Docmakers, Zesbaans)",
         "en": "Golden Calf Competition 2026 selection:\n\nAlterity - Jacco Gardner (UPscaleXR)\nAmsterdam 1652 - Nienke Huitenga Broeren (ENTR)\nBeing Gregor - Camiel Schouwenaar (Happy Ship)\nConversations - Paul Boereboom, Leon Rogissart (Podium Bloos)\nDeep Soup - Luna Maurer, Roel Wouters (Studio Biarritz)\nexec.DEUS - URLAND (URLAND, Innovation:Lab, Theater de Maagd)\nGraves' End - Finn Stevenhagen (Finn Stevenhagen)\nThe Great Orator - Daniel Ernst (The Shoebox Diorama)\nINNERVERSE - Arno Coenen (Arno Coenen)\nLesbian Simulator - Iris van der Meule (Studio Biarritz)\nNothing to see here - Celine Daemen (Studio Nergens)\nTracing Colombia - Jan Rothuizen (Docmakers, Zesbaans)"
       },
       "stad": "Utrecht",
@@ -95,7 +83,7 @@
         "Tentoonstelling",
         "Digitale kunst"
       ],
-      "foto": null,
+      "foto": "/images/nff.jpeg",
       "link": "https://www.filmfestival.nl/nieuws/gouden-kalf-selectie-digitale-cultuur-2026-bekend",
       "uitgelicht": false,
       "verseTip": false,
@@ -182,11 +170,7 @@
         "en": "OTION returns to Felix Meritis with the third part of W.A.V.E: Making the Wave, an immersive performance series exploring the invisible forces that connect sound, body, and space"
       },
       "beschrijving": {
-        "nl": {
-          "state": "generated",
-          "value": "Met geluid, beweging en rituele verhalen maakt OTION van livemuziek een volledig ruimtelijke ervaring, waarin je geluid niet alleen hoort, maar ook lichamelijk voelt.",
-          "isStale": false
-        },
+        "nl": "Met geluid, beweging en rituele verhalen maakt OTION van livemuziek een volledig ruimtelijke ervaring, waarin je geluid niet alleen hoort, maar ook lichamelijk voelt.",
         "en": "Through sound, movement, and ritual storytelling, OTION transforms live music into a fully spatial experience, where sound is not just heard, but physically felt.\n\nThe series unfolds in three chapters: Floating on the WAVE, Riding the WAVE, and Making the WAVE, each offering a distinct atmosphere within a continuous journey. Together with a sound artist and dancer, OTION activates three essential elements: space, voice, and body, guiding audiences along a path from listening, to embodiment, to creation; from surrender, to safety, to play."
       },
       "stad": "Amsterdam",
@@ -195,7 +179,7 @@
         "Performatief",
         "Immersief theater"
       ],
-      "foto": null,
+      "foto": "/images/otion.png",
       "link": "https://felixmeritis.nl/programma/otion-presents-w-a-v-e-3/",
       "uitgelicht": false,
       "verseTip": false
@@ -215,11 +199,7 @@
         "en": "Experience the Halo Machine. Your brain activity is measured and turned into a one-of-a-kind soundscape. The images, sounds and environments are based on 3D scans and sound recordings from Odaesan National Park and Woljeongsa Temple in South Korea."
       },
       "beschrijving": {
-        "nl": {
-          "state": "generated",
-          "value": "Synthetic Halo onderzoekt de vraag of verlichting – een staat die traditioneel wordt bereikt door langdurige meditatie – kan worden waargenomen, gemeten en gedeeld. Kurina gebruikt AI en innovatieve technologie om individuele hersengolven om te zetten in een veranderende geluids- en beeldervaring. Het werk plaatst eeuwenoude spirituele inzichten naast hedendaagse technische mogelijkheden en nodigt het publiek uit te verkennen hoe deze werelden elkaar kunnen raken.",
-          "isStale": true
-        },
+        "nl": "Synthetic Halo onderzoekt de vraag of verlichting – een staat die traditioneel wordt bereikt door langdurige meditatie – kan worden waargenomen, gemeten en gedeeld. Kurina gebruikt AI en innovatieve technologie om individuele hersengolven om te zetten in een veranderende geluids- en beeldervaring. Het werk plaatst eeuwenoude spirituele inzichten naast hedendaagse technische mogelijkheden en nodigt het publiek uit te verkennen hoe deze werelden elkaar kunnen raken.",
         "en": "Synthetic Halo explores whether enlightenment, a state traditionally reached through long periods of meditation, can be perceived, measured and shared. Kurina uses AI and innovative technology to turn individual brainwaves into an ever-changing experience of sound and image. The work places age-old spiritual insights alongside today's technical possibilities and invites the audience to explore how these worlds can meet."
       },
       "stad": "Enschede",
@@ -228,7 +208,7 @@
         "Immersieve installaties",
         "AI-driven"
       ],
-      "foto": null,
+      "foto": "/images/synthetichalo.png",
       "link": "https://tetem.nl/event/synthetic-halo/",
       "uitgelicht": false,
       "verseTip": false
@@ -248,11 +228,7 @@
         "en": "Most concerts run on rails. This one doesn't."
       },
       "beschrijving": {
-        "nl": {
-          "state": "generated",
-          "value": "Er is geen setlist en geen vast einde, alleen een gedeeld systeem van geluid en beeld dat Colin Benders en Othernode tijdens het spelen uit elkaar halen en weer opbouwen.\n\nBenders stuurt het aan met zijn modulaire synthesizer en jaagt op ritmes en texturen die onder zijn handen blijven verschuiven. Othernode antwoordt met licht, projecties en beelden die door de ruimte kruipen. Geen van beiden begeleidt de ander. Geluid en beeld gaan de discussie aan, vinden elkaar en bouwen samen het stuk op, recht voor je neus. Niemand in de zaal weet precies waar het naartoe gaat.",
-          "isStale": false
-        },
+        "nl": "Er is geen setlist en geen vast einde, alleen een gedeeld systeem van geluid en beeld dat Colin Benders en Othernode tijdens het spelen uit elkaar halen en weer opbouwen.\n\nBenders stuurt het aan met zijn modulaire synthesizer en jaagt op ritmes en texturen die onder zijn handen blijven verschuiven. Othernode antwoordt met licht, projecties en beelden die door de ruimte kruipen. Geen van beiden begeleidt de ander. Geluid en beeld gaan de discussie aan, vinden elkaar en bouwen samen het stuk op, recht voor je neus. Niemand in de zaal weet precies waar het naartoe gaat.",
         "en": "There's no setlist and no fixed ending — just a shared system of sound and image that Colin Benders and Othernode pull apart and rebuild as they play.\n\nBenders drives it with his modular synthesiser, chasing rhythms and textures that keep shifting under his hands. Othernode answers in light, projection and images that crawl across the room. Neither one is backing the other up. The sound and the visuals are arguing, agreeing and building the piece together, right in front of you, and nobody in the room knows exactly where it goes."
       },
       "stad": "Amsterdam",
@@ -260,7 +236,7 @@
       "types": [
         "Dome concert"
       ],
-      "foto": null,
+      "foto": "/images/othernode.jpg",
       "link": "https://www.amsterdam-dance-event.nl/en/program/2026/dome-concerts-presents-colin-benders-othernode/2817051/",
       "uitgelicht": false,
       "verseTip": true
@@ -280,11 +256,7 @@
         "en": "ERRATIC WEATHER translates historical hurricane data into a living audiovisual landscape that unfolds in real time."
       },
       "beschrijving": {
-        "nl": {
-          "state": "generated",
-          "value": "De reeks bestaat uit drie hoofdstukken: Floating on the WAVE, Riding the WAVE en Making the WAVE. Elk hoofdstuk heeft een eigen sfeer binnen één doorlopende reis. Samen met een geluidskunstenaar en een danser zet OTION drie essentiële elementen in: ruimte, stem en lichaam. Zo neemt OTION het publiek mee van luisteren naar belichamen en creëren, en van overgave naar veiligheid en spel.",
-          "isStale": false
-        },
+        "nl": "De reeks bestaat uit drie hoofdstukken: Floating on the WAVE, Riding the WAVE en Making the WAVE. Elk hoofdstuk heeft een eigen sfeer binnen één doorlopende reis. Samen met een geluidskunstenaar en een danser zet OTION drie essentiële elementen in: ruimte, stem en lichaam. Zo neemt OTION het publiek mee van luisteren naar belichamen en creëren, en van overgave naar veiligheid en spel.",
         "en": "Before each performance, the system selects a historical hurricane from a database. Scientific data—including geolocation, atmospheric pressure, temperature and wind speed—forms the foundation for a unique composition of sound and visuals. No two performances are ever the same. Each show follows the life cycle of a different storm, allowing audiences to experience the beauty, power and unpredictability of nature through an ever-changing generative artwork."
       },
       "stad": "Amsterdam",
@@ -292,7 +264,7 @@
       "types": [
         "Dome concert"
       ],
-      "foto": null,
+      "foto": "/images/maotik.jpg",
       "link": "https://www.amsterdam-dance-event.nl/en/program/2026/maarten-vos-maotik-present-erratic-weather/2819936/",
       "uitgelicht": false,
       "verseTip": false
@@ -312,11 +284,7 @@
         "en": "“Where art, science and electronic music converge.” - ADE"
       },
       "beschrijving": {
-        "nl": {
-          "state": "generated",
-          "value": "Max Cooper begon als computationeel bioloog voordat hij de muziek in ging. Al meer dan vijftien jaar onderzoekt hij hetzelfde vanuit beide kanten: de verborgen patronen in de natuur, in onszelf en in de wetenschap die ze probeert vast te leggen. Zijn werk past niet netjes in één hokje. Het is wat er gebeurt als een wetenschapper weigert om niet meer nieuwsgierig te zijn.\n\nIn Fabrique des Lumières maakt hij van het hele gebouw zijn instrument. Muziek, licht en architectuur smelten samen tot één geheel. Je komt naar buiten en hoort anders.",
-          "isStale": false
-        },
+        "nl": "Max Cooper begon als computationeel bioloog voordat hij de muziek in ging. Al meer dan vijftien jaar onderzoekt hij hetzelfde vanuit beide kanten: de verborgen patronen in de natuur, in onszelf en in de wetenschap die ze probeert vast te leggen. Zijn werk past niet netjes in één hokje. Het is wat er gebeurt als een wetenschapper weigert om niet meer nieuwsgierig te zijn.\n\nIn Fabrique des Lumières maakt hij van het hele gebouw zijn instrument. Muziek, licht en architectuur smelten samen tot één geheel. Je komt naar buiten en hoort anders.",
         "en": "Max Cooper started out as a computational biologist before turning to music, and he's spent over fifteen years digging into the same thing from both sides: the hidden patterns that run through nature, through us, through the science that tries to pin them down. His work doesn't sit neatly in either camp, it's what happens when a scientist refuses to stop being curious.\n\nAt Fabrique des Lumières, he turns the entire building into the instrument. Music, light and architecture collapse into one thing. You come out hearing differently."
       },
       "stad": "Amsterdam",
@@ -324,7 +292,7 @@
       "types": [
         "Dome concert"
       ],
-      "foto": null,
+      "foto": "/images/max.png",
       "link": "https://www.amsterdam-dance-event.nl/en/program/2026/dome-concerts-presents-max-cooper-3d-av/2817049/",
       "uitgelicht": false,
       "verseTip": false
@@ -344,11 +312,7 @@
         "en": "As you approach DEEP SEEING CURRENTS you are slowly enveloped by darkness and the sounds of life underwater."
       },
       "beschrijving": {
-        "nl": {
-          "state": "generated",
-          "value": "Lagen oceanische kakofonie omringen je: walvisgezang, het gerommel van hydrothermale bronnen, door mensen gemaakte geluiden en meer. De trillingen voel je door je hele lichaam, zodat je iets ervaart van de druk in de diepzee.",
-          "isStale": false
-        },
+        "nl": "Lagen oceanische kakofonie omringen je: walvisgezang, het gerommel van hydrothermale bronnen, door mensen gemaakte geluiden en meer. De trillingen voel je door je hele lichaam, zodat je iets ervaart van de druk in de diepzee.",
         "en": "Layers of oceanic cacophony – whale songs, rumbling of hydrothermal vents, and human-made noises, among others – surround you, while the vibrations can be felt throughout your entire body, emulating the experience of pressure in the deep sea.  \n\nThe immersive sound of Deep seeing currents is brought to life by 4DSOUND. The exhibition is located inside the ARTIS Aquarium and can be visited with a valid ARTIS Park ticket."
       },
       "stad": "Amsterdam",
@@ -356,7 +320,7 @@
       "types": [
         "Dome concert"
       ],
-      "foto": null,
+      "foto": "/images/aquarium.jpg",
       "link": "https://www.amsterdam-dance-event.nl/en/venues/artis/2813296/",
       "uitgelicht": false,
       "verseTip": true
@@ -376,11 +340,7 @@
         "en": "Before the Story Starts is an experimental, immersive one-man performance set on the threshold just before a (or THE) story begins."
       },
       "beschrijving": {
-        "nl": {
-          "state": "generated",
-          "value": "Dit is niet het begin van het verhaal, we zijn nog niet begonnen.\nDit is niet het begin.\n\nWat moet je weten? Voordat we beginnen?\nWe weten niet waarom.\nWe kunnen gissen, maar we weten het niet. Dat zullen we nooit weten.\nWe kunnen kiezen. En genoegen nemen met een antwoord. Maar we weten het nooit.\n\nHet ongrijpbare Waarom.",
-          "isStale": false
-        },
+        "nl": "Dit is niet het begin van het verhaal, we zijn nog niet begonnen.\nDit is niet het begin.\n\nWat moet je weten? Voordat we beginnen?\nWe weten niet waarom.\nWe kunnen gissen, maar we weten het niet. Dat zullen we nooit weten.\nWe kunnen kiezen. En genoegen nemen met een antwoord. Maar we weten het nooit.\n\nHet ongrijpbare Waarom.",
         "en": "This is not the start of the story, we haven’t started yet. \nThis is not the beginning. \n\nWhat do you need to know? Before we start? \nWe don’t know why.\nWe can guess, but we don’t know. We never will.\nWe can choose. And be satisfied with an answer. But we never know.\n\nThe elusive Why."
       },
       "stad": "Meerdere locaties",
@@ -389,7 +349,7 @@
         "Performatief",
         "Audio driven immersion"
       ],
-      "foto": null,
+      "foto": "/images/urlandstorybeginsv2.png",
       "link": "https://urland.nl/project/before-the-story-starts",
       "uitgelicht": true,
       "verseTip": false
@@ -409,11 +369,7 @@
         "en": "3D animation studio YONK and Nxt invite visitors to a new kind of digital puppetry, where technology is used to rediscover a centuries-old tradition."
       },
       "beschrijving": {
-        "nl": {
-          "state": "generated",
-          "value": "Het immersieve geluid van Deep seeing currents komt tot leven dankzij 4DSOUND. De expositie is te zien in het ARTIS-Aquarium en je kunt hem bezoeken met een geldig ARTIS-Parkticket",
-          "isStale": false
-        },
+        "nl": "Het immersieve geluid van Deep seeing currents komt tot leven dankzij 4DSOUND. De expositie is te zien in het ARTIS-Aquarium en je kunt hem bezoeken met een geldig ARTIS-Parkticket",
         "en": "The immersive sound of Deep seeing currents is brought to life by 4DSOUND. The exhibition is located inside the ARTIS Aquarium and can be visited with a valid ARTIS Park ticket."
       },
       "stad": "Amsterdam",
@@ -423,7 +379,7 @@
         "Interactief",
         "scaled up art"
       ],
-      "foto": null,
+      "foto": "/images/Yonk.jpg",
       "link": "https://nxtmuseum.com/nl/event/tales-of-two-van-yonk",
       "uitgelicht": false,
       "verseTip": true
@@ -443,11 +399,7 @@
         "en": "Amsterdam, 1632. A free Black woman leads a community as the slave trade booms. History erased her. An immersive opera brings her back."
       },
       "beschrijving": {
-        "nl": {
-          "state": "generated",
-          "value": "Met een prikkelende creatieve visie verweeft Ado Ato Pictures baanbrekend historisch onderzoek, visueel ontwerp en creatieve technologie tot The Invisible Woman. Het is een levende verhaalwereld waar het publiek in kan stappen. Zodra je binnenkomt, stroomt er licht over de vloer. Van alle kanten klinken stemmen. Om je heen ontvouwen zich weidse geanimeerde landschappen. Je hangt tussen herinnering, geschiedenis en droom. Liveperformers delen het podium met hun geanimeerde tegenhangers. Afro-diasporische muziektradities vermengen zich met elektronische texturen en hedendaagse soundscapes.\n\nEr is geen vaste eerste rij en geen enkel vast perspectief. Het publiek beweegt zich door de voorstelling, ontdekt bij elke stap nieuwe lagen van het verhaal en neemt zelf deel aan het herinneren.\n\nDe cast: Tony Award-winnares Adriane Lenox speelt The Future Ancestor. De wereldberoemde sopraan Claron McFadden speelt Idil. Mezzosopraan Carla Nahadi Babelegoto van Nationale Opera & Ballet speelt Francisca. Thalia Oyewole, Shanice Skinner en Bahghi spelen de Ancestors.\"\n\nDe rolnamen heb ik in het Engels gelaten, net als de titel. Wil je ze liever vertaald? Dan wordt het bijvoorbeeld \"De Toekomstige Voorouder\" en \"de Voorouders",
-          "isStale": true
-        },
+        "nl": "Met een prikkelende creatieve visie verweeft Ado Ato Pictures baanbrekend historisch onderzoek, visueel ontwerp en creatieve technologie tot The Invisible Woman. Het is een levende verhaalwereld waar het publiek in kan stappen. Zodra je binnenkomt, stroomt er licht over de vloer. Van alle kanten klinken stemmen. Om je heen ontvouwen zich weidse geanimeerde landschappen. Je hangt tussen herinnering, geschiedenis en droom. Liveperformers delen het podium met hun geanimeerde tegenhangers. Afro-diasporische muziektradities vermengen zich met elektronische texturen en hedendaagse soundscapes.\n\nEr is geen vaste eerste rij en geen enkel vast perspectief. Het publiek beweegt zich door de voorstelling, ontdekt bij elke stap nieuwe lagen van het verhaal en neemt zelf deel aan het herinneren.\n\nDe cast: Tony Award-winnares Adriane Lenox speelt The Future Ancestor. De wereldberoemde sopraan Claron McFadden speelt Idil. Mezzosopraan Carla Nahadi Babelegoto van Nationale Opera & Ballet speelt Francisca. Thalia Oyewole, Shanice Skinner en Bahghi spelen de Ancestors.\"\n\nDe rolnamen heb ik in het Engels gelaten, net als de titel. Wil je ze liever vertaald? Dan wordt het bijvoorbeeld \"De Toekomstige Voorouder\" en \"de Voorouders",
         "en": "With an exciting creative vision Ado Ato Pictures weaves cutting edge historic research, visual design and creative tech together to bring you The Invisible Woman. It is a living story world that audiences can step inside. The moment audiences enter light spills across the floor. Voices emerge from every direction. Vast animated landscapes bloom around them. You are suspended between memory, history, and dream. Live performers share the stage with their animated counterparts. Afro-diasporic musical traditions, are mixed with electronic textures, and contemporary soundscapes.\n\nThere is no fixed front row. No single perspective. Audiences move through the performance, discovering new layers of the story with every step, becoming participants in the act of remembering. \n\nThe performing team is Tony Award winner Adriane Lenox is The Future Ancestor. World-renowned soprano Claron McFadden is Idil. Mezzo-soprano Carla Nahadi Babelegoto, of Dutch National Opera & Ballet, is Francisca. Thalia Oyewole, Shanice Skinner, and Bahghi are the Ancestors."
       },
       "stad": "Amsterdam",
@@ -456,7 +408,7 @@
         "Opera",
         "Immersief theater"
       ],
-      "foto": null,
+      "foto": "/images/invisiblewoman.jpg",
       "link": "https://www.kickstarter.com/projects/tamarashogaolu/the-invisible-woman-an-opera-you-walk-through/description",
       "uitgelicht": false,
       "verseTip": false
@@ -476,11 +428,7 @@
         "en": "June lives an invisible life in a log cabin in the Deep South of the US. Surrounded by woods, she spends her days in front of the TV, until the signal starts to glitch. With the static on our heels, we flash through an American dreamscape of TV psychics, takeout burritos, misty motel rooms and ghosts from the past."
       },
       "beschrijving": {
-        "nl": {
-          "state": "generated",
-          "value": "Junebug is een cinematische en tactiele voorstelling over de dingen in onszelf waar we liever niet naar kijken. Over escapisme, eenzaamheid en de zinloosheid van het bestaan. Op luchtige én mystieke manier toont Anna Verkouteren Jansen hoe we allemaal op onze eigen manier omgaan met het grote niets. Terwijl je wordt meegevoerd naar de Paris, Texas-achtige binnenwerelden van eenzame butch June, ontvouwt zich een weird, gevoelig en zwartkomisch verhaal",
-          "isStale": false
-        },
+        "nl": "Junebug is een cinematische en tactiele voorstelling over de dingen in onszelf waar we liever niet naar kijken. Over escapisme, eenzaamheid en de zinloosheid van het bestaan. Op luchtige én mystieke manier toont Anna Verkouteren Jansen hoe we allemaal op onze eigen manier omgaan met het grote niets. Terwijl je wordt meegevoerd naar de Paris, Texas-achtige binnenwerelden van eenzame butch June, ontvouwt zich een weird, gevoelig en zwartkomisch verhaal",
         "en": "Junebug is a cinematic, tactile performance about the things inside ourselves we'd rather not look at: escapism, loneliness and the meaninglessness of existence. In a way that is both light-hearted and mystical, Anna Verkouteren Jansen shows how each of us deals with the great nothingness in our own way. As you're carried into the Paris, Texas-like inner worlds of lonely butch June, a weird, tender and darkly comic story unfolds."
       },
       "stad": "Verschillende locaties",
@@ -489,7 +437,7 @@
         "Immersieve installaties",
         "Audio driven immersion"
       ],
-      "foto": null,
+      "foto": "/images/junebug.jpg",
       "link": "https://annaverkouterenjansen.com/index.php/junebug/",
       "uitgelicht": false,
       "verseTip": true
@@ -509,11 +457,7 @@
         "en": "“I want you to believe...to believe in things that you cannot.” - Bram Stoker"
       },
       "beschrijving": {
-        "nl": {
-          "state": "generated",
-          "value": "ETERNAL is een immersieve audio-ervaring van 20 minuten voor één persoon, alleen in bed. Het werk onderzoekt het dilemma van het eeuwige leven en vraagt zich af welke prijs je ervoor zou willen betalen. ETERNAL is gemaakt in opdracht van het Bram Stoker Festival 2020 in Dublin en werd in 2022 voor het eerst fysiek geïnstalleerd in Centre Phi in Montreal",
-          "isStale": false
-        },
+        "nl": "ETERNAL is een immersieve audio-ervaring van 20 minuten voor één persoon, alleen in bed. Het werk onderzoekt het dilemma van het eeuwige leven en vraagt zich af welke prijs je ervoor zou willen betalen. ETERNAL is gemaakt in opdracht van het Bram Stoker Festival 2020 in Dublin en werd in 2022 voor het eerst fysiek geïnstalleerd in Centre Phi in Montreal",
         "en": "ETERNAL is a 20 minute immersive audio experience for one person, alone in their bed. It explores the quandary of eternal life and wonders what price you would settle for to achieve it. ETERNAL was commissioned by the 2020 Bram Stoker Festival, Dublin, and had its first physical installation in 2022 at Centre Phi, Montreal"
       },
       "stad": "Online beschikbaar",
@@ -521,7 +465,7 @@
       "types": [
         "Audio driven immersion"
       ],
-      "foto": null,
+      "foto": "/images/eternal.jpeg",
       "link": "https://darkfield.com.au/shows/eternal",
       "uitgelicht": false,
       "verseTip": false
@@ -541,11 +485,7 @@
         "en": "At a time when the purpose of humankind is being called into question, a mother argues for a world without ego. Her son stubbornly clings to a world with one."
       },
       "beschrijving": {
-        "nl": {
-          "state": "generated",
-          "value": "In de zintuiglijke, muzikale voorstelling BEGIN AGAIN zoeken prijswinnend interdisciplinair kunstcollectief BrotherTill en schrijver Lisa Weeda opnieuw de grenzen van het theater op. BEGIN AGAIN draait om één existentiële overtuiging: we moeten iets wezenlijks loslaten om verder te kunnen. Kunnen we vastgeroeste hiërarchieën achter ons laten en het ecologische perspectief boven de mens plaatsen? ",
-          "isStale": false
-        },
+        "nl": "In de zintuiglijke, muzikale voorstelling BEGIN AGAIN zoeken prijswinnend interdisciplinair kunstcollectief BrotherTill en schrijver Lisa Weeda opnieuw de grenzen van het theater op. BEGIN AGAIN draait om één existentiële overtuiging: we moeten iets wezenlijks loslaten om verder te kunnen. Kunnen we vastgeroeste hiërarchieën achter ons laten en het ecologische perspectief boven de mens plaatsen?",
         "en": "In the sensory, musical performance BEGIN AGAIN, award-winning interdisciplinary art collective BrotherTill and writer Lisa Weeda once again push the boundaries of theatre. BEGIN AGAIN centres on one existential conviction: we have to let go of something fundamental in order to move forward. Can we leave entrenched hierarchies behind and put the ecological perspective above the human one?"
       },
       "stad": "Verschillende steden",
@@ -553,7 +493,7 @@
       "types": [
         "Immersief theater"
       ],
-      "foto": null,
+      "foto": "/images/beginagain.jpg",
       "link": "https://www.brothertill.nl/projects/begin-again/",
       "uitgelicht": false,
       "verseTip": false
@@ -573,23 +513,15 @@
         "en": "Walk together through 17th-century Amsterdam, seen through the eyes of an ordinary Amsterdammer. See the IJ, Dam Square and the Nieuwe Brugh, and discover how people lived, worked and came together."
       },
       "beschrijving": {
-        "nl": {
-          "state": "empty",
-          "value": null,
-          "isStale": false
-        },
-        "en": {
-          "state": "empty",
-          "value": null,
-          "isStale": false
-        }
+        "nl": "",
+        "en": ""
       },
       "stad": "Amsterdam",
       "locatie": "ENTR",
       "types": [
         "XR"
       ],
-      "foto": null,
+      "foto": "/images/kade.jpeg",
       "link": "https://entrmuseum.com/",
       "uitgelicht": false,
       "verseTip": false
