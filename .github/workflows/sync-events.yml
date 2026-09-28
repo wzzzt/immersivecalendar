@@ -1,0 +1,41 @@
+name: Sync events uit Airtable
+
+# Wanneer draait dit?
+on:
+  workflow_dispatch:        # handmatig, via de knop op GitHub
+  schedule:
+    - cron: "0 5 * * *"     # elke dag om 05:00 UTC (07:00 NL-zomertijd)
+
+# De Action mag naar de repo schrijven (om events.json te committen)
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repo ophalen
+        uses: actions/checkout@v4
+
+      - name: Python klaarzetten
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: events.json bijwerken uit Airtable
+        env:
+          AIRTABLE_TOKEN: ${{ secrets.AIRTABLE_TOKEN }}
+        run: python3 sync-events.py
+
+      - name: Wijzigingen committen (indien er iets veranderd is)
+        run: |
+          git config user.name "Airtable Sync"
+          git config user.email "actions@github.com"
+          if git diff --quiet events.json; then
+            echo "Geen wijzigingen — events.json is al up to date."
+          else
+            git add events.json
+            git commit -m "Auto-update events.json uit Airtable"
+            git push
+            echo "events.json bijgewerkt en gepusht."
+          fi
