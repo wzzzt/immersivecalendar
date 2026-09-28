@@ -118,6 +118,12 @@ def bouw_event(fields):
     """Zet één Airtable-record om naar een event-dict voor events.json."""
     def veld(naam):
         v = fields.get(naam)
+        # AI-velden geeft Airtable terug als {state, value, isStale} — pak de tekst eruit
+        if isinstance(v, dict) and "value" in v:
+            v = v.get("value")
+        # Multiple/collaborator-velden kunnen een lijst zijn — voeg samen
+        if isinstance(v, list):
+            v = ", ".join(str(x) for x in v if x)
         if isinstance(v, str):
             v = v.strip()
         return v or None
