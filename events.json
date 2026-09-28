@@ -472,6 +472,62 @@
     },
     {
       "naam": {
+        "nl": "Nothing to See Here",
+        "en": "Nothing to See Here"
+      },
+      "start": "2026-10-08",
+      "eind": "2027-01-05",
+      "maker": "Studio Nergens",
+      "duur": "6 min",
+      "handig": "English spoken",
+      "logline": {
+        "nl": "Een raam  naar een kleine alternatieve werkelijkheid",
+        "en": "A window onto a tiny alternative reality"
+      },
+      "beschrijving": {
+        "nl": "Een reeks vreemde gebeurtenissen met een plastic zakje, een verwarde man en een wolf stellen geleidelijk aan onze perceptie ter discussie: Wat gebeurt er allemaal achter je rug om? Hoeveel van de werkelijkheid kunnen we eigenlijk echt doorgronden? En is onze ervaring van de werkelijkheid niet slechts een door onszelf geconstrueerde illusie?",
+        "en": "A series of strange events involving a plastic bag, a confused man, and a wolf gradually challenges our perception: What's happening behind our backs? How much of reality can we actually fathom? And isn't our experience of reality merely a self-constructed illusion?"
+      },
+      "stad": "Rotterdam, Eindhoven en Laval",
+      "locatie": "LantarenVenster, Parktheater en Le Quarante",
+      "types": [
+        "installatie"
+      ],
+      "foto": "/images/nothing.jpg",
+      "link": "https://en.studionergens.com/agenda",
+      "uitgelicht": false,
+      "verseTip": false
+    },
+    {
+      "naam": {
+        "nl": "Songs for a Passerby",
+        "en": "Songs for a Passerby"
+      },
+      "start": "2027-01-21",
+      "eind": "2027-01-23",
+      "maker": "Studio Nergens",
+      "duur": "30 min",
+      "handig": null,
+      "logline": {
+        "nl": "Een virtual reality-opera over onze onbestendige relatie met de vergankelijke werkelijkheid. Hoe verhouden we ons tot een wereld van dingen die voorbijgaan? Zijn we er een onderdeel van? Of kijken we er alleen maar naar? Zijn we een lichaam, of hebben we een lichaam?",
+        "en": "How do we relate to a world of passing things? Are we part of it? Or do we merely observe it? Are we a body, or do we have a body? Does this ambivalence perhaps lie at the root of all melancholy?"
+      },
+      "beschrijving": {
+        "nl": "EEN VR-OPERA OVER ONZE ONBESTENDIGE RELATIE MET DE VERGANKELIJKE WERKELIJKHEID.\n\nHoe verhouden we ons tot een wereld van dingen die voorbijgaan? Zijn we er een onderdeel van? Of kijken we er alleen maar naar? Zijn we een lichaam, of hebben we een lichaam? Ligt in die ambivalentie misschien de oorsprong van alle melancholie?\n\nIn Songs for a Passerby loop je op eigen kracht, voorzien van een VR-bril, door een muzikaal droomlandschap. Je volgt je eigen 3D spiegelbeeld en passeert langs verschillende scènes: een stervend paard, een koor van prevelende mensen, twee spelende honden.\n\nSongs for a Passerby is een meditatieve queeste, waarbij je even uit de werkelijkheid treedt en naar jezelf kijkt. Als poppenspeler van je eigen lichaam begeef je je in een poëtische ruimte waarin de melancholische vraag opkomt: ga ik voorbij aan momenten, of gaan de momenten voorbij aan mij?",
+        "en": "A VR OPERA ABOUT OUR UNFIXED RELATIONSHIP WITH TRANSIENT REALITY.\nHow do we relate to a world of passing things? Are we part of it? Or do we merely observe it? Are we a body, or do we have a body? Does this ambivalence perhaps lie at the root of all melancholy?"
+      },
+      "stad": "Den Haag",
+      "locatie": "Korzo theater",
+      "types": [
+        "XR"
+      ],
+      "foto": "/images/songs.jpg",
+      "link": "https://korzo.nl/nl/programma/voorstellingen/songs-for-a-passerby/2027-01-21-1800",
+      "uitgelicht": false,
+      "verseTip": true
+    },
+    {
+      "naam": {
         "nl": "Begin Again",
         "en": "Begin Again"
       },
